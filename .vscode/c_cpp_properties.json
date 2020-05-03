@@ -1,0 +1,51 @@
+{
+    "configurations": [
+        {
+            "name": "!!! WARNING !!! AUTO-GENERATED FILE, PLEASE DO NOT MODIFY IT AND USE https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags"
+        },
+        {
+            "name": "Mac",
+            "macFrameworkPath": [],
+            "includePath": [
+                "/Users/gregory/Desktop/platformio/include",
+                "/Users/gregory/Desktop/platformio/sources/project1",
+                "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/CMSIS/Core/Include",
+                "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/variants/atmelsam/samd21a/include",
+                "/Users/gregory/.platformio/packages/tool-unity",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/gregory/Desktop/platformio/include",
+                    "/Users/gregory/Desktop/platformio/sources/project1",
+                    "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/CMSIS/Core/Include",
+                    "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/variants/atmelsam/samd21a/include",
+                    "/Users/gregory/.platformio/packages/tool-unity",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=40303",
+                "ARDUINO_ARCH_SAMD",
+                "ARDUINO_SAMD_ZERO",
+                "ARDUINO_SAMD_FEATHER_M0",
+                "ARM_MATH_CM0PLUS",
+                "__SAMD21G18A__",
+                "F_CPU=48000000L",
+                "USBCON",
+                ""
+            ],
+            "intelliSenseMode": "clang-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc",
+            "compilerArgs": [
+                "-mthumb",
+                "-mcpu=cortex-m0plus",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
