@@ -1,0 +1,3915 @@
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 1
+
+
+   1               		.file	"testDisplay.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.startup,"ax",@progbits
+  11               	.global	main
+  12               		.type	main, @function
+  13               	main:
+  14               	.LFB6:
+  15               		.file 1 "src/cppTestUSART/testDisplay.cpp"
+   1:src/cppTestUSART/testDisplay.cpp **** #include "SPI.h"
+   2:src/cppTestUSART/testDisplay.cpp **** #include "util.h"
+   3:src/cppTestUSART/testDisplay.cpp ****
+   4:src/cppTestUSART/testDisplay.cpp **** int main() {
+  16               		.loc 1 4 0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+   5:src/cppTestUSART/testDisplay.cpp ****   SPI.init();
+  22               		.loc 1 5 0
+  23 0000 0E94 0000 		call _ZN5SPI_C4initEv
+  24               	.LVL0:
+  25               	.L2:
+   6:src/cppTestUSART/testDisplay.cpp ****   while (1) {
+   7:src/cppTestUSART/testDisplay.cpp ****     SPI.fillWindow(0xF00F);
+  26               		.loc 1 7 0 discriminator 1
+  27 0004 8FE0      		ldi r24,lo8(15)
+  28 0006 90EF      		ldi r25,lo8(-16)
+  29 0008 0E94 0000 		call _ZN5SPI_C10fillWindowEt
+  30               	.LVL1:
+  31               	.LBB8:
+  32               	.LBB9:
+  33               		.file 2 "/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h"
+   1:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
+   2:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
+   3:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Copyright (c) 2007  Florin-Viorel Petrov
+   4:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    All rights reserved.
+   5:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+   6:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Redistribution and use in source and binary forms, with or without
+   7:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    modification, are permitted provided that the following conditions are met:
+   8:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+   9:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    * Redistributions of source code must retain the above copyright
+  10:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer.
+  11:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  12:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    * Redistributions in binary form must reproduce the above copyright
+  13:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer in
+  14:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      the documentation and/or other materials provided with the
+  15:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      distribution.
+  16:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  17:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    * Neither the name of the copyright holders nor the names of
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 2
+
+
+  18:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      contributors may be used to endorse or promote products derived
+  19:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      from this software without specific prior written permission.
+  20:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  21:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  22:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  23:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  24:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  25:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  26:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  27:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  28:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  29:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  30:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  31:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   POSSIBILITY OF SUCH DAMAGE. */
+  32:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  33:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /* $Id$ */
+  34:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  35:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef _UTIL_DELAY_H_
+  36:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #define _UTIL_DELAY_H_ 1
+  37:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  38:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef __DOXYGEN__
+  39:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #  ifndef __HAS_DELAY_CYCLES
+  40:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #    define __HAS_DELAY_CYCLES 1
+  41:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #  endif
+  42:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif  /* __DOXYGEN__ */
+  43:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  44:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #include <inttypes.h>
+  45:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #include <util/delay_basic.h>
+  46:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #include <math.h>
+  47:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  48:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /** \file */
+  49:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /** \defgroup util_delay <util/delay.h>: Convenience functions for busy-wait delay loops
+  50:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \code
+  51:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     #define F_CPU 1000000UL  // 1 MHz
+  52:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     //#define F_CPU 14.7456E6
+  53:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     #include <util/delay.h>
+  54:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \endcode
+  55:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  56:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \note As an alternative method, it is possible to pass the
+  57:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     F_CPU macro down to the compiler from the Makefile.
+  58:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     Obviously, in that case, no \c \#define statement should be
+  59:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     used.
+  60:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  61:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     The functions in this header file are wrappers around the basic
+  62:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     busy-wait functions from <util/delay_basic.h>.  They are meant as
+  63:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     convenience functions where actual time values can be specified
+  64:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     rather than a number of cycles to wait for.  The idea behind is
+  65:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     that compile-time constant expressions will be eliminated by
+  66:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     compiler optimization so floating-point expressions can be used
+  67:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     to calculate the number of delay cycles needed based on the CPU
+  68:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     frequency passed by the macro F_CPU.
+  69:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  70:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \note In order for these functions to work as intended, compiler
+  71:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     optimizations <em>must</em> be enabled, and the delay time
+  72:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     <em>must</em> be an expression that is a known constant at
+  73:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     compile-time.  If these requirements are not met, the resulting
+  74:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     delay will be much longer (and basically unpredictable), and
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 3
+
+
+  75:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     applications that otherwise do not use floating-point calculations
+  76:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     will experience severe code bloat by the floating-point library
+  77:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     routines linked into the application.
+  78:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  79:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     The functions available allow the specification of microsecond, and
+  80:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     millisecond delays directly, using the application-supplied macro
+  81:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     F_CPU as the CPU clock frequency (in Hertz).
+  82:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  83:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** */
+  84:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  85:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #if !defined(__DOXYGEN__)
+  86:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** static __inline__ void _delay_us(double __us) __attribute__((__always_inline__));
+  87:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** static __inline__ void _delay_ms(double __ms) __attribute__((__always_inline__));
+  88:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+  89:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  90:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef F_CPU
+  91:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /* prevent compiler error by supplying a default */
+  92:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** # warning "F_CPU not defined for <util/delay.h>"
+  93:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /** \ingroup util_delay
+  94:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \def F_CPU
+  95:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \brief CPU frequency in Hz
+  96:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  97:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     The macro F_CPU specifies the CPU frequency to be considered by
+  98:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     the delay macros.  This macro is normally supplied by the
+  99:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     environment (e.g. from within a project header, or the project's
+ 100:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     Makefile).  The value 1 MHz here is only provided as a "vanilla"
+ 101:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     fallback if no such user-provided definition could be found.
+ 102:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 103:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     In terms of the delay functions, the CPU frequency can be given as
+ 104:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     a floating-point constant (e.g. 3.6864E6 for 3.6864 MHz).
+ 105:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     However, the macros in <util/setbaud.h> require it to be an
+ 106:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     integer value.
+ 107:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****  */
+ 108:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** # define F_CPU 1000000UL
+ 109:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+ 110:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 111:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef __OPTIMIZE__
+ 112:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** # warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+ 113:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+ 114:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 115:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+ 116:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 117:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 118:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #  include <math.h>
+ 119:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+ 120:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 121:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /**
+ 122:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \ingroup util_delay
+ 123:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 124:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Perform a delay of \c __ms milliseconds, using _delay_loop_2().
+ 125:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 126:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    The macro F_CPU is supposed to be defined to a
+ 127:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    constant defining the CPU clock frequency (in Hertz).
+ 128:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 129:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    The maximal possible delay is 262.14 ms / F_CPU in MHz.
+ 130:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 131:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    When the user request delay which exceed the maximum possible one,
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 4
+
+
+ 132:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    _delay_ms() provides a decreased resolution functionality. In this
+ 133:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    mode _delay_ms() will work with a resolution of 1/10 ms, providing
+ 134:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    delays up to 6.5535 seconds (independent from CPU frequency).  The
+ 135:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    user will not be informed about decreased resolution.
+ 136:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 137:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    If the avr-gcc toolchain has __builtin_avr_delay_cycles()
+ 138:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    support, maximal possible delay is 4294967.295 ms/ F_CPU in MHz. For
+ 139:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    values greater than the maximal possible delay, overflows results in
+ 140:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    no delay i.e., 0ms.
+ 141:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 142:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Conversion of \c __ms into clock cycles may not always result in
+ 143:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    integer.  By default, the clock cycles rounded up to next
+ 144:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    integer. This ensures that the user gets at least \c __ms
+ 145:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    microseconds of delay.
+ 146:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 147:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Alternatively, by defining the macro \c __DELAY_ROUND_DOWN__, or
+ 148:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \c __DELAY_ROUND_CLOSEST__, before including this header file, the
+ 149:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    algorithm can be made to round down, or round to closest integer,
+ 150:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    respectively.
+ 151:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 152:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \note
+ 153:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 154:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    The implementation of _delay_ms() based on
+ 155:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    __builtin_avr_delay_cycles() is not backward compatible with older
+ 156:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    implementations.  In order to get functionality backward compatible
+ 157:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    with previous versions, the macro \c "__DELAY_BACKWARD_COMPATIBLE__"
+ 158:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    must be defined before including this header file. Also, the
+ 159:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    backward compatible algorithm will be chosen if the code is
+ 160:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    compiled in a <em>freestanding environment</em> (GCC option
+ 161:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \c -ffreestanding), as the math functions required for rounding are
+ 162:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    not available to the compiler then.
+ 163:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 164:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****  */
+ 165:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** void
+ 166:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** _delay_ms(double __ms)
+ 167:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** {
+ 168:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	double __tmp ;
+ 169:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+ 170:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 171:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 172:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	uint32_t __ticks_dc;
+ 173:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	extern void __builtin_avr_delay_cycles(unsigned long);
+ 174:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	__tmp = ((F_CPU) / 1e3) * __ms;
+ 175:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 176:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#if defined(__DELAY_ROUND_DOWN__)
+ 177:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)fabs(__tmp);
+ 178:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 179:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#elif defined(__DELAY_ROUND_CLOSEST__)
+ 180:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(fabs(__tmp)+0.5);
+ 181:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 182:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#else
+ 183:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		//round up by default
+ 184:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+ 185:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#endif
+ 186:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 187:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	__builtin_avr_delay_cycles(__ticks_dc);
+  34               		.loc 2 187 0 discriminator 1
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 5
+
+
+  35 000c 2FE3      		ldi r18,lo8(999999)
+  36 000e 82E4      		ldi r24,hi8(999999)
+  37 0010 9FE0      		ldi r25,hlo8(999999)
+  38 0012 2150      	1:	subi r18,1
+  39 0014 8040      		sbci r24,0
+  40 0016 9040      		sbci r25,0
+  41 0018 01F4      		brne 1b
+  42 001a 00C0      		rjmp .
+  43 001c 0000      		nop
+  44               	.LVL2:
+  45               	.LBE9:
+  46               	.LBE8:
+  47               	.LBB10:
+  48               	.LBB11:
+  49 001e 2FE3      		ldi r18,lo8(999999)
+  50 0020 82E4      		ldi r24,hi8(999999)
+  51 0022 9FE0      		ldi r25,hlo8(999999)
+  52 0024 2150      	1:	subi r18,1
+  53 0026 8040      		sbci r24,0
+  54 0028 9040      		sbci r25,0
+  55 002a 01F4      		brne 1b
+  56 002c 00C0      		rjmp .
+  57 002e 0000      		nop
+  58               	.LVL3:
+  59               	.LBE11:
+  60               	.LBE10:
+   8:src/cppTestUSART/testDisplay.cpp ****     sleep_ms(250);
+   9:src/cppTestUSART/testDisplay.cpp ****     //SPI.fillWindow(0xF0F0);
+  10:src/cppTestUSART/testDisplay.cpp ****     sleep_ms(250);
+  11:src/cppTestUSART/testDisplay.cpp ****     SPI.fillWindow(0xFF00);
+  61               		.loc 1 11 0 discriminator 1
+  62 0030 80E0      		ldi r24,0
+  63 0032 9FEF      		ldi r25,lo8(-1)
+  64 0034 0E94 0000 		call _ZN5SPI_C10fillWindowEt
+  65               	.LVL4:
+  66               	.LBB12:
+  67               	.LBB13:
+  68               		.loc 2 187 0 discriminator 1
+  69 0038 2FE3      		ldi r18,lo8(999999)
+  70 003a 82E4      		ldi r24,hi8(999999)
+  71 003c 9FE0      		ldi r25,hlo8(999999)
+  72 003e 2150      	1:	subi r18,1
+  73 0040 8040      		sbci r24,0
+  74 0042 9040      		sbci r25,0
+  75 0044 01F4      		brne 1b
+  76 0046 00C0      		rjmp .
+  77 0048 0000      		nop
+  78 004a 00C0      		rjmp .L2
+  79               	.LBE13:
+  80               	.LBE12:
+  81               		.cfi_endproc
+  82               	.LFE6:
+  83               		.size	main, .-main
+  84               		.text
+  85               	.Letext0:
+  86               		.file 3 "/Users/gregory/Desktop/gameController/avr/avr/include/stdint.h"
+  87               		.file 4 "src/cppTestUSART/SPI.h"
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 6
+
+
+  88               		.section	.debug_info,"",@progbits
+  89               	.Ldebug_info0:
+  90 0000 4A02 0000 		.long	0x24a
+  91 0004 0200      		.word	0x2
+  92 0006 0000 0000 		.long	.Ldebug_abbrev0
+  93 000a 04        		.byte	0x4
+  94 000b 01        		.uleb128 0x1
+  95 000c 0000 0000 		.long	.LASF19
+  96 0010 04        		.byte	0x4
+  97 0011 0000 0000 		.long	.LASF20
+  98 0015 0000 0000 		.long	.LASF21
+  99 0019 0000 0000 		.long	.Ldebug_ranges0+0
+ 100 001d 0000 0000 		.long	0
+ 101 0021 0000 0000 		.long	0
+ 102 0025 0000 0000 		.long	.Ldebug_line0
+ 103 0029 02        		.uleb128 0x2
+ 104 002a 01        		.byte	0x1
+ 105 002b 06        		.byte	0x6
+ 106 002c 0000 0000 		.long	.LASF0
+ 107 0030 02        		.uleb128 0x2
+ 108 0031 01        		.byte	0x1
+ 109 0032 08        		.byte	0x8
+ 110 0033 0000 0000 		.long	.LASF1
+ 111 0037 03        		.uleb128 0x3
+ 112 0038 02        		.byte	0x2
+ 113 0039 05        		.byte	0x5
+ 114 003a 696E 7400 		.string	"int"
+ 115 003e 02        		.uleb128 0x2
+ 116 003f 02        		.byte	0x2
+ 117 0040 07        		.byte	0x7
+ 118 0041 0000 0000 		.long	.LASF2
+ 119 0045 02        		.uleb128 0x2
+ 120 0046 04        		.byte	0x4
+ 121 0047 05        		.byte	0x5
+ 122 0048 0000 0000 		.long	.LASF3
+ 123 004c 04        		.uleb128 0x4
+ 124 004d 0000 0000 		.long	.LASF7
+ 125 0051 03        		.byte	0x3
+ 126 0052 82        		.byte	0x82
+ 127 0053 5700 0000 		.long	0x57
+ 128 0057 02        		.uleb128 0x2
+ 129 0058 04        		.byte	0x4
+ 130 0059 07        		.byte	0x7
+ 131 005a 0000 0000 		.long	.LASF4
+ 132 005e 02        		.uleb128 0x2
+ 133 005f 08        		.byte	0x8
+ 134 0060 05        		.byte	0x5
+ 135 0061 0000 0000 		.long	.LASF5
+ 136 0065 02        		.uleb128 0x2
+ 137 0066 08        		.byte	0x8
+ 138 0067 07        		.byte	0x7
+ 139 0068 0000 0000 		.long	.LASF6
+ 140 006c 04        		.uleb128 0x4
+ 141 006d 0000 0000 		.long	.LASF8
+ 142 0071 04        		.byte	0x4
+ 143 0072 06        		.byte	0x6
+ 144 0073 7700 0000 		.long	0x77
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 7
+
+
+ 145 0077 02        		.uleb128 0x2
+ 146 0078 02        		.byte	0x2
+ 147 0079 07        		.byte	0x7
+ 148 007a 0000 0000 		.long	.LASF9
+ 149 007e 05        		.uleb128 0x5
+ 150 007f 0000 0000 		.long	.LASF22
+ 151 0083 01        		.byte	0x1
+ 152 0084 04        		.byte	0x4
+ 153 0085 09        		.byte	0x9
+ 154 0086 D900 0000 		.long	0xd9
+ 155 008a 06        		.uleb128 0x6
+ 156 008b 01        		.byte	0x1
+ 157 008c 0000 0000 		.long	.LASF23
+ 158 0090 04        		.byte	0x4
+ 159 0091 0B        		.byte	0xb
+ 160 0092 0000 0000 		.long	.LASF24
+ 161 0096 01        		.byte	0x1
+ 162 0097 07        		.uleb128 0x7
+ 163 0098 01        		.byte	0x1
+ 164 0099 0000 0000 		.long	.LASF10
+ 165 009d 04        		.byte	0x4
+ 166 009e 0C        		.byte	0xc
+ 167 009f 0000 0000 		.long	.LASF12
+ 168 00a3 01        		.byte	0x1
+ 169 00a4 AE00 0000 		.long	0xae
+ 170 00a8 08        		.uleb128 0x8
+ 171 00a9 D900 0000 		.long	0xd9
+ 172 00ad 00        		.byte	0
+ 173 00ae 07        		.uleb128 0x7
+ 174 00af 01        		.byte	0x1
+ 175 00b0 0000 0000 		.long	.LASF11
+ 176 00b4 04        		.byte	0x4
+ 177 00b5 0D        		.byte	0xd
+ 178 00b6 0000 0000 		.long	.LASF13
+ 179 00ba 01        		.byte	0x1
+ 180 00bb C500 0000 		.long	0xc5
+ 181 00bf 08        		.uleb128 0x8
+ 182 00c0 E000 0000 		.long	0xe0
+ 183 00c4 00        		.byte	0
+ 184 00c5 09        		.uleb128 0x9
+ 185 00c6 01        		.byte	0x1
+ 186 00c7 0000 0000 		.long	.LASF25
+ 187 00cb 04        		.byte	0x4
+ 188 00cc 0E        		.byte	0xe
+ 189 00cd 0000 0000 		.long	.LASF26
+ 190 00d1 01        		.byte	0x1
+ 191 00d2 08        		.uleb128 0x8
+ 192 00d3 6C00 0000 		.long	0x6c
+ 193 00d7 00        		.byte	0
+ 194 00d8 00        		.byte	0
+ 195 00d9 02        		.uleb128 0x2
+ 196 00da 01        		.byte	0x1
+ 197 00db 06        		.byte	0x6
+ 198 00dc 0000 0000 		.long	.LASF14
+ 199 00e0 02        		.uleb128 0x2
+ 200 00e1 02        		.byte	0x2
+ 201 00e2 05        		.byte	0x5
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 8
+
+
+ 202 00e3 0000 0000 		.long	.LASF15
+ 203 00e7 0A        		.uleb128 0xa
+ 204 00e8 0000 0000 		.long	.LASF27
+ 205 00ec 02        		.byte	0x2
+ 206 00ed A6        		.byte	0xa6
+ 207 00ee 03        		.byte	0x3
+ 208 00ef 2401 0000 		.long	0x124
+ 209 00f3 0B        		.uleb128 0xb
+ 210 00f4 0000 0000 		.long	.LASF28
+ 211 00f8 02        		.byte	0x2
+ 212 00f9 A6        		.byte	0xa6
+ 213 00fa 2401 0000 		.long	0x124
+ 214 00fe 0C        		.uleb128 0xc
+ 215 00ff 0000 0000 		.long	.LASF16
+ 216 0103 02        		.byte	0x2
+ 217 0104 A8        		.byte	0xa8
+ 218 0105 2401 0000 		.long	0x124
+ 219 0109 0C        		.uleb128 0xc
+ 220 010a 0000 0000 		.long	.LASF17
+ 221 010e 02        		.byte	0x2
+ 222 010f AC        		.byte	0xac
+ 223 0110 4C00 0000 		.long	0x4c
+ 224 0114 0D        		.uleb128 0xd
+ 225 0115 01        		.byte	0x1
+ 226 0116 0000 0000 		.long	.LASF29
+ 227 011a 02        		.byte	0x2
+ 228 011b AD        		.byte	0xad
+ 229 011c 01        		.byte	0x1
+ 230 011d 08        		.uleb128 0x8
+ 231 011e 5700 0000 		.long	0x57
+ 232 0122 00        		.byte	0
+ 233 0123 00        		.byte	0
+ 234 0124 02        		.uleb128 0x2
+ 235 0125 04        		.byte	0x4
+ 236 0126 04        		.byte	0x4
+ 237 0127 0000 0000 		.long	.LASF18
+ 238 012b 0E        		.uleb128 0xe
+ 239 012c 01        		.byte	0x1
+ 240 012d 0000 0000 		.long	.LASF30
+ 241 0131 01        		.byte	0x1
+ 242 0132 04        		.byte	0x4
+ 243 0133 3700 0000 		.long	0x37
+ 244 0137 01        		.byte	0x1
+ 245 0138 0000 0000 		.long	.LFB6
+ 246 013c 0000 0000 		.long	.LFE6
+ 247 0140 03        		.byte	0x3
+ 248 0141 92        		.byte	0x92
+ 249 0142 20        		.uleb128 0x20
+ 250 0143 02        		.sleb128 2
+ 251 0144 01        		.byte	0x1
+ 252 0145 3002 0000 		.long	0x230
+ 253 0149 0F        		.uleb128 0xf
+ 254 014a E700 0000 		.long	0xe7
+ 255 014e 0000 0000 		.long	.LBB8
+ 256 0152 0000 0000 		.long	.LBE8
+ 257 0156 01        		.byte	0x1
+ 258 0157 08        		.byte	0x8
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 9
+
+
+ 259 0158 8201 0000 		.long	0x182
+ 260 015c 10        		.uleb128 0x10
+ 261 015d F300 0000 		.long	0xf3
+ 262 0161 0000 0000 		.long	.LLST0
+ 263 0165 11        		.uleb128 0x11
+ 264 0166 0000 0000 		.long	.LBB9
+ 265 016a 0000 0000 		.long	.LBE9
+ 266 016e 12        		.uleb128 0x12
+ 267 016f FE00 0000 		.long	0xfe
+ 268 0173 0000 0000 		.long	.LLST1
+ 269 0177 12        		.uleb128 0x12
+ 270 0178 0901 0000 		.long	0x109
+ 271 017c 0000 0000 		.long	.LLST2
+ 272 0180 00        		.byte	0
+ 273 0181 00        		.byte	0
+ 274 0182 0F        		.uleb128 0xf
+ 275 0183 E700 0000 		.long	0xe7
+ 276 0187 0000 0000 		.long	.LBB10
+ 277 018b 0000 0000 		.long	.LBE10
+ 278 018f 01        		.byte	0x1
+ 279 0190 0A        		.byte	0xa
+ 280 0191 BB01 0000 		.long	0x1bb
+ 281 0195 10        		.uleb128 0x10
+ 282 0196 F300 0000 		.long	0xf3
+ 283 019a 0000 0000 		.long	.LLST3
+ 284 019e 11        		.uleb128 0x11
+ 285 019f 0000 0000 		.long	.LBB11
+ 286 01a3 0000 0000 		.long	.LBE11
+ 287 01a7 12        		.uleb128 0x12
+ 288 01a8 FE00 0000 		.long	0xfe
+ 289 01ac 0000 0000 		.long	.LLST4
+ 290 01b0 12        		.uleb128 0x12
+ 291 01b1 0901 0000 		.long	0x109
+ 292 01b5 0000 0000 		.long	.LLST5
+ 293 01b9 00        		.byte	0
+ 294 01ba 00        		.byte	0
+ 295 01bb 0F        		.uleb128 0xf
+ 296 01bc E700 0000 		.long	0xe7
+ 297 01c0 0000 0000 		.long	.LBB12
+ 298 01c4 0000 0000 		.long	.LBE12
+ 299 01c8 01        		.byte	0x1
+ 300 01c9 0C        		.byte	0xc
+ 301 01ca F601 0000 		.long	0x1f6
+ 302 01ce 13        		.uleb128 0x13
+ 303 01cf F300 0000 		.long	0xf3
+ 304 01d3 04        		.byte	0x4
+ 305 01d4 0000 7A43 		.long	0x437a0000
+ 306 01d8 11        		.uleb128 0x11
+ 307 01d9 0000 0000 		.long	.LBB13
+ 308 01dd 0000 0000 		.long	.LBE13
+ 309 01e1 14        		.uleb128 0x14
+ 310 01e2 FE00 0000 		.long	0xfe
+ 311 01e6 04        		.byte	0x4
+ 312 01e7 8096 984A 		.long	0x4a989680
+ 313 01eb 15        		.uleb128 0x15
+ 314 01ec 0901 0000 		.long	0x109
+ 315 01f0 404B 4C00 		.long	0x4c4b40
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 10
+
+
+ 316 01f4 00        		.byte	0
+ 317 01f5 00        		.byte	0
+ 318 01f6 16        		.uleb128 0x16
+ 319 01f7 0000 0000 		.long	.LVL0
+ 320 01fb 8A00 0000 		.long	0x8a
+ 321 01ff 17        		.uleb128 0x17
+ 322 0200 0000 0000 		.long	.LVL1
+ 323 0204 C500 0000 		.long	0xc5
+ 324 0208 1902 0000 		.long	0x219
+ 325 020c 18        		.uleb128 0x18
+ 326 020d 06        		.byte	0x6
+ 327 020e 68        		.byte	0x68
+ 328 020f 93        		.byte	0x93
+ 329 0210 01        		.uleb128 0x1
+ 330 0211 69        		.byte	0x69
+ 331 0212 93        		.byte	0x93
+ 332 0213 01        		.uleb128 0x1
+ 333 0214 03        		.byte	0x3
+ 334 0215 0B        		.byte	0xb
+ 335 0216 0FF0      		.word	0xf00f
+ 336 0218 00        		.byte	0
+ 337 0219 19        		.uleb128 0x19
+ 338 021a 0000 0000 		.long	.LVL4
+ 339 021e C500 0000 		.long	0xc5
+ 340 0222 18        		.uleb128 0x18
+ 341 0223 06        		.byte	0x6
+ 342 0224 68        		.byte	0x68
+ 343 0225 93        		.byte	0x93
+ 344 0226 01        		.uleb128 0x1
+ 345 0227 69        		.byte	0x69
+ 346 0228 93        		.byte	0x93
+ 347 0229 01        		.uleb128 0x1
+ 348 022a 03        		.byte	0x3
+ 349 022b 0B        		.byte	0xb
+ 350 022c 00FF      		.word	0xff00
+ 351 022e 00        		.byte	0
+ 352 022f 00        		.byte	0
+ 353 0230 1A        		.uleb128 0x1a
+ 354 0231 1401 0000 		.long	0x114
+ 355 0235 00        		.byte	0
+ 356 0236 4002 0000 		.long	0x240
+ 357 023a 08        		.uleb128 0x8
+ 358 023b 5700 0000 		.long	0x57
+ 359 023f 00        		.byte	0
+ 360 0240 1B        		.uleb128 0x1b
+ 361 0241 5350 4900 		.string	"SPI"
+ 362 0245 04        		.byte	0x4
+ 363 0246 11        		.byte	0x11
+ 364 0247 7E00 0000 		.long	0x7e
+ 365 024b 01        		.byte	0x1
+ 366 024c 01        		.byte	0x1
+ 367 024d 00        		.byte	0
+ 368               		.section	.debug_abbrev,"",@progbits
+ 369               	.Ldebug_abbrev0:
+ 370 0000 01        		.uleb128 0x1
+ 371 0001 11        		.uleb128 0x11
+ 372 0002 01        		.byte	0x1
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 11
+
+
+ 373 0003 25        		.uleb128 0x25
+ 374 0004 0E        		.uleb128 0xe
+ 375 0005 13        		.uleb128 0x13
+ 376 0006 0B        		.uleb128 0xb
+ 377 0007 03        		.uleb128 0x3
+ 378 0008 0E        		.uleb128 0xe
+ 379 0009 1B        		.uleb128 0x1b
+ 380 000a 0E        		.uleb128 0xe
+ 381 000b 55        		.uleb128 0x55
+ 382 000c 06        		.uleb128 0x6
+ 383 000d 11        		.uleb128 0x11
+ 384 000e 01        		.uleb128 0x1
+ 385 000f 52        		.uleb128 0x52
+ 386 0010 01        		.uleb128 0x1
+ 387 0011 10        		.uleb128 0x10
+ 388 0012 06        		.uleb128 0x6
+ 389 0013 00        		.byte	0
+ 390 0014 00        		.byte	0
+ 391 0015 02        		.uleb128 0x2
+ 392 0016 24        		.uleb128 0x24
+ 393 0017 00        		.byte	0
+ 394 0018 0B        		.uleb128 0xb
+ 395 0019 0B        		.uleb128 0xb
+ 396 001a 3E        		.uleb128 0x3e
+ 397 001b 0B        		.uleb128 0xb
+ 398 001c 03        		.uleb128 0x3
+ 399 001d 0E        		.uleb128 0xe
+ 400 001e 00        		.byte	0
+ 401 001f 00        		.byte	0
+ 402 0020 03        		.uleb128 0x3
+ 403 0021 24        		.uleb128 0x24
+ 404 0022 00        		.byte	0
+ 405 0023 0B        		.uleb128 0xb
+ 406 0024 0B        		.uleb128 0xb
+ 407 0025 3E        		.uleb128 0x3e
+ 408 0026 0B        		.uleb128 0xb
+ 409 0027 03        		.uleb128 0x3
+ 410 0028 08        		.uleb128 0x8
+ 411 0029 00        		.byte	0
+ 412 002a 00        		.byte	0
+ 413 002b 04        		.uleb128 0x4
+ 414 002c 16        		.uleb128 0x16
+ 415 002d 00        		.byte	0
+ 416 002e 03        		.uleb128 0x3
+ 417 002f 0E        		.uleb128 0xe
+ 418 0030 3A        		.uleb128 0x3a
+ 419 0031 0B        		.uleb128 0xb
+ 420 0032 3B        		.uleb128 0x3b
+ 421 0033 0B        		.uleb128 0xb
+ 422 0034 49        		.uleb128 0x49
+ 423 0035 13        		.uleb128 0x13
+ 424 0036 00        		.byte	0
+ 425 0037 00        		.byte	0
+ 426 0038 05        		.uleb128 0x5
+ 427 0039 02        		.uleb128 0x2
+ 428 003a 01        		.byte	0x1
+ 429 003b 03        		.uleb128 0x3
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 12
+
+
+ 430 003c 0E        		.uleb128 0xe
+ 431 003d 0B        		.uleb128 0xb
+ 432 003e 0B        		.uleb128 0xb
+ 433 003f 3A        		.uleb128 0x3a
+ 434 0040 0B        		.uleb128 0xb
+ 435 0041 3B        		.uleb128 0x3b
+ 436 0042 0B        		.uleb128 0xb
+ 437 0043 01        		.uleb128 0x1
+ 438 0044 13        		.uleb128 0x13
+ 439 0045 00        		.byte	0
+ 440 0046 00        		.byte	0
+ 441 0047 06        		.uleb128 0x6
+ 442 0048 2E        		.uleb128 0x2e
+ 443 0049 00        		.byte	0
+ 444 004a 3F        		.uleb128 0x3f
+ 445 004b 0C        		.uleb128 0xc
+ 446 004c 03        		.uleb128 0x3
+ 447 004d 0E        		.uleb128 0xe
+ 448 004e 3A        		.uleb128 0x3a
+ 449 004f 0B        		.uleb128 0xb
+ 450 0050 3B        		.uleb128 0x3b
+ 451 0051 0B        		.uleb128 0xb
+ 452 0052 8740      		.uleb128 0x2007
+ 453 0054 0E        		.uleb128 0xe
+ 454 0055 3C        		.uleb128 0x3c
+ 455 0056 0C        		.uleb128 0xc
+ 456 0057 00        		.byte	0
+ 457 0058 00        		.byte	0
+ 458 0059 07        		.uleb128 0x7
+ 459 005a 2E        		.uleb128 0x2e
+ 460 005b 01        		.byte	0x1
+ 461 005c 3F        		.uleb128 0x3f
+ 462 005d 0C        		.uleb128 0xc
+ 463 005e 03        		.uleb128 0x3
+ 464 005f 0E        		.uleb128 0xe
+ 465 0060 3A        		.uleb128 0x3a
+ 466 0061 0B        		.uleb128 0xb
+ 467 0062 3B        		.uleb128 0x3b
+ 468 0063 0B        		.uleb128 0xb
+ 469 0064 8740      		.uleb128 0x2007
+ 470 0066 0E        		.uleb128 0xe
+ 471 0067 3C        		.uleb128 0x3c
+ 472 0068 0C        		.uleb128 0xc
+ 473 0069 01        		.uleb128 0x1
+ 474 006a 13        		.uleb128 0x13
+ 475 006b 00        		.byte	0
+ 476 006c 00        		.byte	0
+ 477 006d 08        		.uleb128 0x8
+ 478 006e 05        		.uleb128 0x5
+ 479 006f 00        		.byte	0
+ 480 0070 49        		.uleb128 0x49
+ 481 0071 13        		.uleb128 0x13
+ 482 0072 00        		.byte	0
+ 483 0073 00        		.byte	0
+ 484 0074 09        		.uleb128 0x9
+ 485 0075 2E        		.uleb128 0x2e
+ 486 0076 01        		.byte	0x1
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 13
+
+
+ 487 0077 3F        		.uleb128 0x3f
+ 488 0078 0C        		.uleb128 0xc
+ 489 0079 03        		.uleb128 0x3
+ 490 007a 0E        		.uleb128 0xe
+ 491 007b 3A        		.uleb128 0x3a
+ 492 007c 0B        		.uleb128 0xb
+ 493 007d 3B        		.uleb128 0x3b
+ 494 007e 0B        		.uleb128 0xb
+ 495 007f 8740      		.uleb128 0x2007
+ 496 0081 0E        		.uleb128 0xe
+ 497 0082 3C        		.uleb128 0x3c
+ 498 0083 0C        		.uleb128 0xc
+ 499 0084 00        		.byte	0
+ 500 0085 00        		.byte	0
+ 501 0086 0A        		.uleb128 0xa
+ 502 0087 2E        		.uleb128 0x2e
+ 503 0088 01        		.byte	0x1
+ 504 0089 03        		.uleb128 0x3
+ 505 008a 0E        		.uleb128 0xe
+ 506 008b 3A        		.uleb128 0x3a
+ 507 008c 0B        		.uleb128 0xb
+ 508 008d 3B        		.uleb128 0x3b
+ 509 008e 0B        		.uleb128 0xb
+ 510 008f 20        		.uleb128 0x20
+ 511 0090 0B        		.uleb128 0xb
+ 512 0091 01        		.uleb128 0x1
+ 513 0092 13        		.uleb128 0x13
+ 514 0093 00        		.byte	0
+ 515 0094 00        		.byte	0
+ 516 0095 0B        		.uleb128 0xb
+ 517 0096 05        		.uleb128 0x5
+ 518 0097 00        		.byte	0
+ 519 0098 03        		.uleb128 0x3
+ 520 0099 0E        		.uleb128 0xe
+ 521 009a 3A        		.uleb128 0x3a
+ 522 009b 0B        		.uleb128 0xb
+ 523 009c 3B        		.uleb128 0x3b
+ 524 009d 0B        		.uleb128 0xb
+ 525 009e 49        		.uleb128 0x49
+ 526 009f 13        		.uleb128 0x13
+ 527 00a0 00        		.byte	0
+ 528 00a1 00        		.byte	0
+ 529 00a2 0C        		.uleb128 0xc
+ 530 00a3 34        		.uleb128 0x34
+ 531 00a4 00        		.byte	0
+ 532 00a5 03        		.uleb128 0x3
+ 533 00a6 0E        		.uleb128 0xe
+ 534 00a7 3A        		.uleb128 0x3a
+ 535 00a8 0B        		.uleb128 0xb
+ 536 00a9 3B        		.uleb128 0x3b
+ 537 00aa 0B        		.uleb128 0xb
+ 538 00ab 49        		.uleb128 0x49
+ 539 00ac 13        		.uleb128 0x13
+ 540 00ad 00        		.byte	0
+ 541 00ae 00        		.byte	0
+ 542 00af 0D        		.uleb128 0xd
+ 543 00b0 2E        		.uleb128 0x2e
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 14
+
+
+ 544 00b1 01        		.byte	0x1
+ 545 00b2 3F        		.uleb128 0x3f
+ 546 00b3 0C        		.uleb128 0xc
+ 547 00b4 03        		.uleb128 0x3
+ 548 00b5 0E        		.uleb128 0xe
+ 549 00b6 3A        		.uleb128 0x3a
+ 550 00b7 0B        		.uleb128 0xb
+ 551 00b8 3B        		.uleb128 0x3b
+ 552 00b9 0B        		.uleb128 0xb
+ 553 00ba 3C        		.uleb128 0x3c
+ 554 00bb 0C        		.uleb128 0xc
+ 555 00bc 00        		.byte	0
+ 556 00bd 00        		.byte	0
+ 557 00be 0E        		.uleb128 0xe
+ 558 00bf 2E        		.uleb128 0x2e
+ 559 00c0 01        		.byte	0x1
+ 560 00c1 3F        		.uleb128 0x3f
+ 561 00c2 0C        		.uleb128 0xc
+ 562 00c3 03        		.uleb128 0x3
+ 563 00c4 0E        		.uleb128 0xe
+ 564 00c5 3A        		.uleb128 0x3a
+ 565 00c6 0B        		.uleb128 0xb
+ 566 00c7 3B        		.uleb128 0x3b
+ 567 00c8 0B        		.uleb128 0xb
+ 568 00c9 49        		.uleb128 0x49
+ 569 00ca 13        		.uleb128 0x13
+ 570 00cb 8701      		.uleb128 0x87
+ 571 00cd 0C        		.uleb128 0xc
+ 572 00ce 11        		.uleb128 0x11
+ 573 00cf 01        		.uleb128 0x1
+ 574 00d0 12        		.uleb128 0x12
+ 575 00d1 01        		.uleb128 0x1
+ 576 00d2 40        		.uleb128 0x40
+ 577 00d3 0A        		.uleb128 0xa
+ 578 00d4 9742      		.uleb128 0x2117
+ 579 00d6 0C        		.uleb128 0xc
+ 580 00d7 01        		.uleb128 0x1
+ 581 00d8 13        		.uleb128 0x13
+ 582 00d9 00        		.byte	0
+ 583 00da 00        		.byte	0
+ 584 00db 0F        		.uleb128 0xf
+ 585 00dc 1D        		.uleb128 0x1d
+ 586 00dd 01        		.byte	0x1
+ 587 00de 31        		.uleb128 0x31
+ 588 00df 13        		.uleb128 0x13
+ 589 00e0 11        		.uleb128 0x11
+ 590 00e1 01        		.uleb128 0x1
+ 591 00e2 12        		.uleb128 0x12
+ 592 00e3 01        		.uleb128 0x1
+ 593 00e4 58        		.uleb128 0x58
+ 594 00e5 0B        		.uleb128 0xb
+ 595 00e6 59        		.uleb128 0x59
+ 596 00e7 0B        		.uleb128 0xb
+ 597 00e8 01        		.uleb128 0x1
+ 598 00e9 13        		.uleb128 0x13
+ 599 00ea 00        		.byte	0
+ 600 00eb 00        		.byte	0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 15
+
+
+ 601 00ec 10        		.uleb128 0x10
+ 602 00ed 05        		.uleb128 0x5
+ 603 00ee 00        		.byte	0
+ 604 00ef 31        		.uleb128 0x31
+ 605 00f0 13        		.uleb128 0x13
+ 606 00f1 02        		.uleb128 0x2
+ 607 00f2 06        		.uleb128 0x6
+ 608 00f3 00        		.byte	0
+ 609 00f4 00        		.byte	0
+ 610 00f5 11        		.uleb128 0x11
+ 611 00f6 0B        		.uleb128 0xb
+ 612 00f7 01        		.byte	0x1
+ 613 00f8 11        		.uleb128 0x11
+ 614 00f9 01        		.uleb128 0x1
+ 615 00fa 12        		.uleb128 0x12
+ 616 00fb 01        		.uleb128 0x1
+ 617 00fc 00        		.byte	0
+ 618 00fd 00        		.byte	0
+ 619 00fe 12        		.uleb128 0x12
+ 620 00ff 34        		.uleb128 0x34
+ 621 0100 00        		.byte	0
+ 622 0101 31        		.uleb128 0x31
+ 623 0102 13        		.uleb128 0x13
+ 624 0103 02        		.uleb128 0x2
+ 625 0104 06        		.uleb128 0x6
+ 626 0105 00        		.byte	0
+ 627 0106 00        		.byte	0
+ 628 0107 13        		.uleb128 0x13
+ 629 0108 05        		.uleb128 0x5
+ 630 0109 00        		.byte	0
+ 631 010a 31        		.uleb128 0x31
+ 632 010b 13        		.uleb128 0x13
+ 633 010c 1C        		.uleb128 0x1c
+ 634 010d 0A        		.uleb128 0xa
+ 635 010e 00        		.byte	0
+ 636 010f 00        		.byte	0
+ 637 0110 14        		.uleb128 0x14
+ 638 0111 34        		.uleb128 0x34
+ 639 0112 00        		.byte	0
+ 640 0113 31        		.uleb128 0x31
+ 641 0114 13        		.uleb128 0x13
+ 642 0115 1C        		.uleb128 0x1c
+ 643 0116 0A        		.uleb128 0xa
+ 644 0117 00        		.byte	0
+ 645 0118 00        		.byte	0
+ 646 0119 15        		.uleb128 0x15
+ 647 011a 34        		.uleb128 0x34
+ 648 011b 00        		.byte	0
+ 649 011c 31        		.uleb128 0x31
+ 650 011d 13        		.uleb128 0x13
+ 651 011e 1C        		.uleb128 0x1c
+ 652 011f 06        		.uleb128 0x6
+ 653 0120 00        		.byte	0
+ 654 0121 00        		.byte	0
+ 655 0122 16        		.uleb128 0x16
+ 656 0123 8982 01   		.uleb128 0x4109
+ 657 0126 00        		.byte	0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 16
+
+
+ 658 0127 11        		.uleb128 0x11
+ 659 0128 01        		.uleb128 0x1
+ 660 0129 31        		.uleb128 0x31
+ 661 012a 13        		.uleb128 0x13
+ 662 012b 00        		.byte	0
+ 663 012c 00        		.byte	0
+ 664 012d 17        		.uleb128 0x17
+ 665 012e 8982 01   		.uleb128 0x4109
+ 666 0131 01        		.byte	0x1
+ 667 0132 11        		.uleb128 0x11
+ 668 0133 01        		.uleb128 0x1
+ 669 0134 31        		.uleb128 0x31
+ 670 0135 13        		.uleb128 0x13
+ 671 0136 01        		.uleb128 0x1
+ 672 0137 13        		.uleb128 0x13
+ 673 0138 00        		.byte	0
+ 674 0139 00        		.byte	0
+ 675 013a 18        		.uleb128 0x18
+ 676 013b 8A82 01   		.uleb128 0x410a
+ 677 013e 00        		.byte	0
+ 678 013f 02        		.uleb128 0x2
+ 679 0140 0A        		.uleb128 0xa
+ 680 0141 9142      		.uleb128 0x2111
+ 681 0143 0A        		.uleb128 0xa
+ 682 0144 00        		.byte	0
+ 683 0145 00        		.byte	0
+ 684 0146 19        		.uleb128 0x19
+ 685 0147 8982 01   		.uleb128 0x4109
+ 686 014a 01        		.byte	0x1
+ 687 014b 11        		.uleb128 0x11
+ 688 014c 01        		.uleb128 0x1
+ 689 014d 31        		.uleb128 0x31
+ 690 014e 13        		.uleb128 0x13
+ 691 014f 00        		.byte	0
+ 692 0150 00        		.byte	0
+ 693 0151 1A        		.uleb128 0x1a
+ 694 0152 2E        		.uleb128 0x2e
+ 695 0153 01        		.byte	0x1
+ 696 0154 47        		.uleb128 0x47
+ 697 0155 13        		.uleb128 0x13
+ 698 0156 20        		.uleb128 0x20
+ 699 0157 0B        		.uleb128 0xb
+ 700 0158 01        		.uleb128 0x1
+ 701 0159 13        		.uleb128 0x13
+ 702 015a 00        		.byte	0
+ 703 015b 00        		.byte	0
+ 704 015c 1B        		.uleb128 0x1b
+ 705 015d 34        		.uleb128 0x34
+ 706 015e 00        		.byte	0
+ 707 015f 03        		.uleb128 0x3
+ 708 0160 08        		.uleb128 0x8
+ 709 0161 3A        		.uleb128 0x3a
+ 710 0162 0B        		.uleb128 0xb
+ 711 0163 3B        		.uleb128 0x3b
+ 712 0164 0B        		.uleb128 0xb
+ 713 0165 49        		.uleb128 0x49
+ 714 0166 13        		.uleb128 0x13
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 17
+
+
+ 715 0167 3F        		.uleb128 0x3f
+ 716 0168 0C        		.uleb128 0xc
+ 717 0169 3C        		.uleb128 0x3c
+ 718 016a 0C        		.uleb128 0xc
+ 719 016b 00        		.byte	0
+ 720 016c 00        		.byte	0
+ 721 016d 00        		.byte	0
+ 722               		.section	.debug_loc,"",@progbits
+ 723               	.Ldebug_loc0:
+ 724               	.LLST0:
+ 725 0000 0000 0000 		.long	.LVL1
+ 726 0004 0000 0000 		.long	.LVL2
+ 727 0008 0600      		.word	0x6
+ 728 000a 9E        		.byte	0x9e
+ 729 000b 04        		.uleb128 0x4
+ 730 000c 0000 7A43 		.long	0x437a0000
+ 731 0010 0000 0000 		.long	0
+ 732 0014 0000 0000 		.long	0
+ 733               	.LLST1:
+ 734 0018 0000 0000 		.long	.LVL1
+ 735 001c 0000 0000 		.long	.LVL2
+ 736 0020 0600      		.word	0x6
+ 737 0022 9E        		.byte	0x9e
+ 738 0023 04        		.uleb128 0x4
+ 739 0024 8096 984A 		.long	0x4a989680
+ 740 0028 0000 0000 		.long	0
+ 741 002c 0000 0000 		.long	0
+ 742               	.LLST2:
+ 743 0030 0000 0000 		.long	.LVL1
+ 744 0034 0000 0000 		.long	.LVL2
+ 745 0038 0600      		.word	0x6
+ 746 003a 0C        		.byte	0xc
+ 747 003b 404B 4C00 		.long	0x4c4b40
+ 748 003f 9F        		.byte	0x9f
+ 749 0040 0000 0000 		.long	0
+ 750 0044 0000 0000 		.long	0
+ 751               	.LLST3:
+ 752 0048 0000 0000 		.long	.LVL2
+ 753 004c 0000 0000 		.long	.LVL3
+ 754 0050 0600      		.word	0x6
+ 755 0052 9E        		.byte	0x9e
+ 756 0053 04        		.uleb128 0x4
+ 757 0054 0000 7A43 		.long	0x437a0000
+ 758 0058 0000 0000 		.long	0
+ 759 005c 0000 0000 		.long	0
+ 760               	.LLST4:
+ 761 0060 0000 0000 		.long	.LVL2
+ 762 0064 0000 0000 		.long	.LVL3
+ 763 0068 0600      		.word	0x6
+ 764 006a 9E        		.byte	0x9e
+ 765 006b 04        		.uleb128 0x4
+ 766 006c 8096 984A 		.long	0x4a989680
+ 767 0070 0000 0000 		.long	0
+ 768 0074 0000 0000 		.long	0
+ 769               	.LLST5:
+ 770 0078 0000 0000 		.long	.LVL2
+ 771 007c 0000 0000 		.long	.LVL3
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 18
+
+
+ 772 0080 0600      		.word	0x6
+ 773 0082 0C        		.byte	0xc
+ 774 0083 404B 4C00 		.long	0x4c4b40
+ 775 0087 9F        		.byte	0x9f
+ 776 0088 0000 0000 		.long	0
+ 777 008c 0000 0000 		.long	0
+ 778               		.section	.debug_aranges,"",@progbits
+ 779 0000 1C00 0000 		.long	0x1c
+ 780 0004 0200      		.word	0x2
+ 781 0006 0000 0000 		.long	.Ldebug_info0
+ 782 000a 04        		.byte	0x4
+ 783 000b 00        		.byte	0
+ 784 000c 0000      		.word	0
+ 785 000e 0000      		.word	0
+ 786 0010 0000 0000 		.long	.LFB6
+ 787 0014 4C00 0000 		.long	.LFE6-.LFB6
+ 788 0018 0000 0000 		.long	0
+ 789 001c 0000 0000 		.long	0
+ 790               		.section	.debug_ranges,"",@progbits
+ 791               	.Ldebug_ranges0:
+ 792 0000 0000 0000 		.long	.LFB6
+ 793 0004 0000 0000 		.long	.LFE6
+ 794 0008 0000 0000 		.long	0
+ 795 000c 0000 0000 		.long	0
+ 796               		.section	.debug_line,"",@progbits
+ 797               	.Ldebug_line0:
+ 798 0000 1001 0000 		.section	.debug_str,"MS",@progbits,1
+ 798      0200 C500
+ 798      0000 0201
+ 798      FB0E 0A00
+ 798      0101 0101
+ 799               	.LASF8:
+ 800 0000 776F 7264 		.string	"word"
+ 800      00
+ 801               	.LASF21:
+ 802 0005 2F55 7365 		.string	"/Users/gregory/Desktop/gameController"
+ 802      7273 2F67
+ 802      7265 676F
+ 802      7279 2F44
+ 802      6573 6B74
+ 803               	.LASF11:
+ 804 002b 636C 6561 		.string	"clear"
+ 804      7200
+ 805               	.LASF22:
+ 806 0031 5350 495F 		.string	"SPI_C"
+ 806      4300
+ 807               	.LASF19:
+ 808 0037 474E 5520 		.string	"GNU C++ 5.4.0 -mn-flash=1 -mmcu=avr5 -g -Os -mn-flash=1 -mno-skip-bug -fno-rtti -fno-enfo
+ 808      432B 2B20
+ 808      352E 342E
+ 808      3020 2D6D
+ 808      6E2D 666C
+ 809               	.LASF27:
+ 810 00ad 5F64 656C 		.string	"_delay_ms"
+ 810      6179 5F6D
+ 810      7300
+ 811               	.LASF23:
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 19
+
+
+ 812 00b7 696E 6974 		.string	"init"
+ 812      00
+ 813               	.LASF29:
+ 814 00bc 5F5F 6275 		.string	"__builtin_avr_delay_cycles"
+ 814      696C 7469
+ 814      6E5F 6176
+ 814      725F 6465
+ 814      6C61 795F
+ 815               	.LASF12:
+ 816 00d7 5F5A 4E35 		.string	"_ZN5SPI_C4sendEc"
+ 816      5350 495F
+ 816      4334 7365
+ 816      6E64 4563
+ 816      00
+ 817               	.LASF1:
+ 818 00e8 756E 7369 		.string	"unsigned char"
+ 818      676E 6564
+ 818      2063 6861
+ 818      7200
+ 819               	.LASF4:
+ 820 00f6 6C6F 6E67 		.string	"long unsigned int"
+ 820      2075 6E73
+ 820      6967 6E65
+ 820      6420 696E
+ 820      7400
+ 821               	.LASF9:
+ 822 0108 7368 6F72 		.string	"short unsigned int"
+ 822      7420 756E
+ 822      7369 676E
+ 822      6564 2069
+ 822      6E74 00
+ 823               	.LASF18:
+ 824 011b 646F 7562 		.string	"double"
+ 824      6C65 00
+ 825               	.LASF30:
+ 826 0122 6D61 696E 		.string	"main"
+ 826      00
+ 827               	.LASF2:
+ 828 0127 756E 7369 		.string	"unsigned int"
+ 828      676E 6564
+ 828      2069 6E74
+ 828      00
+ 829               	.LASF10:
+ 830 0134 7365 6E64 		.string	"send"
+ 830      00
+ 831               	.LASF6:
+ 832 0139 6C6F 6E67 		.string	"long long unsigned int"
+ 832      206C 6F6E
+ 832      6720 756E
+ 832      7369 676E
+ 832      6564 2069
+ 833               	.LASF20:
+ 834 0150 7372 632F 		.string	"src/cppTestUSART/testDisplay.cpp"
+ 834      6370 7054
+ 834      6573 7455
+ 834      5341 5254
+ 834      2F74 6573
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 20
+
+
+ 835               	.LASF5:
+ 836 0171 6C6F 6E67 		.string	"long long int"
+ 836      206C 6F6E
+ 836      6720 696E
+ 836      7400
+ 837               	.LASF14:
+ 838 017f 6368 6172 		.string	"char"
+ 838      00
+ 839               	.LASF25:
+ 840 0184 6669 6C6C 		.string	"fillWindow"
+ 840      5769 6E64
+ 840      6F77 00
+ 841               	.LASF13:
+ 842 018f 5F5A 4E35 		.string	"_ZN5SPI_C5clearEs"
+ 842      5350 495F
+ 842      4335 636C
+ 842      6561 7245
+ 842      7300
+ 843               	.LASF15:
+ 844 01a1 7368 6F72 		.string	"short int"
+ 844      7420 696E
+ 844      7400
+ 845               	.LASF16:
+ 846 01ab 5F5F 746D 		.string	"__tmp"
+ 846      7000
+ 847               	.LASF7:
+ 848 01b1 7569 6E74 		.string	"uint32_t"
+ 848      3332 5F74
+ 848      00
+ 849               	.LASF3:
+ 850 01ba 6C6F 6E67 		.string	"long int"
+ 850      2069 6E74
+ 850      00
+ 851               	.LASF26:
+ 852 01c3 5F5A 4E35 		.string	"_ZN5SPI_C10fillWindowEt"
+ 852      5350 495F
+ 852      4331 3066
+ 852      696C 6C57
+ 852      696E 646F
+ 853               	.LASF0:
+ 854 01db 7369 676E 		.string	"signed char"
+ 854      6564 2063
+ 854      6861 7200
+ 855               	.LASF24:
+ 856 01e7 5F5A 4E35 		.string	"_ZN5SPI_C4initEv"
+ 856      5350 495F
+ 856      4334 696E
+ 856      6974 4576
+ 856      00
+ 857               	.LASF17:
+ 858 01f8 5F5F 7469 		.string	"__ticks_dc"
+ 858      636B 735F
+ 858      6463 00
+ 859               	.LASF28:
+ 860 0203 5F5F 6D73 		.string	"__ms"
+ 860      00
+ 861               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_503) 5.4.0"
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 21
+
+
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 testDisplay.cpp
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:13     .text.startup:0000000000000000 main
+
+UNDEFINED SYMBOLS
+_ZN5SPI_C4initEv
+_ZN5SPI_C10fillWindowEt
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 1
+
+
+   1               		.file	"SPI.cpp"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               	.global	_Z7initPWMv
+  11               		.type	_Z7initPWMv, @function
+  12               	_Z7initPWMv:
+  13               	.LFB6:
+  14               		.file 1 "src/cppTestUSART/SPI.cpp"
+   1:src/cppTestUSART/SPI.cpp **** #include "SPI.h"
+   2:src/cppTestUSART/SPI.cpp **** #include "util.h"
+   3:src/cppTestUSART/SPI.cpp **** //#define OFF(R, P) R &= ~(1<<P)
+   4:src/cppTestUSART/SPI.cpp **** //#define ON(R, P) R |= (1<<P)
+   5:src/cppTestUSART/SPI.cpp **** #define OUT 1
+   6:src/cppTestUSART/SPI.cpp **** #define IN 0
+   7:src/cppTestUSART/SPI.cpp **** #define ON 1
+   8:src/cppTestUSART/SPI.cpp **** #define OFF 0
+   9:src/cppTestUSART/SPI.cpp **** #define sbi(register, pin, val) output ? register |= pin : register &= ~pin
+  10:src/cppTestUSART/SPI.cpp **** #define pinMode(register, pin, output) sbi(register, pin, output)
+  11:src/cppTestUSART/SPI.cpp **** #define digitalWrite(register, pin, on) sbi(*(&register + 1), pin, on)
+  12:src/cppTestUSART/SPI.cpp **** #define RST         (1<<DDD7) // RESET
+  13:src/cppTestUSART/SPI.cpp **** #define SCK         (1<<DDD4) // SPI CLOCK
+  14:src/cppTestUSART/SPI.cpp **** #define MOSI        (1<<DDD1) // SPI DATA
+  15:src/cppTestUSART/SPI.cpp **** #define SS          (1<<DDB2) // SPI SLAVE SELECT
+  16:src/cppTestUSART/SPI.cpp **** #define BL          (1<<DDB1) // BACKLIGHT (PWM)
+  17:src/cppTestUSART/SPI.cpp **** #define DC          (1<<DDB0) // DATA / COMMAND
+  18:src/cppTestUSART/SPI.cpp **** #define DEBUG       (1<<DDD6)
+  19:src/cppTestUSART/SPI.cpp **** #define LCD_WIDTH   320 //LCD width
+  20:src/cppTestUSART/SPI.cpp **** #define LCD_HEIGHT  240 //LCD height
+  21:src/cppTestUSART/SPI.cpp **** #define nop() asm("nop")
+  22:src/cppTestUSART/SPI.cpp ****
+  23:src/cppTestUSART/SPI.cpp ****
+  24:src/cppTestUSART/SPI.cpp ****
+  25:src/cppTestUSART/SPI.cpp ****
+  26:src/cppTestUSART/SPI.cpp **** void initPWM() {
+  15               		.loc 1 26 0
+  16               		.cfi_startproc
+  17               	/* prologue: function */
+  18               	/* frame size = 0 */
+  19               	/* stack size = 0 */
+  20               	.L__stack_usage = 0
+  27:src/cppTestUSART/SPI.cpp ****   TCCR1B |= (0<<WGM13) | (1<<WGM12) | (1<<CS10); // page 110
+  21               		.loc 1 27 0
+  22 0000 E1E8      		ldi r30,lo8(-127)
+  23 0002 F0E0      		ldi r31,0
+  24 0004 8081      		ld r24,Z
+  25 0006 8960      		ori r24,lo8(9)
+  26 0008 8083      		st Z,r24
+  28:src/cppTestUSART/SPI.cpp ****      // Fast PWM
+  29:src/cppTestUSART/SPI.cpp ****   TCCR1A |= (1<<WGM11) | (1<<WGM10) | (1<<COM1A1);
+  27               		.loc 1 29 0
+  28 000a E0E8      		ldi r30,lo8(-128)
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 2
+
+
+  29 000c F0E0      		ldi r31,0
+  30 000e 8081      		ld r24,Z
+  31 0010 8368      		ori r24,lo8(-125)
+  32 0012 8083      		st Z,r24
+  30:src/cppTestUSART/SPI.cpp ****      // 10-bit PWM, enable PWM on 1A (pin 9) pin 10 is 1B
+  31:src/cppTestUSART/SPI.cpp ****   OCR1A = 0x00FF;
+  33               		.loc 1 31 0
+  34 0014 8FEF      		ldi r24,lo8(-1)
+  35 0016 90E0      		ldi r25,0
+  36 0018 9093 8900 		sts 136+1,r25
+  37 001c 8093 8800 		sts 136,r24
+  38 0020 0895      		ret
+  39               		.cfi_endproc
+  40               	.LFE6:
+  41               		.size	_Z7initPWMv, .-_Z7initPWMv
+  42               	.global	_ZN5SPI_C10fillWindowEt
+  43               		.type	_ZN5SPI_C10fillWindowEt, @function
+  44               	_ZN5SPI_C10fillWindowEt:
+  45               	.LFB10:
+  32:src/cppTestUSART/SPI.cpp **** }
+  33:src/cppTestUSART/SPI.cpp ****
+  34:src/cppTestUSART/SPI.cpp **** void cmd(char cmd) {
+  35:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+  36:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC; // it's a command
+  37:src/cppTestUSART/SPI.cpp ****   SPI.send(cmd);
+  38:src/cppTestUSART/SPI.cpp **** }
+  39:src/cppTestUSART/SPI.cpp ****
+  40:src/cppTestUSART/SPI.cpp **** void cmdData(char cmd) {
+  41:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+  42:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC; // it's a command
+  43:src/cppTestUSART/SPI.cpp ****   SPI.send(cmd);
+  44:src/cppTestUSART/SPI.cpp ****   UCSR0A |= (1<<TXC0);
+  45:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+  46:src/cppTestUSART/SPI.cpp ****   PORTB |= DC; // now it's data
+  47:src/cppTestUSART/SPI.cpp **** }
+  48:src/cppTestUSART/SPI.cpp ****
+  49:src/cppTestUSART/SPI.cpp **** void cmdData(char cmd, char byte) {
+  50:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+  51:src/cppTestUSART/SPI.cpp ****   UCSR0A |= (1<<TXC0);
+  52:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC; // it's a command
+  53:src/cppTestUSART/SPI.cpp ****   SPI.send(cmd);
+  54:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+  55:src/cppTestUSART/SPI.cpp ****   PORTB |= DC; // now it's data
+  56:src/cppTestUSART/SPI.cpp ****   SPI.send(byte);
+  57:src/cppTestUSART/SPI.cpp **** }
+  58:src/cppTestUSART/SPI.cpp ****
+  59:src/cppTestUSART/SPI.cpp **** // EXACT timing. DO NOT MESS IT UP
+  60:src/cppTestUSART/SPI.cpp **** /*void SPI_C::fillWindow(byte test) {
+  61:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+  62:src/cppTestUSART/SPI.cpp ****   UDR0 = 0x2C;
+  63:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC;
+  64:src/cppTestUSART/SPI.cpp ****   nop();
+  65:src/cppTestUSART/SPI.cpp ****   nop();
+  66:src/cppTestUSART/SPI.cpp ****   nop();
+  67:src/cppTestUSART/SPI.cpp ****   nop();
+  68:src/cppTestUSART/SPI.cpp ****   nop();
+  69:src/cppTestUSART/SPI.cpp ****   nop();
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 3
+
+
+  70:src/cppTestUSART/SPI.cpp ****   nop();
+  71:src/cppTestUSART/SPI.cpp ****   nop();
+  72:src/cppTestUSART/SPI.cpp ****   for (unsigned long i = 0; i < 153600; i++) {
+  73:src/cppTestUSART/SPI.cpp ****     UDR0 = test;
+  74:src/cppTestUSART/SPI.cpp ****     PORTB |= DC;
+  75:src/cppTestUSART/SPI.cpp ****     nop();
+  76:src/cppTestUSART/SPI.cpp ****     nop();
+  77:src/cppTestUSART/SPI.cpp ****     nop();
+  78:src/cppTestUSART/SPI.cpp ****     nop();
+  79:src/cppTestUSART/SPI.cpp ****     nop();
+  80:src/cppTestUSART/SPI.cpp ****     nop();
+  81:src/cppTestUSART/SPI.cpp ****   }
+  82:src/cppTestUSART/SPI.cpp **** }*/
+  83:src/cppTestUSART/SPI.cpp ****
+  84:src/cppTestUSART/SPI.cpp **** void SPI_C::fillWindow(word color) {
+  46               		.loc 1 84 0
+  47               		.cfi_startproc
+  48               	/* prologue: function */
+  49               	/* frame size = 0 */
+  50               	/* stack size = 0 */
+  51               	.L__stack_usage = 0
+  52               	.LVL0:
+  53               	.L3:
+  85:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+  54               		.loc 1 85 0
+  55 0022 2091 C000 		lds r18,192
+  56 0026 26FF      		sbrs r18,6
+  57 0028 00C0      		rjmp .L3
+  86:src/cppTestUSART/SPI.cpp ****   UDR0 = 0x2C;
+  58               		.loc 1 86 0
+  59 002a 2CE2      		ldi r18,lo8(44)
+  60 002c 2093 C600 		sts 198,r18
+  87:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC;
+  61               		.loc 1 87 0
+  62 0030 2898      		cbi 0x5,0
+  88:src/cppTestUSART/SPI.cpp ****   nop();
+  63               		.loc 1 88 0
+  64               	/* #APP */
+  65               	 ;  88 "src/cppTestUSART/SPI.cpp" 1
+  66 0032 0000      		nop
+  67               	 ;  0 "" 2
+  89:src/cppTestUSART/SPI.cpp ****   nop();
+  68               		.loc 1 89 0
+  69               	 ;  89 "src/cppTestUSART/SPI.cpp" 1
+  70 0034 0000      		nop
+  71               	 ;  0 "" 2
+  90:src/cppTestUSART/SPI.cpp ****   nop();
+  72               		.loc 1 90 0
+  73               	 ;  90 "src/cppTestUSART/SPI.cpp" 1
+  74 0036 0000      		nop
+  75               	 ;  0 "" 2
+  91:src/cppTestUSART/SPI.cpp ****   nop();
+  76               		.loc 1 91 0
+  77               	 ;  91 "src/cppTestUSART/SPI.cpp" 1
+  78 0038 0000      		nop
+  79               	 ;  0 "" 2
+  92:src/cppTestUSART/SPI.cpp ****   nop();
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 4
+
+
+  80               		.loc 1 92 0
+  81               	 ;  92 "src/cppTestUSART/SPI.cpp" 1
+  82 003a 0000      		nop
+  83               	 ;  0 "" 2
+  93:src/cppTestUSART/SPI.cpp ****   nop();
+  84               		.loc 1 93 0
+  85               	 ;  93 "src/cppTestUSART/SPI.cpp" 1
+  86 003c 0000      		nop
+  87               	 ;  0 "" 2
+  94:src/cppTestUSART/SPI.cpp ****   nop();
+  88               		.loc 1 94 0
+  89               	 ;  94 "src/cppTestUSART/SPI.cpp" 1
+  90 003e 0000      		nop
+  91               	 ;  0 "" 2
+  95:src/cppTestUSART/SPI.cpp ****   nop();
+  92               		.loc 1 95 0
+  93               	 ;  95 "src/cppTestUSART/SPI.cpp" 1
+  94 0040 0000      		nop
+  95               	 ;  0 "" 2
+  96:src/cppTestUSART/SPI.cpp ****   nop();
+  96               		.loc 1 96 0
+  97               	 ;  96 "src/cppTestUSART/SPI.cpp" 1
+  98 0042 0000      		nop
+  99               	 ;  0 "" 2
+ 100               	.LVL1:
+ 101               	/* #NOAPP */
+ 102               	.LBB8:
+  97:src/cppTestUSART/SPI.cpp ****   for (unsigned long i = 0; i < 76800; i++) {
+  98:src/cppTestUSART/SPI.cpp ****     UDR0 = (color>>8) & 0xFF;
+ 103               		.loc 1 98 0
+ 104 0044 40E0      		ldi r20,0
+ 105 0046 5CE2      		ldi r21,lo8(44)
+ 106 0048 61E0      		ldi r22,lo8(1)
+ 107 004a 70E0      		ldi r23,0
+ 108               	.LVL2:
+ 109               	.L4:
+ 110               		.loc 1 98 0 is_stmt 0 discriminator 2
+ 111 004c 9093 C600 		sts 198,r25
+  99:src/cppTestUSART/SPI.cpp ****     PORTB |= DC;
+ 112               		.loc 1 99 0 is_stmt 1 discriminator 2
+ 113 0050 289A      		sbi 0x5,0
+ 100:src/cppTestUSART/SPI.cpp ****     nop();
+ 114               		.loc 1 100 0 discriminator 2
+ 115               	/* #APP */
+ 116               	 ;  100 "src/cppTestUSART/SPI.cpp" 1
+ 117 0052 0000      		nop
+ 118               	 ;  0 "" 2
+ 101:src/cppTestUSART/SPI.cpp ****     nop();
+ 119               		.loc 1 101 0 discriminator 2
+ 120               	 ;  101 "src/cppTestUSART/SPI.cpp" 1
+ 121 0054 0000      		nop
+ 122               	 ;  0 "" 2
+ 102:src/cppTestUSART/SPI.cpp ****     nop();
+ 123               		.loc 1 102 0 discriminator 2
+ 124               	 ;  102 "src/cppTestUSART/SPI.cpp" 1
+ 125 0056 0000      		nop
+ 126               	 ;  0 "" 2
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 5
+
+
+ 103:src/cppTestUSART/SPI.cpp ****     nop();
+ 127               		.loc 1 103 0 discriminator 2
+ 128               	 ;  103 "src/cppTestUSART/SPI.cpp" 1
+ 129 0058 0000      		nop
+ 130               	 ;  0 "" 2
+ 104:src/cppTestUSART/SPI.cpp ****     nop();
+ 131               		.loc 1 104 0 discriminator 2
+ 132               	 ;  104 "src/cppTestUSART/SPI.cpp" 1
+ 133 005a 0000      		nop
+ 134               	 ;  0 "" 2
+ 105:src/cppTestUSART/SPI.cpp ****     nop();
+ 135               		.loc 1 105 0 discriminator 2
+ 136               	 ;  105 "src/cppTestUSART/SPI.cpp" 1
+ 137 005c 0000      		nop
+ 138               	 ;  0 "" 2
+ 106:src/cppTestUSART/SPI.cpp ****     nop();
+ 139               		.loc 1 106 0 discriminator 2
+ 140               	 ;  106 "src/cppTestUSART/SPI.cpp" 1
+ 141 005e 0000      		nop
+ 142               	 ;  0 "" 2
+ 107:src/cppTestUSART/SPI.cpp ****     nop();
+ 143               		.loc 1 107 0 discriminator 2
+ 144               	 ;  107 "src/cppTestUSART/SPI.cpp" 1
+ 145 0060 0000      		nop
+ 146               	 ;  0 "" 2
+ 108:src/cppTestUSART/SPI.cpp ****     nop();
+ 147               		.loc 1 108 0 discriminator 2
+ 148               	 ;  108 "src/cppTestUSART/SPI.cpp" 1
+ 149 0062 0000      		nop
+ 150               	 ;  0 "" 2
+ 109:src/cppTestUSART/SPI.cpp ****     UDR0 = color & 0xFF;
+ 151               		.loc 1 109 0 discriminator 2
+ 152               	/* #NOAPP */
+ 153 0064 8093 C600 		sts 198,r24
+ 110:src/cppTestUSART/SPI.cpp ****     PORTB |= DC;
+ 154               		.loc 1 110 0 discriminator 2
+ 155 0068 289A      		sbi 0x5,0
+ 111:src/cppTestUSART/SPI.cpp ****     nop();
+ 156               		.loc 1 111 0 discriminator 2
+ 157               	/* #APP */
+ 158               	 ;  111 "src/cppTestUSART/SPI.cpp" 1
+ 159 006a 0000      		nop
+ 160               	 ;  0 "" 2
+ 112:src/cppTestUSART/SPI.cpp ****     nop();
+ 161               		.loc 1 112 0 discriminator 2
+ 162               	 ;  112 "src/cppTestUSART/SPI.cpp" 1
+ 163 006c 0000      		nop
+ 164               	 ;  0 "" 2
+ 113:src/cppTestUSART/SPI.cpp ****     nop();
+ 165               		.loc 1 113 0 discriminator 2
+ 166               	 ;  113 "src/cppTestUSART/SPI.cpp" 1
+ 167 006e 0000      		nop
+ 168               	 ;  0 "" 2
+ 114:src/cppTestUSART/SPI.cpp ****     nop();
+ 169               		.loc 1 114 0 discriminator 2
+ 170               	 ;  114 "src/cppTestUSART/SPI.cpp" 1
+ 171 0070 0000      		nop
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 6
+
+
+ 172               	 ;  0 "" 2
+ 115:src/cppTestUSART/SPI.cpp ****     nop();
+ 173               		.loc 1 115 0 discriminator 2
+ 174               	 ;  115 "src/cppTestUSART/SPI.cpp" 1
+ 175 0072 0000      		nop
+ 176               	 ;  0 "" 2
+ 116:src/cppTestUSART/SPI.cpp ****     nop();
+ 177               		.loc 1 116 0 discriminator 2
+ 178               	 ;  116 "src/cppTestUSART/SPI.cpp" 1
+ 179 0074 0000      		nop
+ 180               	 ;  0 "" 2
+ 117:src/cppTestUSART/SPI.cpp ****     nop();
+ 181               		.loc 1 117 0 discriminator 2
+ 182               	 ;  117 "src/cppTestUSART/SPI.cpp" 1
+ 183 0076 0000      		nop
+ 184               	 ;  0 "" 2
+ 118:src/cppTestUSART/SPI.cpp ****     nop();
+ 185               		.loc 1 118 0 discriminator 2
+ 186               	 ;  118 "src/cppTestUSART/SPI.cpp" 1
+ 187 0078 0000      		nop
+ 188               	 ;  0 "" 2
+ 119:src/cppTestUSART/SPI.cpp ****     nop();
+ 189               		.loc 1 119 0 discriminator 2
+ 190               	 ;  119 "src/cppTestUSART/SPI.cpp" 1
+ 191 007a 0000      		nop
+ 192               	 ;  0 "" 2
+ 193               	.LVL3:
+ 194               	/* #NOAPP */
+ 195 007c 4150      		subi r20,1
+ 196 007e 5109      		sbc r21,__zero_reg__
+ 197 0080 6109      		sbc r22,__zero_reg__
+ 198 0082 7109      		sbc r23,__zero_reg__
+ 199               	.LVL4:
+  97:src/cppTestUSART/SPI.cpp ****     UDR0 = (color>>8) & 0xFF;
+ 200               		.loc 1 97 0 discriminator 2
+ 201 0084 01F4      		brne .L4
+ 202               	/* epilogue start */
+ 203               	.LBE8:
+ 120:src/cppTestUSART/SPI.cpp ****   }
+ 121:src/cppTestUSART/SPI.cpp **** }
+ 204               		.loc 1 121 0
+ 205 0086 0895      		ret
+ 206               		.cfi_endproc
+ 207               	.LFE10:
+ 208               		.size	_ZN5SPI_C10fillWindowEt, .-_ZN5SPI_C10fillWindowEt
+ 209               	.global	_ZN5SPI_C4sendEc
+ 210               		.type	_ZN5SPI_C4sendEc, @function
+ 211               	_ZN5SPI_C4sendEc:
+ 212               	.LFB12:
+ 122:src/cppTestUSART/SPI.cpp ****
+ 123:src/cppTestUSART/SPI.cpp ****
+ 124:src/cppTestUSART/SPI.cpp **** void SPI_C::init() {
+ 125:src/cppTestUSART/SPI.cpp ****
+ 126:src/cppTestUSART/SPI.cpp ****   // Set pins as output
+ 127:src/cppTestUSART/SPI.cpp ****   DDRD |= RST | DEBUG | SCK | MOSI;
+ 128:src/cppTestUSART/SPI.cpp ****   DDRB |= SS | BL | DC;
+ 129:src/cppTestUSART/SPI.cpp ****   PORTB |= SS;
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 7
+
+
+ 130:src/cppTestUSART/SPI.cpp ****
+ 131:src/cppTestUSART/SPI.cpp ****   // Configure SPI
+ 132:src/cppTestUSART/SPI.cpp ****   UBRR0 = 0; // set baud rate to 0 when configuring
+ 133:src/cppTestUSART/SPI.cpp ****   UCSR0C = (1<<UMSEL00) | (1<<UMSEL01); // set USART pins to MSPIM and UDORD0, UCPHA, and UCPOL to
+ 134:src/cppTestUSART/SPI.cpp ****   UCSR0B = (1<<TXEN0);
+ 135:src/cppTestUSART/SPI.cpp ****   UCSR0A |= (1<<U2X0); // double speed (does this work in MSPI mode?)
+ 136:src/cppTestUSART/SPI.cpp ****   UBRR0 = 0;
+ 137:src/cppTestUSART/SPI.cpp ****
+ 138:src/cppTestUSART/SPI.cpp ****   // wait for UDREn on UCSR0A to send data
+ 139:src/cppTestUSART/SPI.cpp ****
+ 140:src/cppTestUSART/SPI.cpp ****   // reset display
+ 141:src/cppTestUSART/SPI.cpp ****   PORTD |= RST;
+ 142:src/cppTestUSART/SPI.cpp ****   sleep_ms(200);
+ 143:src/cppTestUSART/SPI.cpp ****   PORTD &= ~RST;
+ 144:src/cppTestUSART/SPI.cpp ****   sleep_ms(200);
+ 145:src/cppTestUSART/SPI.cpp ****   PORTD |= RST;
+ 146:src/cppTestUSART/SPI.cpp ****   sleep_ms(200);
+ 147:src/cppTestUSART/SPI.cpp ****
+ 148:src/cppTestUSART/SPI.cpp ****   PORTB &= ~SS;
+ 149:src/cppTestUSART/SPI.cpp ****
+ 150:src/cppTestUSART/SPI.cpp ****   // Set RGB_565
+ 151:src/cppTestUSART/SPI.cpp ****
+ 152:src/cppTestUSART/SPI.cpp ****   // first command has to be done manually since it relies on TXC0
+ 153:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC; // it's a command
+ 154:src/cppTestUSART/SPI.cpp ****   SPI.send(0x3A);
+ 155:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+ 156:src/cppTestUSART/SPI.cpp ****   PORTB |= DC; // now it's data
+ 157:src/cppTestUSART/SPI.cpp ****   SPI.send(0x05);
+ 158:src/cppTestUSART/SPI.cpp ****
+ 159:src/cppTestUSART/SPI.cpp ****   cmd(0x11);
+ 160:src/cppTestUSART/SPI.cpp ****   cmd(0x29);
+ 161:src/cppTestUSART/SPI.cpp ****   cmd(0x21);
+ 162:src/cppTestUSART/SPI.cpp ****
+ 163:src/cppTestUSART/SPI.cpp ****   initPWM();
+ 164:src/cppTestUSART/SPI.cpp **** }
+ 165:src/cppTestUSART/SPI.cpp ****
+ 166:src/cppTestUSART/SPI.cpp **** void SPI_C::send(char data) {
+ 213               		.loc 1 166 0
+ 214               		.cfi_startproc
+ 215               	/* prologue: function */
+ 216               	/* frame size = 0 */
+ 217               	/* stack size = 0 */
+ 218               	.L__stack_usage = 0
+ 219               	.LVL5:
+ 220               	.L10:
+ 167:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<UDRE0)));
+ 221               		.loc 1 167 0
+ 222 0088 9091 C000 		lds r25,192
+ 223 008c 95FF      		sbrs r25,5
+ 224 008e 00C0      		rjmp .L10
+ 168:src/cppTestUSART/SPI.cpp ****   UDR0 = data;
+ 225               		.loc 1 168 0
+ 226 0090 8093 C600 		sts 198,r24
+ 169:src/cppTestUSART/SPI.cpp ****   asm("NOP");
+ 227               		.loc 1 169 0
+ 228               	/* #APP */
+ 229               	 ;  169 "src/cppTestUSART/SPI.cpp" 1
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 8
+
+
+ 230 0094 0000      		NOP
+ 231               	 ;  0 "" 2
+ 170:src/cppTestUSART/SPI.cpp ****   asm("NOP");
+ 232               		.loc 1 170 0
+ 233               	 ;  170 "src/cppTestUSART/SPI.cpp" 1
+ 234 0096 0000      		NOP
+ 235               	 ;  0 "" 2
+ 171:src/cppTestUSART/SPI.cpp ****   asm("NOP");
+ 236               		.loc 1 171 0
+ 237               	 ;  171 "src/cppTestUSART/SPI.cpp" 1
+ 238 0098 0000      		NOP
+ 239               	 ;  0 "" 2
+ 240               	/* #NOAPP */
+ 241 009a 0895      		ret
+ 242               		.cfi_endproc
+ 243               	.LFE12:
+ 244               		.size	_ZN5SPI_C4sendEc, .-_ZN5SPI_C4sendEc
+ 245               	.global	_Z3cmdc
+ 246               		.type	_Z3cmdc, @function
+ 247               	_Z3cmdc:
+ 248               	.LFB7:
+  34:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+ 249               		.loc 1 34 0
+ 250               		.cfi_startproc
+ 251               	/* prologue: function */
+ 252               	/* frame size = 0 */
+ 253               	/* stack size = 0 */
+ 254               	.L__stack_usage = 0
+ 255               	.LVL6:
+ 256               	.L14:
+  35:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC; // it's a command
+ 257               		.loc 1 35 0
+ 258 009c 9091 C000 		lds r25,192
+ 259 00a0 96FF      		sbrs r25,6
+ 260 00a2 00C0      		rjmp .L14
+  36:src/cppTestUSART/SPI.cpp ****   SPI.send(cmd);
+ 261               		.loc 1 36 0
+ 262 00a4 2898      		cbi 0x5,0
+  37:src/cppTestUSART/SPI.cpp **** }
+ 263               		.loc 1 37 0
+ 264 00a6 0C94 0000 		jmp _ZN5SPI_C4sendEc
+ 265               	.LVL7:
+ 266               		.cfi_endproc
+ 267               	.LFE7:
+ 268               		.size	_Z3cmdc, .-_Z3cmdc
+ 269               	.global	_Z7cmdDatac
+ 270               		.type	_Z7cmdDatac, @function
+ 271               	_Z7cmdDatac:
+ 272               	.LFB8:
+  40:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+ 273               		.loc 1 40 0
+ 274               		.cfi_startproc
+ 275               	/* prologue: function */
+ 276               	/* frame size = 0 */
+ 277               	/* stack size = 0 */
+ 278               	.L__stack_usage = 0
+ 279               	.LVL8:
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 9
+
+
+ 280               	.L18:
+  41:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC; // it's a command
+ 281               		.loc 1 41 0
+ 282 00aa 9091 C000 		lds r25,192
+ 283 00ae 96FF      		sbrs r25,6
+ 284 00b0 00C0      		rjmp .L18
+  42:src/cppTestUSART/SPI.cpp ****   SPI.send(cmd);
+ 285               		.loc 1 42 0
+ 286 00b2 2898      		cbi 0x5,0
+  43:src/cppTestUSART/SPI.cpp ****   UCSR0A |= (1<<TXC0);
+ 287               		.loc 1 43 0
+ 288 00b4 0E94 0000 		call _ZN5SPI_C4sendEc
+ 289               	.LVL9:
+  44:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+ 290               		.loc 1 44 0
+ 291 00b8 8091 C000 		lds r24,192
+ 292 00bc 8064      		ori r24,lo8(64)
+ 293 00be 8093 C000 		sts 192,r24
+ 294               	.L19:
+  45:src/cppTestUSART/SPI.cpp ****   PORTB |= DC; // now it's data
+ 295               		.loc 1 45 0
+ 296 00c2 8091 C000 		lds r24,192
+ 297 00c6 86FF      		sbrs r24,6
+ 298 00c8 00C0      		rjmp .L19
+  46:src/cppTestUSART/SPI.cpp **** }
+ 299               		.loc 1 46 0
+ 300 00ca 289A      		sbi 0x5,0
+ 301 00cc 0895      		ret
+ 302               		.cfi_endproc
+ 303               	.LFE8:
+ 304               		.size	_Z7cmdDatac, .-_Z7cmdDatac
+ 305               	.global	_Z7cmdDatacc
+ 306               		.type	_Z7cmdDatacc, @function
+ 307               	_Z7cmdDatacc:
+ 308               	.LFB9:
+  49:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+ 309               		.loc 1 49 0
+ 310               		.cfi_startproc
+ 311               	.LVL10:
+ 312 00ce CF93      		push r28
+ 313               	.LCFI0:
+ 314               		.cfi_def_cfa_offset 3
+ 315               		.cfi_offset 28, -2
+ 316               	/* prologue: function */
+ 317               	/* frame size = 0 */
+ 318               	/* stack size = 1 */
+ 319               	.L__stack_usage = 1
+ 320 00d0 C62F      		mov r28,r22
+ 321               	.L25:
+  50:src/cppTestUSART/SPI.cpp ****   UCSR0A |= (1<<TXC0);
+ 322               		.loc 1 50 0
+ 323 00d2 9091 C000 		lds r25,192
+ 324 00d6 96FF      		sbrs r25,6
+ 325 00d8 00C0      		rjmp .L25
+  51:src/cppTestUSART/SPI.cpp ****   PORTB &= ~DC; // it's a command
+ 326               		.loc 1 51 0
+ 327 00da 9091 C000 		lds r25,192
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 10
+
+
+ 328 00de 9064      		ori r25,lo8(64)
+ 329 00e0 9093 C000 		sts 192,r25
+  52:src/cppTestUSART/SPI.cpp ****   SPI.send(cmd);
+ 330               		.loc 1 52 0
+ 331 00e4 2898      		cbi 0x5,0
+  53:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+ 332               		.loc 1 53 0
+ 333 00e6 0E94 0000 		call _ZN5SPI_C4sendEc
+ 334               	.LVL11:
+ 335               	.L26:
+  54:src/cppTestUSART/SPI.cpp ****   PORTB |= DC; // now it's data
+ 336               		.loc 1 54 0
+ 337 00ea 8091 C000 		lds r24,192
+ 338 00ee 86FF      		sbrs r24,6
+ 339 00f0 00C0      		rjmp .L26
+  55:src/cppTestUSART/SPI.cpp ****   SPI.send(byte);
+ 340               		.loc 1 55 0
+ 341 00f2 289A      		sbi 0x5,0
+  56:src/cppTestUSART/SPI.cpp **** }
+ 342               		.loc 1 56 0
+ 343 00f4 8C2F      		mov r24,r28
+ 344               	/* epilogue start */
+  57:src/cppTestUSART/SPI.cpp ****
+ 345               		.loc 1 57 0
+ 346 00f6 CF91      		pop r28
+ 347               	.LVL12:
+  56:src/cppTestUSART/SPI.cpp **** }
+ 348               		.loc 1 56 0
+ 349 00f8 0C94 0000 		jmp _ZN5SPI_C4sendEc
+ 350               	.LVL13:
+ 351               		.cfi_endproc
+ 352               	.LFE9:
+ 353               		.size	_Z7cmdDatacc, .-_Z7cmdDatacc
+ 354               	.global	_ZN5SPI_C4initEv
+ 355               		.type	_ZN5SPI_C4initEv, @function
+ 356               	_ZN5SPI_C4initEv:
+ 357               	.LFB11:
+ 124:src/cppTestUSART/SPI.cpp ****
+ 358               		.loc 1 124 0
+ 359               		.cfi_startproc
+ 360               	/* prologue: function */
+ 361               	/* frame size = 0 */
+ 362               	/* stack size = 0 */
+ 363               	.L__stack_usage = 0
+ 127:src/cppTestUSART/SPI.cpp ****   DDRB |= SS | BL | DC;
+ 364               		.loc 1 127 0
+ 365 00fc 8AB1      		in r24,0xa
+ 366 00fe 826D      		ori r24,lo8(-46)
+ 367 0100 8AB9      		out 0xa,r24
+ 128:src/cppTestUSART/SPI.cpp ****   PORTB |= SS;
+ 368               		.loc 1 128 0
+ 369 0102 84B1      		in r24,0x4
+ 370 0104 8760      		ori r24,lo8(7)
+ 371 0106 84B9      		out 0x4,r24
+ 129:src/cppTestUSART/SPI.cpp ****
+ 372               		.loc 1 129 0
+ 373 0108 2A9A      		sbi 0x5,2
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 11
+
+
+ 132:src/cppTestUSART/SPI.cpp ****   UCSR0C = (1<<UMSEL00) | (1<<UMSEL01); // set USART pins to MSPIM and UDORD0, UCPHA, and UCPOL to
+ 374               		.loc 1 132 0
+ 375 010a 1092 C500 		sts 196+1,__zero_reg__
+ 376 010e 1092 C400 		sts 196,__zero_reg__
+ 133:src/cppTestUSART/SPI.cpp ****   UCSR0B = (1<<TXEN0);
+ 377               		.loc 1 133 0
+ 378 0112 80EC      		ldi r24,lo8(-64)
+ 379 0114 8093 C200 		sts 194,r24
+ 134:src/cppTestUSART/SPI.cpp ****   UCSR0A |= (1<<U2X0); // double speed (does this work in MSPI mode?)
+ 380               		.loc 1 134 0
+ 381 0118 88E0      		ldi r24,lo8(8)
+ 382 011a 8093 C100 		sts 193,r24
+ 135:src/cppTestUSART/SPI.cpp ****   UBRR0 = 0;
+ 383               		.loc 1 135 0
+ 384 011e 8091 C000 		lds r24,192
+ 385 0122 8260      		ori r24,lo8(2)
+ 386 0124 8093 C000 		sts 192,r24
+ 136:src/cppTestUSART/SPI.cpp ****
+ 387               		.loc 1 136 0
+ 388 0128 1092 C500 		sts 196+1,__zero_reg__
+ 389 012c 1092 C400 		sts 196,__zero_reg__
+ 141:src/cppTestUSART/SPI.cpp ****   sleep_ms(200);
+ 390               		.loc 1 141 0
+ 391 0130 5F9A      		sbi 0xb,7
+ 392               	.LVL14:
+ 393               	.LBB9:
+ 394               	.LBB10:
+ 395               		.file 2 "/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h"
+   1:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
+   2:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
+   3:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Copyright (c) 2007  Florin-Viorel Petrov
+   4:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    All rights reserved.
+   5:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+   6:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Redistribution and use in source and binary forms, with or without
+   7:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    modification, are permitted provided that the following conditions are met:
+   8:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+   9:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    * Redistributions of source code must retain the above copyright
+  10:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer.
+  11:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  12:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    * Redistributions in binary form must reproduce the above copyright
+  13:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer in
+  14:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      the documentation and/or other materials provided with the
+  15:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      distribution.
+  16:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  17:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    * Neither the name of the copyright holders nor the names of
+  18:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      contributors may be used to endorse or promote products derived
+  19:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****      from this software without specific prior written permission.
+  20:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  21:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  22:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  23:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  24:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  25:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  26:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  27:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  28:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  29:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 12
+
+
+  30:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  31:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   POSSIBILITY OF SUCH DAMAGE. */
+  32:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  33:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /* $Id$ */
+  34:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  35:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef _UTIL_DELAY_H_
+  36:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #define _UTIL_DELAY_H_ 1
+  37:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  38:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef __DOXYGEN__
+  39:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #  ifndef __HAS_DELAY_CYCLES
+  40:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #    define __HAS_DELAY_CYCLES 1
+  41:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #  endif
+  42:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif  /* __DOXYGEN__ */
+  43:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  44:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #include <inttypes.h>
+  45:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #include <util/delay_basic.h>
+  46:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #include <math.h>
+  47:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  48:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /** \file */
+  49:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /** \defgroup util_delay <util/delay.h>: Convenience functions for busy-wait delay loops
+  50:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \code
+  51:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     #define F_CPU 1000000UL  // 1 MHz
+  52:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     //#define F_CPU 14.7456E6
+  53:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     #include <util/delay.h>
+  54:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \endcode
+  55:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  56:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \note As an alternative method, it is possible to pass the
+  57:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     F_CPU macro down to the compiler from the Makefile.
+  58:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     Obviously, in that case, no \c \#define statement should be
+  59:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     used.
+  60:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  61:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     The functions in this header file are wrappers around the basic
+  62:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     busy-wait functions from <util/delay_basic.h>.  They are meant as
+  63:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     convenience functions where actual time values can be specified
+  64:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     rather than a number of cycles to wait for.  The idea behind is
+  65:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     that compile-time constant expressions will be eliminated by
+  66:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     compiler optimization so floating-point expressions can be used
+  67:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     to calculate the number of delay cycles needed based on the CPU
+  68:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     frequency passed by the macro F_CPU.
+  69:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  70:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \note In order for these functions to work as intended, compiler
+  71:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     optimizations <em>must</em> be enabled, and the delay time
+  72:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     <em>must</em> be an expression that is a known constant at
+  73:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     compile-time.  If these requirements are not met, the resulting
+  74:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     delay will be much longer (and basically unpredictable), and
+  75:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     applications that otherwise do not use floating-point calculations
+  76:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     will experience severe code bloat by the floating-point library
+  77:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     routines linked into the application.
+  78:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  79:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     The functions available allow the specification of microsecond, and
+  80:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     millisecond delays directly, using the application-supplied macro
+  81:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     F_CPU as the CPU clock frequency (in Hertz).
+  82:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  83:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** */
+  84:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  85:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #if !defined(__DOXYGEN__)
+  86:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** static __inline__ void _delay_us(double __us) __attribute__((__always_inline__));
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 13
+
+
+  87:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** static __inline__ void _delay_ms(double __ms) __attribute__((__always_inline__));
+  88:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+  89:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  90:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef F_CPU
+  91:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /* prevent compiler error by supplying a default */
+  92:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** # warning "F_CPU not defined for <util/delay.h>"
+  93:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /** \ingroup util_delay
+  94:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \def F_CPU
+  95:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     \brief CPU frequency in Hz
+  96:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+  97:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     The macro F_CPU specifies the CPU frequency to be considered by
+  98:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     the delay macros.  This macro is normally supplied by the
+  99:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     environment (e.g. from within a project header, or the project's
+ 100:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     Makefile).  The value 1 MHz here is only provided as a "vanilla"
+ 101:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     fallback if no such user-provided definition could be found.
+ 102:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 103:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     In terms of the delay functions, the CPU frequency can be given as
+ 104:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     a floating-point constant (e.g. 3.6864E6 for 3.6864 MHz).
+ 105:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     However, the macros in <util/setbaud.h> require it to be an
+ 106:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****     integer value.
+ 107:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****  */
+ 108:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** # define F_CPU 1000000UL
+ 109:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+ 110:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 111:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #ifndef __OPTIMIZE__
+ 112:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** # warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+ 113:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+ 114:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 115:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+ 116:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 117:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 118:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #  include <math.h>
+ 119:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #endif
+ 120:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 121:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** /**
+ 122:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \ingroup util_delay
+ 123:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 124:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Perform a delay of \c __ms milliseconds, using _delay_loop_2().
+ 125:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 126:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    The macro F_CPU is supposed to be defined to a
+ 127:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    constant defining the CPU clock frequency (in Hertz).
+ 128:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 129:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    The maximal possible delay is 262.14 ms / F_CPU in MHz.
+ 130:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 131:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    When the user request delay which exceed the maximum possible one,
+ 132:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    _delay_ms() provides a decreased resolution functionality. In this
+ 133:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    mode _delay_ms() will work with a resolution of 1/10 ms, providing
+ 134:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    delays up to 6.5535 seconds (independent from CPU frequency).  The
+ 135:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    user will not be informed about decreased resolution.
+ 136:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 137:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    If the avr-gcc toolchain has __builtin_avr_delay_cycles()
+ 138:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    support, maximal possible delay is 4294967.295 ms/ F_CPU in MHz. For
+ 139:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    values greater than the maximal possible delay, overflows results in
+ 140:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    no delay i.e., 0ms.
+ 141:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 142:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Conversion of \c __ms into clock cycles may not always result in
+ 143:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    integer.  By default, the clock cycles rounded up to next
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 14
+
+
+ 144:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    integer. This ensures that the user gets at least \c __ms
+ 145:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    microseconds of delay.
+ 146:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 147:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    Alternatively, by defining the macro \c __DELAY_ROUND_DOWN__, or
+ 148:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \c __DELAY_ROUND_CLOSEST__, before including this header file, the
+ 149:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    algorithm can be made to round down, or round to closest integer,
+ 150:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    respectively.
+ 151:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 152:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \note
+ 153:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 154:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    The implementation of _delay_ms() based on
+ 155:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    __builtin_avr_delay_cycles() is not backward compatible with older
+ 156:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    implementations.  In order to get functionality backward compatible
+ 157:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    with previous versions, the macro \c "__DELAY_BACKWARD_COMPATIBLE__"
+ 158:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    must be defined before including this header file. Also, the
+ 159:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    backward compatible algorithm will be chosen if the code is
+ 160:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    compiled in a <em>freestanding environment</em> (GCC option
+ 161:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    \c -ffreestanding), as the math functions required for rounding are
+ 162:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****    not available to the compiler then.
+ 163:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 164:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****  */
+ 165:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** void
+ 166:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** _delay_ms(double __ms)
+ 167:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** {
+ 168:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	double __tmp ;
+ 169:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+ 170:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 171:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 172:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	uint32_t __ticks_dc;
+ 173:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	extern void __builtin_avr_delay_cycles(unsigned long);
+ 174:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	__tmp = ((F_CPU) / 1e3) * __ms;
+ 175:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 176:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#if defined(__DELAY_ROUND_DOWN__)
+ 177:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)fabs(__tmp);
+ 178:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 179:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#elif defined(__DELAY_ROUND_CLOSEST__)
+ 180:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(fabs(__tmp)+0.5);
+ 181:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 182:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#else
+ 183:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		//round up by default
+ 184:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+ 185:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	#endif
+ 186:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h ****
+ 187:/Users/gregory/Desktop/gameController/avr/avr/include/util/delay.h **** 	__builtin_avr_delay_cycles(__ticks_dc);
+ 396               		.loc 2 187 0
+ 397 0132 2FEF      		ldi r18,lo8(799999)
+ 398 0134 84E3      		ldi r24,hi8(799999)
+ 399 0136 9CE0      		ldi r25,hlo8(799999)
+ 400 0138 2150      	1:	subi r18,1
+ 401 013a 8040      		sbci r24,0
+ 402 013c 9040      		sbci r25,0
+ 403 013e 01F4      		brne 1b
+ 404 0140 00C0      		rjmp .
+ 405 0142 0000      		nop
+ 406               	.LVL15:
+ 407               	.LBE10:
+ 408               	.LBE9:
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 15
+
+
+ 143:src/cppTestUSART/SPI.cpp ****   sleep_ms(200);
+ 409               		.loc 1 143 0
+ 410 0144 5F98      		cbi 0xb,7
+ 411               	.LVL16:
+ 412               	.LBB11:
+ 413               	.LBB12:
+ 414               		.loc 2 187 0
+ 415 0146 2FEF      		ldi r18,lo8(799999)
+ 416 0148 84E3      		ldi r24,hi8(799999)
+ 417 014a 9CE0      		ldi r25,hlo8(799999)
+ 418 014c 2150      	1:	subi r18,1
+ 419 014e 8040      		sbci r24,0
+ 420 0150 9040      		sbci r25,0
+ 421 0152 01F4      		brne 1b
+ 422 0154 00C0      		rjmp .
+ 423 0156 0000      		nop
+ 424               	.LVL17:
+ 425               	.LBE12:
+ 426               	.LBE11:
+ 145:src/cppTestUSART/SPI.cpp ****   sleep_ms(200);
+ 427               		.loc 1 145 0
+ 428 0158 5F9A      		sbi 0xb,7
+ 429               	.LVL18:
+ 430               	.LBB13:
+ 431               	.LBB14:
+ 432               		.loc 2 187 0
+ 433 015a 2FEF      		ldi r18,lo8(799999)
+ 434 015c 84E3      		ldi r24,hi8(799999)
+ 435 015e 9CE0      		ldi r25,hlo8(799999)
+ 436 0160 2150      	1:	subi r18,1
+ 437 0162 8040      		sbci r24,0
+ 438 0164 9040      		sbci r25,0
+ 439 0166 01F4      		brne 1b
+ 440 0168 00C0      		rjmp .
+ 441 016a 0000      		nop
+ 442               	.LVL19:
+ 443               	.LBE14:
+ 444               	.LBE13:
+ 148:src/cppTestUSART/SPI.cpp ****
+ 445               		.loc 1 148 0
+ 446 016c 2A98      		cbi 0x5,2
+ 153:src/cppTestUSART/SPI.cpp ****   SPI.send(0x3A);
+ 447               		.loc 1 153 0
+ 448 016e 2898      		cbi 0x5,0
+ 154:src/cppTestUSART/SPI.cpp ****   while (!(UCSR0A & (1<<TXC0)));
+ 449               		.loc 1 154 0
+ 450 0170 8AE3      		ldi r24,lo8(58)
+ 451 0172 0E94 0000 		call _ZN5SPI_C4sendEc
+ 452               	.LVL20:
+ 453               	.L32:
+ 155:src/cppTestUSART/SPI.cpp ****   PORTB |= DC; // now it's data
+ 454               		.loc 1 155 0
+ 455 0176 8091 C000 		lds r24,192
+ 456 017a 86FF      		sbrs r24,6
+ 457 017c 00C0      		rjmp .L32
+ 156:src/cppTestUSART/SPI.cpp ****   SPI.send(0x05);
+ 458               		.loc 1 156 0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 16
+
+
+ 459 017e 289A      		sbi 0x5,0
+ 157:src/cppTestUSART/SPI.cpp ****
+ 460               		.loc 1 157 0
+ 461 0180 85E0      		ldi r24,lo8(5)
+ 462 0182 0E94 0000 		call _ZN5SPI_C4sendEc
+ 463               	.LVL21:
+ 159:src/cppTestUSART/SPI.cpp ****   cmd(0x29);
+ 464               		.loc 1 159 0
+ 465 0186 81E1      		ldi r24,lo8(17)
+ 466 0188 0E94 0000 		call _Z3cmdc
+ 467               	.LVL22:
+ 160:src/cppTestUSART/SPI.cpp ****   cmd(0x21);
+ 468               		.loc 1 160 0
+ 469 018c 89E2      		ldi r24,lo8(41)
+ 470 018e 0E94 0000 		call _Z3cmdc
+ 471               	.LVL23:
+ 161:src/cppTestUSART/SPI.cpp ****
+ 472               		.loc 1 161 0
+ 473 0192 81E2      		ldi r24,lo8(33)
+ 474 0194 0E94 0000 		call _Z3cmdc
+ 475               	.LVL24:
+ 163:src/cppTestUSART/SPI.cpp **** }
+ 476               		.loc 1 163 0
+ 477 0198 0C94 0000 		jmp _Z7initPWMv
+ 478               	.LVL25:
+ 479               		.cfi_endproc
+ 480               	.LFE11:
+ 481               		.size	_ZN5SPI_C4initEv, .-_ZN5SPI_C4initEv
+ 482               	.global	_ZN5SPI_C5clearEs
+ 483               		.type	_ZN5SPI_C5clearEs, @function
+ 484               	_ZN5SPI_C5clearEs:
+ 485               	.LFB13:
+ 172:src/cppTestUSART/SPI.cpp **** }
+ 173:src/cppTestUSART/SPI.cpp ****
+ 174:src/cppTestUSART/SPI.cpp **** void SPI_C::clear(short color) {
+ 486               		.loc 1 174 0
+ 487               		.cfi_startproc
+ 488               	.LVL26:
+ 489 019c CF92      		push r12
+ 490               	.LCFI1:
+ 491               		.cfi_def_cfa_offset 3
+ 492               		.cfi_offset 12, -2
+ 493 019e DF92      		push r13
+ 494               	.LCFI2:
+ 495               		.cfi_def_cfa_offset 4
+ 496               		.cfi_offset 13, -3
+ 497 01a0 EF92      		push r14
+ 498               	.LCFI3:
+ 499               		.cfi_def_cfa_offset 5
+ 500               		.cfi_offset 14, -4
+ 501 01a2 FF92      		push r15
+ 502               	.LCFI4:
+ 503               		.cfi_def_cfa_offset 6
+ 504               		.cfi_offset 15, -5
+ 505 01a4 CF93      		push r28
+ 506               	.LCFI5:
+ 507               		.cfi_def_cfa_offset 7
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 17
+
+
+ 508               		.cfi_offset 28, -6
+ 509 01a6 DF93      		push r29
+ 510               	.LCFI6:
+ 511               		.cfi_def_cfa_offset 8
+ 512               		.cfi_offset 29, -7
+ 513               	/* prologue: function */
+ 514               	/* frame size = 0 */
+ 515               	/* stack size = 6 */
+ 516               	.L__stack_usage = 6
+ 517 01a8 D82F      		mov r29,r24
+ 518 01aa C92F      		mov r28,r25
+ 175:src/cppTestUSART/SPI.cpp ****   //cmd(0x10);
+ 176:src/cppTestUSART/SPI.cpp ****   cmdData(0x2C);
+ 519               		.loc 1 176 0
+ 520 01ac 8CE2      		ldi r24,lo8(44)
+ 521               	.LVL27:
+ 522 01ae 0E94 0000 		call _Z7cmdDatac
+ 523               	.LVL28:
+ 524               	.LBB15:
+ 177:src/cppTestUSART/SPI.cpp ****   for (uint32_t i = 0; i < (uint32_t) LCD_WIDTH * LCD_HEIGHT; i++) {
+ 178:src/cppTestUSART/SPI.cpp ****       SPI.send(color & 0xFF);
+ 179:src/cppTestUSART/SPI.cpp ****       SPI.send((color >> 8) & 0xFF);
+ 525               		.loc 1 179 0
+ 526 01b2 C12C      		mov r12,__zero_reg__
+ 527 01b4 8CE2      		ldi r24,lo8(44)
+ 528 01b6 D82E      		mov r13,r24
+ 529 01b8 EE24      		clr r14
+ 530 01ba E394      		inc r14
+ 531 01bc F12C      		mov r15,__zero_reg__
+ 532               	.LVL29:
+ 533               	.L36:
+ 178:src/cppTestUSART/SPI.cpp ****       SPI.send((color >> 8) & 0xFF);
+ 534               		.loc 1 178 0 discriminator 2
+ 535 01be 8D2F      		mov r24,r29
+ 536 01c0 0E94 0000 		call _ZN5SPI_C4sendEc
+ 537               	.LVL30:
+ 538               		.loc 1 179 0 discriminator 2
+ 539 01c4 8C2F      		mov r24,r28
+ 540 01c6 0E94 0000 		call _ZN5SPI_C4sendEc
+ 541               	.LVL31:
+ 542 01ca 81E0      		ldi r24,1
+ 543 01cc C81A      		sub r12,r24
+ 544 01ce D108      		sbc r13,__zero_reg__
+ 545 01d0 E108      		sbc r14,__zero_reg__
+ 546 01d2 F108      		sbc r15,__zero_reg__
+ 547               	.LVL32:
+ 177:src/cppTestUSART/SPI.cpp ****   for (uint32_t i = 0; i < (uint32_t) LCD_WIDTH * LCD_HEIGHT; i++) {
+ 548               		.loc 1 177 0 discriminator 2
+ 549 01d4 01F4      		brne .L36
+ 550               	/* epilogue start */
+ 551               	.LBE15:
+ 180:src/cppTestUSART/SPI.cpp ****   }
+ 181:src/cppTestUSART/SPI.cpp ****   //cmd(0x11);
+ 182:src/cppTestUSART/SPI.cpp **** }
+ 552               		.loc 1 182 0
+ 553 01d6 DF91      		pop r29
+ 554 01d8 CF91      		pop r28
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 18
+
+
+ 555 01da FF90      		pop r15
+ 556 01dc EF90      		pop r14
+ 557 01de DF90      		pop r13
+ 558 01e0 CF90      		pop r12
+ 559               	.LVL33:
+ 560 01e2 0895      		ret
+ 561               		.cfi_endproc
+ 562               	.LFE13:
+ 563               		.size	_ZN5SPI_C5clearEs, .-_ZN5SPI_C5clearEs
+ 564               	.global	SPI
+ 565               		.section .bss
+ 566               		.type	SPI, @object
+ 567               		.size	SPI, 1
+ 568               	SPI:
+ 569 0000 00        		.zero	1
+ 570               		.text
+ 571               	.Letext0:
+ 572               		.file 3 "/Users/gregory/Desktop/gameController/avr/avr/include/stdint.h"
+ 573               		.file 4 "src/cppTestUSART/SPI.h"
+ 574               		.section	.debug_info,"",@progbits
+ 575               	.Ldebug_info0:
+ 576 0000 4204 0000 		.long	0x442
+ 577 0004 0200      		.word	0x2
+ 578 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 579 000a 04        		.byte	0x4
+ 580 000b 01        		.uleb128 0x1
+ 581 000c 0000 0000 		.long	.LASF25
+ 582 0010 04        		.byte	0x4
+ 583 0011 0000 0000 		.long	.LASF26
+ 584 0015 0000 0000 		.long	.LASF27
+ 585 0019 0000 0000 		.long	.Ltext0
+ 586 001d 0000 0000 		.long	.Letext0
+ 587 0021 0000 0000 		.long	.Ldebug_line0
+ 588 0025 02        		.uleb128 0x2
+ 589 0026 01        		.byte	0x1
+ 590 0027 06        		.byte	0x6
+ 591 0028 0000 0000 		.long	.LASF0
+ 592 002c 02        		.uleb128 0x2
+ 593 002d 01        		.byte	0x1
+ 594 002e 08        		.byte	0x8
+ 595 002f 0000 0000 		.long	.LASF1
+ 596 0033 03        		.uleb128 0x3
+ 597 0034 02        		.byte	0x2
+ 598 0035 05        		.byte	0x5
+ 599 0036 696E 7400 		.string	"int"
+ 600 003a 02        		.uleb128 0x2
+ 601 003b 02        		.byte	0x2
+ 602 003c 07        		.byte	0x7
+ 603 003d 0000 0000 		.long	.LASF2
+ 604 0041 02        		.uleb128 0x2
+ 605 0042 04        		.byte	0x4
+ 606 0043 05        		.byte	0x5
+ 607 0044 0000 0000 		.long	.LASF3
+ 608 0048 04        		.uleb128 0x4
+ 609 0049 0000 0000 		.long	.LASF7
+ 610 004d 03        		.byte	0x3
+ 611 004e 82        		.byte	0x82
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 19
+
+
+ 612 004f 5300 0000 		.long	0x53
+ 613 0053 02        		.uleb128 0x2
+ 614 0054 04        		.byte	0x4
+ 615 0055 07        		.byte	0x7
+ 616 0056 0000 0000 		.long	.LASF4
+ 617 005a 02        		.uleb128 0x2
+ 618 005b 08        		.byte	0x8
+ 619 005c 05        		.byte	0x5
+ 620 005d 0000 0000 		.long	.LASF5
+ 621 0061 02        		.uleb128 0x2
+ 622 0062 08        		.byte	0x8
+ 623 0063 07        		.byte	0x7
+ 624 0064 0000 0000 		.long	.LASF6
+ 625 0068 04        		.uleb128 0x4
+ 626 0069 0000 0000 		.long	.LASF8
+ 627 006d 04        		.byte	0x4
+ 628 006e 06        		.byte	0x6
+ 629 006f 7300 0000 		.long	0x73
+ 630 0073 02        		.uleb128 0x2
+ 631 0074 02        		.byte	0x2
+ 632 0075 07        		.byte	0x7
+ 633 0076 0000 0000 		.long	.LASF9
+ 634 007a 05        		.uleb128 0x5
+ 635 007b 0000 0000 		.long	.LASF28
+ 636 007f 01        		.byte	0x1
+ 637 0080 04        		.byte	0x4
+ 638 0081 09        		.byte	0x9
+ 639 0082 D500 0000 		.long	0xd5
+ 640 0086 06        		.uleb128 0x6
+ 641 0087 01        		.byte	0x1
+ 642 0088 0000 0000 		.long	.LASF29
+ 643 008c 04        		.byte	0x4
+ 644 008d 0B        		.byte	0xb
+ 645 008e 0000 0000 		.long	.LASF30
+ 646 0092 01        		.byte	0x1
+ 647 0093 07        		.uleb128 0x7
+ 648 0094 01        		.byte	0x1
+ 649 0095 0000 0000 		.long	.LASF10
+ 650 0099 04        		.byte	0x4
+ 651 009a 0C        		.byte	0xc
+ 652 009b 0000 0000 		.long	.LASF12
+ 653 009f 01        		.byte	0x1
+ 654 00a0 AA00 0000 		.long	0xaa
+ 655 00a4 08        		.uleb128 0x8
+ 656 00a5 D500 0000 		.long	0xd5
+ 657 00a9 00        		.byte	0
+ 658 00aa 07        		.uleb128 0x7
+ 659 00ab 01        		.byte	0x1
+ 660 00ac 0000 0000 		.long	.LASF11
+ 661 00b0 04        		.byte	0x4
+ 662 00b1 0D        		.byte	0xd
+ 663 00b2 0000 0000 		.long	.LASF13
+ 664 00b6 01        		.byte	0x1
+ 665 00b7 C100 0000 		.long	0xc1
+ 666 00bb 08        		.uleb128 0x8
+ 667 00bc DC00 0000 		.long	0xdc
+ 668 00c0 00        		.byte	0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 20
+
+
+ 669 00c1 09        		.uleb128 0x9
+ 670 00c2 01        		.byte	0x1
+ 671 00c3 0000 0000 		.long	.LASF31
+ 672 00c7 04        		.byte	0x4
+ 673 00c8 0E        		.byte	0xe
+ 674 00c9 0000 0000 		.long	.LASF32
+ 675 00cd 01        		.byte	0x1
+ 676 00ce 08        		.uleb128 0x8
+ 677 00cf 6800 0000 		.long	0x68
+ 678 00d3 00        		.byte	0
+ 679 00d4 00        		.byte	0
+ 680 00d5 02        		.uleb128 0x2
+ 681 00d6 01        		.byte	0x1
+ 682 00d7 06        		.byte	0x6
+ 683 00d8 0000 0000 		.long	.LASF14
+ 684 00dc 02        		.uleb128 0x2
+ 685 00dd 02        		.byte	0x2
+ 686 00de 05        		.byte	0x5
+ 687 00df 0000 0000 		.long	.LASF15
+ 688 00e3 0A        		.uleb128 0xa
+ 689 00e4 0000 0000 		.long	.LASF33
+ 690 00e8 02        		.byte	0x2
+ 691 00e9 A6        		.byte	0xa6
+ 692 00ea 03        		.byte	0x3
+ 693 00eb 2001 0000 		.long	0x120
+ 694 00ef 0B        		.uleb128 0xb
+ 695 00f0 0000 0000 		.long	.LASF34
+ 696 00f4 02        		.byte	0x2
+ 697 00f5 A6        		.byte	0xa6
+ 698 00f6 2001 0000 		.long	0x120
+ 699 00fa 0C        		.uleb128 0xc
+ 700 00fb 0000 0000 		.long	.LASF16
+ 701 00ff 02        		.byte	0x2
+ 702 0100 A8        		.byte	0xa8
+ 703 0101 2001 0000 		.long	0x120
+ 704 0105 0C        		.uleb128 0xc
+ 705 0106 0000 0000 		.long	.LASF17
+ 706 010a 02        		.byte	0x2
+ 707 010b AC        		.byte	0xac
+ 708 010c 4800 0000 		.long	0x48
+ 709 0110 0D        		.uleb128 0xd
+ 710 0111 01        		.byte	0x1
+ 711 0112 0000 0000 		.long	.LASF35
+ 712 0116 02        		.byte	0x2
+ 713 0117 AD        		.byte	0xad
+ 714 0118 01        		.byte	0x1
+ 715 0119 08        		.uleb128 0x8
+ 716 011a 5300 0000 		.long	0x53
+ 717 011e 00        		.byte	0
+ 718 011f 00        		.byte	0
+ 719 0120 02        		.uleb128 0x2
+ 720 0121 04        		.byte	0x4
+ 721 0122 04        		.byte	0x4
+ 722 0123 0000 0000 		.long	.LASF18
+ 723 0127 0E        		.uleb128 0xe
+ 724 0128 01        		.byte	0x1
+ 725 0129 0000 0000 		.long	.LASF36
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 21
+
+
+ 726 012d 01        		.byte	0x1
+ 727 012e 1A        		.byte	0x1a
+ 728 012f 0000 0000 		.long	.LASF37
+ 729 0133 0000 0000 		.long	.LFB6
+ 730 0137 0000 0000 		.long	.LFE6
+ 731 013b 03        		.byte	0x3
+ 732 013c 92        		.byte	0x92
+ 733 013d 20        		.uleb128 0x20
+ 734 013e 02        		.sleb128 2
+ 735 013f 01        		.byte	0x1
+ 736 0140 0F        		.uleb128 0xf
+ 737 0141 C100 0000 		.long	0xc1
+ 738 0145 01        		.byte	0x1
+ 739 0146 54        		.byte	0x54
+ 740 0147 0000 0000 		.long	.LFB10
+ 741 014b 0000 0000 		.long	.LFE10
+ 742 014f 03        		.byte	0x3
+ 743 0150 92        		.byte	0x92
+ 744 0151 20        		.uleb128 0x20
+ 745 0152 02        		.sleb128 2
+ 746 0153 01        		.byte	0x1
+ 747 0154 8201 0000 		.long	0x182
+ 748 0158 10        		.uleb128 0x10
+ 749 0159 0000 0000 		.long	.LASF19
+ 750 015d 01        		.byte	0x1
+ 751 015e 54        		.byte	0x54
+ 752 015f 6800 0000 		.long	0x68
+ 753 0163 06        		.byte	0x6
+ 754 0164 68        		.byte	0x68
+ 755 0165 93        		.byte	0x93
+ 756 0166 01        		.uleb128 0x1
+ 757 0167 69        		.byte	0x69
+ 758 0168 93        		.byte	0x93
+ 759 0169 01        		.uleb128 0x1
+ 760 016a 11        		.uleb128 0x11
+ 761 016b 0000 0000 		.long	.LBB8
+ 762 016f 0000 0000 		.long	.LBE8
+ 763 0173 12        		.uleb128 0x12
+ 764 0174 6900      		.string	"i"
+ 765 0176 01        		.byte	0x1
+ 766 0177 61        		.byte	0x61
+ 767 0178 5300 0000 		.long	0x53
+ 768 017c 0000 0000 		.long	.LLST0
+ 769 0180 00        		.byte	0
+ 770 0181 00        		.byte	0
+ 771 0182 0F        		.uleb128 0xf
+ 772 0183 9300 0000 		.long	0x93
+ 773 0187 01        		.byte	0x1
+ 774 0188 A6        		.byte	0xa6
+ 775 0189 0000 0000 		.long	.LFB12
+ 776 018d 0000 0000 		.long	.LFE12
+ 777 0191 03        		.byte	0x3
+ 778 0192 92        		.byte	0x92
+ 779 0193 20        		.uleb128 0x20
+ 780 0194 02        		.sleb128 2
+ 781 0195 01        		.byte	0x1
+ 782 0196 A801 0000 		.long	0x1a8
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 22
+
+
+ 783 019a 10        		.uleb128 0x10
+ 784 019b 0000 0000 		.long	.LASF20
+ 785 019f 01        		.byte	0x1
+ 786 01a0 A6        		.byte	0xa6
+ 787 01a1 D500 0000 		.long	0xd5
+ 788 01a5 01        		.byte	0x1
+ 789 01a6 68        		.byte	0x68
+ 790 01a7 00        		.byte	0
+ 791 01a8 13        		.uleb128 0x13
+ 792 01a9 01        		.byte	0x1
+ 793 01aa 636D 6400 		.string	"cmd"
+ 794 01ae 01        		.byte	0x1
+ 795 01af 22        		.byte	0x22
+ 796 01b0 0000 0000 		.long	.LASF38
+ 797 01b4 0000 0000 		.long	.LFB7
+ 798 01b8 0000 0000 		.long	.LFE7
+ 799 01bc 03        		.byte	0x3
+ 800 01bd 92        		.byte	0x92
+ 801 01be 20        		.uleb128 0x20
+ 802 01bf 02        		.sleb128 2
+ 803 01c0 01        		.byte	0x1
+ 804 01c1 E701 0000 		.long	0x1e7
+ 805 01c5 14        		.uleb128 0x14
+ 806 01c6 636D 6400 		.string	"cmd"
+ 807 01ca 01        		.byte	0x1
+ 808 01cb 22        		.byte	0x22
+ 809 01cc D500 0000 		.long	0xd5
+ 810 01d0 0000 0000 		.long	.LLST1
+ 811 01d4 15        		.uleb128 0x15
+ 812 01d5 0000 0000 		.long	.LVL7
+ 813 01d9 01        		.byte	0x1
+ 814 01da 8201 0000 		.long	0x182
+ 815 01de 16        		.uleb128 0x16
+ 816 01df 01        		.byte	0x1
+ 817 01e0 68        		.byte	0x68
+ 818 01e1 03        		.byte	0x3
+ 819 01e2 F3        		.byte	0xf3
+ 820 01e3 01        		.uleb128 0x1
+ 821 01e4 68        		.byte	0x68
+ 822 01e5 00        		.byte	0
+ 823 01e6 00        		.byte	0
+ 824 01e7 17        		.uleb128 0x17
+ 825 01e8 01        		.byte	0x1
+ 826 01e9 0000 0000 		.long	.LASF21
+ 827 01ed 01        		.byte	0x1
+ 828 01ee 28        		.byte	0x28
+ 829 01ef 0000 0000 		.long	.LASF22
+ 830 01f3 0000 0000 		.long	.LFB8
+ 831 01f7 0000 0000 		.long	.LFE8
+ 832 01fb 03        		.byte	0x3
+ 833 01fc 92        		.byte	0x92
+ 834 01fd 20        		.uleb128 0x20
+ 835 01fe 02        		.sleb128 2
+ 836 01ff 01        		.byte	0x1
+ 837 0200 2502 0000 		.long	0x225
+ 838 0204 14        		.uleb128 0x14
+ 839 0205 636D 6400 		.string	"cmd"
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 23
+
+
+ 840 0209 01        		.byte	0x1
+ 841 020a 28        		.byte	0x28
+ 842 020b D500 0000 		.long	0xd5
+ 843 020f 0000 0000 		.long	.LLST2
+ 844 0213 18        		.uleb128 0x18
+ 845 0214 0000 0000 		.long	.LVL9
+ 846 0218 8201 0000 		.long	0x182
+ 847 021c 16        		.uleb128 0x16
+ 848 021d 01        		.byte	0x1
+ 849 021e 68        		.byte	0x68
+ 850 021f 03        		.byte	0x3
+ 851 0220 F3        		.byte	0xf3
+ 852 0221 01        		.uleb128 0x1
+ 853 0222 68        		.byte	0x68
+ 854 0223 00        		.byte	0
+ 855 0224 00        		.byte	0
+ 856 0225 19        		.uleb128 0x19
+ 857 0226 01        		.byte	0x1
+ 858 0227 0000 0000 		.long	.LASF21
+ 859 022b 01        		.byte	0x1
+ 860 022c 31        		.byte	0x31
+ 861 022d 0000 0000 		.long	.LASF23
+ 862 0231 0000 0000 		.long	.LFB9
+ 863 0235 0000 0000 		.long	.LFE9
+ 864 0239 0000 0000 		.long	.LLST3
+ 865 023d 01        		.byte	0x1
+ 866 023e 7C02 0000 		.long	0x27c
+ 867 0242 14        		.uleb128 0x14
+ 868 0243 636D 6400 		.string	"cmd"
+ 869 0247 01        		.byte	0x1
+ 870 0248 31        		.byte	0x31
+ 871 0249 D500 0000 		.long	0xd5
+ 872 024d 0000 0000 		.long	.LLST4
+ 873 0251 1A        		.uleb128 0x1a
+ 874 0252 0000 0000 		.long	.LASF24
+ 875 0256 01        		.byte	0x1
+ 876 0257 31        		.byte	0x31
+ 877 0258 D500 0000 		.long	0xd5
+ 878 025c 0000 0000 		.long	.LLST5
+ 879 0260 1B        		.uleb128 0x1b
+ 880 0261 0000 0000 		.long	.LVL11
+ 881 0265 8201 0000 		.long	0x182
+ 882 0269 15        		.uleb128 0x15
+ 883 026a 0000 0000 		.long	.LVL13
+ 884 026e 01        		.byte	0x1
+ 885 026f 8201 0000 		.long	0x182
+ 886 0273 16        		.uleb128 0x16
+ 887 0274 01        		.byte	0x1
+ 888 0275 68        		.byte	0x68
+ 889 0276 03        		.byte	0x3
+ 890 0277 F3        		.byte	0xf3
+ 891 0278 01        		.uleb128 0x1
+ 892 0279 66        		.byte	0x66
+ 893 027a 00        		.byte	0
+ 894 027b 00        		.byte	0
+ 895 027c 0F        		.uleb128 0xf
+ 896 027d 8600 0000 		.long	0x86
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 24
+
+
+ 897 0281 01        		.byte	0x1
+ 898 0282 7C        		.byte	0x7c
+ 899 0283 0000 0000 		.long	.LFB11
+ 900 0287 0000 0000 		.long	.LFE11
+ 901 028b 03        		.byte	0x3
+ 902 028c 92        		.byte	0x92
+ 903 028d 20        		.uleb128 0x20
+ 904 028e 02        		.sleb128 2
+ 905 028f 01        		.byte	0x1
+ 906 0290 AC03 0000 		.long	0x3ac
+ 907 0294 1C        		.uleb128 0x1c
+ 908 0295 E300 0000 		.long	0xe3
+ 909 0299 0000 0000 		.long	.LBB9
+ 910 029d 0000 0000 		.long	.LBE9
+ 911 02a1 01        		.byte	0x1
+ 912 02a2 8E        		.byte	0x8e
+ 913 02a3 CD02 0000 		.long	0x2cd
+ 914 02a7 1D        		.uleb128 0x1d
+ 915 02a8 EF00 0000 		.long	0xef
+ 916 02ac 0000 0000 		.long	.LLST6
+ 917 02b0 11        		.uleb128 0x11
+ 918 02b1 0000 0000 		.long	.LBB10
+ 919 02b5 0000 0000 		.long	.LBE10
+ 920 02b9 1E        		.uleb128 0x1e
+ 921 02ba FA00 0000 		.long	0xfa
+ 922 02be 0000 0000 		.long	.LLST7
+ 923 02c2 1E        		.uleb128 0x1e
+ 924 02c3 0501 0000 		.long	0x105
+ 925 02c7 0000 0000 		.long	.LLST8
+ 926 02cb 00        		.byte	0
+ 927 02cc 00        		.byte	0
+ 928 02cd 1C        		.uleb128 0x1c
+ 929 02ce E300 0000 		.long	0xe3
+ 930 02d2 0000 0000 		.long	.LBB11
+ 931 02d6 0000 0000 		.long	.LBE11
+ 932 02da 01        		.byte	0x1
+ 933 02db 90        		.byte	0x90
+ 934 02dc 0603 0000 		.long	0x306
+ 935 02e0 1D        		.uleb128 0x1d
+ 936 02e1 EF00 0000 		.long	0xef
+ 937 02e5 0000 0000 		.long	.LLST9
+ 938 02e9 11        		.uleb128 0x11
+ 939 02ea 0000 0000 		.long	.LBB12
+ 940 02ee 0000 0000 		.long	.LBE12
+ 941 02f2 1E        		.uleb128 0x1e
+ 942 02f3 FA00 0000 		.long	0xfa
+ 943 02f7 0000 0000 		.long	.LLST10
+ 944 02fb 1E        		.uleb128 0x1e
+ 945 02fc 0501 0000 		.long	0x105
+ 946 0300 0000 0000 		.long	.LLST11
+ 947 0304 00        		.byte	0
+ 948 0305 00        		.byte	0
+ 949 0306 1C        		.uleb128 0x1c
+ 950 0307 E300 0000 		.long	0xe3
+ 951 030b 0000 0000 		.long	.LBB13
+ 952 030f 0000 0000 		.long	.LBE13
+ 953 0313 01        		.byte	0x1
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 25
+
+
+ 954 0314 92        		.byte	0x92
+ 955 0315 3F03 0000 		.long	0x33f
+ 956 0319 1D        		.uleb128 0x1d
+ 957 031a EF00 0000 		.long	0xef
+ 958 031e 0000 0000 		.long	.LLST12
+ 959 0322 11        		.uleb128 0x11
+ 960 0323 0000 0000 		.long	.LBB14
+ 961 0327 0000 0000 		.long	.LBE14
+ 962 032b 1E        		.uleb128 0x1e
+ 963 032c FA00 0000 		.long	0xfa
+ 964 0330 0000 0000 		.long	.LLST13
+ 965 0334 1E        		.uleb128 0x1e
+ 966 0335 0501 0000 		.long	0x105
+ 967 0339 0000 0000 		.long	.LLST14
+ 968 033d 00        		.byte	0
+ 969 033e 00        		.byte	0
+ 970 033f 1F        		.uleb128 0x1f
+ 971 0340 0000 0000 		.long	.LVL20
+ 972 0344 8201 0000 		.long	0x182
+ 973 0348 5303 0000 		.long	0x353
+ 974 034c 16        		.uleb128 0x16
+ 975 034d 01        		.byte	0x1
+ 976 034e 68        		.byte	0x68
+ 977 034f 02        		.byte	0x2
+ 978 0350 08        		.byte	0x8
+ 979 0351 3A        		.byte	0x3a
+ 980 0352 00        		.byte	0
+ 981 0353 1F        		.uleb128 0x1f
+ 982 0354 0000 0000 		.long	.LVL21
+ 983 0358 8201 0000 		.long	0x182
+ 984 035c 6603 0000 		.long	0x366
+ 985 0360 16        		.uleb128 0x16
+ 986 0361 01        		.byte	0x1
+ 987 0362 68        		.byte	0x68
+ 988 0363 01        		.byte	0x1
+ 989 0364 35        		.byte	0x35
+ 990 0365 00        		.byte	0
+ 991 0366 1F        		.uleb128 0x1f
+ 992 0367 0000 0000 		.long	.LVL22
+ 993 036b A801 0000 		.long	0x1a8
+ 994 036f 7903 0000 		.long	0x379
+ 995 0373 16        		.uleb128 0x16
+ 996 0374 01        		.byte	0x1
+ 997 0375 68        		.byte	0x68
+ 998 0376 01        		.byte	0x1
+ 999 0377 41        		.byte	0x41
+ 1000 0378 00        		.byte	0
+ 1001 0379 1F        		.uleb128 0x1f
+ 1002 037a 0000 0000 		.long	.LVL23
+ 1003 037e A801 0000 		.long	0x1a8
+ 1004 0382 8D03 0000 		.long	0x38d
+ 1005 0386 16        		.uleb128 0x16
+ 1006 0387 01        		.byte	0x1
+ 1007 0388 68        		.byte	0x68
+ 1008 0389 02        		.byte	0x2
+ 1009 038a 08        		.byte	0x8
+ 1010 038b 29        		.byte	0x29
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 26
+
+
+ 1011 038c 00        		.byte	0
+ 1012 038d 1F        		.uleb128 0x1f
+ 1013 038e 0000 0000 		.long	.LVL24
+ 1014 0392 A801 0000 		.long	0x1a8
+ 1015 0396 A103 0000 		.long	0x3a1
+ 1016 039a 16        		.uleb128 0x16
+ 1017 039b 01        		.byte	0x1
+ 1018 039c 68        		.byte	0x68
+ 1019 039d 02        		.byte	0x2
+ 1020 039e 08        		.byte	0x8
+ 1021 039f 21        		.byte	0x21
+ 1022 03a0 00        		.byte	0
+ 1023 03a1 20        		.uleb128 0x20
+ 1024 03a2 0000 0000 		.long	.LVL25
+ 1025 03a6 01        		.byte	0x1
+ 1026 03a7 2701 0000 		.long	0x127
+ 1027 03ab 00        		.byte	0
+ 1028 03ac 21        		.uleb128 0x21
+ 1029 03ad 1001 0000 		.long	0x110
+ 1030 03b1 00        		.byte	0
+ 1031 03b2 BC03 0000 		.long	0x3bc
+ 1032 03b6 08        		.uleb128 0x8
+ 1033 03b7 5300 0000 		.long	0x53
+ 1034 03bb 00        		.byte	0
+ 1035 03bc 22        		.uleb128 0x22
+ 1036 03bd AA00 0000 		.long	0xaa
+ 1037 03c1 01        		.byte	0x1
+ 1038 03c2 AE        		.byte	0xae
+ 1039 03c3 0000 0000 		.long	.LFB13
+ 1040 03c7 0000 0000 		.long	.LFE13
+ 1041 03cb 0000 0000 		.long	.LLST15
+ 1042 03cf 01        		.byte	0x1
+ 1043 03d0 3304 0000 		.long	0x433
+ 1044 03d4 1A        		.uleb128 0x1a
+ 1045 03d5 0000 0000 		.long	.LASF19
+ 1046 03d9 01        		.byte	0x1
+ 1047 03da AE        		.byte	0xae
+ 1048 03db DC00 0000 		.long	0xdc
+ 1049 03df 0000 0000 		.long	.LLST16
+ 1050 03e3 23        		.uleb128 0x23
+ 1051 03e4 0000 0000 		.long	.LBB15
+ 1052 03e8 0000 0000 		.long	.LBE15
+ 1053 03ec 2204 0000 		.long	0x422
+ 1054 03f0 12        		.uleb128 0x12
+ 1055 03f1 6900      		.string	"i"
+ 1056 03f3 01        		.byte	0x1
+ 1057 03f4 B1        		.byte	0xb1
+ 1058 03f5 4800 0000 		.long	0x48
+ 1059 03f9 0000 0000 		.long	.LLST17
+ 1060 03fd 1F        		.uleb128 0x1f
+ 1061 03fe 0000 0000 		.long	.LVL30
+ 1062 0402 8201 0000 		.long	0x182
+ 1063 0406 1104 0000 		.long	0x411
+ 1064 040a 16        		.uleb128 0x16
+ 1065 040b 01        		.byte	0x1
+ 1066 040c 68        		.byte	0x68
+ 1067 040d 02        		.byte	0x2
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 27
+
+
+ 1068 040e 8D        		.byte	0x8d
+ 1069 040f 00        		.sleb128 0
+ 1070 0410 00        		.byte	0
+ 1071 0411 18        		.uleb128 0x18
+ 1072 0412 0000 0000 		.long	.LVL31
+ 1073 0416 8201 0000 		.long	0x182
+ 1074 041a 16        		.uleb128 0x16
+ 1075 041b 01        		.byte	0x1
+ 1076 041c 68        		.byte	0x68
+ 1077 041d 02        		.byte	0x2
+ 1078 041e 8C        		.byte	0x8c
+ 1079 041f 00        		.sleb128 0
+ 1080 0420 00        		.byte	0
+ 1081 0421 00        		.byte	0
+ 1082 0422 18        		.uleb128 0x18
+ 1083 0423 0000 0000 		.long	.LVL28
+ 1084 0427 E701 0000 		.long	0x1e7
+ 1085 042b 16        		.uleb128 0x16
+ 1086 042c 01        		.byte	0x1
+ 1087 042d 68        		.byte	0x68
+ 1088 042e 02        		.byte	0x2
+ 1089 042f 08        		.byte	0x8
+ 1090 0430 2C        		.byte	0x2c
+ 1091 0431 00        		.byte	0
+ 1092 0432 00        		.byte	0
+ 1093 0433 24        		.uleb128 0x24
+ 1094 0434 5350 4900 		.string	"SPI"
+ 1095 0438 01        		.byte	0x1
+ 1096 0439 B8        		.byte	0xb8
+ 1097 043a 7A00 0000 		.long	0x7a
+ 1098 043e 01        		.byte	0x1
+ 1099 043f 05        		.byte	0x5
+ 1100 0440 03        		.byte	0x3
+ 1101 0441 0000 0000 		.long	SPI
+ 1102 0445 00        		.byte	0
+ 1103               		.section	.debug_abbrev,"",@progbits
+ 1104               	.Ldebug_abbrev0:
+ 1105 0000 01        		.uleb128 0x1
+ 1106 0001 11        		.uleb128 0x11
+ 1107 0002 01        		.byte	0x1
+ 1108 0003 25        		.uleb128 0x25
+ 1109 0004 0E        		.uleb128 0xe
+ 1110 0005 13        		.uleb128 0x13
+ 1111 0006 0B        		.uleb128 0xb
+ 1112 0007 03        		.uleb128 0x3
+ 1113 0008 0E        		.uleb128 0xe
+ 1114 0009 1B        		.uleb128 0x1b
+ 1115 000a 0E        		.uleb128 0xe
+ 1116 000b 11        		.uleb128 0x11
+ 1117 000c 01        		.uleb128 0x1
+ 1118 000d 12        		.uleb128 0x12
+ 1119 000e 01        		.uleb128 0x1
+ 1120 000f 10        		.uleb128 0x10
+ 1121 0010 06        		.uleb128 0x6
+ 1122 0011 00        		.byte	0
+ 1123 0012 00        		.byte	0
+ 1124 0013 02        		.uleb128 0x2
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 28
+
+
+ 1125 0014 24        		.uleb128 0x24
+ 1126 0015 00        		.byte	0
+ 1127 0016 0B        		.uleb128 0xb
+ 1128 0017 0B        		.uleb128 0xb
+ 1129 0018 3E        		.uleb128 0x3e
+ 1130 0019 0B        		.uleb128 0xb
+ 1131 001a 03        		.uleb128 0x3
+ 1132 001b 0E        		.uleb128 0xe
+ 1133 001c 00        		.byte	0
+ 1134 001d 00        		.byte	0
+ 1135 001e 03        		.uleb128 0x3
+ 1136 001f 24        		.uleb128 0x24
+ 1137 0020 00        		.byte	0
+ 1138 0021 0B        		.uleb128 0xb
+ 1139 0022 0B        		.uleb128 0xb
+ 1140 0023 3E        		.uleb128 0x3e
+ 1141 0024 0B        		.uleb128 0xb
+ 1142 0025 03        		.uleb128 0x3
+ 1143 0026 08        		.uleb128 0x8
+ 1144 0027 00        		.byte	0
+ 1145 0028 00        		.byte	0
+ 1146 0029 04        		.uleb128 0x4
+ 1147 002a 16        		.uleb128 0x16
+ 1148 002b 00        		.byte	0
+ 1149 002c 03        		.uleb128 0x3
+ 1150 002d 0E        		.uleb128 0xe
+ 1151 002e 3A        		.uleb128 0x3a
+ 1152 002f 0B        		.uleb128 0xb
+ 1153 0030 3B        		.uleb128 0x3b
+ 1154 0031 0B        		.uleb128 0xb
+ 1155 0032 49        		.uleb128 0x49
+ 1156 0033 13        		.uleb128 0x13
+ 1157 0034 00        		.byte	0
+ 1158 0035 00        		.byte	0
+ 1159 0036 05        		.uleb128 0x5
+ 1160 0037 02        		.uleb128 0x2
+ 1161 0038 01        		.byte	0x1
+ 1162 0039 03        		.uleb128 0x3
+ 1163 003a 0E        		.uleb128 0xe
+ 1164 003b 0B        		.uleb128 0xb
+ 1165 003c 0B        		.uleb128 0xb
+ 1166 003d 3A        		.uleb128 0x3a
+ 1167 003e 0B        		.uleb128 0xb
+ 1168 003f 3B        		.uleb128 0x3b
+ 1169 0040 0B        		.uleb128 0xb
+ 1170 0041 01        		.uleb128 0x1
+ 1171 0042 13        		.uleb128 0x13
+ 1172 0043 00        		.byte	0
+ 1173 0044 00        		.byte	0
+ 1174 0045 06        		.uleb128 0x6
+ 1175 0046 2E        		.uleb128 0x2e
+ 1176 0047 00        		.byte	0
+ 1177 0048 3F        		.uleb128 0x3f
+ 1178 0049 0C        		.uleb128 0xc
+ 1179 004a 03        		.uleb128 0x3
+ 1180 004b 0E        		.uleb128 0xe
+ 1181 004c 3A        		.uleb128 0x3a
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 29
+
+
+ 1182 004d 0B        		.uleb128 0xb
+ 1183 004e 3B        		.uleb128 0x3b
+ 1184 004f 0B        		.uleb128 0xb
+ 1185 0050 8740      		.uleb128 0x2007
+ 1186 0052 0E        		.uleb128 0xe
+ 1187 0053 3C        		.uleb128 0x3c
+ 1188 0054 0C        		.uleb128 0xc
+ 1189 0055 00        		.byte	0
+ 1190 0056 00        		.byte	0
+ 1191 0057 07        		.uleb128 0x7
+ 1192 0058 2E        		.uleb128 0x2e
+ 1193 0059 01        		.byte	0x1
+ 1194 005a 3F        		.uleb128 0x3f
+ 1195 005b 0C        		.uleb128 0xc
+ 1196 005c 03        		.uleb128 0x3
+ 1197 005d 0E        		.uleb128 0xe
+ 1198 005e 3A        		.uleb128 0x3a
+ 1199 005f 0B        		.uleb128 0xb
+ 1200 0060 3B        		.uleb128 0x3b
+ 1201 0061 0B        		.uleb128 0xb
+ 1202 0062 8740      		.uleb128 0x2007
+ 1203 0064 0E        		.uleb128 0xe
+ 1204 0065 3C        		.uleb128 0x3c
+ 1205 0066 0C        		.uleb128 0xc
+ 1206 0067 01        		.uleb128 0x1
+ 1207 0068 13        		.uleb128 0x13
+ 1208 0069 00        		.byte	0
+ 1209 006a 00        		.byte	0
+ 1210 006b 08        		.uleb128 0x8
+ 1211 006c 05        		.uleb128 0x5
+ 1212 006d 00        		.byte	0
+ 1213 006e 49        		.uleb128 0x49
+ 1214 006f 13        		.uleb128 0x13
+ 1215 0070 00        		.byte	0
+ 1216 0071 00        		.byte	0
+ 1217 0072 09        		.uleb128 0x9
+ 1218 0073 2E        		.uleb128 0x2e
+ 1219 0074 01        		.byte	0x1
+ 1220 0075 3F        		.uleb128 0x3f
+ 1221 0076 0C        		.uleb128 0xc
+ 1222 0077 03        		.uleb128 0x3
+ 1223 0078 0E        		.uleb128 0xe
+ 1224 0079 3A        		.uleb128 0x3a
+ 1225 007a 0B        		.uleb128 0xb
+ 1226 007b 3B        		.uleb128 0x3b
+ 1227 007c 0B        		.uleb128 0xb
+ 1228 007d 8740      		.uleb128 0x2007
+ 1229 007f 0E        		.uleb128 0xe
+ 1230 0080 3C        		.uleb128 0x3c
+ 1231 0081 0C        		.uleb128 0xc
+ 1232 0082 00        		.byte	0
+ 1233 0083 00        		.byte	0
+ 1234 0084 0A        		.uleb128 0xa
+ 1235 0085 2E        		.uleb128 0x2e
+ 1236 0086 01        		.byte	0x1
+ 1237 0087 03        		.uleb128 0x3
+ 1238 0088 0E        		.uleb128 0xe
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 30
+
+
+ 1239 0089 3A        		.uleb128 0x3a
+ 1240 008a 0B        		.uleb128 0xb
+ 1241 008b 3B        		.uleb128 0x3b
+ 1242 008c 0B        		.uleb128 0xb
+ 1243 008d 20        		.uleb128 0x20
+ 1244 008e 0B        		.uleb128 0xb
+ 1245 008f 01        		.uleb128 0x1
+ 1246 0090 13        		.uleb128 0x13
+ 1247 0091 00        		.byte	0
+ 1248 0092 00        		.byte	0
+ 1249 0093 0B        		.uleb128 0xb
+ 1250 0094 05        		.uleb128 0x5
+ 1251 0095 00        		.byte	0
+ 1252 0096 03        		.uleb128 0x3
+ 1253 0097 0E        		.uleb128 0xe
+ 1254 0098 3A        		.uleb128 0x3a
+ 1255 0099 0B        		.uleb128 0xb
+ 1256 009a 3B        		.uleb128 0x3b
+ 1257 009b 0B        		.uleb128 0xb
+ 1258 009c 49        		.uleb128 0x49
+ 1259 009d 13        		.uleb128 0x13
+ 1260 009e 00        		.byte	0
+ 1261 009f 00        		.byte	0
+ 1262 00a0 0C        		.uleb128 0xc
+ 1263 00a1 34        		.uleb128 0x34
+ 1264 00a2 00        		.byte	0
+ 1265 00a3 03        		.uleb128 0x3
+ 1266 00a4 0E        		.uleb128 0xe
+ 1267 00a5 3A        		.uleb128 0x3a
+ 1268 00a6 0B        		.uleb128 0xb
+ 1269 00a7 3B        		.uleb128 0x3b
+ 1270 00a8 0B        		.uleb128 0xb
+ 1271 00a9 49        		.uleb128 0x49
+ 1272 00aa 13        		.uleb128 0x13
+ 1273 00ab 00        		.byte	0
+ 1274 00ac 00        		.byte	0
+ 1275 00ad 0D        		.uleb128 0xd
+ 1276 00ae 2E        		.uleb128 0x2e
+ 1277 00af 01        		.byte	0x1
+ 1278 00b0 3F        		.uleb128 0x3f
+ 1279 00b1 0C        		.uleb128 0xc
+ 1280 00b2 03        		.uleb128 0x3
+ 1281 00b3 0E        		.uleb128 0xe
+ 1282 00b4 3A        		.uleb128 0x3a
+ 1283 00b5 0B        		.uleb128 0xb
+ 1284 00b6 3B        		.uleb128 0x3b
+ 1285 00b7 0B        		.uleb128 0xb
+ 1286 00b8 3C        		.uleb128 0x3c
+ 1287 00b9 0C        		.uleb128 0xc
+ 1288 00ba 00        		.byte	0
+ 1289 00bb 00        		.byte	0
+ 1290 00bc 0E        		.uleb128 0xe
+ 1291 00bd 2E        		.uleb128 0x2e
+ 1292 00be 00        		.byte	0
+ 1293 00bf 3F        		.uleb128 0x3f
+ 1294 00c0 0C        		.uleb128 0xc
+ 1295 00c1 03        		.uleb128 0x3
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 31
+
+
+ 1296 00c2 0E        		.uleb128 0xe
+ 1297 00c3 3A        		.uleb128 0x3a
+ 1298 00c4 0B        		.uleb128 0xb
+ 1299 00c5 3B        		.uleb128 0x3b
+ 1300 00c6 0B        		.uleb128 0xb
+ 1301 00c7 8740      		.uleb128 0x2007
+ 1302 00c9 0E        		.uleb128 0xe
+ 1303 00ca 11        		.uleb128 0x11
+ 1304 00cb 01        		.uleb128 0x1
+ 1305 00cc 12        		.uleb128 0x12
+ 1306 00cd 01        		.uleb128 0x1
+ 1307 00ce 40        		.uleb128 0x40
+ 1308 00cf 0A        		.uleb128 0xa
+ 1309 00d0 9742      		.uleb128 0x2117
+ 1310 00d2 0C        		.uleb128 0xc
+ 1311 00d3 00        		.byte	0
+ 1312 00d4 00        		.byte	0
+ 1313 00d5 0F        		.uleb128 0xf
+ 1314 00d6 2E        		.uleb128 0x2e
+ 1315 00d7 01        		.byte	0x1
+ 1316 00d8 47        		.uleb128 0x47
+ 1317 00d9 13        		.uleb128 0x13
+ 1318 00da 3A        		.uleb128 0x3a
+ 1319 00db 0B        		.uleb128 0xb
+ 1320 00dc 3B        		.uleb128 0x3b
+ 1321 00dd 0B        		.uleb128 0xb
+ 1322 00de 11        		.uleb128 0x11
+ 1323 00df 01        		.uleb128 0x1
+ 1324 00e0 12        		.uleb128 0x12
+ 1325 00e1 01        		.uleb128 0x1
+ 1326 00e2 40        		.uleb128 0x40
+ 1327 00e3 0A        		.uleb128 0xa
+ 1328 00e4 9742      		.uleb128 0x2117
+ 1329 00e6 0C        		.uleb128 0xc
+ 1330 00e7 01        		.uleb128 0x1
+ 1331 00e8 13        		.uleb128 0x13
+ 1332 00e9 00        		.byte	0
+ 1333 00ea 00        		.byte	0
+ 1334 00eb 10        		.uleb128 0x10
+ 1335 00ec 05        		.uleb128 0x5
+ 1336 00ed 00        		.byte	0
+ 1337 00ee 03        		.uleb128 0x3
+ 1338 00ef 0E        		.uleb128 0xe
+ 1339 00f0 3A        		.uleb128 0x3a
+ 1340 00f1 0B        		.uleb128 0xb
+ 1341 00f2 3B        		.uleb128 0x3b
+ 1342 00f3 0B        		.uleb128 0xb
+ 1343 00f4 49        		.uleb128 0x49
+ 1344 00f5 13        		.uleb128 0x13
+ 1345 00f6 02        		.uleb128 0x2
+ 1346 00f7 0A        		.uleb128 0xa
+ 1347 00f8 00        		.byte	0
+ 1348 00f9 00        		.byte	0
+ 1349 00fa 11        		.uleb128 0x11
+ 1350 00fb 0B        		.uleb128 0xb
+ 1351 00fc 01        		.byte	0x1
+ 1352 00fd 11        		.uleb128 0x11
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 32
+
+
+ 1353 00fe 01        		.uleb128 0x1
+ 1354 00ff 12        		.uleb128 0x12
+ 1355 0100 01        		.uleb128 0x1
+ 1356 0101 00        		.byte	0
+ 1357 0102 00        		.byte	0
+ 1358 0103 12        		.uleb128 0x12
+ 1359 0104 34        		.uleb128 0x34
+ 1360 0105 00        		.byte	0
+ 1361 0106 03        		.uleb128 0x3
+ 1362 0107 08        		.uleb128 0x8
+ 1363 0108 3A        		.uleb128 0x3a
+ 1364 0109 0B        		.uleb128 0xb
+ 1365 010a 3B        		.uleb128 0x3b
+ 1366 010b 0B        		.uleb128 0xb
+ 1367 010c 49        		.uleb128 0x49
+ 1368 010d 13        		.uleb128 0x13
+ 1369 010e 02        		.uleb128 0x2
+ 1370 010f 06        		.uleb128 0x6
+ 1371 0110 00        		.byte	0
+ 1372 0111 00        		.byte	0
+ 1373 0112 13        		.uleb128 0x13
+ 1374 0113 2E        		.uleb128 0x2e
+ 1375 0114 01        		.byte	0x1
+ 1376 0115 3F        		.uleb128 0x3f
+ 1377 0116 0C        		.uleb128 0xc
+ 1378 0117 03        		.uleb128 0x3
+ 1379 0118 08        		.uleb128 0x8
+ 1380 0119 3A        		.uleb128 0x3a
+ 1381 011a 0B        		.uleb128 0xb
+ 1382 011b 3B        		.uleb128 0x3b
+ 1383 011c 0B        		.uleb128 0xb
+ 1384 011d 8740      		.uleb128 0x2007
+ 1385 011f 0E        		.uleb128 0xe
+ 1386 0120 11        		.uleb128 0x11
+ 1387 0121 01        		.uleb128 0x1
+ 1388 0122 12        		.uleb128 0x12
+ 1389 0123 01        		.uleb128 0x1
+ 1390 0124 40        		.uleb128 0x40
+ 1391 0125 0A        		.uleb128 0xa
+ 1392 0126 9742      		.uleb128 0x2117
+ 1393 0128 0C        		.uleb128 0xc
+ 1394 0129 01        		.uleb128 0x1
+ 1395 012a 13        		.uleb128 0x13
+ 1396 012b 00        		.byte	0
+ 1397 012c 00        		.byte	0
+ 1398 012d 14        		.uleb128 0x14
+ 1399 012e 05        		.uleb128 0x5
+ 1400 012f 00        		.byte	0
+ 1401 0130 03        		.uleb128 0x3
+ 1402 0131 08        		.uleb128 0x8
+ 1403 0132 3A        		.uleb128 0x3a
+ 1404 0133 0B        		.uleb128 0xb
+ 1405 0134 3B        		.uleb128 0x3b
+ 1406 0135 0B        		.uleb128 0xb
+ 1407 0136 49        		.uleb128 0x49
+ 1408 0137 13        		.uleb128 0x13
+ 1409 0138 02        		.uleb128 0x2
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 33
+
+
+ 1410 0139 06        		.uleb128 0x6
+ 1411 013a 00        		.byte	0
+ 1412 013b 00        		.byte	0
+ 1413 013c 15        		.uleb128 0x15
+ 1414 013d 8982 01   		.uleb128 0x4109
+ 1415 0140 01        		.byte	0x1
+ 1416 0141 11        		.uleb128 0x11
+ 1417 0142 01        		.uleb128 0x1
+ 1418 0143 9542      		.uleb128 0x2115
+ 1419 0145 0C        		.uleb128 0xc
+ 1420 0146 31        		.uleb128 0x31
+ 1421 0147 13        		.uleb128 0x13
+ 1422 0148 00        		.byte	0
+ 1423 0149 00        		.byte	0
+ 1424 014a 16        		.uleb128 0x16
+ 1425 014b 8A82 01   		.uleb128 0x410a
+ 1426 014e 00        		.byte	0
+ 1427 014f 02        		.uleb128 0x2
+ 1428 0150 0A        		.uleb128 0xa
+ 1429 0151 9142      		.uleb128 0x2111
+ 1430 0153 0A        		.uleb128 0xa
+ 1431 0154 00        		.byte	0
+ 1432 0155 00        		.byte	0
+ 1433 0156 17        		.uleb128 0x17
+ 1434 0157 2E        		.uleb128 0x2e
+ 1435 0158 01        		.byte	0x1
+ 1436 0159 3F        		.uleb128 0x3f
+ 1437 015a 0C        		.uleb128 0xc
+ 1438 015b 03        		.uleb128 0x3
+ 1439 015c 0E        		.uleb128 0xe
+ 1440 015d 3A        		.uleb128 0x3a
+ 1441 015e 0B        		.uleb128 0xb
+ 1442 015f 3B        		.uleb128 0x3b
+ 1443 0160 0B        		.uleb128 0xb
+ 1444 0161 8740      		.uleb128 0x2007
+ 1445 0163 0E        		.uleb128 0xe
+ 1446 0164 11        		.uleb128 0x11
+ 1447 0165 01        		.uleb128 0x1
+ 1448 0166 12        		.uleb128 0x12
+ 1449 0167 01        		.uleb128 0x1
+ 1450 0168 40        		.uleb128 0x40
+ 1451 0169 0A        		.uleb128 0xa
+ 1452 016a 9742      		.uleb128 0x2117
+ 1453 016c 0C        		.uleb128 0xc
+ 1454 016d 01        		.uleb128 0x1
+ 1455 016e 13        		.uleb128 0x13
+ 1456 016f 00        		.byte	0
+ 1457 0170 00        		.byte	0
+ 1458 0171 18        		.uleb128 0x18
+ 1459 0172 8982 01   		.uleb128 0x4109
+ 1460 0175 01        		.byte	0x1
+ 1461 0176 11        		.uleb128 0x11
+ 1462 0177 01        		.uleb128 0x1
+ 1463 0178 31        		.uleb128 0x31
+ 1464 0179 13        		.uleb128 0x13
+ 1465 017a 00        		.byte	0
+ 1466 017b 00        		.byte	0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 34
+
+
+ 1467 017c 19        		.uleb128 0x19
+ 1468 017d 2E        		.uleb128 0x2e
+ 1469 017e 01        		.byte	0x1
+ 1470 017f 3F        		.uleb128 0x3f
+ 1471 0180 0C        		.uleb128 0xc
+ 1472 0181 03        		.uleb128 0x3
+ 1473 0182 0E        		.uleb128 0xe
+ 1474 0183 3A        		.uleb128 0x3a
+ 1475 0184 0B        		.uleb128 0xb
+ 1476 0185 3B        		.uleb128 0x3b
+ 1477 0186 0B        		.uleb128 0xb
+ 1478 0187 8740      		.uleb128 0x2007
+ 1479 0189 0E        		.uleb128 0xe
+ 1480 018a 11        		.uleb128 0x11
+ 1481 018b 01        		.uleb128 0x1
+ 1482 018c 12        		.uleb128 0x12
+ 1483 018d 01        		.uleb128 0x1
+ 1484 018e 40        		.uleb128 0x40
+ 1485 018f 06        		.uleb128 0x6
+ 1486 0190 9742      		.uleb128 0x2117
+ 1487 0192 0C        		.uleb128 0xc
+ 1488 0193 01        		.uleb128 0x1
+ 1489 0194 13        		.uleb128 0x13
+ 1490 0195 00        		.byte	0
+ 1491 0196 00        		.byte	0
+ 1492 0197 1A        		.uleb128 0x1a
+ 1493 0198 05        		.uleb128 0x5
+ 1494 0199 00        		.byte	0
+ 1495 019a 03        		.uleb128 0x3
+ 1496 019b 0E        		.uleb128 0xe
+ 1497 019c 3A        		.uleb128 0x3a
+ 1498 019d 0B        		.uleb128 0xb
+ 1499 019e 3B        		.uleb128 0x3b
+ 1500 019f 0B        		.uleb128 0xb
+ 1501 01a0 49        		.uleb128 0x49
+ 1502 01a1 13        		.uleb128 0x13
+ 1503 01a2 02        		.uleb128 0x2
+ 1504 01a3 06        		.uleb128 0x6
+ 1505 01a4 00        		.byte	0
+ 1506 01a5 00        		.byte	0
+ 1507 01a6 1B        		.uleb128 0x1b
+ 1508 01a7 8982 01   		.uleb128 0x4109
+ 1509 01aa 00        		.byte	0
+ 1510 01ab 11        		.uleb128 0x11
+ 1511 01ac 01        		.uleb128 0x1
+ 1512 01ad 31        		.uleb128 0x31
+ 1513 01ae 13        		.uleb128 0x13
+ 1514 01af 00        		.byte	0
+ 1515 01b0 00        		.byte	0
+ 1516 01b1 1C        		.uleb128 0x1c
+ 1517 01b2 1D        		.uleb128 0x1d
+ 1518 01b3 01        		.byte	0x1
+ 1519 01b4 31        		.uleb128 0x31
+ 1520 01b5 13        		.uleb128 0x13
+ 1521 01b6 11        		.uleb128 0x11
+ 1522 01b7 01        		.uleb128 0x1
+ 1523 01b8 12        		.uleb128 0x12
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 35
+
+
+ 1524 01b9 01        		.uleb128 0x1
+ 1525 01ba 58        		.uleb128 0x58
+ 1526 01bb 0B        		.uleb128 0xb
+ 1527 01bc 59        		.uleb128 0x59
+ 1528 01bd 0B        		.uleb128 0xb
+ 1529 01be 01        		.uleb128 0x1
+ 1530 01bf 13        		.uleb128 0x13
+ 1531 01c0 00        		.byte	0
+ 1532 01c1 00        		.byte	0
+ 1533 01c2 1D        		.uleb128 0x1d
+ 1534 01c3 05        		.uleb128 0x5
+ 1535 01c4 00        		.byte	0
+ 1536 01c5 31        		.uleb128 0x31
+ 1537 01c6 13        		.uleb128 0x13
+ 1538 01c7 02        		.uleb128 0x2
+ 1539 01c8 06        		.uleb128 0x6
+ 1540 01c9 00        		.byte	0
+ 1541 01ca 00        		.byte	0
+ 1542 01cb 1E        		.uleb128 0x1e
+ 1543 01cc 34        		.uleb128 0x34
+ 1544 01cd 00        		.byte	0
+ 1545 01ce 31        		.uleb128 0x31
+ 1546 01cf 13        		.uleb128 0x13
+ 1547 01d0 02        		.uleb128 0x2
+ 1548 01d1 06        		.uleb128 0x6
+ 1549 01d2 00        		.byte	0
+ 1550 01d3 00        		.byte	0
+ 1551 01d4 1F        		.uleb128 0x1f
+ 1552 01d5 8982 01   		.uleb128 0x4109
+ 1553 01d8 01        		.byte	0x1
+ 1554 01d9 11        		.uleb128 0x11
+ 1555 01da 01        		.uleb128 0x1
+ 1556 01db 31        		.uleb128 0x31
+ 1557 01dc 13        		.uleb128 0x13
+ 1558 01dd 01        		.uleb128 0x1
+ 1559 01de 13        		.uleb128 0x13
+ 1560 01df 00        		.byte	0
+ 1561 01e0 00        		.byte	0
+ 1562 01e1 20        		.uleb128 0x20
+ 1563 01e2 8982 01   		.uleb128 0x4109
+ 1564 01e5 00        		.byte	0
+ 1565 01e6 11        		.uleb128 0x11
+ 1566 01e7 01        		.uleb128 0x1
+ 1567 01e8 9542      		.uleb128 0x2115
+ 1568 01ea 0C        		.uleb128 0xc
+ 1569 01eb 31        		.uleb128 0x31
+ 1570 01ec 13        		.uleb128 0x13
+ 1571 01ed 00        		.byte	0
+ 1572 01ee 00        		.byte	0
+ 1573 01ef 21        		.uleb128 0x21
+ 1574 01f0 2E        		.uleb128 0x2e
+ 1575 01f1 01        		.byte	0x1
+ 1576 01f2 47        		.uleb128 0x47
+ 1577 01f3 13        		.uleb128 0x13
+ 1578 01f4 20        		.uleb128 0x20
+ 1579 01f5 0B        		.uleb128 0xb
+ 1580 01f6 01        		.uleb128 0x1
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 36
+
+
+ 1581 01f7 13        		.uleb128 0x13
+ 1582 01f8 00        		.byte	0
+ 1583 01f9 00        		.byte	0
+ 1584 01fa 22        		.uleb128 0x22
+ 1585 01fb 2E        		.uleb128 0x2e
+ 1586 01fc 01        		.byte	0x1
+ 1587 01fd 47        		.uleb128 0x47
+ 1588 01fe 13        		.uleb128 0x13
+ 1589 01ff 3A        		.uleb128 0x3a
+ 1590 0200 0B        		.uleb128 0xb
+ 1591 0201 3B        		.uleb128 0x3b
+ 1592 0202 0B        		.uleb128 0xb
+ 1593 0203 11        		.uleb128 0x11
+ 1594 0204 01        		.uleb128 0x1
+ 1595 0205 12        		.uleb128 0x12
+ 1596 0206 01        		.uleb128 0x1
+ 1597 0207 40        		.uleb128 0x40
+ 1598 0208 06        		.uleb128 0x6
+ 1599 0209 9742      		.uleb128 0x2117
+ 1600 020b 0C        		.uleb128 0xc
+ 1601 020c 01        		.uleb128 0x1
+ 1602 020d 13        		.uleb128 0x13
+ 1603 020e 00        		.byte	0
+ 1604 020f 00        		.byte	0
+ 1605 0210 23        		.uleb128 0x23
+ 1606 0211 0B        		.uleb128 0xb
+ 1607 0212 01        		.byte	0x1
+ 1608 0213 11        		.uleb128 0x11
+ 1609 0214 01        		.uleb128 0x1
+ 1610 0215 12        		.uleb128 0x12
+ 1611 0216 01        		.uleb128 0x1
+ 1612 0217 01        		.uleb128 0x1
+ 1613 0218 13        		.uleb128 0x13
+ 1614 0219 00        		.byte	0
+ 1615 021a 00        		.byte	0
+ 1616 021b 24        		.uleb128 0x24
+ 1617 021c 34        		.uleb128 0x34
+ 1618 021d 00        		.byte	0
+ 1619 021e 03        		.uleb128 0x3
+ 1620 021f 08        		.uleb128 0x8
+ 1621 0220 3A        		.uleb128 0x3a
+ 1622 0221 0B        		.uleb128 0xb
+ 1623 0222 3B        		.uleb128 0x3b
+ 1624 0223 0B        		.uleb128 0xb
+ 1625 0224 49        		.uleb128 0x49
+ 1626 0225 13        		.uleb128 0x13
+ 1627 0226 3F        		.uleb128 0x3f
+ 1628 0227 0C        		.uleb128 0xc
+ 1629 0228 02        		.uleb128 0x2
+ 1630 0229 0A        		.uleb128 0xa
+ 1631 022a 00        		.byte	0
+ 1632 022b 00        		.byte	0
+ 1633 022c 00        		.byte	0
+ 1634               		.section	.debug_loc,"",@progbits
+ 1635               	.Ldebug_loc0:
+ 1636               	.LLST0:
+ 1637 0000 4400 0000 		.long	.LVL1-.Ltext0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 37
+
+
+ 1638 0004 4C00 0000 		.long	.LVL2-.Ltext0
+ 1639 0008 0200      		.word	0x2
+ 1640 000a 30        		.byte	0x30
+ 1641 000b 9F        		.byte	0x9f
+ 1642 000c 4C00 0000 		.long	.LVL2-.Ltext0
+ 1643 0010 7C00 0000 		.long	.LVL3-.Ltext0
+ 1644 0014 0800      		.word	0x8
+ 1645 0016 08        		.byte	0x8
+ 1646 0017 96        		.byte	0x96
+ 1647 0018 39        		.byte	0x39
+ 1648 0019 24        		.byte	0x24
+ 1649 001a 84        		.byte	0x84
+ 1650 001b 00        		.sleb128 0
+ 1651 001c 1C        		.byte	0x1c
+ 1652 001d 9F        		.byte	0x9f
+ 1653 001e 7C00 0000 		.long	.LVL3-.Ltext0
+ 1654 0022 8400 0000 		.long	.LVL4-.Ltext0
+ 1655 0026 0900      		.word	0x9
+ 1656 0028 0C        		.byte	0xc
+ 1657 0029 012C 0100 		.long	0x12c01
+ 1658 002d 84        		.byte	0x84
+ 1659 002e 00        		.sleb128 0
+ 1660 002f 1C        		.byte	0x1c
+ 1661 0030 9F        		.byte	0x9f
+ 1662 0031 8400 0000 		.long	.LVL4-.Ltext0
+ 1663 0035 8800 0000 		.long	.LFE10-.Ltext0
+ 1664 0039 0800      		.word	0x8
+ 1665 003b 08        		.byte	0x8
+ 1666 003c 96        		.byte	0x96
+ 1667 003d 39        		.byte	0x39
+ 1668 003e 24        		.byte	0x24
+ 1669 003f 84        		.byte	0x84
+ 1670 0040 00        		.sleb128 0
+ 1671 0041 1C        		.byte	0x1c
+ 1672 0042 9F        		.byte	0x9f
+ 1673 0043 0000 0000 		.long	0
+ 1674 0047 0000 0000 		.long	0
+ 1675               	.LLST1:
+ 1676 004b 9C00 0000 		.long	.LVL6-.Ltext0
+ 1677 004f A900 0000 		.long	.LVL7-1-.Ltext0
+ 1678 0053 0100      		.word	0x1
+ 1679 0055 68        		.byte	0x68
+ 1680 0056 A900 0000 		.long	.LVL7-1-.Ltext0
+ 1681 005a AA00 0000 		.long	.LFE7-.Ltext0
+ 1682 005e 0400      		.word	0x4
+ 1683 0060 F3        		.byte	0xf3
+ 1684 0061 01        		.uleb128 0x1
+ 1685 0062 68        		.byte	0x68
+ 1686 0063 9F        		.byte	0x9f
+ 1687 0064 0000 0000 		.long	0
+ 1688 0068 0000 0000 		.long	0
+ 1689               	.LLST2:
+ 1690 006c AA00 0000 		.long	.LVL8-.Ltext0
+ 1691 0070 B700 0000 		.long	.LVL9-1-.Ltext0
+ 1692 0074 0100      		.word	0x1
+ 1693 0076 68        		.byte	0x68
+ 1694 0077 B700 0000 		.long	.LVL9-1-.Ltext0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 38
+
+
+ 1695 007b CE00 0000 		.long	.LFE8-.Ltext0
+ 1696 007f 0400      		.word	0x4
+ 1697 0081 F3        		.byte	0xf3
+ 1698 0082 01        		.uleb128 0x1
+ 1699 0083 68        		.byte	0x68
+ 1700 0084 9F        		.byte	0x9f
+ 1701 0085 0000 0000 		.long	0
+ 1702 0089 0000 0000 		.long	0
+ 1703               	.LLST3:
+ 1704 008d CE00 0000 		.long	.LFB9-.Ltext0
+ 1705 0091 D000 0000 		.long	.LCFI0-.Ltext0
+ 1706 0095 0300      		.word	0x3
+ 1707 0097 92        		.byte	0x92
+ 1708 0098 20        		.uleb128 0x20
+ 1709 0099 02        		.sleb128 2
+ 1710 009a D000 0000 		.long	.LCFI0-.Ltext0
+ 1711 009e FC00 0000 		.long	.LFE9-.Ltext0
+ 1712 00a2 0300      		.word	0x3
+ 1713 00a4 92        		.byte	0x92
+ 1714 00a5 20        		.uleb128 0x20
+ 1715 00a6 03        		.sleb128 3
+ 1716 00a7 0000 0000 		.long	0
+ 1717 00ab 0000 0000 		.long	0
+ 1718               	.LLST4:
+ 1719 00af CE00 0000 		.long	.LVL10-.Ltext0
+ 1720 00b3 E900 0000 		.long	.LVL11-1-.Ltext0
+ 1721 00b7 0100      		.word	0x1
+ 1722 00b9 68        		.byte	0x68
+ 1723 00ba E900 0000 		.long	.LVL11-1-.Ltext0
+ 1724 00be FC00 0000 		.long	.LFE9-.Ltext0
+ 1725 00c2 0400      		.word	0x4
+ 1726 00c4 F3        		.byte	0xf3
+ 1727 00c5 01        		.uleb128 0x1
+ 1728 00c6 68        		.byte	0x68
+ 1729 00c7 9F        		.byte	0x9f
+ 1730 00c8 0000 0000 		.long	0
+ 1731 00cc 0000 0000 		.long	0
+ 1732               	.LLST5:
+ 1733 00d0 CE00 0000 		.long	.LVL10-.Ltext0
+ 1734 00d4 E900 0000 		.long	.LVL11-1-.Ltext0
+ 1735 00d8 0100      		.word	0x1
+ 1736 00da 66        		.byte	0x66
+ 1737 00db E900 0000 		.long	.LVL11-1-.Ltext0
+ 1738 00df F800 0000 		.long	.LVL12-.Ltext0
+ 1739 00e3 0100      		.word	0x1
+ 1740 00e5 6C        		.byte	0x6c
+ 1741 00e6 F800 0000 		.long	.LVL12-.Ltext0
+ 1742 00ea FB00 0000 		.long	.LVL13-1-.Ltext0
+ 1743 00ee 0100      		.word	0x1
+ 1744 00f0 68        		.byte	0x68
+ 1745 00f1 FB00 0000 		.long	.LVL13-1-.Ltext0
+ 1746 00f5 FC00 0000 		.long	.LFE9-.Ltext0
+ 1747 00f9 0400      		.word	0x4
+ 1748 00fb F3        		.byte	0xf3
+ 1749 00fc 01        		.uleb128 0x1
+ 1750 00fd 66        		.byte	0x66
+ 1751 00fe 9F        		.byte	0x9f
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 39
+
+
+ 1752 00ff 0000 0000 		.long	0
+ 1753 0103 0000 0000 		.long	0
+ 1754               	.LLST6:
+ 1755 0107 3201 0000 		.long	.LVL14-.Ltext0
+ 1756 010b 4401 0000 		.long	.LVL15-.Ltext0
+ 1757 010f 0600      		.word	0x6
+ 1758 0111 9E        		.byte	0x9e
+ 1759 0112 04        		.uleb128 0x4
+ 1760 0113 0000 4843 		.long	0x43480000
+ 1761 0117 0000 0000 		.long	0
+ 1762 011b 0000 0000 		.long	0
+ 1763               	.LLST7:
+ 1764 011f 3201 0000 		.long	.LVL14-.Ltext0
+ 1765 0123 4401 0000 		.long	.LVL15-.Ltext0
+ 1766 0127 0600      		.word	0x6
+ 1767 0129 9E        		.byte	0x9e
+ 1768 012a 04        		.uleb128 0x4
+ 1769 012b 0024 744A 		.long	0x4a742400
+ 1770 012f 0000 0000 		.long	0
+ 1771 0133 0000 0000 		.long	0
+ 1772               	.LLST8:
+ 1773 0137 3201 0000 		.long	.LVL14-.Ltext0
+ 1774 013b 4401 0000 		.long	.LVL15-.Ltext0
+ 1775 013f 0600      		.word	0x6
+ 1776 0141 0C        		.byte	0xc
+ 1777 0142 0009 3D00 		.long	0x3d0900
+ 1778 0146 9F        		.byte	0x9f
+ 1779 0147 0000 0000 		.long	0
+ 1780 014b 0000 0000 		.long	0
+ 1781               	.LLST9:
+ 1782 014f 4601 0000 		.long	.LVL16-.Ltext0
+ 1783 0153 5801 0000 		.long	.LVL17-.Ltext0
+ 1784 0157 0600      		.word	0x6
+ 1785 0159 9E        		.byte	0x9e
+ 1786 015a 04        		.uleb128 0x4
+ 1787 015b 0000 4843 		.long	0x43480000
+ 1788 015f 0000 0000 		.long	0
+ 1789 0163 0000 0000 		.long	0
+ 1790               	.LLST10:
+ 1791 0167 4601 0000 		.long	.LVL16-.Ltext0
+ 1792 016b 5801 0000 		.long	.LVL17-.Ltext0
+ 1793 016f 0600      		.word	0x6
+ 1794 0171 9E        		.byte	0x9e
+ 1795 0172 04        		.uleb128 0x4
+ 1796 0173 0024 744A 		.long	0x4a742400
+ 1797 0177 0000 0000 		.long	0
+ 1798 017b 0000 0000 		.long	0
+ 1799               	.LLST11:
+ 1800 017f 4601 0000 		.long	.LVL16-.Ltext0
+ 1801 0183 5801 0000 		.long	.LVL17-.Ltext0
+ 1802 0187 0600      		.word	0x6
+ 1803 0189 0C        		.byte	0xc
+ 1804 018a 0009 3D00 		.long	0x3d0900
+ 1805 018e 9F        		.byte	0x9f
+ 1806 018f 0000 0000 		.long	0
+ 1807 0193 0000 0000 		.long	0
+ 1808               	.LLST12:
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 40
+
+
+ 1809 0197 5A01 0000 		.long	.LVL18-.Ltext0
+ 1810 019b 6C01 0000 		.long	.LVL19-.Ltext0
+ 1811 019f 0600      		.word	0x6
+ 1812 01a1 9E        		.byte	0x9e
+ 1813 01a2 04        		.uleb128 0x4
+ 1814 01a3 0000 4843 		.long	0x43480000
+ 1815 01a7 0000 0000 		.long	0
+ 1816 01ab 0000 0000 		.long	0
+ 1817               	.LLST13:
+ 1818 01af 5A01 0000 		.long	.LVL18-.Ltext0
+ 1819 01b3 6C01 0000 		.long	.LVL19-.Ltext0
+ 1820 01b7 0600      		.word	0x6
+ 1821 01b9 9E        		.byte	0x9e
+ 1822 01ba 04        		.uleb128 0x4
+ 1823 01bb 0024 744A 		.long	0x4a742400
+ 1824 01bf 0000 0000 		.long	0
+ 1825 01c3 0000 0000 		.long	0
+ 1826               	.LLST14:
+ 1827 01c7 5A01 0000 		.long	.LVL18-.Ltext0
+ 1828 01cb 6C01 0000 		.long	.LVL19-.Ltext0
+ 1829 01cf 0600      		.word	0x6
+ 1830 01d1 0C        		.byte	0xc
+ 1831 01d2 0009 3D00 		.long	0x3d0900
+ 1832 01d6 9F        		.byte	0x9f
+ 1833 01d7 0000 0000 		.long	0
+ 1834 01db 0000 0000 		.long	0
+ 1835               	.LLST15:
+ 1836 01df 9C01 0000 		.long	.LFB13-.Ltext0
+ 1837 01e3 9E01 0000 		.long	.LCFI1-.Ltext0
+ 1838 01e7 0300      		.word	0x3
+ 1839 01e9 92        		.byte	0x92
+ 1840 01ea 20        		.uleb128 0x20
+ 1841 01eb 02        		.sleb128 2
+ 1842 01ec 9E01 0000 		.long	.LCFI1-.Ltext0
+ 1843 01f0 A001 0000 		.long	.LCFI2-.Ltext0
+ 1844 01f4 0300      		.word	0x3
+ 1845 01f6 92        		.byte	0x92
+ 1846 01f7 20        		.uleb128 0x20
+ 1847 01f8 03        		.sleb128 3
+ 1848 01f9 A001 0000 		.long	.LCFI2-.Ltext0
+ 1849 01fd A201 0000 		.long	.LCFI3-.Ltext0
+ 1850 0201 0300      		.word	0x3
+ 1851 0203 92        		.byte	0x92
+ 1852 0204 20        		.uleb128 0x20
+ 1853 0205 04        		.sleb128 4
+ 1854 0206 A201 0000 		.long	.LCFI3-.Ltext0
+ 1855 020a A401 0000 		.long	.LCFI4-.Ltext0
+ 1856 020e 0300      		.word	0x3
+ 1857 0210 92        		.byte	0x92
+ 1858 0211 20        		.uleb128 0x20
+ 1859 0212 05        		.sleb128 5
+ 1860 0213 A401 0000 		.long	.LCFI4-.Ltext0
+ 1861 0217 A601 0000 		.long	.LCFI5-.Ltext0
+ 1862 021b 0300      		.word	0x3
+ 1863 021d 92        		.byte	0x92
+ 1864 021e 20        		.uleb128 0x20
+ 1865 021f 06        		.sleb128 6
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 41
+
+
+ 1866 0220 A601 0000 		.long	.LCFI5-.Ltext0
+ 1867 0224 A801 0000 		.long	.LCFI6-.Ltext0
+ 1868 0228 0300      		.word	0x3
+ 1869 022a 92        		.byte	0x92
+ 1870 022b 20        		.uleb128 0x20
+ 1871 022c 07        		.sleb128 7
+ 1872 022d A801 0000 		.long	.LCFI6-.Ltext0
+ 1873 0231 E401 0000 		.long	.LFE13-.Ltext0
+ 1874 0235 0300      		.word	0x3
+ 1875 0237 92        		.byte	0x92
+ 1876 0238 20        		.uleb128 0x20
+ 1877 0239 08        		.sleb128 8
+ 1878 023a 0000 0000 		.long	0
+ 1879 023e 0000 0000 		.long	0
+ 1880               	.LLST16:
+ 1881 0242 9C01 0000 		.long	.LVL26-.Ltext0
+ 1882 0246 AE01 0000 		.long	.LVL27-.Ltext0
+ 1883 024a 0600      		.word	0x6
+ 1884 024c 68        		.byte	0x68
+ 1885 024d 93        		.byte	0x93
+ 1886 024e 01        		.uleb128 0x1
+ 1887 024f 69        		.byte	0x69
+ 1888 0250 93        		.byte	0x93
+ 1889 0251 01        		.uleb128 0x1
+ 1890 0252 AE01 0000 		.long	.LVL27-.Ltext0
+ 1891 0256 E401 0000 		.long	.LFE13-.Ltext0
+ 1892 025a 0400      		.word	0x4
+ 1893 025c F3        		.byte	0xf3
+ 1894 025d 01        		.uleb128 0x1
+ 1895 025e 68        		.byte	0x68
+ 1896 025f 9F        		.byte	0x9f
+ 1897 0260 0000 0000 		.long	0
+ 1898 0264 0000 0000 		.long	0
+ 1899               	.LLST17:
+ 1900 0268 B201 0000 		.long	.LVL28-.Ltext0
+ 1901 026c BE01 0000 		.long	.LVL29-.Ltext0
+ 1902 0270 0200      		.word	0x2
+ 1903 0272 30        		.byte	0x30
+ 1904 0273 9F        		.byte	0x9f
+ 1905 0274 BE01 0000 		.long	.LVL29-.Ltext0
+ 1906 0278 CA01 0000 		.long	.LVL31-.Ltext0
+ 1907 027c 0800      		.word	0x8
+ 1908 027e 08        		.byte	0x8
+ 1909 027f 96        		.byte	0x96
+ 1910 0280 39        		.byte	0x39
+ 1911 0281 24        		.byte	0x24
+ 1912 0282 7C        		.byte	0x7c
+ 1913 0283 00        		.sleb128 0
+ 1914 0284 1C        		.byte	0x1c
+ 1915 0285 9F        		.byte	0x9f
+ 1916 0286 CA01 0000 		.long	.LVL31-.Ltext0
+ 1917 028a D401 0000 		.long	.LVL32-.Ltext0
+ 1918 028e 0900      		.word	0x9
+ 1919 0290 0C        		.byte	0xc
+ 1920 0291 012C 0100 		.long	0x12c01
+ 1921 0295 7C        		.byte	0x7c
+ 1922 0296 00        		.sleb128 0
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 42
+
+
+ 1923 0297 1C        		.byte	0x1c
+ 1924 0298 9F        		.byte	0x9f
+ 1925 0299 D401 0000 		.long	.LVL32-.Ltext0
+ 1926 029d E201 0000 		.long	.LVL33-.Ltext0
+ 1927 02a1 0800      		.word	0x8
+ 1928 02a3 08        		.byte	0x8
+ 1929 02a4 96        		.byte	0x96
+ 1930 02a5 39        		.byte	0x39
+ 1931 02a6 24        		.byte	0x24
+ 1932 02a7 7C        		.byte	0x7c
+ 1933 02a8 00        		.sleb128 0
+ 1934 02a9 1C        		.byte	0x1c
+ 1935 02aa 9F        		.byte	0x9f
+ 1936 02ab 0000 0000 		.long	0
+ 1937 02af 0000 0000 		.long	0
+ 1938               		.section	.debug_aranges,"",@progbits
+ 1939 0000 1C00 0000 		.long	0x1c
+ 1940 0004 0200      		.word	0x2
+ 1941 0006 0000 0000 		.long	.Ldebug_info0
+ 1942 000a 04        		.byte	0x4
+ 1943 000b 00        		.byte	0
+ 1944 000c 0000      		.word	0
+ 1945 000e 0000      		.word	0
+ 1946 0010 0000 0000 		.long	.Ltext0
+ 1947 0014 E401 0000 		.long	.Letext0-.Ltext0
+ 1948 0018 0000 0000 		.long	0
+ 1949 001c 0000 0000 		.long	0
+ 1950               		.section	.debug_line,"",@progbits
+ 1951               	.Ldebug_line0:
+ 1952 0000 A303 0000 		.section	.debug_str,"MS",@progbits,1
+ 1952      0200 BD00
+ 1952      0000 0201
+ 1952      FB0E 0A00
+ 1952      0101 0101
+ 1953               	.LASF8:
+ 1954 0000 776F 7264 		.string	"word"
+ 1954      00
+ 1955               	.LASF23:
+ 1956 0005 5F5A 3763 		.string	"_Z7cmdDatacc"
+ 1956      6D64 4461
+ 1956      7461 6363
+ 1956      00
+ 1957               	.LASF27:
+ 1958 0012 2F55 7365 		.string	"/Users/gregory/Desktop/gameController"
+ 1958      7273 2F67
+ 1958      7265 676F
+ 1958      7279 2F44
+ 1958      6573 6B74
+ 1959               	.LASF11:
+ 1960 0038 636C 6561 		.string	"clear"
+ 1960      7200
+ 1961               	.LASF28:
+ 1962 003e 5350 495F 		.string	"SPI_C"
+ 1962      4300
+ 1963               	.LASF25:
+ 1964 0044 474E 5520 		.string	"GNU C++ 5.4.0 -mn-flash=1 -mmcu=avr5 -g -Os -mn-flash=1 -mno-skip-bug -fno-rtti -fno-enfo
+ 1964      432B 2B20
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 43
+
+
+ 1964      352E 342E
+ 1964      3020 2D6D
+ 1964      6E2D 666C
+ 1965               	.LASF20:
+ 1966 00ba 6461 7461 		.string	"data"
+ 1966      00
+ 1967               	.LASF33:
+ 1968 00bf 5F64 656C 		.string	"_delay_ms"
+ 1968      6179 5F6D
+ 1968      7300
+ 1969               	.LASF29:
+ 1970 00c9 696E 6974 		.string	"init"
+ 1970      00
+ 1971               	.LASF24:
+ 1972 00ce 6279 7465 		.string	"byte"
+ 1972      00
+ 1973               	.LASF35:
+ 1974 00d3 5F5F 6275 		.string	"__builtin_avr_delay_cycles"
+ 1974      696C 7469
+ 1974      6E5F 6176
+ 1974      725F 6465
+ 1974      6C61 795F
+ 1975               	.LASF12:
+ 1976 00ee 5F5A 4E35 		.string	"_ZN5SPI_C4sendEc"
+ 1976      5350 495F
+ 1976      4334 7365
+ 1976      6E64 4563
+ 1976      00
+ 1977               	.LASF1:
+ 1978 00ff 756E 7369 		.string	"unsigned char"
+ 1978      676E 6564
+ 1978      2063 6861
+ 1978      7200
+ 1979               	.LASF26:
+ 1980 010d 7372 632F 		.string	"src/cppTestUSART/SPI.cpp"
+ 1980      6370 7054
+ 1980      6573 7455
+ 1980      5341 5254
+ 1980      2F53 5049
+ 1981               	.LASF22:
+ 1982 0126 5F5A 3763 		.string	"_Z7cmdDatac"
+ 1982      6D64 4461
+ 1982      7461 6300
+ 1983               	.LASF4:
+ 1984 0132 6C6F 6E67 		.string	"long unsigned int"
+ 1984      2075 6E73
+ 1984      6967 6E65
+ 1984      6420 696E
+ 1984      7400
+ 1985               	.LASF9:
+ 1986 0144 7368 6F72 		.string	"short unsigned int"
+ 1986      7420 756E
+ 1986      7369 676E
+ 1986      6564 2069
+ 1986      6E74 00
+ 1987               	.LASF37:
+ 1988 0157 5F5A 3769 		.string	"_Z7initPWMv"
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 44
+
+
+ 1988      6E69 7450
+ 1988      574D 7600
+ 1989               	.LASF18:
+ 1990 0163 646F 7562 		.string	"double"
+ 1990      6C65 00
+ 1991               	.LASF19:
+ 1992 016a 636F 6C6F 		.string	"color"
+ 1992      7200
+ 1993               	.LASF2:
+ 1994 0170 756E 7369 		.string	"unsigned int"
+ 1994      676E 6564
+ 1994      2069 6E74
+ 1994      00
+ 1995               	.LASF10:
+ 1996 017d 7365 6E64 		.string	"send"
+ 1996      00
+ 1997               	.LASF6:
+ 1998 0182 6C6F 6E67 		.string	"long long unsigned int"
+ 1998      206C 6F6E
+ 1998      6720 756E
+ 1998      7369 676E
+ 1998      6564 2069
+ 1999               	.LASF36:
+ 2000 0199 696E 6974 		.string	"initPWM"
+ 2000      5057 4D00
+ 2001               	.LASF5:
+ 2002 01a1 6C6F 6E67 		.string	"long long int"
+ 2002      206C 6F6E
+ 2002      6720 696E
+ 2002      7400
+ 2003               	.LASF14:
+ 2004 01af 6368 6172 		.string	"char"
+ 2004      00
+ 2005               	.LASF31:
+ 2006 01b4 6669 6C6C 		.string	"fillWindow"
+ 2006      5769 6E64
+ 2006      6F77 00
+ 2007               	.LASF13:
+ 2008 01bf 5F5A 4E35 		.string	"_ZN5SPI_C5clearEs"
+ 2008      5350 495F
+ 2008      4335 636C
+ 2008      6561 7245
+ 2008      7300
+ 2009               	.LASF15:
+ 2010 01d1 7368 6F72 		.string	"short int"
+ 2010      7420 696E
+ 2010      7400
+ 2011               	.LASF21:
+ 2012 01db 636D 6444 		.string	"cmdData"
+ 2012      6174 6100
+ 2013               	.LASF38:
+ 2014 01e3 5F5A 3363 		.string	"_Z3cmdc"
+ 2014      6D64 6300
+ 2015               	.LASF16:
+ 2016 01eb 5F5F 746D 		.string	"__tmp"
+ 2016      7000
+ 2017               	.LASF7:
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 45
+
+
+ 2018 01f1 7569 6E74 		.string	"uint32_t"
+ 2018      3332 5F74
+ 2018      00
+ 2019               	.LASF3:
+ 2020 01fa 6C6F 6E67 		.string	"long int"
+ 2020      2069 6E74
+ 2020      00
+ 2021               	.LASF32:
+ 2022 0203 5F5A 4E35 		.string	"_ZN5SPI_C10fillWindowEt"
+ 2022      5350 495F
+ 2022      4331 3066
+ 2022      696C 6C57
+ 2022      696E 646F
+ 2023               	.LASF0:
+ 2024 021b 7369 676E 		.string	"signed char"
+ 2024      6564 2063
+ 2024      6861 7200
+ 2025               	.LASF30:
+ 2026 0227 5F5A 4E35 		.string	"_ZN5SPI_C4initEv"
+ 2026      5350 495F
+ 2026      4334 696E
+ 2026      6974 4576
+ 2026      00
+ 2027               	.LASF17:
+ 2028 0238 5F5F 7469 		.string	"__ticks_dc"
+ 2028      636B 735F
+ 2028      6463 00
+ 2029               	.LASF34:
+ 2030 0243 5F5F 6D73 		.string	"__ms"
+ 2030      00
+ 2031               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_503) 5.4.0"
+ 2032               	.global __do_clear_bss
+GAS LISTING /var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s 			page 46
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 SPI.cpp
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:12     .text:0000000000000000 _Z7initPWMv
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:44     .text:0000000000000022 _ZN5SPI_C10fillWindowEt
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:211    .text:0000000000000088 _ZN5SPI_C4sendEc
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:247    .text:000000000000009c _Z3cmdc
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:271    .text:00000000000000aa _Z7cmdDatac
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:307    .text:00000000000000ce _Z7cmdDatacc
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:356    .text:00000000000000fc _ZN5SPI_C4initEv
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:484    .text:000000000000019c _ZN5SPI_C5clearEs
+/var/folders/t0/grcm3vsx5kv4vf0zcqrpw7v40000gp/T//cc9uZtl3.s:568    .bss:0000000000000000 SPI
+
+UNDEFINED SYMBOLS
+__do_clear_bss

@@ -7,8 +7,8 @@
             "name": "Mac",
             "macFrameworkPath": [],
             "includePath": [
-                "/Users/gregory/Desktop/platformio/include",
-                "/Users/gregory/Desktop/platformio/sources/project1",
+                "/Users/gregory/Desktops/samd/feather/include",
+                "/Users/gregory/Desktops/samd/feather/sources/project1",
                 "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/CMSIS/Core/Include",
                 "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/variants/atmelsam/samd21a/include",
                 "/Users/gregory/.platformio/packages/tool-unity",
@@ -17,8 +17,8 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/gregory/Desktop/platformio/include",
-                    "/Users/gregory/Desktop/platformio/sources/project1",
+                    "/Users/gregory/Desktops/samd/feather/include",
+                    "/Users/gregory/Desktops/samd/feather/sources/project1",
                     "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/CMSIS/Core/Include",
                     "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/variants/atmelsam/samd21a/include",
                     "/Users/gregory/.platformio/packages/tool-unity",

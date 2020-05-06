@@ -12,7 +12,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "/Users/gregory/Desktop/platformio/.pio/build/adafruit_feather_m0/firmware.elf",
+            "executable": "/Users/gregory/Desktops/samd/feather/.pio/build/adafruit_feather_m0/firmware.elf",
             "toolchainBinDir": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "svdPath": "/Users/gregory/.platformio/platforms/atmelsam@src-3c7a2fac3a0e14d2b0e1814ca9189930/misc/svd/ATSAMD21G18A.svd",
             "preLaunchTask": {
@@ -25,7 +25,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "/Users/gregory/Desktop/platformio/.pio/build/adafruit_feather_m0/firmware.elf",
+            "executable": "/Users/gregory/Desktops/samd/feather/.pio/build/adafruit_feather_m0/firmware.elf",
             "toolchainBinDir": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "svdPath": "/Users/gregory/.platformio/platforms/atmelsam@src-3c7a2fac3a0e14d2b0e1814ca9189930/misc/svd/ATSAMD21G18A.svd",
             "internalConsoleOptions": "openOnSessionStart"
