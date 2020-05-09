@@ -10,7 +10,7 @@
         ".multisrc": true,
         ".travis.yml": true,
         "boards": true,
-        ".pio": false,
+        ".pio": true,
         ".vscode": true
     },
     "explorerExclude.backup": null

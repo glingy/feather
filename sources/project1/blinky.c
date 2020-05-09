@@ -9,6 +9,9 @@
 #define LCD_BL     PORT_PA15
 #define LCD_DI     PORT_PA22
 #define LCD_CK     PORT_PA23
+#define LCD_CS     PORT_PA20
+
+#define LCD_CMD    (1<<8)
 
 #define NOP() asm("nop"); // TODO: Is there a way to tell GCC to use this clock for something else instead of just NOPping it?
 
@@ -16,22 +19,26 @@
 #define LCD_CMD(cmd)                   \
     SERCOM5->SPI.DATA.reg = cmd;
 
+// note: rewrite in asm later
 // Command with data (assumes DC low)
-#define LCD_DATA(cmd, data)            \     
+#define LCD_DATA(cmd, data)            \
     SERCOM5->SPI.DATA.reg = cmd;       \
-    NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP(); \
+    NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();           \
     PORTA.OUTTGL.reg = LCD_DC;         \
     SERCOM5->SPI.DATA.reg = data;      \
+    NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();           \
     PORTA.OUTTGL.reg = LCD_DC;
 
 
 #define LCD_BEGIN(cmd)                 \
     SERCOM5->SPI.DATA.reg = cmd;       \
+    NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();           \
     PORTA.OUTTGL.reg = LCD_DC;
 
 #define LCD_SEND LCD_CMD
 
 #define LCD_END()                      \
+    NOP();NOP();NOP();NOP();NOP();NOP();NOP();NOP();           \
     PORTA.OUTTGL.reg = LCD_DC;
 
 
@@ -66,60 +73,28 @@ int main()
 
     PORTA.DIRSET.reg = PORT_PA06 | PORT_PA20 | LCD_DI | LCD_CK | LCD_RESET | LCD_DC | LCD_BL; // Set output pins
     PORTA.OUTTGL.reg = LCD_RESET; // Raise reset signal for display (do I need to raise, lower, and raise, or could I just raise it?)
-    
+    PORTA.OUTSET.reg = LCD_CS;
+
     // Set the Read Wait States, I'm not sure what exactly this means, but it's necessary when running at 48MHz.
     NVMCTRL->CTRLB.bit.RWS = 1;
 
-    // Set the OSC8M prescaler to 0 so the CPU runs at 8MHz
+    // Set the OSC8M prescaler to 0 so the CPU and OSC8M` run at 8MHz
     SYSCTRL->OSC8M.bit.PRESC = 0;
 
     // Enable the SERCOM5 (LCD SPI bus) and ADC (analog-digital converter) in the power manager
     PM->APBCMASK.reg = PM_APBCMASK_SERCOM5 | PM_APBCMASK_ADC;
 
-    // See Errata 9905, yep, it's necessary for DFLL to work
-    SYSCTRL->DFLLCTRL.reg = 0;
-
-    // Lower the reset signal (start the LCD reset, this seemed like a good spot to put it, needs 10us before and after)
-    PORTA.OUTTGL.reg = LCD_RESET; 
-
-    // Wait for DFLL to finish doing whatever it's doing for Errata 9905
-    while ((SYSCTRL->PCLKSR.reg & SYSCTRL_PCLKSR_DFLLRDY) == 0);
-
-    // Initialize the DFLL (48MHz clock) calibration values since I'm not running off of a reference clock.
-    // This might become problematic later, so keep an eye on weird timing issues.
-    SYSCTRL->DFLLVAL.reg =
-        SYSCTRL_DFLLVAL_COARSE(NVM_READ_CAL(DFLL48M_COARSE_CAL)) |
-        SYSCTRL_DFLLVAL_FINE(NVM_READ_CAL(DFLL48M_FINE_CAL));
-
-    // Enable the DFLL
-    SYSCTRL->DFLLCTRL.reg =
-        SYSCTRL_DFLLCTRL_ENABLE;
-
-    // Wait for the DFLL to start
-    while (!(SYSCTRL->PCLKSR.reg & SYSCTRL_PCLKSR_DFLLRDY));
-
     // Init clock 4 from the OSC8M 8MHz clock for the DPLL
     GCLK->GENCTRL.reg =
-        GCLK_GENCTRL_OE |
         GCLK_GENCTRL_SRC_OSC8M |
-        GCLK_GENCTRL_ID(1) |
+        GCLK_GENCTRL_ID(4) |
         GCLK_GENCTRL_GENEN;
     
     while (GCLK->STATUS.reg);
 
-    // Set the CPU clock to the DFLL
-    GCLK->GENCTRL.reg =
-        GCLK_GENCTRL_OE |
-        GCLK_GENCTRL_SRC_DFLL48M |
-        GCLK_GENCTRL_ID(0) |
-        GCLK_GENCTRL_GENEN;
-
-    // And wait for everything to sync
-    while (GCLK->STATUS.reg);
-
     GCLK->CLKCTRL.reg =
         GCLK_CLKCTRL_ID_FDPLL |
-        GCLK_CLKCTRL_GEN_GCLK1 |
+        GCLK_CLKCTRL_GEN_GCLK4 |
         GCLK_CLKCTRL_CLKEN;
     while (GCLK->STATUS.reg);
 
@@ -130,9 +105,20 @@ int main()
     while (!SYSCTRL->DPLLSTATUS.bit.CLKRDY);
 
     GCLK->GENCTRL.reg =
-        GCLK_GENCTRL_OE |
         GCLK_GENCTRL_SRC_DPLL96M |
-        GCLK_GENCTRL_ID(4) |
+        GCLK_GENCTRL_ID(2) |
+        GCLK_GENCTRL_GENEN;
+
+    while (GCLK->STATUS.reg);
+
+    // set prescaler for cpu clock to 2 since cpu maxes at 48MHz
+    GCLK->GENDIV.reg =
+        GCLK_GENDIV_DIV(2) |
+        GCLK_GENDIV_ID(0);
+
+    GCLK->GENCTRL.reg =
+        GCLK_GENCTRL_SRC_DPLL96M |
+        GCLK_GENCTRL_ID(0) |
         GCLK_GENCTRL_GENEN;
 
     while (GCLK->STATUS.reg);
@@ -143,7 +129,7 @@ int main()
     GCLK->CLKCTRL.reg =
         GCLK_CLKCTRL_ID_SERCOM5_CORE |
         GCLK_CLKCTRL_CLKEN |
-        GCLK_CLKCTRL_GEN_GCLK4;
+        GCLK_CLKCTRL_GEN_GCLK2;
 
     // And wait for that to be happy
     while (GCLK->STATUS.reg);
@@ -162,9 +148,6 @@ int main()
     // And wait for it to start
     while (SERCOM5->SPI.SYNCBUSY.bit.ENABLE);
 
-    PORTA.PINCFG[20].reg = PORT_PINCFG_PMUXEN; //| PORT_PINCFG_DRVSTR;
-    PORTA.PMUX[10].reg = PORT_PMUX_PMUXE_H | PORT_PMUX_PMUXO_H; // debug clock output
-
     // Set both SPI data pins to MUX D and high drive strength. Not sure if high drive strength is needed.
     PORTA.PINCFG[22].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_DRVSTR;
     PORTA.PINCFG[23].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_DRVSTR;
@@ -173,6 +156,7 @@ int main()
     // Raise the reset signal (must be >=10us from being lowered)
     PORTA.OUTSET.reg = LCD_RESET;
     PORTA.OUTSET.reg = LCD_BL;
+    PORTA.OUTCLR.reg = LCD_CS;
 
     /**
      * LCD Initialization
@@ -191,37 +175,39 @@ int main()
 
     // DC is already low, this is a command to set the color mode to RGB_565
     LCD_DATA(0x3A, 0x05);
-    NOP();
-    NOP();
-    NOP();
     
-
     // Memory data access control - reverse col/row and line address order from top to bottom
-    LCD_DATA(0x36, 0b01100000);
-    NOP();
-    NOP();
-    NOP();
+    LCD_DATA(0x36, 0x60);
 
     LCD_CMD(0x11); // stop sleeping (Sleep Out)
     NOP();
     
     LCD_CMD(0x29); // turn on the display (Display On)
-    NOP();
+    NOP();NOP();NOP();NOP();NOP();NOP();NOP();
     LCD_CMD(0x21); // invert the display colors (Inv On) --??
+    NOP();
+    NOP();
+    NOP();
+    NOP();
+    NOP();
+    NOP();
+    NOP();
 
     NOP();
 
     LCD_BEGIN(0x2C);
 
+    uint8_t j = 0;
     while (1)
     {
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < 10; i++)
         {
             asm("nop");
         }
         //REG_PORT_OUTTGL0 = PORT_PA20;
         //REG_PORT_OUTTGL0 = PORT_PA20;
         //REG_PORT_OUTTGL0 = PORT_PA20;
-        LCD_SEND(0x8A);
+        LCD_SEND(j);
+        j+=3;
     }
 }
