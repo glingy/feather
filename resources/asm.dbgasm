@@ -1,0 +1,18 @@
+
+
+
+0x0000226e: 12 4b           	ldr	r3, [pc, #72]	; (0x22b8 <main+252>) 
+    ;load (ldr) the register r3 with the value of PC 
+    ;  (the current address of the executing code) + 72
+    ;  which is 0x22b8... as below as the address 0x4100441C
+0x00002270: 80 22           	movs	r2, #128	; 0x80
+    ;move (movs) the constant 8-bit value 128 into register r2...
+0x00002272: 52 03           	lsls	r2, r2, #13
+    ; shift it (r2) to the left (lsl) 13 times to get the value 0x4000000 
+    ;   I want to write at address 0x4100441C
+    
+0x00002274: 1a 60           	str	r2, [r3, #0]
+    ; and store r2 in r3, offsetting the address in r3 by zero
+...
+0x000022b8: 1c 44           	add	r4, r3
+0x000022ba: 00 41           	asrs	r0, r0

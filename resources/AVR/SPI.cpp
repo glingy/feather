@@ -294,7 +294,7 @@ void SPI_C::init() {
   cmd(0x21);
 
 
-  word window[] = {0, 320, 0, 240}; // reset window since it starts swapped in landscape mode
+  word window[] = {0, 319, 0, 239}; // reset window since it starts swapped in landscape mode
   SPI_C::setWindow(window);
 
   initPWM();

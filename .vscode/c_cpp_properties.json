@@ -8,9 +8,10 @@
             "macFrameworkPath": [],
             "includePath": [
                 "/Users/gregory/Desktops/samd/feather/include",
-                "/Users/gregory/Desktops/samd/feather/sources/project1",
-                "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/CMSIS/Core/Include",
-                "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/variants/atmelsam/samd21a/include",
+                "/Users/gregory/Desktops/samd/feather/sources/SDInfo",
+                "/Users/gregory/Desktops/samd/feather/lib/feather",
+                "/Users/gregory/.platformio/packages/framework-cmsis@src-5abf68ea86e4cd8e37a62ede112ba03b/CMSIS/Core/Include",
+                "/Users/gregory/.platformio/packages/framework-cmsis@src-5abf68ea86e4cd8e37a62ede112ba03b/variants/atmelsam/samd21a/include",
                 "/Users/gregory/.platformio/packages/tool-unity",
                 ""
             ],
@@ -18,15 +19,16 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
                     "/Users/gregory/Desktops/samd/feather/include",
-                    "/Users/gregory/Desktops/samd/feather/sources/project1",
-                    "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/CMSIS/Core/Include",
-                    "/Users/gregory/.platformio/packages/framework-cmsis@src-51d0aae42c63ab92d980fca2eea11316/variants/atmelsam/samd21a/include",
+                    "/Users/gregory/Desktops/samd/feather/sources/SDInfo",
+                    "/Users/gregory/Desktops/samd/feather/lib/feather",
+                    "/Users/gregory/.platformio/packages/framework-cmsis@src-5abf68ea86e4cd8e37a62ede112ba03b/CMSIS/Core/Include",
+                    "/Users/gregory/.platformio/packages/framework-cmsis@src-5abf68ea86e4cd8e37a62ede112ba03b/variants/atmelsam/samd21a/include",
                     "/Users/gregory/.platformio/packages/tool-unity",
                     ""
                 ]
             },
             "defines": [
-                "PLATFORMIO=40303",
+                "PLATFORMIO=40304",
                 "ARDUINO_ARCH_SAMD",
                 "ARDUINO_SAMD_ZERO",
                 "ARDUINO_SAMD_FEATHER_M0",
