@@ -6,6 +6,7 @@
 #include "util.h"
 #include "nvm_data.h"
 #include "dma.h"
+#include "feather.h"
 
 enum
 {

@@ -94,6 +94,6 @@ void Feather::init() {
     DMA::start();
     LCD::init();
     Input::init();
-    //SD::init();
+    SD::init();
     initSleep();
 }

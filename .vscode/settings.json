@@ -13,5 +13,10 @@
         ".pio": true,
         ".vscode": true
     },
-    "explorerExclude.backup": null
+    "explorerExclude.backup": null,
+    "files.associations": {
+        "*.json": "jsonc",
+        "sam.h": "c",
+        "type_traits": "cpp"
+    }
 }

@@ -76,15 +76,6 @@ void LCD::init()
     LCD_CMD(0x11); // stop sleeping (Sleep Out)
     NOP();
 
-    LCD_CMD(0x29); // turn on the display (Display On)
-    NOP();
-    NOP();
-    NOP();
-    NOP();
-    NOP();
-    NOP();
-    NOP();
-
     // Since the display by default uses 0xFF as black,
     //   we'll invert the colors since that makes more sense to me.
     LCD_CMD(0x21); // invert the display colors (Inv On)
@@ -105,6 +96,17 @@ void LCD::init()
 
     uint16_t window[] = {0, 319, 0, 239};
     LCD::setWindow(window);
+
+    LCD::fillWindow(LCD::BLACK);
+
+    LCD_CMD(0x29); // turn on the display (Display On)
+    NOP();
+    NOP();
+    NOP();
+    NOP();
+    NOP();
+    NOP();
+    NOP();
 }
 
 /**
@@ -144,7 +146,7 @@ void LCD::setWindow(uint16_t coords[4])
 }
 
 /**
- * Fill the current drawing window with a specified solid color
+ * Fill the current drawing window with a specified solid color TODO: Use DMA instead.
  */
 void LCD::fillWindow(uint16_t color) {
     LCD_BEGIN(0x2C);

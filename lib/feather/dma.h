@@ -4,16 +4,16 @@
 
 enum {
   DMA_CHID_ADC = 0,
-  DMA_CHID_SD_TX,
   DMA_CHID_SD_RX,
+  DMA_CHID_SD_TX,
   DMA_CHANNELS
 };
 
 __attribute__((__aligned__(16)))
-extern DmacDescriptor DMACFG[DMA_CHANNELS];
+volatile extern DmacDescriptor DMACFG[DMA_CHANNELS];
 
 __attribute__((__aligned__(16)))
-extern DmacDescriptor _DMAWRB[DMA_CHANNELS];
+volatile extern DmacDescriptor _DMAWRB[DMA_CHANNELS];
 
 namespace DMA {
   void start();

@@ -2,10 +2,10 @@
 #include "internal.h"
 
 __attribute__((__aligned__(16)))
-DmacDescriptor DMACFG[DMA_CHANNELS];
+volatile DmacDescriptor DMACFG[DMA_CHANNELS];
 
 __attribute__((__aligned__(16)))
-DmacDescriptor _DMAWRB[DMA_CHANNELS];
+volatile DmacDescriptor _DMAWRB[DMA_CHANNELS];
 
 void DMA::start() {
     // DMA!

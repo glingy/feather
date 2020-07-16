@@ -11,15 +11,16 @@ typedef struct {
 
 typedef struct {
     uint8_t _unused0 : 2;
-    bool    left     : 1; // PA02
+    bool    joystick : 1; // PA02
     uint8_t _unused1 : 1;
     bool    right_flipper : 1; // PA04
     bool    left_flipper  : 1; // PA05
     uint16_t _unused2 : 10;
-    bool    up       : 1; // PA16
+    bool    left     : 1; // PA16
     bool    select   : 1; // PA17
     bool    right    : 1; // PA18
-    bool    down     : 1; // PA19
+    bool    up       : 1; // PA19
+    bool    down     : 1; // PA20
 } Digital_t;
 
 namespace Input {
