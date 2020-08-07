@@ -86,3 +86,26 @@ void LCD::printHex(const byte * font, const uint16_t palette[2], uint16_t minX, 
   NOP8();
   LCD_END();
 } 
+
+void LCD::printlns(const byte * font, const uint16_t palette[2], uint16_t minX, uint16_t minY, const char * str) {
+  byte line = 0;
+
+  const char * pStr = str;
+  const char * pNextToSend = str;
+  for (;;) {
+    if (*pStr == '\n' || *pStr == '\r') {
+      if (pNextToSend != pStr) {
+        print(font, palette, minX, (line * 8) + minY, pNextToSend, (byte) (pStr - pNextToSend));
+      }
+      line = (line + 1);
+      pNextToSend = pStr + 1;
+    }
+    if (*pStr == 0) {
+      if (pNextToSend != pStr) {
+        print(font, palette, minX, (line * 8) + minY, pNextToSend, (byte) (pStr - pNextToSend));
+      }
+      return;
+    }
+    pStr++;
+  }
+} 

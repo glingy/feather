@@ -1,8 +1,18 @@
 #include "usb.h"
+#include "lcd.h"
 
+__section(".ramfuncBLOnly")
+void USB_Type::Handler_OUT(Serial * serial) {
+  UD.DeviceEndpoint[serial->ep_data].EPINTFLAG.bit.TRCPT0 = 1;
+  byte len = usb->endpoints[serial->ep_data].DeviceDescBank[0].PCKSIZE.bit.BYTE_COUNT;
+  usb->endpoints[serial->ep_data].DeviceDescBank[0].PCKSIZE.bit.BYTE_COUNT = 0;
+  usb->endpoints[serial->ep_data].DeviceDescBank[0].PCKSIZE.bit.MULTI_PACKET_SIZE = 0;
+  if (serial->callRecvCB((char *) usb->endpoint_out_bfr[serial->ep_data], len)) {
+    UD.DeviceEndpoint[serial->ep_data].EPSTATUSCLR.reg = USB_DEVICE_EPSTATUSCLR_BK0RDY;
+  }
+}
 
 void USB_Type::Handler_RXSTP() {
-  
   UD.DeviceEndpoint[0].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_RXSTP;
   PORTA.OUTTGL.reg = PORT_PA10;
   PORTA.OUTTGL.reg = PORT_PA10;
@@ -15,10 +25,6 @@ void USB_Type::Handler_RXSTP() {
 
   UD.DeviceEndpoint[0].EPSTATUSCLR.reg = USB_DEVICE_EPSTATUSCLR_BK0RDY; // Bank 0 (OUT from host) is ready to receive more data
 
-  #ifdef DEBUGG
-    usb->log->println("Yoohoo!");
-  #endif
-
   
 
   switch (packet->requestType) {
@@ -27,52 +33,51 @@ void USB_Type::Handler_RXSTP() {
       UD.DADD.reg = USB_DEVICE_DADD_ADDEN | USB_DEVICE_DADD_DADD(packet->value);
       break;
     case STPREQ_GET_DESCRIPTOR:
-      if ((packet->value >> 8) == DESCRIPTOR_DEVICE) {               
+      if ((packet->value >> 8) == DESCRIPTOR_DEVICE) {
         // If it asked for the device descriptor, send it
         usb->write(devDescriptor, (uint32_t) MIN(sizeof(devDescriptor), packet->length), EP_CFG);
       } else if ((packet->value >> 8) == DESCRIPTOR_CONFIG) {        
         // If it asked for the configuration descriptor, send it
-        usb->write(cfgDescriptor, (uint32_t) MIN(sizeof(cfgDescriptor), packet->length), EP_CFG);
+        usb->write((const char *) &cfgDescriptor, (uint32_t) MIN(sizeof(cfgDescriptor), packet->length), EP_CFG);
       } else if ((packet->value >> 8) == DESCRIPTOR_STRINGS) {        
         if ((packet->value & 0xFF) == 0) {
           byte langs[] = { 4, DESCRIPTOR_STRINGS, LANG_US_LOW, LANG_US_HIGH };
           usb->write((const char *) langs, 4, EP_CFG);
         } else {
-          usb->writeString(strings[(packet->value & 0xFF) - 1], EP_CFG);
+          usb->writeString(strings[(packet->value & 0xFF) - 1], packet->length, EP_CFG);
         }
       } else { 
-        usb->log->println(((uint32_t) packet->requestType << 16) | (packet->value));
-        usb->stall();
+        error("USB Descriptor", "not recognized!");
+        //usb->stall();
       }
       break;
     case STPREQ_SET_CONFIGURATION:
       usb->currentConfiguration = packet->value & 0xFF;
       usb->zlp();
-      usb->configure();
+      usb->configureSerial(EP_SERIAL_DATA, EP_SERIAL_COMM);
+      usb->configureSerial(EP_DEBUG_DATA, EP_DEBUG_COMM);
       break;
     case STPREQ_GET_CONFIGURATION:
       usb->write((const char *) &(usb->currentConfiguration), 1, EP_CFG);
       break;
+    case STPREQ_CDC_SET_LINE_CODING: // Do I need to do something here, or is ignoring it enough...?
+    case STPREQ_CDC_SET_CONTROL_LINE_STATE: // Do I need to do something here, or is ignoring it enough...?
+      usb->zlp();
+      break;
+    case STPREQ_CLEAR_FEATURE_INTERFACE:
+      usb->stall();
+      break;
     default:
-      usb->log->println(((uint32_t) packet->requestType << 16) | (packet->value));
+      LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 0, 0, ((uint32_t) packet->requestType << 16) | packet->value);
+      error("USB Request", "not recognized!");
       usb->stall();
       break;
   }
-
-  #ifdef DEBUGG
-    usb->log->println(((uint32_t) packet->requestType << 16) | (packet->value));
-  #endif
 }
 
 void USB_Type::Handler_EORST() { // USB has been connected, ready control endpoint 0 to configure device
   // Clear flag and reset the USB interrupt handler...
   UD.INTFLAG.reg = USB_DEVICE_INTFLAG_EORST;
-  UD.INTENCLR.reg = USB_DEVICE_INTENCLR_EORST;
-  exception_table.pfnUSB_Handler = (void *) Handler_RXSTP;
-  
-  #ifdef DEBUGG
-    usb->log->println("Received Reset...");
-  #endif
 
   // Make sure address is 0 for now...
   UD.DADD.reg = USB_DEVICE_DADD_ADDEN | 0;

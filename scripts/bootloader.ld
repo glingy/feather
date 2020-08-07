@@ -35,13 +35,12 @@ SEARCH_DIR(.)
 /* Memory Spaces Definitions */
 MEMORY
 {
-  rom      (rx)  : ORIGIN = 0x00000000, LENGTH = 0x00008000
-  ram      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000
+  rom      (rx)  : ORIGIN = 0x00000000, LENGTH = 0x00006000
+  ram      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000-0x4
 }
 
 /* The stack size used by the application. NOTE: you need to adjust according to your application. */
 STACK_SIZE = DEFINED(STACK_SIZE) ? STACK_SIZE : DEFINED(__stack_size__) ? __stack_size__ : 0x2000;
-PROVIDE(__prog_vectors_ptr = ORIGIN(rom) + LENGTH(rom));
 ENTRY(Reset_Handler); /* Makes the linker look at startup.o in feather.a. Otherwise, the vector table isn't even considered to be added. */
 
 /* Section Definitions */
@@ -121,6 +120,7 @@ SECTIONS
         . = ALIGN(4);
         _srelocate = .;
         *(.ramfunc .ramfunc.*);
+        *(.ramfuncBLOnly .ramfuncBLOnly.*);
         *(.data .data.*);
         . = ALIGN(4);
         _erelocate = .;

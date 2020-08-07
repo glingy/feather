@@ -45,7 +45,9 @@ private:
     STPREQ_SET_FEATURE_INTERFACE = 0x0301,
     STPREQ_SET_FEATURE_FEATURE = 0x0302,
     STPREQ_SET_INTERFACE = 0x0B01,
-    STPREQ_SYNCH_FRAME = 0x0C82
+    STPREQ_SYNCH_FRAME = 0x0C82,
+    STPREQ_CDC_SET_LINE_CODING = 0x2021,
+    STPREQ_CDC_SET_CONTROL_LINE_STATE = 0x2221
   };
 
   enum {
@@ -83,10 +85,11 @@ private:
   static USB_Type * usb;
   static void Handler_EORST();
   static void Handler_RXSTP();
+  static void Handler_OUT();
   void zlp();
   void stall();
   void write(const char * data, uint32_t length, byte ep_num);
-  void writeString(const char * str, byte ep_num);
+  void writeString(const char * str, uint32_t packet_length, byte ep_num);
   void configure();
 
   #ifdef DEBUG

@@ -2,7 +2,7 @@
 #define USB_EP_IN_SIZE 64
 #define USB_EP_OUT_SIZE 64
 
-const char serialno[] = "SERNUM";
+const char serialno[] = "GAME";
 const char vendor[] = "Turtle Maker";
 const char product[] = "Game Device";
 
@@ -115,7 +115,7 @@ char USB_Type::cfgDescriptor[] =
   /* Endpoint 1 descriptor */
   0x07,   // bLength
   0x05,   // bDescriptorType
-  0x81,   // bEndpointAddress, Endpoint 01 - IN
+  0x82,   // bEndpointAddress, Endpoint 02 - IN
   0x02,   // bmAttributes      BULK
   USB_EP_IN_SIZE,   // wMaxPacketSize
   0x00,
@@ -124,7 +124,7 @@ char USB_Type::cfgDescriptor[] =
   /* Endpoint 2 descriptor */
   0x07,   // bLength
   0x05,   // bDescriptorType
-  0x02,   // bEndpointAddress, Endpoint 02 - OUT
+  0x01,   // bEndpointAddress, Endpoint 01 - OUT
   0x02,   // bmAttributes      BULK
   USB_EP_OUT_SIZE,   // wMaxPacketSize
   0x00,

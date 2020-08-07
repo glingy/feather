@@ -24,8 +24,6 @@ inline bool isEntryVisible(FSDirEntry entry) {
   return ((entry.attributes & (0x02 | 0x08)) == 0) && (entry.name[0] != 0xE5);
 }
 
-
-
 void nextRealEntry(FSDir * dir, FSDirEntry * entry) {
   while (dir->cluster != 0) {
     SD::nextDirEntry(dir);
@@ -118,15 +116,15 @@ int main() {
       LCD::print(DEFAULT_FONT, palette, 10, 48 + (i * 8), entry.name, 8);
       LCD::print(DEFAULT_FONT, palette, 82, 48 + (i * 8), entry.ext, 3);
 
-      LCD::printHex(DEFAULT_FONT, palette, 120, 48 + (i * 8), entry.low_cluster_addr & 0xFF);
-      LCD::printHex(DEFAULT_FONT, palette, 136, 48 + (i * 8), (entry.low_cluster_addr >> 8) & 0xFF);
-      LCD::printHex(DEFAULT_FONT, palette, 152, 48 + (i * 8), entry.high_cluster_addr__access_rights & 0xFF);
-      LCD::printHex(DEFAULT_FONT, palette, 168, 48 + (i * 8), (entry.high_cluster_addr__access_rights >> 8) & 0xFF);
+      LCD::printHex(DEFAULT_FONT, palette, 120, 48 + (i * 8), (uint8_t) (entry.low_cluster_addr & 0xFF));
+      LCD::printHex(DEFAULT_FONT, palette, 136, 48 + (i * 8), (uint8_t) ((entry.low_cluster_addr >> 8) & 0xFF));
+      LCD::printHex(DEFAULT_FONT, palette, 152, 48 + (i * 8), (uint8_t) (entry.high_cluster_addr__access_rights & 0xFF));
+      LCD::printHex(DEFAULT_FONT, palette, 168, 48 + (i * 8), (uint8_t) ((entry.high_cluster_addr__access_rights >> 8) & 0xFF));
 
-      LCD::printHex(DEFAULT_FONT, palette, 200, 48 + (i * 8), entry.file_size_bytes & 0xFF);
-      LCD::printHex(DEFAULT_FONT, palette, 216, 48 + (i * 8), (entry.file_size_bytes >> 8) & 0xFF);
-      LCD::printHex(DEFAULT_FONT, palette, 232, 48 + (i * 8), (entry.file_size_bytes >> 16) & 0xFF);
-      LCD::printHex(DEFAULT_FONT, palette, 248, 48 + (i * 8), (entry.file_size_bytes >> 24) & 0xFF);
+      LCD::printHex(DEFAULT_FONT, palette, 200, 48 + (i * 8), (uint8_t) (entry.file_size_bytes & 0xFF));
+      LCD::printHex(DEFAULT_FONT, palette, 216, 48 + (i * 8), (uint8_t) ((entry.file_size_bytes >> 8) & 0xFF));
+      LCD::printHex(DEFAULT_FONT, palette, 232, 48 + (i * 8), (uint8_t) ((entry.file_size_bytes >> 16) & 0xFF));
+      LCD::printHex(DEFAULT_FONT, palette, 248, 48 + (i * 8), (uint8_t) ((entry.file_size_bytes >> 24) & 0xFF));
 
       if (entry.attributes & 0x10) {
         LCD::print(DEFAULT_FONT, palette, 2, 48 + (i * 8), ">", 1);

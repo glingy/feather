@@ -34,18 +34,24 @@ USB_Type::USB_Type() {
   //};
   //desc.DeviceDescBank[0].;
 
+  UD.CTRLA.bit.SWRST = 1;
+  while (UD.SYNCBUSY.bit.SWRST);
+
   UD.DESCADD.reg = (uint32_t) endpoints;
   UD.PADCAL.reg =
     USB_PADCAL_TRANSN(NVM_READ_CAL(USB_TRANSN)) | 
     USB_PADCAL_TRIM(NVM_READ_CAL(USB_TRIM)) | 
     USB_PADCAL_TRANSP(NVM_READ_CAL(USB_TRANSP));
 
-  UD.CTRLB.reg = USB_DEVICE_CTRLB_SPDCONF_LS;  
+  UD.CTRLB.reg = USB_DEVICE_CTRLB_SPDCONF_FS;  
   
   UD.CTRLA.reg = USB_CTRLA_RUNSTDBY | USB_CTRLA_MODE_DEVICE | USB_CTRLA_ENABLE;
   UD.INTENSET.reg = USB_DEVICE_INTENSET_EORST;
   exception_table.pfnUSB_Handler = (void *) Handler_EORST;
   UD.CTRLB.bit.DETACH = 0;
+  while (!currentConfiguration) {
+    __WFI();
+  }
 }
 
 void USB_Type::zlp() { // This is one status option to return from a setup request...
@@ -54,13 +60,6 @@ void USB_Type::zlp() { // This is one status option to return from a setup reque
   UD.DeviceEndpoint[0].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_TRCPT(2);
   UD.DeviceEndpoint[0].EPSTATUSSET.bit.BK1RDY = true;
   while ( !(UD.DeviceEndpoint[0].EPINTFLAG.bit.TRCPT1 || UD.DeviceEndpoint[0].EPINTFLAG.bit.TRFAIL1) );
-#ifdef DEBUGG
-  if (UD.DeviceEndpoint[0].EPINTFLAG.bit.TRFAIL1) {
-    usb->log->println("Zero length packet failed...");
-  } else {
-    usb->log->println("Zero length packet sent...");
-  }
-#endif
 }
 
 void USB_Type::stall() { // This is the other status option to return from a setup request...
@@ -79,11 +78,13 @@ void USB_Type::write(const char * data, uint32_t length, byte ep_num) {
   } -- Something's broken with this... its not copying correctly...*/
 
   endpoints[ep_num].DeviceDescBank[1].ADDR.reg = (uint32_t) data; // set address, pcksize, and send
-  endpoints[ep_num].DeviceDescBank[1].PCKSIZE.reg = 
-    3 | 
+  endpoints[ep_num].DeviceDescBank[1].PCKSIZE.reg = // No clue why... but I *have* to set SIZE to 0 here if it's in low speed mode, 3 if it's in high speed... Doesn't work otherwise.. weird
+    USB_DEVICE_PCKSIZE_SIZE(3) |
     USB_DEVICE_PCKSIZE_AUTO_ZLP |
     USB_DEVICE_PCKSIZE_MULTI_PACKET_SIZE(0) |
     USB_DEVICE_PCKSIZE_BYTE_COUNT(length);
+
+  //usb->log->println(endpoints[ep_num].DeviceDescBank[1].PCKSIZE.reg);
 
   UD.DeviceEndpoint[ep_num].EPINTFLAG.bit.TRCPT1 = 1; // Clear transfer complete flag
   //UD.DeviceEndpoint[ep_num].EPINTFLAG.bit.TRFAIL1 = 1;
@@ -113,9 +114,11 @@ void USB_Type::configure() {
   UD.DeviceEndpoint[EP_OUT].EPCFG.reg = USB_DEVICE_EPCFG_EPTYPE0(3);
   /* Set maximum packet size as 64 bytes */
   endpoints[EP_OUT].DeviceDescBank[0].PCKSIZE.bit.SIZE = 3;
-  UD.DeviceEndpoint[EP_OUT].EPSTATUSSET.reg = USB_DEVICE_EPSTATUSSET_BK0RDY;
   /* Configure the data buffer */
-  endpoints[EP_OUT].DeviceDescBank[0].ADDR.reg = (uint32_t)&endpoint_out_bfr[1];
+  endpoints[EP_OUT].DeviceDescBank[0].ADDR.reg = (uint32_t)endpoint_out_bfr[1];
+  UD.DeviceEndpoint[EP_OUT].EPINTENSET.reg = USB_DEVICE_EPINTENSET_TRCPT0;
+  UD.DeviceEndpoint[EP_OUT].EPSTATUSCLR.reg = USB_DEVICE_EPSTATUSCLR_BK0RDY;
+
 
   /* Configure BULK IN endpoint for CDC Data interface */
   UD.DeviceEndpoint[EP_IN].EPCFG.reg = USB_DEVICE_EPCFG_EPTYPE1(3);
@@ -123,7 +126,7 @@ void USB_Type::configure() {
   endpoints[EP_IN].DeviceDescBank[1].PCKSIZE.bit.SIZE = 3;
   UD.DeviceEndpoint[EP_IN].EPSTATUSCLR.reg = USB_DEVICE_EPSTATUSCLR_BK1RDY;
   /* Configure the data buffer */
-  endpoints[EP_IN].DeviceDescBank[1].ADDR.reg = (uint32_t)&endpoint_in_bfr[1];
+  endpoints[EP_IN].DeviceDescBank[1].ADDR.reg = (uint32_t)endpoint_in_bfr[1];
 
   /* Configure INTERRUPT IN endpoint for CDC COMM interface*/
   UD.DeviceEndpoint[EP_COMM].EPCFG.reg = USB_DEVICE_EPCFG_EPTYPE1(4);
@@ -132,10 +135,11 @@ void USB_Type::configure() {
   UD.DeviceEndpoint[EP_COMM].EPSTATUSCLR.reg = USB_DEVICE_EPSTATUSCLR_BK1RDY;
 }
 
-// Max Length 62 characters...
-void USB_Type::writeString(const char * str, byte ep_num) {
+// Max Length 30 characters...
+void USB_Type::writeString(const char * str, uint32_t packet_length, byte ep_num) {
   byte bfr_num = (ep_num == 0) ? 0 : 1;
   uint16_t * pBfr = ((uint16_t *) endpoint_in_bfr[bfr_num]) + 1; // leave 2 bytes for length and type...
+  
   const uint8_t * pStr = (const uint8_t *) str;
   for (;;) {
     *pBfr++ = (uint16_t) (*pStr++);
@@ -143,9 +147,10 @@ void USB_Type::writeString(const char * str, byte ep_num) {
       break;
     }
   }
+
   byte len = (uint8_t) ((uint32_t)pBfr - (uint32_t)endpoint_in_bfr[bfr_num]);
   endpoint_in_bfr[bfr_num][0] = len;
   endpoint_in_bfr[bfr_num][1] = DESCRIPTOR_STRINGS;
 
-  write((const char *) endpoint_in_bfr[bfr_num], len, ep_num);
+  write((const char *) endpoint_in_bfr[bfr_num], MIN(len, packet_length), ep_num);
 }

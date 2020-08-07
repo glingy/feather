@@ -17,6 +17,9 @@
     "files.associations": {
         "*.json": "jsonc",
         "sam.h": "c",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "typeinfo": "cpp",
+        "cstddef": "cpp",
+        "*.tcc": "cpp"
     }
 }

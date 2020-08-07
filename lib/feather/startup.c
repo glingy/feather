@@ -28,6 +28,7 @@
  */
 
 #include "samd21.h"
+#include "program/proginfo.h"
 
 /* Initialize segments */
 extern uint32_t _sfixed;
@@ -48,6 +49,8 @@ extern uint32_t _svectors;
 /** \cond DOXYGEN_SHOULD_SKIP_THIS */
 int main(void);
 /** \endcond */
+
+PROGID; /* Identify as valid program */
 
 void __libc_init_array(void);
 
@@ -249,10 +252,13 @@ __attribute__((weak)) void Reset_Handler(void)
         DMAC->QOSCTRL.bit.WRBQOS = 2;
 
         /* Overwriting the default value of the NVMCTRL.CTRLB.MANW bit (errata reference 13134) */
-        NVMCTRL->CTRLB.bit.MANW = 1;
+        NVMCTRL->CTRLB.bit.MANW = 1; // Note: prevents accidental flash writes
 
         /* Initialize the C library */
         __libc_init_array();
+
+        /* Enable Interrupts... */
+        //__enable_irq();
 
         /* Branch to main function */
         main();

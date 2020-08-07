@@ -1,8 +1,11 @@
 #include "feather.h"
 #include "internal.h"
 
+byte _sleep_idling = true;
+
 void TC3_Handler() {
   TC3->COUNT16.INTFLAG.reg = TC_INTFLAG_MC0;
+  _sleep_idling = false;
 }
 
 void initSleep() {
@@ -34,5 +37,8 @@ void sleep_ms(uint16_t ms) {
   while (TC3->COUNT16.STATUS.bit.SYNCBUSY);
   TC3->COUNT16.CTRLBSET.reg = TC_CTRLBSET_CMD_RETRIGGER;
   while (TC3->COUNT16.STATUS.bit.SYNCBUSY);
-  __WFI();
+  _sleep_idling = true;
+  while (_sleep_idling) {
+    __WFI();
+  }
 }

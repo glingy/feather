@@ -50,7 +50,7 @@ struct __attribute__((__packed__)) FSDirEntry {
 
 struct FSDir {
   uint32_t cluster;
-  uint32_t entry; // lower nibble entry, upper nibble sector index (assuming 512 byte sectors)
+  uint32_t entry; // lower nibble entry, upper bits sector index (assuming 512 byte sectors)
 };
 
 typedef uint32_t FSCluster; // a cluster index in the FAT
@@ -70,26 +70,41 @@ namespace SD {
   inline void getRootDir();
   inline void readDir(FSAddr dir, byte index, FSDirEntry * entry); // only supports entries within the first sector of the directory listing, so index < 16
   inline void readFat(FSCluster * cluster);
+  inline void nextClusterInChain(FSCluster * cluster);
   void read(FSAddr block, uint16_t offset, uint16_t count, void * dest);
   inline void readDirEntry(FSDir * loc, FSDirEntry * entry);
   void nextDirEntry(FSDir * loc);
   void prevDirEntry(FSDir * loc, FSCluster firstCluster);
+  inline bool isEntryVisible(FSDirEntry entry);
+  inline void readCluster(uint32_t cluster, uint16_t offset, uint16_t count, void * dest);
 };
 
+inline bool SD::isEntryVisible(FSDirEntry entry) {
+  return ((entry.attributes & (0x02 | 0x08)) == 0) && (entry.name[0] != 0xE5);
+}
+
 inline void SD::getVolumeName(char name[11]) {
-  SD::read(volAddress, offsetof(FSVolumeData, drive_name), 11, name);
+  read(volAddress, offsetof(FSVolumeData, drive_name), 11, name);
 }
 
 inline void SD::getFormatterName(char name[8]) {
-  SD::read(volAddress, offsetof(FSVolumeData, formatter_os), 8, name);
+  read(volAddress, offsetof(FSVolumeData, formatter_os), 8, name);
 }
 
 inline void SD::readDir(uint32_t dir, byte index, FSDirEntry * entry) {
-  SD::read(rootAddress, 32 * index, 32, entry);
+  read(rootAddress, 32 * index, 32, entry);
 }
 
 inline void SD::readFat(uint32_t * cluster) {
-  SD::read(fatAddress + (*cluster >> 7), *cluster & 0x7F, 4, cluster);
+  read(fatAddress + (*cluster >> 7), *cluster & 0x7F, 4, cluster);
+}
+
+inline void SD::nextClusterInChain(uint32_t * cluster) {
+  read(fatAddress + (*cluster >> 7), *cluster & 0x7F, 4, cluster);
+}
+
+inline void SD::readCluster(uint32_t cluster, uint16_t offset, uint16_t count, void * dest) {
+  read(rootAddress + (cluster * 16), offset, count, dest);
 }
 
 inline void SD::readDirEntry(FSDir * loc, FSDirEntry * entry) {

@@ -3,7 +3,6 @@
 
 void initSleep(); // timer.cpp
 
-
 /**
  * Init all the clocks and the display (reset and chip select only)
  * Sets cpu to 48MHz clock, and GCLK0 - 48MHz, GCLK4 - 8MHz, GCLK2 - 96MHz, GCLK3 - 16kHz
@@ -30,9 +29,10 @@ void Feather::init() {
     SYSCTRL->OSC8M.bit.PRESC = 0;
 
     // Enable the SERCOM5 (LCD SPI bus), ADC (analog-digital converter), TC3 (sleep timer), and SERCOM4 (SD Card) in the power manager
-    PM->APBCMASK.reg |= PM_APBCMASK_SERCOM5 | PM_APBCMASK_ADC | PM_APBCMASK_TC3 | PM_APBCMASK_SERCOM4;
+    PM->APBCMASK.reg |= PM_APBCMASK_SERCOM5 | PM_APBCMASK_ADC | PM_APBCMASK_TC3 | PM_APBCMASK_SERCOM4 | PM_APBCMASK_TCC1;
     PM->APBBMASK.reg |= PM_APBBMASK_DMAC;
     PM->AHBMASK.reg |= PM_AHBMASK_DMAC;
+    
 
     // Init clock 4 from the OSC8M 8MHz clock for the DPLL
     GCLK->GENCTRL.reg =
@@ -91,9 +91,12 @@ void Feather::init() {
     while (GCLK->STATUS.reg)
         ;
 
+    __enable_irq();
+
     DMA::start();
     LCD::init();
     Input::init();
     SD::init();
+    usb.init();
     initSleep();
 }

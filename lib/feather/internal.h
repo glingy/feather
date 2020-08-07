@@ -1,12 +1,14 @@
 #ifndef INTERNAL_H
 #define INTERNAL_H
 
+#include "types.h"
 #include "pins.h"
 #include "sam.h"
 #include "util.h"
 #include "nvm_data.h"
 #include "dma.h"
-#include "feather.h"
+#include "error.h"
+
 
 enum
 {

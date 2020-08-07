@@ -1,0 +1,37 @@
+/* EIC example...
+  
+  __enable_irq();
+  __NVIC_EnableIRQ(EIC_IRQn);
+  PM->APBAMASK.reg |= PM_APBAMASK_EIC;
+
+  EIC->CTRL.reg = EIC_CTRL_SWRST;
+  while (EIC->STATUS.bit.SYNCBUSY);
+  
+
+  EIC->CONFIG[0].bit.SENSE3 = EIC_CONFIG_SENSE3_HIGH_Val; // SELECT button... PA17->EXTINT1
+  EIC->INTENSET.reg = EIC_INTENSET_EXTINT3;
+  EIC->WAKEUP.bit.WAKEUPEN3 = 1;
+  EIC->CTRL.reg = EIC_CTRL_ENABLE;
+  PORTA.PINCFG[19].reg = PORT_PINCFG_INEN | PORT_PINCFG_PMUXEN | PORT_PINCFG_PULLEN;
+  PORTA.OUTCLR.reg = PORT_PA19;
+  PORTA.PMUX[9].reg = PORT_PMUX_PMUXO_A;
+  */
+
+  void EIC_Handler() {
+  //LCD::fillWindow(LCD::BLACK, 0, 0, 319, 239);
+  //LCD::print(DEFAULT_FONT, green_palette, 0, 0, help);
+  if (EIC->INTFLAG.bit.EXTINT3) { // SELECT
+    EIC->INTFLAG.bit.EXTINT3 = 1;
+    if (Input::Digital->up) {
+      while (Input::Digital->up);
+      LCD::fillWindow(LCD::BLACK, 0, 0, 319, 239);
+      if (!helpVisible) {
+        helpVisible = true;
+        LCD::printlns(DEFAULT_FONT, DEFAULT_PALETTE, 0, 0, help);
+      } else {
+        helpVisible = false;
+        drawHome();
+      }
+    }
+  }
+}
