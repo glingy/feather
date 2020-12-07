@@ -29,7 +29,7 @@ void Feather::init() {
     SYSCTRL->OSC8M.bit.PRESC = 0;
 
     // Enable the SERCOM5 (LCD SPI bus), ADC (analog-digital converter), TC3 (sleep timer), and SERCOM4 (SD Card) in the power manager
-    PM->APBCMASK.reg |= PM_APBCMASK_SERCOM5 | PM_APBCMASK_ADC | PM_APBCMASK_TC3 | PM_APBCMASK_SERCOM4 | PM_APBCMASK_TCC1;
+    PM->APBCMASK.reg |= PM_APBCMASK_SERCOM5 | PM_APBCMASK_ADC | PM_APBCMASK_TC3 | PM_APBCMASK_SERCOM4 | PM_APBCMASK_TCC1 | PM_APBCMASK_TCC2;
     PM->APBBMASK.reg |= PM_APBBMASK_DMAC;
     PM->AHBMASK.reg |= PM_AHBMASK_DMAC;
     

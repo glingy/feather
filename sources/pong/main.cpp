@@ -1,4 +1,5 @@
 #include <feather.h>
+#include "effects.h"
 #include <cmath>
 
 #define PADDLE_SIZE 35
@@ -9,6 +10,11 @@ byte timer = 128;
 byte lastX = 0;
 byte lastY = 0;
 //const uint16_t GRAYSCALE[] = {0, 0xFFFF};
+
+char score[6] = {0};
+uint16_t numScore = 0;
+float dirX = 0.14;
+char dirY = 1;
 
 uint16_t colors[] = {
   0xFF00, 0x07E0, 0x001F
@@ -69,10 +75,11 @@ void drawBall()
   LCD::fillWindow(0x0FF0, ux + 5, uy + 3, ux + 7, uy + 5);
 }
 
-char score[6] = {0};
-uint16_t numScore = 0;
-float dirX = 0.14;
-char dirY = 1;
+void printScore() {
+  LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 266, 19, (uint8_t) (numScore >> 8));
+  LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 282, 19, (uint8_t) numScore);
+}
+
 
 void resetLevel()
 {
@@ -88,14 +95,17 @@ void resetLevel()
   dirY = 1;
   x = 109;
   y = 200;
+  timer = 128;
   sleep_ms(1000);
 }
 
 int main() {
   Feather::init();
+  Sound::initEffect();
   LCD::fillWindow(LCD::BLACK);
   LCD::fillWindow(0xEEEE, 0, 0, 239, 239);
   LCD::fillWindow(LCD::BLACK, 2, 2, 237, 237);
+  LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 250, 10, "Score");
   printBlocks();
 
   while (1)
@@ -107,23 +117,30 @@ int main() {
     lastY = y;
     x += dirX;
     y += dirY;
-    if (x <= 0 || x >= 227) { dirX *= -1; x = fabs(x); }
-    if (y <= 0) { dirY *= -1; }
+    if (x <= 0 || x >= 227) { 
+      dirX *= -1; 
+      x = fabs(x); 
+      Sound::playEffect(fx_wall, fx_wall_len);
+    }
+    if (y <= 0) {
+      dirY *= -1;
+      Sound::playEffect(fx_wall, fx_wall_len);
+    }
     else if (y >= 223) {
       if (pX < x + 2 && pX + PADDLE_SIZE + 1 > x) {
         dirY *= -1;
         dirX = (x - pX - 29) / 18.;
         timer = timer == 0 ? 0 : timer - 1;
+        Sound::playEffect(fx_paddle, fx_paddle_len);
       }
       else {
         LCD::fillWindow(0, 2, 2, 237, 237);
-        //SPI.print("You lost.", 9, bw, 84, 84);
-        //SPI.print("Try again", 9, bw, 84, 93);
+        LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 84, 84, "You lost.");
+        LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 84, 93, "Try again");
         sleep_ms(2000);
         resetLevel();
         numScore = 0;
-        //SPI.numtostr(score, numScore);
-        //SPI.print(score, 5, bw, 250, 19);
+        printScore();
       }
     }   
 
@@ -144,16 +161,15 @@ int main() {
         }
         numScore += 10;
         blocksLeft--;
-        //SPI.numtostr(score, numScore);
-        //SPI.print(score, 5, bw, 250, 19);
+        Sound::playEffect(fx_break, fx_break_len);
+        printScore();
 
         if (blocksLeft == 0) {
-          //SPI.print("Level Up!", 9, bw, 84, 84);
+          LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 84, 84, "Level Up!");
           sleep_ms(1000);
           resetLevel();
           numScore += 100;
-          //SPI.numtostr(score, numScore);
-          //SPI.print(score, 5, bw, 250, 19);
+          printScore();
         }
 
       }

@@ -1,33 +1,28 @@
 #include "feather.h"
 #include "sound/sound.h"
 
+extern const uint8_t effect[];
+extern const uint16_t effect_len;
+
 int main() {
   Feather::init();
   LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 0, 0, "Is this working?");
+  PORTB.DIRSET.reg = PORT_PB08;
+  Sound::initEffect();
+  for (uint32_t i = 0; i < 0xFFF; i++) {
+    PORTB.OUTTGL.reg = PORT_PB08;
+  }
+  LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 40, 40, (uint32_t) REG_TCC1_CC0);
+  Sound::playEffect(effect, effect_len);
   
-  Sound::init();
-  bool beeping = false;
-  uint32_t per = 32;
-  uint32_t duty = 16;
+  byte i = 0;
   while (1) {
-
-    if (!beeping && Input::Digital->right) {
-      Sound::beep();
-      beeping = true;
+    for (uint32_t i = 0; i < 0xFFFFFF; i++) { 
+      PORTB.OUTTGL.reg = PORT_PB08;
     }
-
-    if (beeping && !Input::Digital->right) {
-      Sound::stop();
-      beeping = false;
-    }
-
-    per = (Input::Analog->joystickX * 256) + 0x1000;
-    per = per >= 0xF ? per : 0xF;
-    duty = Input::Analog->joystickY * 256;
-    duty = duty < per ? duty : per - 1;
-    LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 0, 8, per);
-    LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 0, 16, duty);
-    Sound::setPeriod(per);
-    Sound::setDutyCycle(duty);
+    LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 40, 90, (uint32_t) REG_TCC1_CC0);
+    //Sound::setDutyCycle(i);
+    //i = (i + 1) % 0xF;
+    Sound::playEffect(effect, effect_len);
   }
 }

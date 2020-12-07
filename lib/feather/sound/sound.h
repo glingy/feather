@@ -1,4 +1,4 @@
-#include "internal.h"
+#include "types.h"
 
 namespace Sound {
   void init();
@@ -7,5 +7,5 @@ namespace Sound {
   void stop();
   void setPeriod(uint32_t per);
   void setDutyCycle(uint32_t duty);
-  void playEffect(uint8_t effect, uint8_t len);
+  void playEffect(const uint8_t * effect, const uint16_t len);
 };

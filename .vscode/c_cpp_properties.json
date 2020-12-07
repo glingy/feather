@@ -7,28 +7,28 @@
             "name": "Mac",
             "macFrameworkPath": [],
             "includePath": [
-                "/Users/gregory/Desktops/samd/feather/include",
-                "/Users/gregory/Desktops/samd/feather/sources/beep",
-                "/Users/gregory/Desktops/samd/feather/lib/feather",
+                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/include",
+                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/undefined",
                 "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                 "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
+                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
                 "/Users/gregory/.platformio/packages/tool-unity",
                 ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/gregory/Desktops/samd/feather/include",
-                    "/Users/gregory/Desktops/samd/feather/sources/beep",
-                    "/Users/gregory/Desktops/samd/feather/lib/feather",
+                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/include",
+                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/undefined",
                     "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                     "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
+                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
                     "/Users/gregory/.platformio/packages/tool-unity",
                     ""
                 ]
             },
             "defines": [
-                "PLATFORMIO=40304",
+                "PLATFORMIO=50003",
                 "ARDUINO_ARCH_SAMD",
                 "ARDUINO_SAMD_ZERO",
                 "ARDUINO_SAMD_FEATHER_M0",
@@ -38,7 +38,7 @@
                 "USBCON",
                 ""
             ],
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "gcc-x64",
             "cStandard": "c11",
             "cppStandard": "c++11",
             "compilerPath": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc",

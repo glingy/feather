@@ -6,6 +6,7 @@ enum {
   DMA_CHID_ADC = 0,
   DMA_CHID_SD_RX,
   DMA_CHID_SD_TX,
+  DMA_CHID_SOUND,
   DMA_CHANNELS
 };
 
