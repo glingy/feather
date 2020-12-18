@@ -72,7 +72,7 @@ bool Debug::input(Serial * serial, char * data, byte len) {
       case 'l':
         LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 0, 232, ((uint32_t*)NVMCTRL_USER)[0]);
         LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 64, 232, ((uint32_t*)NVMCTRL_USER)[1]);
-        if (true || (*(uint32_t*)NVMCTRL_USER) & NVMCTRL_FUSES_BOOTPROT_Msk == 7) {
+        if (true || ((*(uint32_t*)NVMCTRL_USER) & NVMCTRL_FUSES_BOOTPROT_Msk) == 7) {
           NVMCTRL->ADDR.reg = NVMCTRL_USER;
           NVMCTRL->CTRLA.reg = NVMCTRL_CTRLA_CMDEX_KEY | NVMCTRL_CTRLA_CMD_EAR;
           while (!NVMCTRL->INTFLAG.bit.READY);

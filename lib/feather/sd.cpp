@@ -23,10 +23,6 @@ uint32_t SD::fatAddress = 0;
 uint32_t SD::rootAddress = 0;
 byte SD::sectors_per_cluster = 0;
 
-void HardFault_Handler() {
-  error("Hardfault!!!", "");
-}
-
 void DMAC_Handler() {
   DMAC->CHID.reg = DMA_CHID_SD_RX;
   DMAC->CHINTFLAG.reg = DMAC_CHINTFLAG_TCMPL;
@@ -282,7 +278,7 @@ void SD::init() {
     "and on again."
   };
 
-  error(msg, 6);
+  error_multiline(msg, 6);
 }
 
 // Sets loc->cluster 0 when no next cluster available

@@ -1,71 +1,41 @@
 Archive member included to satisfy reference by file (symbol)
 
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
                               .pio/build/adafruit_feather_m0/src/main.o (DEFAULT_PALETTE)
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o)
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o)
                               .pio/build/adafruit_feather_m0/src/main.o (Feather::init())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o) (Input::init())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (LCD::fillWindow(unsigned short))
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o) (SD::init())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (Sound::initEffect())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
-                              (Reset_Handler)
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (LCD::print(unsigned char const*, unsigned short const*, unsigned short, unsigned short, char const*))
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o) (initSleep())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o) (USB_Type::init())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o) (USB_Type::Handler_OUT(Serial*))
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o) (Debug::input(Serial*, char*, unsigned char))
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o) (DMA::start())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o) (error(char const*, char const*))
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o) (Program::setResetModeProgram())
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o) (Serial::Serial(USB_Type*, unsigned char))
-.pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o) (USB_Type::cfgDescriptor)
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o) (Input::init())
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o) (LCD::init())
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                              .pio/build/adafruit_feather_m0/src/main.o (SD::read(unsigned long, unsigned short, unsigned short, void*))
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+                              (exception_table)
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+                              .pio/build/adafruit_feather_m0/src/main.o (LCD::print(unsigned char const*, unsigned short const*, unsigned short, unsigned short, char const*, unsigned char))
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o) (initSleep())
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o) (USB_Type::init())
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o) (USB_Type::Handler_OUT(Serial*))
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o) (Debug::input(Serial*, char*, unsigned char))
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o) (DMA::start())
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o) (error)
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o) (Program::setResetModeProgram())
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o) (Serial::Serial(USB_Type*, unsigned char))
+.pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o) (USB_Type::cfgDescriptor)
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o) (operator new(unsigned int))
+                              .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o) (operator new(unsigned int))
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
                               /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o) (std::get_new_handler())
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivsi3.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_uidiv)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_divsi3.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_idiv)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
-                              /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_fcmplt)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_fixunssfsi.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_f2uiz)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(addsf3.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_fadd)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(divsf3.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_fdiv)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(eqsf2.o)
-                              /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o) (__eqsf2)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(gesf2.o)
-                              /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o) (__gesf2)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(lesf2.o)
-                              /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o) (__lesf2)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(subsf3.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_fsub)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(fixsfsi.o)
-                              /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_fixunssfsi.o) (__aeabi_f2iz)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(floatsisf.o)
-                              .pio/build/adafruit_feather_m0/src/main.o (__aeabi_i2f)
-/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_clzsi2.o)
-                              /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(addsf3.o) (__clzsi2)
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
                               /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o) (abort)
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-exit.o)
@@ -77,7 +47,7 @@ Archive member included to satisfy reference by file (symbol)
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-malloc.o)
                               /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o) (malloc)
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memcpy-stub.o)
-                              .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o) (memcpy)
+                              .pio/build/adafruit_feather_m0/src/main.o (memcpy)
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memset.o)
                               /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o (memset)
 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-freer.o)
@@ -121,112 +91,85 @@ Discarded input sections
  .ARM.exidx     0x0000000000000000        0x8 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
  .ARM.attributes
                 0x0000000000000000       0x1b /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/effects.o
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/effects.o
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/effects.o
+ .group         0x0000000000000000        0xc .pio/build/adafruit_feather_m0/src/main.o
  .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/main.o
  .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/main.o
  .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/main.o
- .text._Z9clearBallv
-                0x0000000000000000       0x2c .pio/build/adafruit_feather_m0/src/main.o
- .bss.score     0x0000000000000000        0x6 .pio/build/adafruit_feather_m0/src/main.o
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/proginfo.o
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/proginfo.o
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/src/proginfo.o
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
- .data._ZN5Input7DigitalE
-                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
- .group         0x0000000000000000        0xc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .text._ZN2SD7readFatEPm
-                0x0000000000000000       0x20 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .text._ZN2SD12nextDirEntryEP5FSDir
-                0x0000000000000000       0x3c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .text._ZN2SD12prevDirEntryEP5FSDirm
-                0x0000000000000000       0x4c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .text._ZN5Sound4initEv
-                0x0000000000000000       0x4c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .text._ZN5Sound4beepEv
-                0x0000000000000000       0x24 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .text._ZN5Sound9setPeriodEm
-                0x0000000000000000        0xc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .text._ZN5Sound12setDutyCycleEm
-                0x0000000000000000        0xc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .text._ZN5Sound4stopEv
-                0x0000000000000000       0x14 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+ .group         0x0000000000000000        0xc .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
  .text._ZN3LCD8printlnsEPKhPKtttPKc
-                0x0000000000000000       0x6c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
+                0x0000000000000000       0x6c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+ .text._Z8sleep_mst
+                0x0000000000000000       0x38 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
  .text._ZN8USB_Type17waitForConnectionEv
-                0x0000000000000000        0xe .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
+                0x0000000000000000        0xe .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
  .bss._ZN5Debug5stateE
-                0x0000000000000000        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
+                0x0000000000000000        0x1 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
  .bss._ZN5Debug6lengthE
-                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
+                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
  .bss._ZN5Debug7destptrE
-                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
+                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
  .text._ZN7Program10runProgramEv
-                0x0000000000000000       0x20 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
+                0x0000000000000000       0x20 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
  .text._ZN7Program18checkProgramAndRunEv
-                0x0000000000000000       0x68 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
+                0x0000000000000000       0x70 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
  .data._ZN7Program14currentProgramE
-                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
+                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
  .ramfuncBLOnly
-                0x0000000000000000       0x38 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
+                0x0000000000000000       0x38 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
  .text._ZN6Serial4sendEPKcm
-                0x0000000000000000       0x44 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
+                0x0000000000000000       0x44 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
  .text._ZN6Serial9isSendingEv
-                0x0000000000000000       0x20 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
+                0x0000000000000000       0x20 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
  .text._ZN6Serial16setRecvInterruptEPFbPS_PchE
-                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
- .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
- .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
- .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
+                0x0000000000000000        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+ .text          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+ .data          0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+ .bss           0x0000000000000000        0x0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
  .text          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
  .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
  .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
@@ -237,38 +180,6 @@ Discarded input sections
                 0x0000000000000000       0x10 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
  .rodata._ZSt7nothrow
                 0x0000000000000000        0x1 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivsi3.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivsi3.o)
- .text          0x0000000000000000      0x1d4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_divsi3.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_divsi3.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_divsi3.o)
- .debug_frame   0x0000000000000000       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_divsi3.o)
- .ARM.attributes
-                0x0000000000000000       0x1e /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_divsi3.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_fixunssfsi.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_fixunssfsi.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(addsf3.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(addsf3.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(divsf3.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(divsf3.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(eqsf2.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(eqsf2.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(gesf2.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(gesf2.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(lesf2.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(lesf2.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(subsf3.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(subsf3.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(fixsfsi.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(fixsfsi.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(floatsisf.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(floatsisf.o)
- .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_clzsi2.o)
- .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_clzsi2.o)
  .text          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
  .data          0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
  .bss           0x0000000000000000        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
@@ -379,14 +290,12 @@ LOAD /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
 
 .progid         0x0000000000006000        0x4
  *(.progid)
- .progid        0x0000000000006000        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
+ .progid        0x0000000000006000        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
                 0x0000000000006000                prog_id
                 0x0000000000000000                . = ORIGIN (proginfo)
 
-.prog           0x0000000000006004     0x13a5
+.prog
  *(.proginfo)
- .proginfo      0x0000000000006004     0x13a5 .pio/build/adafruit_feather_m0/src/proginfo.o
-                0x0000000000006004                program_info
                 0x0000000000008000                . = ORIGIN (rom)
                 0x0000000000008000                _svectors = .
 
@@ -394,604 +303,511 @@ LOAD /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sramvectors = .
  *(.vectors .vectors.*)
- .vectors       0x0000000020000000       0xb4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
+ .vectors       0x0000000020000000       0xb4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
                 0x0000000020000000                exception_table
                 0x00000000200000b4                _eramvectors = .
 
-.text           0x00000000000080b4     0x3adc
+.text           0x00000000000080b4     0x1c34
                 0x00000000000080b4                . = ALIGN (0x4)
                 0x00000000000080b4                _sfixed = .
  *(.text .text.* .gnu.linkonce.t.*)
  .text          0x00000000000080b4       0x48 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
- .text._Z11printBlocksv
-                0x00000000000080fc       0x58 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000000080fc                printBlocks()
- .text._Z10drawPaddlev
-                0x0000000000008154       0x40 .pio/build/adafruit_feather_m0/src/main.o
-                0x0000000000008154                drawPaddle()
- .text._Z8drawBallv
-                0x0000000000008194       0x50 .pio/build/adafruit_feather_m0/src/main.o
-                0x0000000000008194                drawBall()
- .text._Z10printScorev
-                0x00000000000081e4       0x3c .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000000081e4                printScore()
- .text._Z10resetLevelv
-                0x0000000000008220       0x7c .pio/build/adafruit_feather_m0/src/main.o
-                0x0000000000008220                resetLevel()
- .text.startup.main
-                0x000000000000829c      0x300 .pio/build/adafruit_feather_m0/src/main.o
-                0x000000000000829c                main
+ .text._ZN2SD12readDirEntryEP5FSDirP10FSDirEntry
+                0x00000000000080fc       0x28 .pio/build/adafruit_feather_m0/src/main.o
+                0x00000000000080fc                SD::readDirEntry(FSDir*, FSDirEntry*)
+ .text._Z12printHeadersv
+                0x0000000000008124       0xd0 .pio/build/adafruit_feather_m0/src/main.o
+                0x0000000000008124                printHeaders()
+ .text._Z13nextRealEntryP5FSDirP10FSDirEntry
+                0x00000000000081f4       0x32 .pio/build/adafruit_feather_m0/src/main.o
+                0x00000000000081f4                nextRealEntry(FSDir*, FSDirEntry*)
+ .text._Z13prevRealEntryP5FSDirmP10FSDirEntry
+                0x0000000000008226       0x36 .pio/build/adafruit_feather_m0/src/main.o
+                0x0000000000008226                prevRealEntry(FSDir*, unsigned long, FSDirEntry*)
  .text._ZN7Feather4initEv
-                0x000000000000859c      0x10c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o)
-                0x000000000000859c                Feather::init()
+                0x000000000000825c      0x10c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o)
+                0x000000000000825c                Feather::init()
  .text._ZN5Input4initEv
-                0x00000000000086a8      0x128 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
-                0x00000000000086a8                Input::init()
+                0x0000000000008368      0x128 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+                0x0000000000008368                Input::init()
  .text.startup._GLOBAL__sub_I__ZN5Input6AnalogE
-                0x00000000000087d0       0x1c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
+                0x0000000000008490       0x1c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
  .text._ZN3LCD9setWindowEPt
-                0x00000000000087ec       0xe4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
-                0x00000000000087ec                LCD::setWindow(unsigned short*)
+                0x00000000000084ac       0xe4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+                0x00000000000084ac                LCD::setWindow(unsigned short*)
  .text._ZN3LCD10fillWindowEt
-                0x00000000000088d0       0x64 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
-                0x00000000000088d0                LCD::fillWindow(unsigned short)
+                0x0000000000008590       0x64 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+                0x0000000000008590                LCD::fillWindow(unsigned short)
  .text._ZN3LCD4initEv
-                0x0000000000008934      0x10c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
-                0x0000000000008934                LCD::init()
+                0x00000000000085f4      0x10c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+                0x00000000000085f4                LCD::init()
  .text._ZN3LCD10fillWindowEttttt
-                0x0000000000008a40       0x20 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
-                0x0000000000008a40                LCD::fillWindow(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
- .text.HardFault_Handler
-                0x0000000000008a60       0x14 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000000008a60                HardFault_Handler
+                0x0000000000008700       0x20 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+                0x0000000000008700                LCD::fillWindow(unsigned short, unsigned short, unsigned short, unsigned short, unsigned short)
  .text.DMAC_Handler
-                0x0000000000008a74       0x54 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000000008a74                DMAC_Handler
+                0x0000000000008720       0x54 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000000008720                DMAC_Handler
  .text._Z10sd_executev
-                0x0000000000008ac8       0x1c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000000008ac8                sd_execute()
+                0x0000000000008774       0x1c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000000008774                sd_execute()
  .text._Z14sd_sendCommandhmh
-                0x0000000000008ae4       0xe8 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000000008ae4                sd_sendCommand(unsigned char, unsigned long, unsigned char)
+                0x0000000000008790       0xe8 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000000008790                sd_sendCommand(unsigned char, unsigned long, unsigned char)
  .text._ZN2SD4readEmttPv
-                0x0000000000008bcc      0x12c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000000008bcc                SD::read(unsigned long, unsigned short, unsigned short, void*)
+                0x0000000000008878      0x12c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000000008878                SD::read(unsigned long, unsigned short, unsigned short, void*)
+ .text._ZN2SD7readFatEPm
+                0x00000000000089a4       0x20 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x00000000000089a4                SD::readFat(unsigned long*)
  .text._ZN2SD4initEv
-                0x0000000000008cf8      0x1d0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000000008cf8                SD::init()
- .text._ZN5Sound10initEffectEv
-                0x0000000000008ec8       0xb4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
-                0x0000000000008ec8                Sound::initEffect()
- .text._ZN5Sound10playEffectEPKht
-                0x0000000000008f7c       0x3c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
-                0x0000000000008f7c                Sound::playEffect(unsigned char const*, unsigned short)
+                0x00000000000089c4      0x1d0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x00000000000089c4                SD::init()
+ .text._ZN2SD12nextDirEntryEP5FSDir
+                0x0000000000008b94       0x3c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000000008b94                SD::nextDirEntry(FSDir*)
+ .text._ZN2SD12prevDirEntryEP5FSDirm
+                0x0000000000008bd0       0x4c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000000008bd0                SD::prevDirEntry(FSDir*, unsigned long)
  .text.Dummy_Handler
-                0x0000000000008fb8        0x2 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
-                0x0000000000008fb8                SYSCTRL_Handler
-                0x0000000000008fb8                AC_Handler
-                0x0000000000008fb8                SysTick_Handler
-                0x0000000000008fb8                PendSV_Handler
-                0x0000000000008fb8                SERCOM1_Handler
-                0x0000000000008fb8                ADC_Handler
-                0x0000000000008fb8                NonMaskableInt_Handler
-                0x0000000000008fb8                TCC1_Handler
-                0x0000000000008fb8                SERCOM2_Handler
-                0x0000000000008fb8                TCC0_Handler
-                0x0000000000008fb8                RTC_Handler
-                0x0000000000008fb8                EIC_Handler
-                0x0000000000008fb8                WDT_Handler
-                0x0000000000008fb8                TC4_Handler
-                0x0000000000008fb8                Dummy_Handler
-                0x0000000000008fb8                PM_Handler
-                0x0000000000008fb8                SERCOM5_Handler
-                0x0000000000008fb8                TCC2_Handler
-                0x0000000000008fb8                EVSYS_Handler
-                0x0000000000008fb8                SERCOM3_Handler
-                0x0000000000008fb8                SERCOM4_Handler
-                0x0000000000008fb8                I2S_Handler
-                0x0000000000008fb8                NVMCTRL_Handler
-                0x0000000000008fb8                SERCOM0_Handler
-                0x0000000000008fb8                DAC_Handler
-                0x0000000000008fb8                PTC_Handler
-                0x0000000000008fb8                TC5_Handler
-                0x0000000000008fb8                SVCall_Handler
- *fill*         0x0000000000008fba        0x2 
+                0x0000000000008c1c        0x2 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+                0x0000000000008c1c                SYSCTRL_Handler
+                0x0000000000008c1c                AC_Handler
+                0x0000000000008c1c                SysTick_Handler
+                0x0000000000008c1c                PendSV_Handler
+                0x0000000000008c1c                SERCOM1_Handler
+                0x0000000000008c1c                ADC_Handler
+                0x0000000000008c1c                NonMaskableInt_Handler
+                0x0000000000008c1c                TCC1_Handler
+                0x0000000000008c1c                SERCOM2_Handler
+                0x0000000000008c1c                TCC0_Handler
+                0x0000000000008c1c                RTC_Handler
+                0x0000000000008c1c                EIC_Handler
+                0x0000000000008c1c                WDT_Handler
+                0x0000000000008c1c                TC4_Handler
+                0x0000000000008c1c                Dummy_Handler
+                0x0000000000008c1c                PM_Handler
+                0x0000000000008c1c                SERCOM5_Handler
+                0x0000000000008c1c                TCC2_Handler
+                0x0000000000008c1c                EVSYS_Handler
+                0x0000000000008c1c                SERCOM3_Handler
+                0x0000000000008c1c                SERCOM4_Handler
+                0x0000000000008c1c                I2S_Handler
+                0x0000000000008c1c                NVMCTRL_Handler
+                0x0000000000008c1c                SERCOM0_Handler
+                0x0000000000008c1c                DAC_Handler
+                0x0000000000008c1c                PTC_Handler
+                0x0000000000008c1c                TC5_Handler
+                0x0000000000008c1c                SVCall_Handler
+ *fill*         0x0000000000008c1e        0x2 
+ .text.HardFault_Handler
+                0x0000000000008c20       0x14 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+                0x0000000000008c20                HardFault_Handler
  .text.Reset_Handler
-                0x0000000000008fbc       0xcc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
-                0x0000000000008fbc                Reset_Handler
+                0x0000000000008c34       0xcc .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+                0x0000000000008c34                Reset_Handler
  .text._ZN3LCD5printEPKhPKtttPKch
-                0x0000000000009088       0xbc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
-                0x0000000000009088                LCD::print(unsigned char const*, unsigned short const*, unsigned short, unsigned short, char const*, unsigned char)
+                0x0000000000008d00       0xbc .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+                0x0000000000008d00                LCD::print(unsigned char const*, unsigned short const*, unsigned short, unsigned short, char const*, unsigned char)
  .text._ZN3LCD5printEPKhPKtttPKc
-                0x0000000000009144       0x20 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
-                0x0000000000009144                LCD::print(unsigned char const*, unsigned short const*, unsigned short, unsigned short, char const*)
+                0x0000000000008dbc       0x20 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+                0x0000000000008dbc                LCD::print(unsigned char const*, unsigned short const*, unsigned short, unsigned short, char const*)
  .text._ZN3LCD8printHexEPKhPKttth
-                0x0000000000009164       0xc0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
-                0x0000000000009164                LCD::printHex(unsigned char const*, unsigned short const*, unsigned short, unsigned short, unsigned char)
+                0x0000000000008ddc       0xc0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+                0x0000000000008ddc                LCD::printHex(unsigned char const*, unsigned short const*, unsigned short, unsigned short, unsigned char)
  .text._ZN3LCD8printHexEPKhPKtttm
-                0x0000000000009224       0xb0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
-                0x0000000000009224                LCD::printHex(unsigned char const*, unsigned short const*, unsigned short, unsigned short, unsigned long)
+                0x0000000000008e9c       0xb0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+                0x0000000000008e9c                LCD::printHex(unsigned char const*, unsigned short const*, unsigned short, unsigned short, unsigned long)
  .text.TC3_Handler
-                0x00000000000092d4       0x18 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
-                0x00000000000092d4                TC3_Handler
+                0x0000000000008f4c       0x18 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+                0x0000000000008f4c                TC3_Handler
  .text._Z9initSleepv
-                0x00000000000092ec       0x50 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
-                0x00000000000092ec                initSleep()
- .text._Z8sleep_mst
-                0x000000000000933c       0x38 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
-                0x000000000000933c                sleep_ms(unsigned short)
+                0x0000000000008f64       0x50 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+                0x0000000000008f64                initSleep()
  .text._ZN8USB_Type4initEv
-                0x0000000000009374       0xa0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x0000000000009374                USB_Type::init()
+                0x0000000000008fb4       0xa0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x0000000000008fb4                USB_Type::init()
  .text._ZN8USB_Type3zlpEv
-                0x0000000000009414       0x28 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x0000000000009414                USB_Type::zlp()
+                0x0000000000009054       0x28 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x0000000000009054                USB_Type::zlp()
  .text._ZN8USB_Type5stallEv
-                0x000000000000943c        0xc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x000000000000943c                USB_Type::stall()
+                0x000000000000907c        0xc .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x000000000000907c                USB_Type::stall()
  .text._ZN8USB_Type5writeEPKcmh
-                0x0000000000009448       0x3c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x0000000000009448                USB_Type::write(char const*, unsigned long, unsigned char)
+                0x0000000000009088       0x3c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x0000000000009088                USB_Type::write(char const*, unsigned long, unsigned char)
  .text._ZN8USB_Type15configureSerialEhh
-                0x0000000000009484       0x68 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x0000000000009484                USB_Type::configureSerial(unsigned char, unsigned char)
+                0x00000000000090c4       0x68 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x00000000000090c4                USB_Type::configureSerial(unsigned char, unsigned char)
  .text._ZN8USB_Type11writeStringEPKcmh
-                0x00000000000094ec       0x4c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x00000000000094ec                USB_Type::writeString(char const*, unsigned long, unsigned char)
+                0x000000000000912c       0x4c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x000000000000912c                USB_Type::writeString(char const*, unsigned long, unsigned char)
  .text.startup._GLOBAL__sub_I__ZN8USB_Type3usbE
-                0x0000000000009538       0x40 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
+                0x0000000000009178       0x40 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
  .text._ZN8USB_Type13Handler_RXSTPEv
-                0x0000000000009578      0x1a0 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
-                0x0000000000009578                USB_Type::Handler_RXSTP()
+                0x00000000000091b8      0x1a0 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+                0x00000000000091b8                USB_Type::Handler_RXSTP()
  .text._ZN8USB_Type13Handler_EORSTEv
-                0x0000000000009718       0x70 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
-                0x0000000000009718                USB_Type::Handler_EORST()
+                0x0000000000009358       0x70 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+                0x0000000000009358                USB_Type::Handler_EORST()
  .text._ZN5Debug5inputEP6SerialPch
-                0x0000000000009788       0x38 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
-                0x0000000000009788                Debug::input(Serial*, char*, unsigned char)
+                0x00000000000093c8       0x38 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
+                0x00000000000093c8                Debug::input(Serial*, char*, unsigned char)
  .text._ZN3DMA5startEv
-                0x00000000000097c0       0x20 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
-                0x00000000000097c0                DMA::start()
- .text._Z5errorPKcS0_
-                0x00000000000097e0       0x70 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
-                0x00000000000097e0                error(char const*, char const*)
- .text._Z5errorPPKch
-                0x0000000000009850       0x74 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
-                0x0000000000009850                error(char const**, unsigned char)
+                0x0000000000009400       0x20 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+                0x0000000000009400                DMA::start()
+ .text.error    0x0000000000009420       0x70 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
+                0x0000000000009420                error
+ .text._Z15error_multilinePPKch
+                0x0000000000009490       0x74 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
+                0x0000000000009490                error_multiline(char const**, unsigned char)
  .text._ZN7Program19setResetModeProgramEv
-                0x00000000000098c4       0x10 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
-                0x00000000000098c4                Program::setResetModeProgram()
+                0x0000000000009504       0x10 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
+                0x0000000000009504                Program::setResetModeProgram()
  .text._ZN6Serial13DefaultRecvCBEPS_Pch
-                0x00000000000098d4        0x8 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
-                0x00000000000098d4                Serial::DefaultRecvCB(Serial*, char*, unsigned char)
+                0x0000000000009514        0x8 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+                0x0000000000009514                Serial::DefaultRecvCB(Serial*, char*, unsigned char)
  .text._ZN6SerialC2EP8USB_Typeh
-                0x00000000000098dc       0x10 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
-                0x00000000000098dc                Serial::Serial(USB_Type*, unsigned char)
-                0x00000000000098dc                Serial::Serial(USB_Type*, unsigned char)
+                0x000000000000951c       0x10 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+                0x000000000000951c                Serial::Serial(USB_Type*, unsigned char)
+                0x000000000000951c                Serial::Serial(USB_Type*, unsigned char)
  .text._ZN6SerialC2EP8USB_TypehPFbPS_PchE
-                0x00000000000098ec        0x8 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
-                0x00000000000098ec                Serial::Serial(USB_Type*, unsigned char, bool (*)(Serial*, char*, unsigned char))
-                0x00000000000098ec                Serial::Serial(USB_Type*, unsigned char, bool (*)(Serial*, char*, unsigned char))
+                0x000000000000952c        0x8 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+                0x000000000000952c                Serial::Serial(USB_Type*, unsigned char, bool (*)(Serial*, char*, unsigned char))
+                0x000000000000952c                Serial::Serial(USB_Type*, unsigned char, bool (*)(Serial*, char*, unsigned char))
  .text.startup._GLOBAL__sub_I__ZN8USB_Type7stringsE
-                0x00000000000098f4       0xfc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
- .text._Znwj    0x00000000000099f0       0x24 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
-                0x00000000000099f0                operator new(unsigned int)
+                0x0000000000009534       0xfc .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+ .text._Znwj    0x0000000000009630       0x24 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
+                0x0000000000009630                operator new(unsigned int)
  .text._ZSt15get_new_handlerv
-                0x0000000000009a14        0xc /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
-                0x0000000000009a14                std::get_new_handler()
- .text          0x0000000000009a20      0x114 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivsi3.o)
-                0x0000000000009a20                __udivsi3
-                0x0000000000009a20                __aeabi_uidiv
-                0x0000000000009b2c                __aeabi_uidivmod
- .text          0x0000000000009b34        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
-                0x0000000000009b34                __aeabi_ldiv0
-                0x0000000000009b34                __aeabi_idiv0
- .text          0x0000000000009b38       0x74 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o)
-                0x0000000000009b38                __aeabi_cfrcmple
-                0x0000000000009b40                __aeabi_cfcmple
-                0x0000000000009b40                __aeabi_cfcmpeq
-                0x0000000000009b50                __aeabi_fcmpeq
-                0x0000000000009b5c                __aeabi_fcmplt
-                0x0000000000009b70                __aeabi_fcmple
-                0x0000000000009b84                __aeabi_fcmpgt
-                0x0000000000009b98                __aeabi_fcmpge
- .text          0x0000000000009bac       0x30 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_fixunssfsi.o)
-                0x0000000000009bac                __aeabi_f2uiz
-                0x0000000000009bac                __fixunssfsi
- .text          0x0000000000009bdc      0x334 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(addsf3.o)
-                0x0000000000009bdc                __aeabi_fadd
- .text          0x0000000000009f10      0x224 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(divsf3.o)
-                0x0000000000009f10                __aeabi_fdiv
- .text          0x000000000000a134       0x50 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(eqsf2.o)
-                0x000000000000a134                __nesf2
-                0x000000000000a134                __eqsf2
- .text          0x000000000000a184       0x9c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(gesf2.o)
-                0x000000000000a184                __gtsf2
-                0x000000000000a184                __gesf2
- .text          0x000000000000a220       0xa0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(lesf2.o)
-                0x000000000000a220                __lesf2
-                0x000000000000a220                __ltsf2
- .text          0x000000000000a2c0      0x388 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(subsf3.o)
-                0x000000000000a2c0                __aeabi_fsub
- .text          0x000000000000a648       0x40 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(fixsfsi.o)
-                0x000000000000a648                __aeabi_f2iz
- .text          0x000000000000a688       0x94 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(floatsisf.o)
-                0x000000000000a688                __aeabi_i2f
- .text          0x000000000000a71c       0x3c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_clzsi2.o)
-                0x000000000000a71c                __clzsi2
- .text.abort    0x000000000000a758        0xe /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
-                0x000000000000a758                abort
- *fill*         0x000000000000a766        0x2 
+                0x0000000000009654        0xc /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
+                0x0000000000009654                std::get_new_handler()
+ .text.abort    0x0000000000009660        0xe /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
+                0x0000000000009660                abort
+ *fill*         0x000000000000966e        0x2 
  .text.__libc_init_array
-                0x000000000000a768       0x48 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-init.o)
-                0x000000000000a768                __libc_init_array
- .text.malloc   0x000000000000a7b0       0x14 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-malloc.o)
-                0x000000000000a7b0                malloc
- .text.memcpy   0x000000000000a7c4       0x12 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memcpy-stub.o)
-                0x000000000000a7c4                memcpy
- .text.memset   0x000000000000a7d6       0x10 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memset.o)
-                0x000000000000a7d6                memset
- *fill*         0x000000000000a7e6        0x2 
+                0x0000000000009670       0x48 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-init.o)
+                0x0000000000009670                __libc_init_array
+ .text.malloc   0x00000000000096b8       0x14 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-malloc.o)
+                0x00000000000096b8                malloc
+ .text.memcpy   0x00000000000096cc       0x12 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memcpy-stub.o)
+                0x00000000000096cc                memcpy
+ .text.memset   0x00000000000096de       0x10 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memset.o)
+                0x00000000000096de                memset
+ *fill*         0x00000000000096ee        0x2 
  .text._malloc_r
-                0x000000000000a7e8       0xbc /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
-                0x000000000000a7e8                _malloc_r
- .text._sbrk_r  0x000000000000a8a4       0x24 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-sbrkr.o)
-                0x000000000000a8a4                _sbrk_r
+                0x00000000000096f0       0xbc /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x00000000000096f0                _malloc_r
+ .text._sbrk_r  0x00000000000097ac       0x24 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-sbrkr.o)
+                0x00000000000097ac                _sbrk_r
  .text._raise_r
-                0x000000000000a8c8       0x54 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
-                0x000000000000a8c8                _raise_r
- .text.raise    0x000000000000a91c       0x14 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
-                0x000000000000a91c                raise
- .text._kill_r  0x000000000000a930       0x24 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
-                0x000000000000a930                _kill_r
+                0x00000000000097d0       0x54 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
+                0x00000000000097d0                _raise_r
+ .text.raise    0x0000000000009824       0x14 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
+                0x0000000000009824                raise
+ .text._kill_r  0x0000000000009838       0x24 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
+                0x0000000000009838                _kill_r
  .text._getpid_r
-                0x000000000000a954        0x8 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
-                0x000000000000a954                _getpid_r
+                0x000000000000985c        0x8 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
+                0x000000000000985c                _getpid_r
  .text.__malloc_lock
-                0x000000000000a95c        0x2 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
-                0x000000000000a95c                __malloc_lock
+                0x0000000000009864        0x2 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
+                0x0000000000009864                __malloc_lock
  .text.__malloc_unlock
-                0x000000000000a95e        0x2 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
-                0x000000000000a95e                __malloc_unlock
- .text._getpid  0x000000000000a960       0x10 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(getpid.o)
-                0x000000000000a960                _getpid
- .text._kill    0x000000000000a970       0x10 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(kill.o)
-                0x000000000000a970                _kill
- .text._sbrk    0x000000000000a980       0x1c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
-                0x000000000000a980                _sbrk
- .text._exit    0x000000000000a99c        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(_exit.o)
-                0x000000000000a99c                _exit
+                0x0000000000009866        0x2 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
+                0x0000000000009866                __malloc_unlock
+ .text._getpid  0x0000000000009868       0x10 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(getpid.o)
+                0x0000000000009868                _getpid
+ .text._kill    0x0000000000009878       0x10 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(kill.o)
+                0x0000000000009878                _kill
+ .text._sbrk    0x0000000000009888       0x1c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
+                0x0000000000009888                _sbrk
+ .text._exit    0x00000000000098a4        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(_exit.o)
+                0x00000000000098a4                _exit
  *(.rodata .rodata* .gnu.linkonce.r.*)
- .rodata.fx_break
-                0x000000000000a9a0      0x3d6 .pio/build/adafruit_feather_m0/src/effects.o
-                0x000000000000a9a0                fx_break
- .rodata.fx_break_len
-                0x000000000000ad76        0x2 .pio/build/adafruit_feather_m0/src/effects.o
-                0x000000000000ad76                fx_break_len
- .rodata.fx_paddle
-                0x000000000000ad78      0x564 .pio/build/adafruit_feather_m0/src/effects.o
-                0x000000000000ad78                fx_paddle
- .rodata.fx_paddle_len
-                0x000000000000b2dc        0x2 .pio/build/adafruit_feather_m0/src/effects.o
-                0x000000000000b2dc                fx_paddle_len
- .rodata.fx_wall
-                0x000000000000b2de      0x3e5 .pio/build/adafruit_feather_m0/src/effects.o
-                0x000000000000b2de                fx_wall
- *fill*         0x000000000000b6c3        0x1 
- .rodata.fx_wall_len
-                0x000000000000b6c4        0x2 .pio/build/adafruit_feather_m0/src/effects.o
-                0x000000000000b6c4                fx_wall_len
- .rodata._ZL5level
-                0x000000000000b6c6       0x1e .pio/build/adafruit_feather_m0/src/main.o
- .rodata.main.str1.1
-                0x000000000000b6e4       0x24 .pio/build/adafruit_feather_m0/src/main.o
- .rodata.DEFAULT_FONT
-                0x000000000000b708      0x2f8 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
-                0x000000000000b708                DEFAULT_FONT
- .rodata.DEFAULT_PALETTE
-                0x000000000000ba00        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
-                0x000000000000ba00                DEFAULT_PALETTE
- .rodata        0x000000000000ba04        0x8 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
- .rodata        0x000000000000ba0c       0x18 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .rodata.HardFault_Handler.str1.1
-                0x000000000000ba24        0xd .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
+ .rodata._Z12printHeadersv.str1.1
+                0x00000000000098a8       0x2e .pio/build/adafruit_feather_m0/src/main.o
  .rodata.str1.1
-                0x000000000000ba31       0x5c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
+                0x00000000000098d6        0xa .pio/build/adafruit_feather_m0/src/main.o
+ .rodata.DEFAULT_FONT
+                0x00000000000098e0      0x2f8 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
+                0x00000000000098e0                DEFAULT_FONT
+ .rodata.DEFAULT_PALETTE
+                0x0000000000009bd8        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
+                0x0000000000009bd8                DEFAULT_PALETTE
+ .rodata        0x0000000000009bdc        0x8 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+ .rodata        0x0000000000009be4       0x18 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+ .rodata.str1.1
+                0x0000000000009bfc       0x5c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
                                          0x5d (size before relaxing)
- .rodata        0x000000000000ba8d        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
+ .rodata.HardFault_Handler.str1.1
+                0x0000000000009c58        0xd .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+                                          0xe (size before relaxing)
+ .rodata        0x0000000000009c65        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
  .rodata._ZN8USB_Type13Handler_RXSTPEv.str1.1
-                0x000000000000ba91       0x2b .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
- .rodata._Z5errorPKcS0_.str1.1
-                0x000000000000babc        0x7 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
+                0x0000000000009c69       0x2b .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+ .rodata.error.str1.1
+                0x0000000000009c94        0x7 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
  .rodata._ZL6vendor
-                0x000000000000bac3        0xd .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
+                0x0000000000009c9b        0xd .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
  .rodata._ZL7product
-                0x000000000000bad0        0xc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
+                0x0000000000009ca8        0xc .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
  .rodata._ZL8serialno
-                0x000000000000badc        0x5 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
- *fill*         0x000000000000bae1        0x3 
- .rodata        0x000000000000bae4       0x80 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(divsf3.o)
+                0x0000000000009cb4        0x5 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000000bb64                . = ALIGN (0x4)
+                0x0000000000009cbc                . = ALIGN (0x4)
+ *fill*         0x0000000000009cb9        0x3 
  *(.init)
- .init          0x000000000000bb64        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crti.o
-                0x000000000000bb64                _init
- .init          0x000000000000bb68        0x8 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
-                0x000000000000bb70                . = ALIGN (0x4)
-                0x000000000000bb70                __preinit_array_start = .
+ .init          0x0000000000009cbc        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crti.o
+                0x0000000000009cbc                _init
+ .init          0x0000000000009cc0        0x8 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
+                0x0000000000009cc8                . = ALIGN (0x4)
+                0x0000000000009cc8                __preinit_array_start = .
  *(.preinit_array)
-                0x000000000000bb70                __preinit_array_end = .
-                0x000000000000bb70                . = ALIGN (0x4)
-                0x000000000000bb70                __init_array_start = .
+                0x0000000000009cc8                __preinit_array_end = .
+                0x0000000000009cc8                . = ALIGN (0x4)
+                0x0000000000009cc8                __init_array_start = .
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
- .init_array    0x000000000000bb70        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
- .init_array    0x000000000000bb74        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
- .init_array    0x000000000000bb78        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
- .init_array    0x000000000000bb7c        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x000000000000bb80                __init_array_end = .
-                0x000000000000bb80                . = ALIGN (0x4)
+ .init_array    0x0000000000009cc8        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+ .init_array    0x0000000000009ccc        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+ .init_array    0x0000000000009cd0        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+ .init_array    0x0000000000009cd4        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000000009cd8                __init_array_end = .
+                0x0000000000009cd8                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *crtend.o(.ctors)
-                0x000000000000bb80                . = ALIGN (0x4)
+                0x0000000000009cd8                . = ALIGN (0x4)
  *(.fini)
- .fini          0x000000000000bb80        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crti.o
-                0x000000000000bb80                _fini
- .fini          0x000000000000bb84        0x8 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
-                0x000000000000bb8c                . = ALIGN (0x4)
-                0x000000000000bb8c                __fini_array_start = .
+ .fini          0x0000000000009cd8        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crti.o
+                0x0000000000009cd8                _fini
+ .fini          0x0000000000009cdc        0x8 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
+                0x0000000000009ce4                . = ALIGN (0x4)
+                0x0000000000009ce4                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x000000000000bb8c        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+ .fini_array    0x0000000000009ce4        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
  *(SORT_BY_NAME(.fini_array.*))
-                0x000000000000bb90                __fini_array_end = .
+                0x0000000000009ce8                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *crtend.o(.dtors)
-                0x000000000000bb90                . = ALIGN (0x4)
-                0x000000000000bb90                _efixed = .
+                0x0000000000009ce8                . = ALIGN (0x4)
+                0x0000000000009ce8                _efixed = .
                 [!provide]                        PROVIDE (__exidx_start, .)
 
-.glue_7         0x000000000000bb90        0x0
- .glue_7        0x000000000000bb90        0x0 linker stubs
+.glue_7         0x0000000000009ce8        0x0
+ .glue_7        0x0000000000009ce8        0x0 linker stubs
 
-.glue_7t        0x000000000000bb90        0x0
- .glue_7t       0x000000000000bb90        0x0 linker stubs
+.glue_7t        0x0000000000009ce8        0x0
+ .glue_7t       0x0000000000009ce8        0x0 linker stubs
 
-.vfp11_veneer   0x000000000000bb90        0x0
- .vfp11_veneer  0x000000000000bb90        0x0 linker stubs
+.vfp11_veneer   0x0000000000009ce8        0x0
+ .vfp11_veneer  0x0000000000009ce8        0x0 linker stubs
 
-.v4_bx          0x000000000000bb90        0x0
- .v4_bx         0x000000000000bb90        0x0 linker stubs
+.v4_bx          0x0000000000009ce8        0x0
+ .v4_bx         0x0000000000009ce8        0x0 linker stubs
 
-.iplt           0x000000000000bb90        0x0
- .iplt          0x000000000000bb90        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+.iplt           0x0000000000009ce8        0x0
+ .iplt          0x0000000000009ce8        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
 
-.ramfuncBLOnly  0x000000000000bb90       0xfc
+.sdfile         0x0000000000009ce8      0x2a4
+ .sdfile        0x0000000000009ce8      0x2a4 .pio/build/adafruit_feather_m0/src/main.o
+                0x0000000000009ce8                main
+
+.ramfuncBLOnly  0x0000000000009f8c       0xfc
  .ramfuncBLOnly
-                0x000000000000bb90       0x88 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x000000000000bb90                USB_Type::writeAsync(char const*, unsigned long, unsigned char)
-                0x000000000000bbc0                USB_Handler
+                0x0000000000009f8c       0x88 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x0000000000009f8c                USB_Type::writeAsync(char const*, unsigned long, unsigned char)
+                0x0000000000009fbc                USB_Handler
  .ramfuncBLOnly
-                0x000000000000bc18       0x64 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
-                0x000000000000bc18                USB_Type::Handler_OUT(Serial*)
+                0x000000000000a014       0x64 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+                0x000000000000a014                USB_Type::Handler_OUT(Serial*)
  .ramfuncBLOnly
-                0x000000000000bc7c       0x10 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
-                0x000000000000bc7c                Program::setResetModeBootloader()
+                0x000000000000a078       0x10 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
+                0x000000000000a078                Program::setResetModeBootloader()
 
-.igot.plt       0x000000000000bc8c        0x0
- .igot.plt      0x000000000000bc8c        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+.igot.plt       0x000000000000a088        0x0
+ .igot.plt      0x000000000000a088        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
 
-.eh_frame       0x000000000000bc8c        0x0
- .eh_frame      0x000000000000bc8c        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+.eh_frame       0x000000000000a088        0x0
+ .eh_frame      0x000000000000a088        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
 
-.rel.dyn        0x000000000000bc8c        0x0
- .rel.iplt      0x000000000000bc8c        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
+.rel.dyn        0x000000000000a088        0x0
+ .rel.iplt      0x000000000000a088        0x0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
                 [!provide]                        PROVIDE (__exidx_end, .)
-                0x000000000000bc8c                . = ALIGN (0x4)
-                0x000000000000bc8c                _etext = .
+                0x000000000000a088                . = ALIGN (0x4)
+                0x000000000000a088                _etext = .
 
-.relocate       0x00000000200000b4      0x154 load address 0x000000000000bc8c
+.relocate       0x00000000200000b4      0x120 load address 0x000000000000a088
                 0x00000000200000b4                . = ALIGN (0x4)
                 0x00000000200000b4                _srelocate = .
  *(.ramfunc .ramfunc.*)
  *(.data .data.*)
- .data.blocks   0x00000000200000b4       0x1e .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000b4                blocks
- .data.blocksLeft
-                0x00000000200000d2        0x1 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000d2                blocksLeft
- *fill*         0x00000000200000d3        0x1 
- .data.colors   0x00000000200000d4        0x6 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000d4                colors
- *fill*         0x00000000200000da        0x2 
- .data.dirX     0x00000000200000dc        0x4 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000dc                dirX
- .data.dirY     0x00000000200000e0        0x1 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000e0                dirY
- .data.timer    0x00000000200000e1        0x1 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000e1                timer
- *fill*         0x00000000200000e2        0x2 
- .data.x        0x00000000200000e4        0x4 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000e4                x
- .data.y        0x00000000200000e8        0x1 .pio/build/adafruit_feather_m0/src/main.o
-                0x00000000200000e8                y
- *fill*         0x00000000200000e9        0x3 
+ .data._ZN5Input7DigitalE
+                0x00000000200000b4        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+                0x00000000200000b4                Input::Digital
  .data.numPixels
-                0x00000000200000ec        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
-                0x00000000200000ec                numPixels
+                0x00000000200000b8        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+                0x00000000200000b8                numPixels
  .data.SD_FILLER_BYTE
-                0x00000000200000f0        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x00000000200000f0                SD_FILLER_BYTE
- .data.temp     0x00000000200000f1        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
-                0x00000000200000f1                temp
+                0x00000000200000bc        0x1 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x00000000200000bc                SD_FILLER_BYTE
  .data._sleep_idling
-                0x00000000200000f2        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
-                0x00000000200000f2                _sleep_idling
- *fill*         0x00000000200000f3        0x1 
+                0x00000000200000bd        0x1 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+                0x00000000200000bd                _sleep_idling
+ *fill*         0x00000000200000be        0x2 
  .data._ZN8USB_Type13devDescriptorE
-                0x00000000200000f4       0x12 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x00000000200000f4                USB_Type::devDescriptor
- *fill*         0x0000000020000106        0x2 
+                0x00000000200000c0       0x12 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x00000000200000c0                USB_Type::devDescriptor
+ *fill*         0x00000000200000d2        0x2 
  .data._ZN8USB_Type7stringsE
-                0x0000000020000108        0xc .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000108                USB_Type::strings
+                0x00000000200000d4        0xc .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x00000000200000d4                USB_Type::strings
  .data.debug_assoc
-                0x0000000020000114        0x8 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000114                debug_assoc
+                0x00000000200000e0        0x8 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x00000000200000e0                debug_assoc
  .data.debug_comm_desc
-                0x000000002000011c       0x13 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x000000002000011c                debug_comm_desc
+                0x00000000200000e8       0x13 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x00000000200000e8                debug_comm_desc
  .data.debug_comm_endp
-                0x000000002000012f        0x7 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x000000002000012f                debug_comm_endp
+                0x00000000200000fb        0x7 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x00000000200000fb                debug_comm_endp
  .data.debug_comm_iface
-                0x0000000020000136        0x9 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000136                debug_comm_iface
+                0x0000000020000102        0x9 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000020000102                debug_comm_iface
  .data.debug_data_iface
-                0x000000002000013f        0x9 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x000000002000013f                debug_data_iface
+                0x000000002000010b        0x9 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x000000002000010b                debug_data_iface
  .data.debug_data_in_endp
-                0x0000000020000148        0x7 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000148                debug_data_in_endp
+                0x0000000020000114        0x7 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000020000114                debug_data_in_endp
  .data.debug_data_out_endp
-                0x000000002000014f        0x7 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x000000002000014f                debug_data_out_endp
+                0x000000002000011b        0x7 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x000000002000011b                debug_data_out_endp
  .data.serial_assoc
-                0x0000000020000156        0x8 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000156                serial_assoc
+                0x0000000020000122        0x8 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000020000122                serial_assoc
  .data.serial_comm_desc
-                0x000000002000015e       0x13 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x000000002000015e                serial_comm_desc
+                0x000000002000012a       0x13 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x000000002000012a                serial_comm_desc
  .data.serial_comm_endp
-                0x0000000020000171        0x7 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000171                serial_comm_endp
+                0x000000002000013d        0x7 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x000000002000013d                serial_comm_endp
  .data.serial_comm_iface
-                0x0000000020000178        0x9 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000178                serial_comm_iface
+                0x0000000020000144        0x9 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000020000144                serial_comm_iface
  .data.serial_data_iface
-                0x0000000020000181        0x9 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000181                serial_data_iface
+                0x000000002000014d        0x9 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x000000002000014d                serial_data_iface
  .data.serial_data_in_endp
-                0x000000002000018a        0x7 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x000000002000018a                serial_data_in_endp
+                0x0000000020000156        0x7 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000020000156                serial_data_in_endp
  .data.serial_data_out_endp
-                0x0000000020000191        0x7 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000191                serial_data_out_endp
- .data.usb_cfg  0x0000000020000198        0x9 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000198                usb_cfg
- *fill*         0x00000000200001a1        0x3 
+                0x000000002000015d        0x7 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x000000002000015d                serial_data_out_endp
+ .data.usb_cfg  0x0000000020000164        0x9 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000020000164                usb_cfg
+ *fill*         0x000000002000016d        0x3 
  .data._impure_ptr
-                0x00000000200001a4        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-impure.o)
-                0x00000000200001a4                _impure_ptr
+                0x0000000020000170        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-impure.o)
+                0x0000000020000170                _impure_ptr
  .data.impure_data
-                0x00000000200001a8       0x60 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-impure.o)
-                0x0000000020000208                . = ALIGN (0x4)
-                0x0000000020000208                _erelocate = .
+                0x0000000020000174       0x60 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-impure.o)
+                0x00000000200001d4                . = ALIGN (0x4)
+                0x00000000200001d4                _erelocate = .
 
-.bss            0x0000000020000210      0x424 load address 0x000000000000bdf0
-                0x0000000020000210                . = ALIGN (0x4)
-                0x0000000020000210                _sbss = .
-                0x0000000020000210                _szero = .
+.bss            0x00000000200001e0      0x414 load address 0x000000000000a1c0
+                0x00000000200001e0                . = ALIGN (0x4)
+                0x00000000200001e0                _sbss = .
+                0x00000000200001e0                _szero = .
  *(.bss .bss.*)
- .bss           0x0000000020000210       0x1c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
- .bss.lastX     0x000000002000022c        0x1 .pio/build/adafruit_feather_m0/src/main.o
-                0x000000002000022c                lastX
- .bss.lastY     0x000000002000022d        0x1 .pio/build/adafruit_feather_m0/src/main.o
-                0x000000002000022d                lastY
- .bss.numScore  0x000000002000022e        0x2 .pio/build/adafruit_feather_m0/src/main.o
-                0x000000002000022e                numScore
- .bss.pX        0x0000000020000230        0x1 .pio/build/adafruit_feather_m0/src/main.o
-                0x0000000020000230                pX
- *fill*         0x0000000020000231        0x3 
+ .bss           0x00000000200001e0       0x1c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
  .bss._ZN5Input6AnalogE
-                0x0000000020000234        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
-                0x0000000020000234                Input::Analog
+                0x00000000200001fc        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+                0x00000000200001fc                Input::Analog
  .bss.SD_DMA_TRASH
-                0x0000000020000238        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000238                SD_DMA_TRASH
- *fill*         0x0000000020000239        0x3 
+                0x0000000020000200        0x1 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000200                SD_DMA_TRASH
+ *fill*         0x0000000020000201        0x3 
  .bss._ZN2SD10fatAddressE
-                0x000000002000023c        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x000000002000023c                SD::fatAddress
+                0x0000000020000204        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000204                SD::fatAddress
  .bss._ZN2SD10volAddressE
-                0x0000000020000240        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000240                SD::volAddress
+                0x0000000020000208        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000208                SD::volAddress
  .bss._ZN2SD11rootAddressE
-                0x0000000020000244        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000244                SD::rootAddress
+                0x000000002000020c        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x000000002000020c                SD::rootAddress
  .bss._ZN2SD19sectors_per_clusterE
-                0x0000000020000248        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000248                SD::sectors_per_cluster
- .bss.sd_data   0x0000000020000249        0x6 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000249                sd_data
+                0x0000000020000210        0x1 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000210                SD::sectors_per_cluster
+ .bss.sd_data   0x0000000020000211        0x6 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000211                sd_data
  .bss.sd_dma_state
-                0x000000002000024f        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x000000002000024f                sd_dma_state
+                0x0000000020000217        0x1 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000217                sd_dma_state
  .bss.sd_long_response
-                0x0000000020000250        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000250                sd_long_response
+                0x0000000020000218        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000218                sd_long_response
  .bss.sd_response
-                0x0000000020000254        0x1 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000254                sd_response
- *fill*         0x0000000020000255        0xb 
+                0x000000002000021c        0x1 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x000000002000021c                sd_response
+ *fill*         0x000000002000021d        0x3 
  .bss.sd_rx_descriptors
-                0x0000000020000260       0x40 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x0000000020000260                sd_rx_descriptors
+                0x0000000020000220       0x40 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000220                sd_rx_descriptors
  .bss.sd_tx_descriptors
-                0x00000000200002a0       0x40 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
-                0x00000000200002a0                sd_tx_descriptors
+                0x0000000020000260       0x40 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+                0x0000000020000260                sd_tx_descriptors
  .bss._ZN8USB_Type3usbE
-                0x00000000200002e0        0x4 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x00000000200002e0                USB_Type::usb
- .bss.usb       0x00000000200002e4      0x22c .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
-                0x00000000200002e4                usb
- .bss.DMACFG    0x0000000020000510       0x40 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
-                0x0000000020000510                DMACFG
- .bss._DMAWRB   0x0000000020000550       0x40 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
-                0x0000000020000550                _DMAWRB
+                0x00000000200002a0        0x4 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x00000000200002a0                USB_Type::usb
+ .bss.usb       0x00000000200002a4      0x22c .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+                0x00000000200002a4                usb
+ .bss.DMACFG    0x00000000200004d0       0x40 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+                0x00000000200004d0                DMACFG
+ .bss._DMAWRB   0x0000000020000510       0x40 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+                0x0000000020000510                _DMAWRB
  .bss._ZN8USB_Type13cfgDescriptorE
-                0x0000000020000590       0x8d .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
-                0x0000000020000590                USB_Type::cfgDescriptor
- *fill*         0x000000002000061d        0x3 
+                0x0000000020000550       0x8d .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
+                0x0000000020000550                USB_Type::cfgDescriptor
+ *fill*         0x00000000200005dd        0x3 
  .bss._ZN12_GLOBAL__N_113__new_handlerE
-                0x0000000020000620        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
+                0x00000000200005e0        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
  .bss.__malloc_free_list
-                0x0000000020000624        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
-                0x0000000020000624                __malloc_free_list
+                0x00000000200005e4        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x00000000200005e4                __malloc_free_list
  .bss.__malloc_sbrk_start
-                0x0000000020000628        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
-                0x0000000020000628                __malloc_sbrk_start
+                0x00000000200005e8        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x00000000200005e8                __malloc_sbrk_start
  .bss.heap_end.4102
-                0x000000002000062c        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
+                0x00000000200005ec        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
  *(COMMON)
- COMMON         0x0000000020000630        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-reent.o)
-                0x0000000020000630                errno
-                0x0000000020000634                . = ALIGN (0x4)
-                0x0000000020000634                _ebss = .
-                0x0000000020000634                _ezero = .
+ COMMON         0x00000000200005f0        0x4 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-reent.o)
+                0x00000000200005f0                errno
+                0x00000000200005f4                . = ALIGN (0x4)
+                0x00000000200005f4                _ebss = .
+                0x00000000200005f4                _ezero = .
 
-.stack          0x0000000020000634     0x2004 load address 0x000000000000c214
-                0x0000000020000638                . = ALIGN (0x8)
- *fill*         0x0000000020000634        0x4 
-                0x0000000020000638                _sstack = .
-                0x0000000020002638                . = (. + STACK_SIZE)
- *fill*         0x0000000020000638     0x2000 
-                0x0000000020002638                . = ALIGN (0x8)
-                0x0000000020002638                _estack = .
-                0x0000000020002638                . = ALIGN (0x4)
-                0x0000000020002638                _end = .
-                0x0000000020002638                end = _end
-LOAD .pio/build/adafruit_feather_m0/src/effects.o
+.stack          0x00000000200005f4     0x2004 load address 0x000000000000a5d4
+                0x00000000200005f8                . = ALIGN (0x8)
+ *fill*         0x00000000200005f4        0x4 
+                0x00000000200005f8                _sstack = .
+                0x00000000200025f8                . = (. + STACK_SIZE)
+ *fill*         0x00000000200005f8     0x2000 
+                0x00000000200025f8                . = ALIGN (0x8)
+                0x00000000200025f8                _estack = .
+                0x00000000200025f8                . = ALIGN (0x4)
+                0x00000000200025f8                _end = .
+                0x00000000200025f8                end = _end
 LOAD .pio/build/adafruit_feather_m0/src/main.o
-LOAD .pio/build/adafruit_feather_m0/src/proginfo.o
 START GROUP
-LOAD .pio/build/adafruit_feather_m0/libf4c/libfeather.a
+LOAD .pio/build/adafruit_feather_m0/lib0a3/libfeather.a
 END GROUP
 LOAD /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a
 LOAD /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libm.a
@@ -1020,161 +836,116 @@ OUTPUT(.pio/build/adafruit_feather_m0/firmware.elf elf32-littlearm)
  .ARM.attributes
                 0x000000000000001e       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtbegin.o
  .ARM.attributes
-                0x000000000000004a       0x32 .pio/build/adafruit_feather_m0/src/effects.o
+                0x000000000000004a       0x32 .pio/build/adafruit_feather_m0/src/main.o
  .ARM.attributes
-                0x000000000000007c       0x32 .pio/build/adafruit_feather_m0/src/main.o
+                0x000000000000007c       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
  .ARM.attributes
-                0x00000000000000ae       0x32 .pio/build/adafruit_feather_m0/src/proginfo.o
+                0x00000000000000ae       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o)
  .ARM.attributes
-                0x00000000000000e0       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
+                0x00000000000000e0       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
  .ARM.attributes
-                0x0000000000000112       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o)
+                0x0000000000000112       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
  .ARM.attributes
-                0x0000000000000144       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
+                0x0000000000000144       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
  .ARM.attributes
-                0x0000000000000176       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
+                0x0000000000000176       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
  .ARM.attributes
-                0x00000000000001a8       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
+                0x00000000000001a8       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
  .ARM.attributes
-                0x00000000000001da       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
+                0x00000000000001da       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
  .ARM.attributes
-                0x000000000000020c       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
+                0x000000000000020c       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
  .ARM.attributes
-                0x000000000000023e       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
+                0x000000000000023e       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
  .ARM.attributes
-                0x0000000000000270       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
+                0x0000000000000270       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
  .ARM.attributes
-                0x00000000000002a2       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
+                0x00000000000002a2       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
  .ARM.attributes
-                0x00000000000002d4       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
+                0x00000000000002d4       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
  .ARM.attributes
-                0x0000000000000306       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
+                0x0000000000000306       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
  .ARM.attributes
-                0x0000000000000338       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
+                0x0000000000000338       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
  .ARM.attributes
-                0x000000000000036a       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
+                0x000000000000036a       0x32 .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
  .ARM.attributes
-                0x000000000000039c       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
+                0x000000000000039c       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
  .ARM.attributes
-                0x00000000000003ce       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
+                0x00000000000003c8       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
  .ARM.attributes
-                0x0000000000000400       0x32 .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
+                0x00000000000003f4       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
  .ARM.attributes
-                0x0000000000000432       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
+                0x0000000000000420       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x000000000000045e       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
+                0x000000000000044c       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x000000000000048a       0x1e /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivsi3.o)
+                0x0000000000000478       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-malloc.o)
  .ARM.attributes
-                0x00000000000004a8       0x1e /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_dvmd_tls.o)
+                0x00000000000004a4       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x00000000000004c6       0x1e /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_arm_cmpsf2.o)
+                0x00000000000004d0       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000000000004e4       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_fixunssfsi.o)
+                0x00000000000004fc       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x0000000000000510       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(addsf3.o)
+                0x0000000000000528       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x000000000000053c       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(divsf3.o)
+                0x0000000000000554       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
  .ARM.attributes
-                0x0000000000000568       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(eqsf2.o)
+                0x0000000000000580       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
  .ARM.attributes
-                0x0000000000000594       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(gesf2.o)
+                0x00000000000005ac       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
  .ARM.attributes
-                0x00000000000005c0       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(lesf2.o)
+                0x00000000000005d8       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-reent.o)
  .ARM.attributes
-                0x00000000000005ec       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(subsf3.o)
+                0x0000000000000604       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(getpid.o)
  .ARM.attributes
-                0x0000000000000618       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(fixsfsi.o)
+                0x0000000000000630       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(kill.o)
  .ARM.attributes
-                0x0000000000000644       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(floatsisf.o)
+                0x000000000000065c       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
  .ARM.attributes
-                0x0000000000000670       0x1e /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_clzsi2.o)
+                0x0000000000000688       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(_exit.o)
  .ARM.attributes
-                0x000000000000068e       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
- .ARM.attributes
-                0x00000000000006ba       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-impure.o)
- .ARM.attributes
-                0x00000000000006e6       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-init.o)
- .ARM.attributes
-                0x0000000000000712       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-malloc.o)
- .ARM.attributes
-                0x000000000000073e       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memcpy-stub.o)
- .ARM.attributes
-                0x000000000000076a       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memset.o)
- .ARM.attributes
-                0x0000000000000796       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
- .ARM.attributes
-                0x00000000000007c2       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-sbrkr.o)
- .ARM.attributes
-                0x00000000000007ee       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
- .ARM.attributes
-                0x000000000000081a       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
- .ARM.attributes
-                0x0000000000000846       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
- .ARM.attributes
-                0x0000000000000872       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-reent.o)
- .ARM.attributes
-                0x000000000000089e       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(getpid.o)
- .ARM.attributes
-                0x00000000000008ca       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(kill.o)
- .ARM.attributes
-                0x00000000000008f6       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
- .ARM.attributes
-                0x0000000000000922       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(_exit.o)
- .ARM.attributes
-                0x000000000000094e       0x1e /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
+                0x00000000000006b4       0x1e /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/crtn.o
 
 .comment        0x0000000000000000       0x7e
- .comment       0x0000000000000000       0x7e .pio/build/adafruit_feather_m0/src/effects.o
+ .comment       0x0000000000000000       0x7e .pio/build/adafruit_feather_m0/src/main.o
                                          0x7f (size before relaxing)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/src/main.o
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/src/proginfo.o
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(font.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(init.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(input.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(lcd.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sd.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(sound.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(startup.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(text.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(timer.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_handlers.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(debug.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(dma.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(error.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(program.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(serial.o)
- .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/libf4c/libfeather.a(usb_descriptors.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(font.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(init.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(input.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(lcd.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(sd.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(startup.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(text.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(timer.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_handlers.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(debug.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(dma.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(error.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(program.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(serial.o)
+ .comment       0x000000000000007e       0x7f .pio/build/adafruit_feather_m0/lib0a3/libfeather.a(usb_descriptors.o)
 
-.debug_frame    0x0000000000000000      0x56c
+.debug_frame    0x0000000000000000      0x3a8
  .debug_frame   0x0000000000000000       0x28 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_op.o)
  .debug_frame   0x0000000000000028       0x30 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libstdc++_nano.a(new_handler.o)
- .debug_frame   0x0000000000000058       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_udivsi3.o)
- .debug_frame   0x0000000000000078       0x28 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(_fixunssfsi.o)
- .debug_frame   0x00000000000000a0       0x38 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(addsf3.o)
- .debug_frame   0x00000000000000d8       0x3c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(divsf3.o)
- .debug_frame   0x0000000000000114       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(eqsf2.o)
- .debug_frame   0x0000000000000140       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(gesf2.o)
- .debug_frame   0x000000000000016c       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(lesf2.o)
- .debug_frame   0x0000000000000198       0x38 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(subsf3.o)
- .debug_frame   0x00000000000001d0       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(fixsfsi.o)
- .debug_frame   0x00000000000001f0       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v6-m/libgcc.a(floatsisf.o)
- .debug_frame   0x000000000000021c       0x28 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
- .debug_frame   0x0000000000000244       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000000000000270       0x40 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-malloc.o)
- .debug_frame   0x00000000000002b0       0x28 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00000000000002d8       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memset.o)
- .debug_frame   0x00000000000002f8       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x0000000000000324       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x0000000000000350       0xe0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
- .debug_frame   0x0000000000000430       0x44 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
- .debug_frame   0x0000000000000474       0x30 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
- .debug_frame   0x00000000000004a4       0x48 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-reent.o)
- .debug_frame   0x00000000000004ec       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(getpid.o)
- .debug_frame   0x000000000000050c       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(kill.o)
- .debug_frame   0x000000000000052c       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
- .debug_frame   0x000000000000054c       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(_exit.o)
+ .debug_frame   0x0000000000000058       0x28 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-abort.o)
+ .debug_frame   0x0000000000000080       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00000000000000ac       0x40 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-malloc.o)
+ .debug_frame   0x00000000000000ec       0x28 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000000114       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000000000000134       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x0000000000000160       0x2c /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x000000000000018c       0xe0 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signal.o)
+ .debug_frame   0x000000000000026c       0x44 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-signalr.o)
+ .debug_frame   0x00000000000002b0       0x30 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-mlock.o)
+ .debug_frame   0x00000000000002e0       0x48 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x0000000000000328       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(getpid.o)
+ .debug_frame   0x0000000000000348       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(kill.o)
+ .debug_frame   0x0000000000000368       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
+ .debug_frame   0x0000000000000388       0x20 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(_exit.o)
 
 .stab           0x0000000000000000       0x3c
  .stab          0x0000000000000000       0x24 /Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(getpid.o)

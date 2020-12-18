@@ -67,7 +67,7 @@ namespace SD {
   inline void getFormatterName(char name[8]);
   inline void getFSType(char name[8]);
   inline void getSerialNumber(byte number[4]);
-  inline void getRootDir();
+  //inline void getRootDir();
   inline void readDir(FSAddr dir, byte index, FSDirEntry * entry); // only supports entries within the first sector of the directory listing, so index < 16
   inline void readFat(FSCluster * cluster);
   inline void nextClusterInChain(FSCluster * cluster);

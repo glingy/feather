@@ -78,8 +78,10 @@ int main() {
     
     LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 8, 32, "--------");
 
-    ProgInfo info;
+    ProgInfo info = {0};
+
     Program::goToFirstProgram();
+
     progFirstCluster = Program::nextProgram(&info);
 
     while (info.prog_id != 0 && i < 8) {
@@ -88,6 +90,9 @@ int main() {
       i += 1;
       progFirstCluster = Program::nextProgram(&info);
     }
+
+    
+    
 
     while (1) {
       

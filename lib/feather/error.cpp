@@ -1,6 +1,6 @@
 #include "feather.h"
 
-void error(const char * line1, const char * line2) {
+extern "C" void error(const char * line1, const char * line2) {
   LCD::fillWindow(LCD::WHITE, 49, 49, 270, 190);
   LCD::fillWindow(LCD::BLACK, 51, 51, 268, 188);
   uint16_t error_palette[] = { 0, LCD::RED };
@@ -11,7 +11,7 @@ void error(const char * line1, const char * line2) {
   while (1);
 }
 
-void error(const char ** msg, byte len) {
+void error_multiline(const char ** msg, byte len) {
   LCD::fillWindow(LCD::WHITE, 49, 49, 270, 190);
   LCD::fillWindow(LCD::BLACK, 51, 51, 268, 188);
   uint16_t error_palette[] = { 0, LCD::RED };

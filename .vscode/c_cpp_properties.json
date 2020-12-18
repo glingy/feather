@@ -8,10 +8,10 @@
             "macFrameworkPath": [],
             "includePath": [
                 "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/include",
-                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/undefined",
+                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/bootloader",
+                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
                 "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                 "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
-                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
                 "/Users/gregory/.platformio/packages/tool-unity",
                 ""
             ],
@@ -19,10 +19,10 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
                     "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/include",
-                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/undefined",
+                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/bootloader",
+                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
                     "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                     "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
-                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
                     "/Users/gregory/.platformio/packages/tool-unity",
                     ""
                 ]
@@ -34,6 +34,7 @@
                 "ARDUINO_SAMD_FEATHER_M0",
                 "ARM_MATH_CM0PLUS",
                 "__SAMD21G18A__",
+                "BOOTLOADER",
                 "F_CPU=48000000L",
                 "USBCON",
                 ""

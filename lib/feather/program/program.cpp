@@ -47,10 +47,6 @@ void Program::checkProgramAndRun() {
     return;
   }
 
-  if (MAGIC_NUMBER_DATA == MAGIC_NUMBER_RUNNING_VAL) {
-
-  }
-
   // We are told to go straight to the bootloader no matter what
   if ((MAGIC_NUMBER_DATA == MAGIC_NUMBER_BOOTLOADER_VAL)) {
     MAGIC_NUMBER_DATA = 0;
@@ -63,17 +59,17 @@ void Program::checkProgramAndRun() {
     MAGIC_NUMBER_DATA = MAGIC_NUMBER_RUNNING_VAL;
     runProgram();
   }
-
+  
   // Normally we will default to running the current program (last game run).
   // If we're testing something we can set it to always default to the bootloader instead.
-  #if DEFAULT_PROGRAM == 1
+  if (MAGIC_NUMBER_DATA == MAGIC_NUMBER_RUNNING_VAL) {
     MAGIC_NUMBER_DATA = MAGIC_NUMBER_BOOTLOADER_VAL; // If we're interrupted here (double click), we should head directly to the bootloader.
     for (uint32_t i = 0; i < 0x7000; i++) {
       asm volatile ("");
     }
     MAGIC_NUMBER_DATA = MAGIC_NUMBER_RUNNING_VAL;
     runProgram(); // We weren't interrupted, so we should start running the program.
-  #endif
+  }
 }
 
 void Program::setResetModeProgram() {

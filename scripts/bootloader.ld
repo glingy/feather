@@ -41,7 +41,7 @@ MEMORY
 
 /* The stack size used by the application. NOTE: you need to adjust according to your application. */
 STACK_SIZE = DEFINED(STACK_SIZE) ? STACK_SIZE : DEFINED(__stack_size__) ? __stack_size__ : 0x2000;
-ENTRY(Reset_Handler); /* Makes the linker look at startup.o in feather.a. Otherwise, the vector table isn't even considered to be added. */
+ENTRY(exception_table); /* Makes the linker look at startup.o in feather.a. Otherwise, the vector table isn't even considered to be added. */
 
 /* Section Definitions */
 SECTIONS

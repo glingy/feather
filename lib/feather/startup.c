@@ -29,6 +29,7 @@
 
 #include "samd21.h"
 #include "program/proginfo.h"
+#include "error.h"
 
 /* Initialize segments */
 extern uint32_t _sfixed;
@@ -59,7 +60,6 @@ void Dummy_Handler(void);
 
 /* Cortex-M0+ core handlers */
 void NonMaskableInt_Handler  ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
-void HardFault_Handler       ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
 void SVCall_Handler          ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
 void PendSV_Handler          ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
 void SysTick_Handler         ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
@@ -203,6 +203,10 @@ DeviceVectors exception_table = {
         .pvReserved28           = (void*) (0UL)                   /* 28 Reserved */
 };
 
+__attribute__((weak)) void HardFault_Handler(void) {
+  error("Hardfault!!!", "");
+}
+
 /**
  * \brief This is the code that gets called on processor reset.
  * To initialize the device, and call the main() routine.
@@ -272,10 +276,5 @@ __attribute__((weak)) void Reset_Handler(void)
  */
 void Dummy_Handler(void)
 {
-        //PORT[0].Group->DIRSET.reg = PORT_PA06;
-        //PORT[0].Group->OUTSET.reg = PORT_PA06;
-        while (1) {
-                //PORT[0].Group->OUTCLR.reg = PORT_PA06;
-                //PORT[0].Group->OUTSET.reg = PORT_PA06;
-        }
+        while (1) {}
 }

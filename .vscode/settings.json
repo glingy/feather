@@ -10,7 +10,7 @@
         ".multisrc": true,
         ".travis.yml": true,
         "boards": true,
-        ".pio": true,
+        ".pio": false,
         ".vscode": true
     },
     "explorerExclude.backup": null,
@@ -20,6 +20,7 @@
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "cstddef": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "cmath": "cpp"
     }
 }

@@ -26,8 +26,8 @@ void Sound::init() {
 void Sound::initEffect() {
   PORTA.PINCFG[10].reg = PORT_PINCFG_PMUXEN;
   PORTA.PMUX[5].reg = PORT_PMUX_PMUXE_E;
-  PORTA.PINCFG[16].reg = PORT_PINCFG_PMUXEN;
-  PORTA.PMUX[8].reg = PORT_PMUX_PMUXE_E;
+  //PORTA.PINCFG[16].reg = PORT_PINCFG_PMUXEN;
+  //PORTA.PMUX[8].reg = PORT_PMUX_PMUXE_E;
   GCLK->CLKCTRL.reg =  // 48MHz pseudo-analog timer
     GCLK_CLKCTRL_CLKEN |
     GCLK_CLKCTRL_GEN_GCLK2 |

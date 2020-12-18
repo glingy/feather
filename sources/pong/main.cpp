@@ -1,5 +1,4 @@
 #include <feather.h>
-#include "effects.h"
 #include <cmath>
 
 #define PADDLE_SIZE 35
@@ -101,7 +100,7 @@ void resetLevel()
 
 int main() {
   Feather::init();
-  Sound::initEffect();
+  //Sound::initEffect();
   LCD::fillWindow(LCD::BLACK);
   LCD::fillWindow(0xEEEE, 0, 0, 239, 239);
   LCD::fillWindow(LCD::BLACK, 2, 2, 237, 237);
@@ -120,18 +119,18 @@ int main() {
     if (x <= 0 || x >= 227) { 
       dirX *= -1; 
       x = fabs(x); 
-      Sound::playEffect(fx_wall, fx_wall_len);
+      //Sound::playEffect(fx_wall, fx_wall_len);
     }
     if (y <= 0) {
       dirY *= -1;
-      Sound::playEffect(fx_wall, fx_wall_len);
+      //Sound::playEffect(fx_wall, fx_wall_len);
     }
     else if (y >= 223) {
       if (pX < x + 2 && pX + PADDLE_SIZE + 1 > x) {
         dirY *= -1;
         dirX = (x - pX - 29) / 18.;
         timer = timer == 0 ? 0 : timer - 1;
-        Sound::playEffect(fx_paddle, fx_paddle_len);
+        //Sound::playEffect(fx_paddle, fx_paddle_len);
       }
       else {
         LCD::fillWindow(0, 2, 2, 237, 237);
@@ -161,7 +160,7 @@ int main() {
         }
         numScore += 10;
         blocksLeft--;
-        Sound::playEffect(fx_break, fx_break_len);
+        //Sound::playEffect(fx_break, fx_break_len);
         printScore();
 
         if (blocksLeft == 0) {
