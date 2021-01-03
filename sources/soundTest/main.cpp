@@ -15,7 +15,7 @@ int main() {
   LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 40, 40, (uint32_t) REG_TCC1_CC0);
   Sound::playEffect(effect, effect_len);
   
-  byte i = 0;
+  uint8_t i = 0;
   while (1) {
     for (uint32_t i = 0; i < 0xFFFFFF; i++) { 
       PORTB.OUTTGL.reg = PORT_PB08;

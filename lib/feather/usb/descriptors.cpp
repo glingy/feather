@@ -1,14 +1,30 @@
+#include "descriptors.h"
+#include "constants.h"
 #include "usb.h"
-#include "usb_descriptors.h"
-#define USB_EP_IN_SIZE 64
-#define USB_EP_OUT_SIZE 64
 
-const char serialno[] = "GAME";
-const char vendor[] = "Turtle Maker";
-const char product[] = "Game Device";
+using namespace USB_CONN;
 
+/**
+ * Yeah, this file is extremely long... Thank the USB standard.
+ * This file describes how this device acts under the USB protocol,
+ *  which protocls it supports, and what to treat it as. 
+ * This was a pain to write.
+ * 
+ * It is currently a composite device with 2 CDC "channels"
+ *   Serial is descriptor 1 and appears as (on Mac) /dev/cu.usbmodemGAME1
+ *   Debug  is descriptor 3 and appears as (on Mac) /dev/cu.usbmodemGAME3
+ * 
+ * These can be accessed using screen /dev/cu..., but debug assumes interaction by
+ *   the turtle program, so weird things will happen if you type into that device.
+ */
+
+const char serialno[] = USB_SERIAL_NO;
+const char vendor[] = USB_VENDOR_ID;
+const char product[] = USB_PRODUCT_ID;
+
+// Must be in the same order as STRING_INDEX_XXX enum in usb.h
 __attribute__((__aligned__(4)))
-const char * USB_Type::strings[] = {
+const char * USB_CONN::strings[] = {
   serialno,
   vendor,
   product
@@ -16,7 +32,7 @@ const char * USB_Type::strings[] = {
 
 /* Change to Miscellaneous class with interface association for multiple serial ports! */
 __attribute__((__aligned__(4)))
-char USB_Type::devDescriptor[] =
+char USB_CONN::devDescriptor[] =
 {
   /* Device descriptor */
   0x12,   // bLength          // Length of descriptor
@@ -218,7 +234,7 @@ serial_comm_endp = {
 };
 
 struct USB_Configuration
-USB_Type::cfgDescriptor = {
+USB_CONN::cfgDescriptor = {
   .cfg = usb_cfg,
   .serial_assoc = serial_assoc,
   .serial_comm_iface = serial_comm_iface,

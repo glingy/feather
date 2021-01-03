@@ -1,18 +1,19 @@
 #ifndef LOG_H
 #define LOG_H
-#include "feather.h"
+
+#include <stdint.h>
 
 class Log {
 private:
-  byte line = 0;
-  byte off = 0;
+  uint8_t line = 0;
+  uint8_t off = 0;
 public:
   Log();
   void println(const char * text);
-  void println(const byte hex);
+  void println(const uint8_t hex);
   void println(const uint32_t hex);
-  void println(const char * str, byte len);
-  void print(const char * str, byte len);
+  void println(const char * str, uint8_t len);
+  void print(const char * str, uint8_t len);
 };
 
 #endif

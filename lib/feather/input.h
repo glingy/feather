@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-typedef struct {
+typedef struct __attribute__((packed)){
     uint8_t joystickY;
     uint8_t _A4;
     uint8_t joystickX;
@@ -9,19 +9,22 @@ typedef struct {
     uint8_t battery;
 } Analog_t;
 
-typedef struct {
+typedef struct __attribute__((packed)) {
     uint8_t _unused0 : 2;
     bool    joystick : 1; // PA02
     uint8_t _unused1 : 1;
     bool    right_flipper : 1; // PA04
     bool    left_flipper  : 1; // PA05
-    uint16_t _unused2 : 10;
+    uint8_t _unused2 : 2; 
+    uint8_t _unused3 : 2; 
+    bool    select   : 1;
+    uint8_t _unused4 : 5;
     bool    left     : 1; // PA16
-    bool    select   : 1; // PA17
+    bool    old_select   : 1; // PA17
     bool    right    : 1; // PA18
     bool    up       : 1; // PA19
     bool    down     : 1; // PA20
-} Digital_t;
+} Digital_t; 
 
 namespace Input {
     void init();

@@ -4,7 +4,7 @@
 #define ENTRY_LIST_LENGTH 21 // number of entries to display on one page
 
 extern bool didFixByte;
-extern byte fixedByte;
+extern uint8_t fixedByte;
 
 void printHeaders() {
   LCD::fillWindow(LCD::BLACK, 0, 0, 319, 239);
@@ -84,8 +84,8 @@ int main() {
   };
   FSDir last = dir;
 
-  byte i = 0;
-  byte selected = 0;
+  uint8_t i = 0;
+  uint8_t selected = 0;
 
   const uint16_t * palette = DEFAULT_PALETTE;
   const uint16_t selected_palette[] = { 0x07FF, 0 };

@@ -83,10 +83,34 @@ void download(const char * filename, uint32_t addr) {
 }
 
 int main(int argc, const char *argv[]) {
+  if (strcmp(argv[0], "--help")) {
+    printf(
+      "Game Controller Communication\n"
+      "Help:\n"
+      " Options will be executed in the order they appear\n"
+      "  -n <name>      Create a new project and exit.\n"
+      "  -d <file.bin>  Download a program to flash (0x4040).\n"
+      "  -D <file.bin>  Download a bootloader to flash (0x0000).\n"
+      "  -e             Echo! (pretty useless)\n"
+      "  -r             Reset and run loaded program.\n"
+      "  -b             Reset and run bootloader.\n"
+      "  -f             Not sure what this one does...\n"
+      "\n"
+      "Ex: ./turtle -d .pio/build/adafruit_feather_m0/firmware.bin -r\n"
+      );
+
+
+
+    return 0;
+  }
+
+
+
+
   printf("Connecting to device... \n");
   file = open("/dev/cu.usbmodemGAME3", O_RDWR);
   if (file == -1) {
-    printf("---- Device disconnected or unresponsive. ----\n  If connected, double-tap the reset button\n\tto manually enter bootloader mode.");
+    printf("---- Device disconnected or unresponsive. ----\n  If connected, double-tap the reset button\n\tto manually enter bootloader mode.\n");
     return 0;
   }
 
@@ -106,7 +130,7 @@ int main(int argc, const char *argv[]) {
     read(file, bfr, 64);
   }
 
-  printf("Done!\n");
+  printf("Connected!\n");
 
   while (argc > 0) {
     argc--;
@@ -117,7 +141,7 @@ int main(int argc, const char *argv[]) {
           if (argc > 0) {
             const char * filename = *argv++;
             argc--;
-            download(filename, 0x6000);
+            download(filename, 0x4040);
           }
           break;
         case 'D':

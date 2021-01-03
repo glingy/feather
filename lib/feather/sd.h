@@ -1,17 +1,18 @@
 #ifndef SD_H
 #define SD_H
-#include "feather.h"
+#include <stdint.h>
+#include <cstddef>
 
 struct __attribute__((__packed__)) FSVolumeData {
-  byte bootloader_jump[3];
-  byte formatter_os[8];
+  uint8_t bootloader_jump[3];
+  uint8_t formatter_os[8];
   uint16_t cluster_size;
-  byte sectors_per_cluster;
+  uint8_t sectors_per_cluster;
   uint16_t num_reserved_sectors;
-  byte num_fats;
+  uint8_t num_fats;
   uint16_t fat16_root_directory_entries;
   uint16_t fat16_total_logical_sectors;
-  byte media_type;
+  uint8_t media_type;
   uint16_t fat16_logical_sectors_per_fat;
   uint16_t physical_sectors_per_track;
   uint16_t num_heads;
@@ -23,20 +24,20 @@ struct __attribute__((__packed__)) FSVolumeData {
   uint32_t root_dir_cluster_addr;
   uint16_t fs_information_sector_addr;
   uint16_t fat32_boot_sector_copy_addr;
-  byte __reserved1[12];
-  byte drive_num;
-  byte __reserved2;
-  byte extended_boot_signature;
+  uint8_t __reserved1[12];
+  uint8_t drive_num;
+  uint8_t __reserved2;
+  uint8_t extended_boot_signature;
   uint32_t serial_number;
-  byte drive_name[11];
-  byte fs_type[8];
+  uint8_t drive_name[11];
+  uint8_t fs_type[8];
 };
 
 struct __attribute__((__packed__)) FSDirEntry {
   char name[8];
   char ext[3];
-  byte attributes;
-  byte eaflags;
+  uint8_t attributes;
+  uint8_t eaflags;
   char deleted_file_first_character;
   uint16_t create_time;
   uint16_t create_date;
@@ -61,16 +62,15 @@ namespace SD {
   extern uint32_t volAddress;
   extern uint32_t fatAddress;
   extern uint32_t rootAddress;
-  extern byte sectors_per_cluster;
+  extern uint8_t sectors_per_cluster;
   
   inline void getVolumeName(char name[11]);
   inline void getFormatterName(char name[8]);
   inline void getFSType(char name[8]);
-  inline void getSerialNumber(byte number[4]);
+  inline void getSerialNumber(uint8_t number[4]);
   //inline void getRootDir();
-  inline void readDir(FSAddr dir, byte index, FSDirEntry * entry); // only supports entries within the first sector of the directory listing, so index < 16
-  inline void readFat(FSCluster * cluster);
-  inline void nextClusterInChain(FSCluster * cluster);
+  inline void readDir(FSAddr dir, uint8_t index, FSDirEntry * entry); // only supports entries within the first sector of the directory listing, so index < 16
+  inline void nextCluster(FSCluster * cluster);
   void read(FSAddr block, uint16_t offset, uint16_t count, void * dest);
   inline void readDirEntry(FSDir * loc, FSDirEntry * entry);
   void nextDirEntry(FSDir * loc);
@@ -91,16 +91,12 @@ inline void SD::getFormatterName(char name[8]) {
   read(volAddress, offsetof(FSVolumeData, formatter_os), 8, name);
 }
 
-inline void SD::readDir(uint32_t dir, byte index, FSDirEntry * entry) {
+inline void SD::readDir(uint32_t dir, uint8_t index, FSDirEntry * entry) {
   read(rootAddress, 32 * index, 32, entry);
 }
 
-inline void SD::readFat(uint32_t * cluster) {
-  read(fatAddress + (*cluster >> 7), *cluster & 0x7F, 4, cluster);
-}
-
-inline void SD::nextClusterInChain(uint32_t * cluster) {
-  read(fatAddress + (*cluster >> 7), *cluster & 0x7F, 4, cluster);
+inline void SD::nextCluster(uint32_t * cluster) {
+  read(fatAddress + (*cluster >> 7), (*cluster & 0x7F) * 4, 4, cluster);
 }
 
 inline void SD::readCluster(uint32_t cluster, uint16_t offset, uint16_t count, void * dest) {

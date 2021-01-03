@@ -1,5 +1,6 @@
 #include "feather.h"
 #include "internal.h"
+#include "usb/usb.h"
 
 void initSleep(); // timer.cpp
 
@@ -7,7 +8,8 @@ void initSleep(); // timer.cpp
  * Init all the clocks and the display (reset and chip select only)
  * Sets cpu to 48MHz clock, and GCLK0 - 48MHz, GCLK4 - 8MHz, GCLK2 - 96MHz, GCLK3 - 16kHz
  */
-void Feather::init() {
+void Feather::init()
+{
     /**
      * CPU Initialization
      * 
@@ -17,10 +19,9 @@ void Feather::init() {
      * while initializing the 48MHz clock, then switch the CPU to run off of that clock instead (GCLK0). 
      */
 
-    PORTA.DIRSET.reg = PORTA_OUT_PINS; // Set output pins
-    PORTB.DIRSET.reg = PORTB_OUT_PINS; // Set output pins
-    PORTA.OUTSET.reg = LCD_RESET;                                                             // Raise reset signal for display (do I need to raise, lower, and raise, or could I just raise it?)
-    PORTB.OUTSET.reg = LCD_CS;
+    PORTA.DIRSET.reg = PORTA_OUT_PINS; // Set output pin directions
+    PORTB.DIRSET.reg = PORTB_OUT_PINS;
+    PORTA.OUTSET.reg = LCD_RESET; // Raise reset signal for display.
 
     // Set the Read Wait States, I'm not sure what exactly this means, but it's necessary when running at 48MHz.
     NVMCTRL->CTRLB.bit.RWS = 1;
@@ -29,10 +30,16 @@ void Feather::init() {
     SYSCTRL->OSC8M.bit.PRESC = 0;
 
     // Enable the SERCOM5 (LCD SPI bus), ADC (analog-digital converter), TC3 (sleep timer), and SERCOM4 (SD Card) in the power manager
-    PM->APBCMASK.reg |= PM_APBCMASK_SERCOM5 | PM_APBCMASK_ADC | PM_APBCMASK_TC3 | PM_APBCMASK_SERCOM4 | PM_APBCMASK_TCC1 | PM_APBCMASK_TCC2;
+    PM->APBCMASK.reg |=
+        PM_APBCMASK_SERCOM5 | // LCD
+        PM_APBCMASK_SERCOM4 | // SD
+        PM_APBCMASK_ADC |     // Joystick
+        PM_APBCMASK_TC3 |     // Sleep
+        PM_APBCMASK_TCC1 |    // ??
+        PM_APBCMASK_TCC2;     // ??
+
     PM->APBBMASK.reg |= PM_APBBMASK_DMAC;
     PM->AHBMASK.reg |= PM_AHBMASK_DMAC;
-    
 
     // Init clock 4 from the OSC8M 8MHz clock for the DPLL
     GCLK->GENCTRL.reg =
@@ -53,7 +60,6 @@ void Feather::init() {
     SYSCTRL->DPLLRATIO.reg = SYSCTRL_DPLLRATIO_LDR(11); // RATIO: 96/8 - 1 = 11, FRAC = 0
     SYSCTRL->DPLLCTRLB.reg = SYSCTRL_DPLLCTRLB_REFCLK_GCLK | SYSCTRL_DPLLCTRLB_LBYPASS;
     SYSCTRL->DPLLCTRLA.reg = SYSCTRL_DPLLCTRLA_ENABLE;
-    
 
     while (!SYSCTRL->DPLLSTATUS.bit.CLKRDY)
         ;
@@ -79,7 +85,7 @@ void Feather::init() {
     while (GCLK->STATUS.reg)
         ;
 
-    GCLK->GENDIV.reg = 
+    GCLK->GENDIV.reg =
         GCLK_GENDIV_ID(3) |
         GCLK_GENDIV_DIV(2);
 
@@ -88,6 +94,7 @@ void Feather::init() {
         GCLK_GENCTRL_ID(3) |
         GCLK_GENCTRL_RUNSTDBY |
         GCLK_GENCTRL_GENEN;
+        
     while (GCLK->STATUS.reg)
         ;
 
@@ -97,6 +104,6 @@ void Feather::init() {
     LCD::init();
     Input::init();
     SD::init();
-    usb.init();
+    USB_CONN::init();
     initSleep();
 }

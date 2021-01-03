@@ -16,7 +16,7 @@ void Sound::init() {
   TCC1->CTRLBSET.reg = TCC_CTRLBSET_CMD_UPDATE;
   while (TCC1->CTRLBSET.bit.CMD);
 }
-  byte temp = 0x3;
+  uint8_t temp = 0x3;
 
 
 /**

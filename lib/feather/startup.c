@@ -28,8 +28,6 @@
  */
 
 #include "samd21.h"
-#include "program/proginfo.h"
-#include "error.h"
 
 /* Initialize segments */
 extern uint32_t _sfixed;
@@ -42,10 +40,8 @@ extern uint32_t _ezero;
 extern uint32_t _sstack;
 extern uint32_t _estack;
 extern uint32_t _svectors;
-//#ifndef BOOTLOADER
-  extern uint32_t _sramvectors;
-  extern uint32_t _eramvectors;
-//#endif
+extern uint32_t _sramvectors;
+extern uint32_t _eramvectors;
 
 /** \cond DOXYGEN_SHOULD_SKIP_THIS */
 int main(void);
@@ -113,7 +109,7 @@ void PTC_Handler             ( void ) __attribute__ ((weak, alias("Dummy_Handler
 void I2S_Handler             ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
 
 /* Exception Table */
-__attribute__ ((section(".vectors")))
+__attribute__((__section__(".vectors")))
 DeviceVectors exception_table = {
 
         /* Configure Initial Stack Pointer, using linker-generated symbols */
@@ -230,7 +226,7 @@ __attribute__((weak)) void Reset_Handler(void)
                 *pDest++ = 0;
         }
 
-        //#ifndef BOOTLOADER /* Move vector table to RAM... */
+        /* Move vector table to RAM... */
         pSrc = &_svectors;
         pDest = &_sramvectors;
 
@@ -239,7 +235,7 @@ __attribute__((weak)) void Reset_Handler(void)
         }
 
         SCB->VTOR = ((uint32_t) &_sramvectors);
-        //#endif It's helpful with USB to have the vector table modifyable, so I'll do this to the bootloader as well as the running program...
+        //It's helpful with USB to have the vector table modifyable, so I'll do this to the bootloader as well as the running program.
 
         /* Set the vector table base address */
         //pSrc = (uint32_t *) & _sfixed;

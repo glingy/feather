@@ -4,10 +4,10 @@
 #define BALL 4
 
 
-byte pX = 0; // 0 to 171
+uint8_t pX = 0; // 0 to 171
 float x = 109;
-byte y = 200;
-byte timer = 128;
+uint8_t y = 200;
+uint8_t timer = 128;
 const word bw[] = { 0, 0xFFFF };
 
 
@@ -19,8 +19,8 @@ inline void drawPaddle() {
 }
 
 inline void drawBall() {
-  byte ux = (byte) x;
-  byte uy = (byte) y;
+  uint8_t ux = (uint8_t) x;
+  uint8_t uy = (uint8_t) y;
   SPI.fillWindow(0, ux + 3, uy + 2, ux + 9, uy + 6);
   SPI.fillWindow(0x0FF0, ux + 5, uy + 3, ux + 7, uy + 5);
 }
@@ -29,34 +29,34 @@ word colors[] = {
   0xFF00, 0x07E0, 0x001F
 };
 
-const byte level[] PROGMEM = {
+const uint8_t level[] PROGMEM = {
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x01, 0x02, 0x00, 0x01, 0x81,
   0x80, 0x01, 0x02, 0x00, 0x01, 0x81,
   0x80, 0x01, 0x02, 0x00, 0x01, 0x81,
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
 };
-const byte levelBlocks = 18;
+const uint8_t levelBlocks = 18;
 
 
 // [exists][special][color...]
 #define COLOR 0x3F
 #define EXISTS 0x80
 #define SPECIAL 0x40
-byte blocks[] = {
+uint8_t blocks[] = {
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
 };
-byte blocksLeft = sizeof(blocks);
+uint8_t blocksLeft = sizeof(blocks);
 
 
 
 void printBlocks() {
-  for (byte i = 0; i < 6; i++) {
-    for (byte j = 0; j < 5; j++) {
+  for (uint8_t i = 0; i < 6; i++) {
+    for (uint8_t j = 0; j < 5; j++) {
       if (blocks[i + (j * 6)] & EXISTS) {
         SPI.fillWindow(colors[blocks[i + (j * 6)] & COLOR], 5 + (i * 39), 5 + (j * 17), 39 + (i * 39), 18 + (j * 17));
       }
@@ -72,7 +72,7 @@ char dirY = 1;
 
 void resetLevel() {
   sleep_ms(1500);
-  for (byte i = 0; i < sizeof(blocks); i++) {
+  for (uint8_t i = 0; i < sizeof(blocks); i++) {
     blocks[i] = pgm_read_byte(&level[i]);
   }
   blocksLeft = levelBlocks;
@@ -136,16 +136,16 @@ int main() {
 
     if (y < (17 * 5)) {
       //while (1);
-      byte i = ((byte) (x + 1) / 39);
-      byte j = (y / 17);
+      uint8_t i = ((uint8_t) (x + 1) / 39);
+      uint8_t j = (y / 17);
       if (blocks[i + (j * 6)] & EXISTS) {
         blocks[i + (j * 6)] &= ~EXISTS;
         SPI.fillWindow(0, 5 + (i * 39), 5 + (j * 17), 39 + (i * 39), 18 + (j * 17));
-        byte xi = (byte)(x + 1) % 39;
+        uint8_t xi = (uint8_t)(x + 1) % 39;
         if (xi > 36 || xi < 3) {
           dirX *= -1;
         }
-        byte yi = (byte)(y) % 17;
+        uint8_t yi = (uint8_t)(y) % 17;
         if (yi > 14 || yi < 3) {
           dirY *= -1;
         }
@@ -174,8 +174,8 @@ int main() {
     //}
     drawPaddle();
     sleep_ms(1);
-    for (byte i = 0; i < timer; i++) {
-      for (byte j = 0; j < 120; j++) {
+    for (uint8_t i = 0; i < timer; i++) {
+      for (uint8_t j = 0; j < 120; j++) {
         asm volatile("nop\n\tnop");
       }
     }

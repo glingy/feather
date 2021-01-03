@@ -9,9 +9,10 @@
         ".gitignore": true,
         ".multisrc": true,
         ".travis.yml": true,
-        "boards": true,
+        "boards": false,
         ".pio": false,
-        ".vscode": true
+        ".vscode": true,
+        "turtle": true
     },
     "explorerExclude.backup": null,
     "files.associations": {

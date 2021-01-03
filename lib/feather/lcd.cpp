@@ -42,13 +42,13 @@ void LCD::init()
     while (SERCOM5->SPI.SYNCBUSY.bit.ENABLE)
         ;
 
-    // Set both SPI data pins to MUX D and high drive strength. Not sure if high drive strength is needed.
+    // Set both SPI data pins to MUX D. DRVSTR IS REQUIRED
     PORTA.PINCFG[22].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_DRVSTR;
     PORTA.PINCFG[23].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_DRVSTR;
     PORTA.PMUX[11].reg = PORT_PMUX_PMUXE_D | PORT_PMUX_PMUXO_D;
-
-    PORTA.OUTSET.reg = LCD_BL; // Turn on the backlight (TODO: PWM brightness setting)
-    PORTB.OUTCLR.reg = LCD_CS; // Clear chip select (enables SPI communication on the display)
+    PORTB.OUTTGL.reg = LCD_CS;
+    NOP(); // Make sure CS is high for 40+ns
+    PORTB.OUTTGL.reg = LCD_CS; // Toggle chip select after reset (enables SPI communication on the display)
 
     /**
      * LCD Initialization
@@ -75,6 +75,13 @@ void LCD::init()
 
     LCD_CMD(0x11); // stop sleeping (Sleep Out)
     NOP();
+
+    // Datasheet says I should be waiting 5ms here after sending sleep out for clocks to settle...
+    // I guess I'll listen.
+    
+    for (unsigned int i = 0; i < 0x8000; i++) {
+        asm volatile ("nop;");
+    }
 
     // Since the display by default uses 0xFF as black,
     //   we'll invert the colors since that makes more sense to me.
@@ -118,9 +125,11 @@ void LCD::setWindow(uint16_t coords[4])
 {
     LCD_CMD(0x2A);
     numPixels = (uint32_t)(coords[1] - coords[0] + 1) * (coords[3] - coords[2] + 1);
-    NOP8();
-    PORTA.OUTSET.reg = LCD_DC;
-    for (unsigned long i = 0; i < 2; i++)
+    
+    PORTA.OUTTGL.reg = LCD_DC;
+    unsigned long i = 0;
+
+    for (; i < 2; i++)
     {
         LCD_SEND((coords[i] >> 8) & 0xFF);
         NOP();
@@ -129,11 +138,11 @@ void LCD::setWindow(uint16_t coords[4])
         NOP();
         NOP8();
     }
-    PORTA.OUTCLR.reg = LCD_DC;
+    PORTA.OUTTGL.reg = LCD_DC;
     LCD_CMD(0x2B);
-    NOP8();
-    PORTA.OUTSET.reg = LCD_DC;
-    for (unsigned long i = 2; i < 4; i++)
+    NOP8(); // Timing for DC to stay low during command due to SPI delay
+    PORTA.OUTTGL.reg = LCD_DC;
+    for (; i < 4; i++)
     {
         LCD_SEND((coords[i] >> 8) & 0xFF);
         NOP();
@@ -142,13 +151,14 @@ void LCD::setWindow(uint16_t coords[4])
         NOP();
         NOP8();
     }
-    PORTA.OUTCLR.reg = LCD_DC;
+    PORTA.OUTTGL.reg = LCD_DC;
 }
 
 /**
- * Fill the current drawing window with a specified solid color TODO: Use DMA instead.
+ * Fill the current drawing window with a specified solid color
  */
-void LCD::fillWindow(uint16_t color) {
+void LCD::fillWindow(uint16_t color)
+{
     LCD_BEGIN(0x2C);
 
     for (uint32_t j = numPixels * 2; j > 0;)
@@ -171,4 +181,9 @@ void LCD::fillWindow(uint16_t color, uint16_t minX, uint16_t minY, uint16_t maxX
     uint16_t window[] = {minX, maxX, minY, maxY};
     setWindow(window);
     fillWindow(color);
+}
+
+void LCD::setBrightness(uint8_t brightness)
+{
+    
 }

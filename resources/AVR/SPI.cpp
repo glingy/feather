@@ -33,7 +33,7 @@ void initPWM() {
 }
 
 // EXACT timing. DO NOT MESS IT UP
-/*void SPI_C::fillWindow(byte test) {
+/*void SPI_C::fillWindow(uint8_t test) {
   while (!(UCSR0A & (1<<TXC0)));
   UDR0 = 0x2C;
   PORTB &= ~DC;
@@ -57,7 +57,7 @@ void initPWM() {
   }
 }*/
 
-void cmd(byte cmd) {
+void cmd(uint8_t cmd) {
   while (!(UCSR0A & (1<<TXC0)));
   UDR0 = cmd;
   PORTB &= ~DC;
@@ -67,7 +67,7 @@ const word palette[] = {
   0x0000, 0x9596, 0xFFFF, 0x8003, 0xF800, 0xA280, 0xFC00, 0xFE10, 0xFFE0, 0x2560, 0x47E0, 0x018E, 0x3396, 0x069F, 0xA01C, 0xFB1F
 };
 
-const byte picture[] = {
+const uint8_t picture[] = {
   0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x24, 0x42,
   0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x44, 0x42,
   0x22, 0x22, 0x22, 0x22, 0x22, 0x24, 0x42, 0x42,
@@ -131,7 +131,7 @@ total : 6 clocks with one nop
 */
 
 // note: Cannot be less than 2 pixels in picture.
-void SPI_C::fillWindow2bit(const word bit[2], const byte * picture) {
+void SPI_C::fillWindow2bit(const word bit[2], const uint8_t * picture) {
   cmd(0x2C);
   asm volatile (
     "      movw r26,%0" // move picture pointer to r26/27 (X)

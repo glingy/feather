@@ -1,10 +1,16 @@
 #include "debug.h"
-#include "program/program.h"
-#include "sam.h"
+#include <program/program.h>
+#include <feather.h>
+#include <usb/constants.h>
 
 extern void drawHome();
 extern volatile bool bootloaderUpdate;
-const char gotDataStr[] __section(".ramfuncBLOnly.0") = "Got data!"; // To make sure it's available while flash is being written
+const char * gotDataStr __SECTION(".ramfuncBLOnly.0") = "Got data!"; // To make sure it's available while flash is being written
+
+uint8_t Debug::state = COMMAND;
+uint32_t Debug::destptr = 0;
+uint32_t Debug::length = 0;
+
 /**
  * Commands:
  * r - restart and run program if available - works in program mode
@@ -21,26 +27,18 @@ const char gotDataStr[] __section(".ramfuncBLOnly.0") = "Got data!"; // To make 
  * L - unlock the bootloader for editing - use BOOTPROT, causes reset to bootloader
  */
 
-__section(".ramfuncBLOnly")
-bool Debug::input(Serial * serial, char * data, byte len) {
+__SECTION(".ramfuncBLOnly")
+bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
   if (state == COMMAND) {
     switch (*data) {
       case 'r':
         serial->send("Running Program...\n\r");
-        Program::setResetModeProgram();
-        NVIC_SystemReset();
-        while (1) {
-          asm volatile ("");
-        }
-        break;
+        Program::resetToProgram();
+        
       case 'b':
         serial->send("Running Bootloader...\n\r");
-        Program::setResetModeBootloader();
-        NVIC_SystemReset();
-        while (1) {
-          asm volatile ("");
-        }
-        break;
+        Program::resetToBootloader();
+
       case 'e':
         serial->send("Echo!\n\r");
         break;
@@ -90,7 +88,6 @@ bool Debug::input(Serial * serial, char * data, byte len) {
   } else if (state == WRITE_TO_FLASH) {
     if (len == 0) { return true; }
 
-    
 
     serial->send(gotDataStr);
 
@@ -106,7 +103,7 @@ bool Debug::input(Serial * serial, char * data, byte len) {
     uint32_t * src = (uint32_t *) data;
     uint32_t * dst = (uint32_t *) destptr;
 
-    for (byte i = 0; i < len; i += 4) {
+    for (uint8_t i = 0; i < len; i += 4) {
       *dst++ = *src++;
     }
 
@@ -128,4 +125,12 @@ bool Debug::input(Serial * serial, char * data, byte len) {
     }
   }
   return true;
+}
+
+__SECTION(".ramfuncBLOnly") __NO_RETURN
+void Debug::updateBootloader()
+{
+  USB->DEVICE.DeviceEndpoint[EP_DEBUG_DATA].EPSTATUSCLR.reg = USB_DEVICE_EPSTATUSCLR_BK0RDY;
+  while (bootloaderUpdate);
+  Program::resetToBootloader();
 }

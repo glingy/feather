@@ -1,4 +1,4 @@
-#include "feather.h"
+#include <feather.h>
 #include "help.h"
 
 const char helpScreen[] = R"(Help:
@@ -28,12 +28,12 @@ const char helpScreen[] = R"(Help:
   on the SD card.)";
 
 bool Help::checkHelp() {
-  if (Input::Digital->left) {
-    while (Input::Digital->left);
+  if (!Input::Digital->select) {
+    while (!Input::Digital->select);
     LCD::fillWindow(LCD::BLACK, 0, 8, 319, 229);
     LCD::printlns(DEFAULT_FONT, DEFAULT_PALETTE, 0, 15, helpScreen);
-    while (!Input::Digital->left);
-    while (Input::Digital->left);
+    while (Input::Digital->select);
+    while (!Input::Digital->select);
     LCD::fillWindow(LCD::BLACK, 0, 8, 319, 229);
     return true;
   }

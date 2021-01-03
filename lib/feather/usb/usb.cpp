@@ -1,13 +1,16 @@
 #include "usb.h"
-#include <cstring>
+#include "util.h"
+#include "nvm_data.h"
+#include "constants.h"
 
-USB_Type * USB_Type::usb;
-USB_Type usb;
 
-void USB_Type::init() {
-  /* Save this instance for interrupts to find it */
-  usb = this;
+UsbDeviceDescriptor USB_CONN::endpoints[4] = {};
+uint8_t USB_CONN::endpoint_out_bfr[3][64];
+uint8_t USB_CONN::endpoint_in_bfr[3][64];
+uint8_t USB_CONN::currentConfiguration = 0;
 
+
+void USB_CONN::init() {
   /* Enable USB interrupts */
   __NVIC_EnableIRQ(USB_IRQn);
 
@@ -44,21 +47,21 @@ void USB_Type::init() {
   /* Enable USB as Device */
   UD.CTRLA.reg = USB_CTRLA_RUNSTDBY | USB_CTRLA_MODE_DEVICE | USB_CTRLA_ENABLE;
 
-  /* Enable the End Of ReSeT interrupt */
+  /* Enable the End Of Reset interrupt */
   UD.INTENSET.reg = USB_DEVICE_INTENSET_EORST;
 
   /* Attach USB */
   UD.CTRLB.bit.DETACH = 0;
 }
 
-void USB_Type::waitForConnection() {
+void USB_CONN::waitForConnection() {
   /* Delay until USB is connected and configured correctly... */
   while (!currentConfiguration) {
     __WFI();
   }
 }
 
-void USB_Type::zlp() { // Indicates acceptance of a status request without sending data
+void USB_CONN::zlp() { // Indicates acceptance of a status request without sending data
   /* Set the byte count as zero */
   endpoints[0].DeviceDescBank[1].PCKSIZE.bit.BYTE_COUNT = 0;
   UD.DeviceEndpoint[0].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_TRCPT(2);
@@ -66,13 +69,13 @@ void USB_Type::zlp() { // Indicates acceptance of a status request without sendi
   while ( !(UD.DeviceEndpoint[0].EPINTFLAG.bit.TRCPT1 || UD.DeviceEndpoint[0].EPINTFLAG.bit.TRFAIL1) );
 }
 
-void USB_Type::stall() { // This is another status option to return from a setup request...
+void USB_CONN::stall() { // This is another status option to return from a setup request...
   UD.DeviceEndpoint[0].EPSTATUSSET.reg = USB_DEVICE_EPSTATUS_STALLRQ1;
 }
 
 // Note: Data must be in sram...
-__section(".ramfuncBLOnly")
-void USB_Type::writeAsync(const char * data, uint32_t length, byte ep_num) {
+__SECTION(".ramfuncBLOnly")
+void USB_CONN::writeAsync(const char * data, uint32_t length, uint8_t ep_num) {
 
   endpoints[ep_num].DeviceDescBank[1].ADDR.reg = (uint32_t) data; // set address, pcksize, and send
   endpoints[ep_num].DeviceDescBank[1].PCKSIZE.reg = // No clue why... but I *have* to set SIZE to 0 here if it's in low speed mode, 3 if it's in high speed... Doesn't work otherwise.. weird
@@ -88,13 +91,13 @@ void USB_Type::writeAsync(const char * data, uint32_t length, byte ep_num) {
 }
 
 // Note: Data must be in sram...
-void USB_Type::write(const char * data, uint32_t length, byte ep_num) {
+void USB_CONN::write(const char * data, uint32_t length, uint8_t ep_num) {
   writeAsync(data, length, ep_num);
 
   while (!(UD.DeviceEndpoint[ep_num].EPINTFLAG.bit.TRCPT1 || UD.DeviceEndpoint[ep_num].EPINTFLAG.bit.TRFAIL1)); // Wait for transfer complete...
 }
 
-void USB_Type::configureSerial(byte serial_data, byte serial_comm) {
+void USB_CONN::configureSerial(uint8_t serial_data, uint8_t serial_comm) {
   /* Configure BULK OUT endpoint for CDC Data interface*/
   UD.DeviceEndpoint[serial_data].EPCFG.reg = USB_DEVICE_EPCFG_EPTYPE0(3) | USB_DEVICE_EPCFG_EPTYPE1(3);
   /* Set maximum packet size as 64 bytes */
@@ -117,8 +120,8 @@ void USB_Type::configureSerial(byte serial_data, byte serial_comm) {
 }
 
 // Max Length 30 characters...
-void USB_Type::writeString(const char * str, uint32_t packet_length, byte ep_num) {
-  byte bfr_num = (ep_num == 0) ? 0 : 1;
+void USB_CONN::writeString(const char * str, uint32_t packet_length, uint8_t ep_num) {
+  uint8_t bfr_num = (ep_num == 0) ? 0 : 1;
   uint16_t * pBfr = ((uint16_t *) endpoint_in_bfr[bfr_num]) + 1; // leave 2 bytes for length and type...
   
   const uint8_t * pStr = (const uint8_t *) str;
@@ -129,22 +132,23 @@ void USB_Type::writeString(const char * str, uint32_t packet_length, byte ep_num
     }
   }
 
-  byte len = (uint8_t) ((uint32_t)pBfr - (uint32_t)endpoint_in_bfr[bfr_num]);
+  uint8_t len = (uint8_t) ((uint32_t)pBfr - (uint32_t)endpoint_in_bfr[bfr_num]);
   endpoint_in_bfr[bfr_num][0] = len;
   endpoint_in_bfr[bfr_num][1] = DESCRIPTOR_STRINGS;
 
   write((const char *) endpoint_in_bfr[bfr_num], MIN(len, packet_length), ep_num);
 }
 
-__section(".ramfuncBLOnly")
+
+__SECTION(".ramfuncBLOnly")
 void USB_Handler() {
   if (UD.DeviceEndpoint[0].EPINTFLAG.bit.RXSTP) {
-    USB_Type::Handler_RXSTP();
+    USB_CONN::Handler_RXSTP();
   } else if (UD.INTFLAG.bit.EORST) {
-    USB_Type::Handler_EORST();
-  } else if (UD.DeviceEndpoint[USB_Type::EP_SERIAL_DATA].EPINTFLAG.bit.TRCPT0) {
-    USB_Type::Handler_OUT(&USB_Type::usb->serial);
-  } else if (UD.DeviceEndpoint[USB_Type::EP_DEBUG_DATA].EPINTFLAG.bit.TRCPT0) {
-    USB_Type::Handler_OUT(&USB_Type::usb->debug);
+    USB_CONN::Handler_EORST();
+  } else if (UD.DeviceEndpoint[EP_SERIAL_DATA].EPINTFLAG.bit.TRCPT0) {
+    USB_CONN::Handler_OUT(&Serial_t::serial);
+  } else if (UD.DeviceEndpoint[EP_DEBUG_DATA].EPINTFLAG.bit.TRCPT0) {
+    USB_CONN::Handler_OUT(&Serial_t::debug);
   }
 }

@@ -1,7 +1,7 @@
 #include "feather.h"
 #include "internal.h"
 
-byte _sleep_idling = true;
+uint8_t _sleep_idling = true;
 
 void TC3_Handler() {
   TC3->COUNT16.INTFLAG.reg = TC_INTFLAG_MC0;

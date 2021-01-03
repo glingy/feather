@@ -2,12 +2,12 @@
 #include <cmath>
 
 #define PADDLE_SIZE 35
-byte pX;
+uint8_t pX;
 float x = 109;
-byte y = 200;
-byte timer = 128;
-byte lastX = 0;
-byte lastY = 0;
+uint8_t y = 200;
+uint8_t timer = 128;
+uint8_t lastX = 0;
+uint8_t lastY = 0;
 //const uint16_t GRAYSCALE[] = {0, 0xFFFF};
 
 char score[6] = {0};
@@ -19,7 +19,7 @@ uint16_t colors[] = {
   0xFF00, 0x07E0, 0x001F
 };
 
-const byte level[] = {
+const uint8_t level[] = {
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x01, 0x02, 0x00, 0x01, 0x81,
   0x80, 0x01, 0x02, 0x00, 0x01, 0x81,
@@ -31,7 +31,7 @@ const byte level[] = {
 #define COLOR 0x3F
 #define EXISTS 0x80
 #define SPECIAL 0x40
-byte blocks[] = {
+uint8_t blocks[] = {
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
@@ -39,13 +39,13 @@ byte blocks[] = {
   0x80, 0x81, 0x82, 0x80, 0x81, 0x81,
 };
 
-byte blocksLeft = sizeof(blocks);
+uint8_t blocksLeft = sizeof(blocks);
 
-const byte levelBlocks = 18;
+const uint8_t levelBlocks = 18;
 
 void printBlocks() {
-  for (byte i = 0; i < 6; i++) {
-    for (byte j = 0; j < 5; j++) {
+  for (uint8_t i = 0; i < 6; i++) {
+    for (uint8_t j = 0; j < 5; j++) {
       if (blocks[i + (j * 6)] & EXISTS) {
         LCD::fillWindow(colors[blocks[i + (j * 6)] & COLOR], 5 + (i * 39), 5 + (j * 17), 39 + (i * 39), 18 + (j * 17));
       }
@@ -61,15 +61,15 @@ void drawPaddle()
 }
 
 void clearBall() {
-  byte ux = (byte)x;
-  byte uy = (byte)y;
+  uint8_t ux = (uint8_t)x;
+  uint8_t uy = (uint8_t)y;
   LCD::fillWindow(0x0, ux + 5, uy + 3, ux + 7, uy + 5);
 }
 
 void drawBall()
 {
-  byte ux = (byte)x;
-  byte uy = (byte)y;
+  uint8_t ux = (uint8_t)x;
+  uint8_t uy = (uint8_t)y;
   LCD::fillWindow(0x0, lastX + 5, lastY + 3, lastX + 7, lastY + 5);
   LCD::fillWindow(0x0FF0, ux + 5, uy + 3, ux + 7, uy + 5);
 }
@@ -82,7 +82,7 @@ void printScore() {
 
 void resetLevel()
 {
-  for (byte i = 0; i < sizeof(blocks); i++)
+  for (uint8_t i = 0; i < sizeof(blocks); i++)
   {
     blocks[i] = level[i];
   }
@@ -145,16 +145,16 @@ int main() {
 
     if (y < (17 * 5)) {
       //while (1);
-      byte i = ((byte) (x + 1) / 39);
-      byte j = (y / 17);
+      uint8_t i = ((uint8_t) (x + 1) / 39);
+      uint8_t j = (y / 17);
       if (blocks[i + (j * 6)] & EXISTS) {
         blocks[i + (j * 6)] &= ~EXISTS;
         LCD::fillWindow(0, 5 + (i * 39), 5 + (j * 17), 39 + (i * 39), 18 + (j * 17));
-        byte xi = (byte)(x + 1) % 39;
+        uint8_t xi = (uint8_t)(x + 1) % 39;
         if (xi > 36 || xi < 3) {
           dirX *= -1;
         }
-        byte yi = (byte)(y) % 17;
+        uint8_t yi = (uint8_t)(y) % 17;
         if (yi > 14 || yi < 3) {
           dirY *= -1;
         }

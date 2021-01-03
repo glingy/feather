@@ -1,15 +1,16 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
 {
     "configurations": [
         {
-            "name": "!!! WARNING !!! AUTO-GENERATED FILE, PLEASE DO NOT MODIFY IT AND USE https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags"
-        },
-        {
-            "name": "Mac",
-            "macFrameworkPath": [],
+            "name": "PlatformIO",
             "includePath": [
-                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/include",
-                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/bootloader",
-                "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
+                "/Users/gregory/Documents/feather/include",
+                "/Users/gregory/Documents/feather/sources/bootloader",
+                "/Users/gregory/Documents/feather/lib/feather",
                 "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                 "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
                 "/Users/gregory/.platformio/packages/tool-unity",
@@ -18,9 +19,9 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/include",
-                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/sources/bootloader",
-                    "/Users/gregory/Library/Mobile Documents/com~apple~CloudDocs/Desktops/samd/feather/lib/feather",
+                    "/Users/gregory/Documents/feather/include",
+                    "/Users/gregory/Documents/feather/sources/bootloader",
+                    "/Users/gregory/Documents/feather/lib/feather",
                     "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                     "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
                     "/Users/gregory/.platformio/packages/tool-unity",
@@ -28,7 +29,7 @@
                 ]
             },
             "defines": [
-                "PLATFORMIO=50003",
+                "PLATFORMIO=50004",
                 "ARDUINO_ARCH_SAMD",
                 "ARDUINO_SAMD_ZERO",
                 "ARDUINO_SAMD_FEATHER_M0",
@@ -39,7 +40,6 @@
                 "USBCON",
                 ""
             ],
-            "intelliSenseMode": "gcc-x64",
             "cStandard": "c11",
             "cppStandard": "c++11",
             "compilerPath": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc",

@@ -35,10 +35,10 @@ SEARCH_DIR(.)
 /* Memory Spaces Definitions */
 MEMORY
 {
-  progid   (rx)  : ORIGIN = 0x00006000, LENGTH = 0x00000004 /* Magic Number */
-  progmem  (rx)  : ORIGIN = 0x00006004, LENGTH = 0x00002000-0x4 /* Lots of space for program info */
-  rom      (rx)  : ORIGIN = 0x00008000, LENGTH = 0x00040000-0x8000
-  ram      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000-0x4 /* Last four bytes reserved for bootloader */
+  progid   (rx)  : ORIGIN = 0x00004000, LENGTH = 0x00000004   /* Magic Number which identifies this as a valid program */
+  progmem  (rx)  : ORIGIN = 0x00004004, LENGTH = 0x0000003C   /* Program info. Must be < 512 bytes. This gives 64 bytes for this and the progid */
+  rom      (rx)  : ORIGIN = 0x00004040, LENGTH = 0x00040000-0x4040 /* 256KB of rom total */
+  ram      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000-0x4 /* Last four bytes of ram reserved for bootloader */
 }
 
 /* The stack size used by the application. NOTE: you need to adjust according to your application. */

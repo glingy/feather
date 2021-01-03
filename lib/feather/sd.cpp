@@ -8,10 +8,10 @@ DmacDescriptor sd_rx_descriptors[4];
 
 #define SDI SERCOM4->SPI
 
-byte SD_FILLER_BYTE = 0xFF; // filler byte for DMA to send when reading or waiting
-byte SD_DMA_TRASH = 0; // trash dump for unneeded DMA reads
+uint8_t SD_FILLER_BYTE = 0xFF; // filler byte for DMA to send when reading or waiting
+uint8_t SD_DMA_TRASH = 0; // trash dump for unneeded DMA reads
 // DMA descriptor -> EVSYS -> Interrupt to save read data
-byte sd_dma_state = 0;
+uint8_t sd_dma_state = 0;
 enum {
   NONE = 0,
   WAITING_TO_READ,
@@ -21,13 +21,13 @@ enum {
 uint32_t SD::volAddress = 0;
 uint32_t SD::fatAddress = 0;
 uint32_t SD::rootAddress = 0;
-byte SD::sectors_per_cluster = 0;
+uint8_t SD::sectors_per_cluster = 0;
 
 void DMAC_Handler() {
   DMAC->CHID.reg = DMA_CHID_SD_RX;
   DMAC->CHINTFLAG.reg = DMAC_CHINTFLAG_TCMPL;
   if (sd_dma_state == WAITING_TO_READ) {
-    if (* ((byte *) _DMAWRB[DMA_CHID_SD_RX].DSTADDR.reg) == 0xFE) {
+    if (* ((uint8_t *) _DMAWRB[DMA_CHID_SD_RX].DSTADDR.reg) == 0xFE) {
       _DMAWRB[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) &sd_rx_descriptors[0]; // time-sensitive
       _DMAWRB[DMA_CHID_SD_RX].BTCTRL.reg &= ~DMAC_BTCTRL_BLOCKACT_INT;
       sd_dma_state = READING;
@@ -54,17 +54,17 @@ enum {
   SD_RESPONSE_TYPE_LONG
 };
 
-volatile byte sd_data[6];
-volatile byte sd_response = 0;
-volatile byte sd_long_response[4];
-byte sd_sendCommand(byte command, uint32_t argument, byte responseType) {
+volatile uint8_t sd_data[6];
+volatile uint8_t sd_response = 0;
+volatile uint8_t sd_long_response[4];
+uint8_t sd_sendCommand(uint8_t command, uint32_t argument, uint8_t responseType) {
   PORTA.OUTSET.reg = SD_LED;
   sd_data[0] = command;
-  sd_data[1] = (byte) (argument >> 24);
-  sd_data[2] = (byte) (argument >> 16);
-  sd_data[3] = (byte) (argument >> 8);
-  sd_data[4] = (byte) argument;
-  sd_data[5] = (command == (byte) 0x40) ? (byte) 0x95 : (byte) 0x87;
+  sd_data[1] = (uint8_t) (argument >> 24);
+  sd_data[2] = (uint8_t) (argument >> 16);
+  sd_data[3] = (uint8_t) (argument >> 8);
+  sd_data[4] = (uint8_t) argument;
+  sd_data[5] = (command == (uint8_t) 0x40) ? (uint8_t) 0x95 : (uint8_t) 0x87;
   
   // Send command data
   DMACFG[DMA_CHID_SD_TX].BTCNT.reg = 6;
@@ -112,7 +112,7 @@ byte sd_sendCommand(byte command, uint32_t argument, byte responseType) {
 }
 
 void SD::read(uint32_t block, uint16_t offset, uint16_t count, void * dest) {
-  byte n = 0;
+  uint8_t n = 0;
   
   sd_sendCommand(0x51, block, SD_RESPONSE_TYPE_NORMAL);
   DMACFG[DMA_CHID_SD_TX].BTCNT.reg = 1;
@@ -170,6 +170,7 @@ void SD::read(uint32_t block, uint16_t offset, uint16_t count, void * dest) {
   sd_execute();
   while (sd_dma_state != NONE) {
     __WFI();
+    
   }
   __WFI();
 }
@@ -210,6 +211,7 @@ void SD::init() {
   PORTA.PINCFG[12].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_INEN;
   PORTB.PMUX[5].reg = PORT_PMUX_PMUXE_D | PORT_PMUX_PMUXO_D;
   PORTA.PMUX[6].reg |= PORT_PMUX_PMUXE_D;
+  PORTA.OUTSET.reg = SD_CS;
   PORTA.OUTCLR.reg = SD_CS;
   
   //DMAC->PRICTRL0.bit.RRLVLEN0 = 1;
@@ -257,11 +259,11 @@ void SD::init() {
       SD::read(volAddress, offsetof(FSVolumeData, num_reserved_sectors), 2, &fatAddress);
       fatAddress += volAddress;
 
-      byte num_fats;
-      SD::read(volAddress, offsetof(FSVolumeData, num_fats), 1, &num_fats);
+      uint8_t num_fats_;
+      SD::read(volAddress, offsetof(FSVolumeData, num_fats), 1, &num_fats_);
       SD::read(volAddress, offsetof(FSVolumeData, sectors_per_fat), 4, &rootAddress);
       SD::read(volAddress, offsetof(FSVolumeData, sectors_per_cluster), 1, &sectors_per_cluster);
-      rootAddress *= num_fats;
+      rootAddress *= num_fats_;
       rootAddress += fatAddress - (2 * sectors_per_cluster); // offset so rootAddress + cluster number is correct (cluster number starts at 2 and)
 
       
@@ -286,7 +288,7 @@ void SD::nextDirEntry(FSDir * loc) {
   loc->entry++;
   if ((loc->entry >> 4) >= sectors_per_cluster) {
     loc->entry = 0;
-    readFat(&(loc->cluster)); // advance to next cluster
+    nextCluster(&(loc->cluster)); // advance to next cluster
     if ((loc->cluster & 0x0FFFFFF8) == 0x0FFFFFF8) {
       loc->cluster = 0;
       return;
@@ -303,7 +305,7 @@ void SD::prevDirEntry(FSDir * loc, FSCluster firstCluster) {
     FSCluster prev = 0;
     while (cluster != loc->cluster) { // If it already is equal (this is the first cluster), prev will be 0, so loc->cluster will be zero
       prev = cluster;
-      readFat(&cluster); // advance to next cluster
+      nextCluster(&cluster); // advance to next cluster
       cluster &= 0x0FFFFFFF;
       if ((cluster & 0x0FFFFFF8) == 0x0FFFFFF8) {
         loc->cluster = 0; // If we can't find this cluster in the chain before hitting end of chain marker, return 0.

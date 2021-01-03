@@ -1,4 +1,6 @@
-#include "types.h"
+/**
+ * Archived due to lack of space in final product
+ */
 
 namespace Sound {
   void init();
