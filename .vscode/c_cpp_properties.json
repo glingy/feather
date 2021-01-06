@@ -9,7 +9,7 @@
             "name": "PlatformIO",
             "includePath": [
                 "/Users/gregory/Documents/feather/include",
-                "/Users/gregory/Documents/feather/sources/bootloader",
+                "/Users/gregory/Documents/feather/sources/SDInfo",
                 "/Users/gregory/Documents/feather/lib/feather",
                 "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                 "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
@@ -20,7 +20,7 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
                     "/Users/gregory/Documents/feather/include",
-                    "/Users/gregory/Documents/feather/sources/bootloader",
+                    "/Users/gregory/Documents/feather/sources/SDInfo",
                     "/Users/gregory/Documents/feather/lib/feather",
                     "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                     "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
@@ -35,7 +35,6 @@
                 "ARDUINO_SAMD_FEATHER_M0",
                 "ARM_MATH_CM0PLUS",
                 "__SAMD21G18A__",
-                "BOOTLOADER",
                 "F_CPU=48000000L",
                 "USBCON",
                 ""

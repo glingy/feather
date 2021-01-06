@@ -28,6 +28,7 @@
  */
 
 #include "samd21.h"
+#include "error.h"
 
 /* Initialize segments */
 extern uint32_t _sfixed;
@@ -46,8 +47,6 @@ extern uint32_t _eramvectors;
 /** \cond DOXYGEN_SHOULD_SKIP_THIS */
 int main(void);
 /** \endcond */
-
-PROGID; /* Identify as valid program */
 
 void __libc_init_array(void);
 

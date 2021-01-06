@@ -124,7 +124,7 @@ void SD::read(uint32_t block, uint16_t offset, uint16_t count, void * dest) {
   DMACFG[DMA_CHID_SD_RX].BTCNT.reg = 1;
   DMACFG[DMA_CHID_SD_RX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID | DMAC_BTCTRL_BLOCKACT_INT;
   DMACFG[DMA_CHID_SD_RX].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) dest; // only single byte SRAM addresses??? Weird...
+  DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) dest;
   DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) &DMACFG[DMA_CHID_SD_RX]; // see DMAC_Handler
 
   // The first byte of transmission is lost into the SD_DMA_TRASH can, so account for that in offset and counts...
@@ -272,12 +272,12 @@ void SD::init() {
   }
 
   const char * msg[] = {
-    "SD Card Unavailable", 
-    "or Misformatted.",
-    "",
+    "SD Card Error", 
+    "-------------",
     "Please insert the SD",
-    "Card or turn me off",
-    "and on again."
+    "Card or power off",
+    "and restore power",
+    "after five seconds."
   };
 
   error_multiline(msg, 6);

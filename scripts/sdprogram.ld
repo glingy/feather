@@ -35,8 +35,7 @@ SEARCH_DIR(.)
 /* Memory Spaces Definitions */
 MEMORY
 {
-  progid   (rx)  : ORIGIN = 0x00004000, LENGTH = 0x00000004   /* Magic Number which identifies this as a valid program */
-  progmem  (rx)  : ORIGIN = 0x00004004, LENGTH = 0x0000003C   /* Program info. Must be < 512 bytes. This gives 64 bytes for this and the progid */
+  progmeta (rx)  : ORIGIN = 0x00004000, LENGTH = 0x00000040   /* Program info. Must be < 512 bytes. This currently gives 64 bytes metadata. */
   rom      (rx)  : ORIGIN = 0x00004040, LENGTH = 0x00040000-0x4040 /* 256KB of rom total */
   ram      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000-0x4 /* Last four bytes of ram reserved for bootloader */
 }
@@ -49,17 +48,13 @@ ENTRY(exception_table); /* Makes the linker look at startup.o in feather.a. Othe
 /* Section Definitions */
 SECTIONS
 {
-  . = ORIGIN(progid);
-  .progid :
-  {
-    KEEP(*(.progid))
-  } > progid
+  . = ORIGIN(progmeta);
+  _srom = .;
 
-  . = ORIGIN(proginfo);
   .prog :
   {
-    KEEP(*(.proginfo))
-  } > progmem
+    KEEP(*(.progmeta))
+  } > progmeta
 
   . = ORIGIN(rom);
   _svectors = .;
@@ -162,6 +157,8 @@ SECTIONS
     . = ALIGN(8);
     _estack = .;
   } > ram
+
+  _size = (_etext - _srom) + (_erelocate - _srelocate);
 
   . = ALIGN(4);
   _end = . ;

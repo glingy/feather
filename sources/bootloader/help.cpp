@@ -4,28 +4,20 @@
 const char helpScreen[] = R"(Help:
 
 
-> To load a program, press RIGHT
-  and select a program from the list.
+> The first program listed is the
+  program currently loaded in flash
+  memory. 
+  
+  
+> To load a different program, 
+  select it using UP and DOWN arrows
+  then press RIGHT to load and run it.
 
 
 > To start the bootloader at any time
   while the debug pins are disconnected
-  double-click the reset button.
-  
-
-> To connect to a computer, plug in the
-  usb cable, open a terminal, and run
-
-
-  screen /dev/cu.usbmodemGAME1
-
-
-  Press h for more help on using 
-  the serial interface.
-
-
-> For more help, see the README.md file
-  on the SD card.)";
+  double-click the RESET button while
+  holding the MENU button.)";
 
 bool Help::checkHelp() {
   if (!Input::Digital->select) {

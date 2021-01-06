@@ -1,6 +1,6 @@
-#include "program/proginfo.h"
+#include "program/progmeta.h"
 
-PROGINFO {
+PROGMETA
   .name = "Pong",
   .author = "Gregory Ling",
   .version = " 1.1"

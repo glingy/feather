@@ -6,8 +6,8 @@
 struct __attribute__((__packed__)) FSVolumeData {
   uint8_t bootloader_jump[3];
   uint8_t formatter_os[8];
-  uint16_t cluster_size;
-  uint8_t sectors_per_cluster;
+  uint16_t sector_size; // Assumed to = 512.
+  uint8_t sectors_per_cluster; // normally = 16
   uint16_t num_reserved_sectors;
   uint8_t num_fats;
   uint16_t fat16_root_directory_entries;
@@ -51,7 +51,10 @@ struct __attribute__((__packed__)) FSDirEntry {
 
 struct FSDir {
   uint32_t cluster;
-  uint32_t entry; // lower nibble entry, upper bits sector index (assuming 512 byte sectors)
+  
+  // There are 128 4-byte entries in one 512-byte sector, so low 7 bits are entry index, rest is sector index (0-15)
+  // So counting normally will work.
+  uint32_t entry;
 };
 
 typedef uint32_t FSCluster; // a cluster index in the FAT
@@ -106,7 +109,6 @@ inline void SD::readCluster(uint32_t cluster, uint16_t offset, uint16_t count, v
 inline void SD::readDirEntry(FSDir * loc, FSDirEntry * entry) {
   read(rootAddress + (loc->cluster * 16) + (loc->entry >> 4), (loc->entry & 0xF) * 32, 32, entry);
 }
-
 
 
 #endif

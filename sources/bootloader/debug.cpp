@@ -1,11 +1,12 @@
 #include "debug.h"
 #include <program/program.h>
 #include <feather.h>
+#include <util.h>
 #include <usb/constants.h>
 
 extern void drawHome();
 extern volatile bool bootloaderUpdate;
-const char * gotDataStr __SECTION(".ramfuncBLOnly.0") = "Got data!"; // To make sure it's available while flash is being written
+const char * gotDataStr __SECTION(".ramfuncBLOnly.data") = "Got data!"; // To make sure it's available while flash is being written
 
 uint8_t Debug::state = COMMAND;
 uint32_t Debug::destptr = 0;

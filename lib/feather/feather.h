@@ -4,7 +4,8 @@
 #include "lcd.h"
 #include "input.h"
 #include "timer.h"
-#include "sd.h"
+#include "sd/sd.h"
+#include "sd/fs.h"
 
 namespace Feather
 {

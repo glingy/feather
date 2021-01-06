@@ -4,6 +4,12 @@
 #include "log.h"
 #include "help.h"
 #include "debug.h"
+#include <sd/sd.h>
+#include <memory.h>
+#include <error.h>
+#include "list.h"
+
+#define PROGRAMS_PER_PAGE 8
 
 extern const uint8_t turtle[];
 const uint16_t green_palette[2] = {0, LCD::GREEN};
@@ -26,10 +32,10 @@ void drawUsbStatus()
 
 void drawHome()
 {
-  LCD::print2bitImage(turtle, green_palette, 200, 99, 60, 70);
+  LCD::print2bitImage(turtle, green_palette, 200, 99, 85, 70);
   LCD::print(DEFAULT_FONT, green_palette, 0, 0, "Bootloader");
   LCD::print(DEFAULT_FONT, green_palette, 223, 231, "Gregory Ling");
-  LCD::print(DEFAULT_FONT, green_palette, 0, 231, "Press SELECT for help");
+  LCD::print(DEFAULT_FONT, green_palette, 0, 231, "Press MENU for help");
   drawUsbStatus();
 }
 
@@ -37,96 +43,35 @@ const uint16_t SELECTED_PALETTE[2] = {LCD::WHITE, LCD::BLACK};
 
 volatile bool bootloaderUpdate = false;
 
-#define checkSelected(i)                         \
-  if (selected == i)                             \
-  {                                              \
-    palette = SELECTED_PALETTE;                  \
-    selectedProgFirstCluster = progFirstCluster; \
-  }                                              \
-  else                                           \
-  {                                              \
-    palette = DEFAULT_PALETTE;                   \
-  }
-
 int main()
 {
   Program::checkProgramAndRun();
 
   Feather::init();
+  List::init();
   drawHome();
+  
 
   bool wasUSBConnected = false;
-  uint8_t i;
-  uint8_t selected = 0;
-  uint32_t selectedProgFirstCluster = 0;
-  uint32_t progFirstCluster = 0;
-  const uint16_t *palette = DEFAULT_PALETTE;
 
   while (1)
   {
-    if (Program::isValid())
-    {
-      i = 1;
-      progFirstCluster = 0xFFFFFFFF;
-      checkSelected(0);
-      LCD::print(DEFAULT_FONT, palette, 8, 20, PROGRAM_META->info.name);
-    }
-    else
-    {
-      i = 0;
-      LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 8, 20, "None Loaded");
-    }
-
-    LCD::print(DEFAULT_FONT, DEFAULT_PALETTE, 8, 32, "--------");
-
-    ProgMeta info = {0};
-
-    Program::goToFirstProgram();
-
-    progFirstCluster = Program::nextProgram(&info);
-
-    while (info.prog_id != 0 && i < 8)
-    {
-      checkSelected(i);
-      LCD::print(DEFAULT_FONT, palette, 8, 28 + (i * 16), info.info.name);
-      i += 1;
-      progFirstCluster = Program::nextProgram(&info);
-    }
+    List::drawList();
 
     while (1)
     {
-
-      // Poll USB and process Serial interface commands? Or deal with that in interrupts... Better idea
-      // Interrupts for button presses... nah Use SD library to show and manage program list, show preview image in loop here.
-      // Interrupt for select button - select causes help menu to appear / disappear - how to deal with that? That should be in this loop
 
       if (Input::Digital->up)
       {
         while (Input::Digital->up)
           ;
-        if (selected > 0)
-        {
-          selected--;
-        }
-        else
-        {
-          Program::scrollUp();
-        }
+        List::scrollUp();
         break;
       }
 
-      if (Input::Digital->down)
-      {
-        while (Input::Digital->down)
-          ;
-        if (selected < i - 1)
-        {
-          selected++;
-        }
-        else
-        {
-          Program::scrollDown();
-        }
+      if (Input::Digital->down){
+        while (Input::Digital->down);
+        List::scrollDown();
         break;
       }
 
@@ -149,28 +94,76 @@ int main()
       if (Input::Digital->right)
       {
         // Program already loaded
-        if (selectedProgFirstCluster == 0xFFFFFFFF)
+        if (List::selected == -1)
         {
-          Program::resetToProgram();
+          if (Program::isValid()) {
+            Program::resetToProgram();
+          }
         }
         else
         {
+          ProgMeta meta;
+          SD::readCluster(List::programClusters[List::selected], 0, sizeof(ProgMeta), &meta);
+          if (Program::isValid(meta))
+          {
+            error("Invalid Program", "");
+          }
+
+          if (meta.size > 0x3C000) {
+            error("Program too large.", "Exceeds end of flash");
+          }
+
           // Read from SD card to flash
+          uint32_t buffer[128]; // 512 bytes total buffer
+          FS::File file = FS::File(List::programClusters[List::selected]);
+          uint32_t * flash = (uint32_t *) PROGRAM_META;
 
-          
+          // Clear the page buffer.
+          NVMCTRL->CTRLA.reg = NVMCTRL_CTRLA_CMDEX_KEY | NVMCTRL_CTRLA_CMD_PBC;
+          while (!NVMCTRL->INTFLAG.bit.READY);
 
+          while (1) {
+            uint16_t chunkSize = MIN(meta.size, 512);
+            file.readSector(0, chunkSize, buffer);
+            uint32_t * bfr = buffer;
 
+            for (int i = 0; i < chunkSize; i += 64) {
+              // If we're starting a new NVM row (4 64-bit pages), erase the row.
+              if ((uint32_t) flash % 256 == 0) {
+                NVMCTRL->ADDR.reg = (uint32_t) flash / 2; // expects 16-bit address, not 8-bit
+                NVMCTRL->CTRLA.reg = NVMCTRL_CTRLA_CMDEX_KEY | NVMCTRL_CTRLA_CMD_ER;
+                while (!NVMCTRL->INTFLAG.bit.READY);
+              }
 
+              // copy the buffer to the nvm page buffer.
+              // NVM cannot use 8-bit writes, so can't directly pass the flash address to readSector
 
+              // Each page write is 64 bytes (4-byte copies --> 16 move loops)
+              // I might write random data from ram if the program ends on a non-64 byte boundary
+              // but it should be safe since that was allocated.
 
+              for (int j = 0; j < 16; j++) {
+                *flash++ = *bfr++; // NVMCTRL->ADDR is set automatically on direct write.
+              }
 
+              // Write the page.
+              NVMCTRL->CTRLA.reg = NVMCTRL_CTRLA_CMDEX_KEY | NVMCTRL_CTRLA_CMD_WP;
+              while (!NVMCTRL->INTFLAG.bit.READY);
+            }
 
+            if (meta.size <= 512) {
+              if (!Program::isValid()) {
+                error("Copy Error.", "");
+              }
+              Program::resetToProgram();
+            }
 
-
-
-
-
-          Program::resetToProgram();
+            meta.size -= 512;
+            
+            if (!file.nextSector()) {
+              error("Error finding next", "sector of program.");
+            }
+          }
         }
       }
 

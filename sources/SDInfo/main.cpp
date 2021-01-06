@@ -70,11 +70,10 @@ inline bool hasPrevEntry(FSDir dir, FSCluster start) {
   return dir.cluster != 0;
 }
 
-__section(".sdfile")
 int main() { 
   Feather::init();
   printHeaders();
-   
+
   FSDirEntry entry;
   FSDir dir;
 
@@ -94,6 +93,9 @@ int main() {
   if (!isEntryVisible(entry)) {
     nextRealEntry(&first, &entry);
   }
+
+  FSVolumeData data;
+  SD::read(SD::volAddress, 0, sizeof(FSVolumeData), &data);
 
   while (1) {
     dir = first;

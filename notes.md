@@ -16,6 +16,9 @@
  - Check CS status? Can toggling chip select fix invalid command due to interruption?
  - Add a pin to reset line? I can set it high when I don't want reset to be triggered as a failsafe so the sd card isn't interrupted except for power button?
 
+ - SD Block is 512 bytes, which is also usually the size of a FAT cluster, which is often broken up into 16 individual sectors.
+ - I rely on 512 byte clusters and seem to ignore the sector size?
+
 
 #### Battery
  - Low power warning screen needed at 2.9V or less-ish. It seems to die around 2.8
@@ -42,3 +45,7 @@ Several months of work before...
  - Stuff works! Cleaning up code now
  - Switching USB to namespace instead of a class for simplicity and removing unnecessary includes.
  - I need to write a user serial interface test because I have a setup here for it, but it's not intuitive to use.
+
+##### 1/3/21
+ - Working on reformatting SD code into separate FS code for normal use.
+ 

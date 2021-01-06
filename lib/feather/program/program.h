@@ -1,7 +1,6 @@
 #ifndef PROGRAM_H
 #define PROGRAM_H
 
-#include "proginfo.h"
 #include "sam.h"
 
 /**

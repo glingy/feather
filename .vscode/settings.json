@@ -11,7 +11,7 @@
         ".travis.yml": true,
         "boards": false,
         ".pio": false,
-        ".vscode": true,
+        ".vscode": false,
         "turtle": true
     },
     "explorerExclude.backup": null,

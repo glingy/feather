@@ -21,7 +21,7 @@ void Program::runProgram() {
 }
 
 void Program::checkProgramAndRun() {
-  if ((PROGRAM_META->prog_id != PROG_ID_MAGIC)) {
+  if ((PROGRAM_META->magic != PROG_ID_MAGIC)) {
     return;
   }
 
@@ -52,5 +52,54 @@ void Program::checkProgramAndRun() {
 
     MAGIC_NUMBER_DATA = MAGIC_NUMBER_RUNNING_VAL;
     runProgram(); // We weren't interrupted, so we should start running the program.
+  }
+}
+
+bool Program::nextProgram(FS::Dir * dir, ProgMeta * meta, uint32_t * progCluster)
+{
+  FS::DirEntry entry;
+  do {
+
+stillLooking:
+
+    dir->readEntry(&entry);
+
+    if (entry.isEOD() || !dir->nextEntry())
+    {
+      return false;
+    }
+
+  } while (!(
+    entry.file_size_bytes >= 64 && // The program meta is 64 bytes long... so if it's shorter, then it's obviously not a valid program.
+    entry.isVisible() && 
+    entry.ext[0] == 'B' && 
+    entry.ext[1] == 'I' && 
+    entry.ext[2] == 'N'
+  ));
+
+  *progCluster = ((entry.high_cluster_addr__access_rights & 0x0FFF) << 16) | (entry.low_cluster_addr);
+  SD::readCluster(*progCluster, 0, sizeof(ProgMeta), meta);
+
+  if (Program::isValid(*meta)) {
+    return true;
+  } else {
+    goto stillLooking;
+  }
+}
+
+void Program::goToFirstProgram() {
+  current = first;
+}
+
+void Program::findProgramClusters(FS::Dir * dir, uint32_t * clusterArray, uint8_t * len)
+{
+  ProgMeta meta;
+  for (int i = 0; i < *len; i++)
+  {
+    if (!nextProgram(dir, &meta, clusterArray + i))
+    {
+      *len = i;
+      return;
+    }
   }
 }

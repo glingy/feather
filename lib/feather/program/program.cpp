@@ -1,7 +1,7 @@
 #include "program.h"
 #include "memory.h"
 #include "sam.h"
-#include "sd.h"
+#include "sd/sd.h"
 
 // Perform a reset and run the program loaded in flash 
 void Program::resetToProgram() {

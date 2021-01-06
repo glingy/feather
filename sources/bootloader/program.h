@@ -1,27 +1,28 @@
 #include <feather.h>
 #include <program/program.h>
-#include <program/proginfo.h>
+#include <program/progmeta.h>
 #include <memory.h>
 
 namespace Program {
   void runProgram();
   void checkProgramAndRun();
 
-  extern FSDir first;
-  extern FSDir current;
+  extern FS::Dir first;
+  extern FS::Dir current;
 
-  uint32_t nextProgram(ProgMeta * prog);
+  bool nextProgram(FS::Dir * dir, ProgMeta * meta, uint32_t * progCluster);
 
   inline void scrollDown() {}
   inline void scrollUp() {}
   
-  inline bool isValid(ProgMeta info) {
-    return info.prog_id == PROG_ID_MAGIC;
+  inline bool isValid(ProgMeta meta) {
+    return meta.magic == PROG_ID_MAGIC;
   }
 
   inline bool isValid() {
     return isValid(*PROGRAM_META);
   }
 
+  void findProgramClusters(FS::Dir * dir, uint32_t * clusterArray, uint8_t * len);
   void goToFirstProgram();
 }
