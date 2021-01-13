@@ -2,10 +2,13 @@
 #include "program/program.h"
 #include "sam.h"
 
-__WEAK __NO_RETURN
+__WEAK
 bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
   if (*data == 'r') {
     Program::resetToProgram();
   }
-  Program::resetToBootloader();
+  if (*data == 'e') {
+    Program::resetToBootloader();
+  }
+  return true;
 }

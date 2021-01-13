@@ -54,6 +54,8 @@ void USB_CONN::Handler_RXSTP() {
       zlp();
       configureSerial(EP_SERIAL_DATA, EP_SERIAL_COMM);
       configureSerial(EP_DEBUG_DATA, EP_DEBUG_COMM);
+      UD.INTFLAG.reg = USB_DEVICE_INTFLAG_SUSPEND;
+      UD.INTENSET.reg = USB_DEVICE_INTENSET_SUSPEND;
       break;
     case STPREQ_GET_CONFIGURATION:
       write((const char *) &(currentConfiguration), 1, EP_CFG);

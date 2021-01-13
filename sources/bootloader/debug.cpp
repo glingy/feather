@@ -28,7 +28,7 @@ uint32_t Debug::length = 0;
  * L - unlock the bootloader for editing - use BOOTPROT, causes reset to bootloader
  */
 
-/*__SECTION(".ramfuncBLOnly")
+__SECTION(".ramfuncBLOnly")
 bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
   if (state == COMMAND) {
     switch (*data) {
@@ -43,6 +43,7 @@ bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
       case 'e':
         serial->send("Echo!\n\r");
         break;
+        
       case 'd':
         if (len < 8) {
           serial->send("Error!");
@@ -83,7 +84,6 @@ bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
           LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 214, 232, ((uint32_t*)NVMCTRL_USER)[1]);
         }
       default:
-        LCD::fillWindow(LCD::RED, 0, 0, 10, 10);
         break;
     }
   } else if (state == WRITE_TO_FLASH) {
@@ -126,7 +126,7 @@ bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
     }
   }
   return true;
-}*/
+}
 
 __SECTION(".ramfuncBLOnly") __NO_RETURN
 void Debug::updateBootloader()

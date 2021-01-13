@@ -29,7 +29,11 @@ void USB_CONN::init() {
     GCLK_CLKCTRL_CLKEN |
     GCLK_CLKCTRL_GEN_GCLK0 |
     GCLK_CLKCTRL_ID_USB;
-    
+
+  reset();
+}
+
+void USB_CONN::reset() {
   /* Reset USB */
   UD.CTRLA.bit.SWRST = 1;
   while (UD.SYNCBUSY.bit.SWRST);
@@ -54,7 +58,6 @@ void USB_CONN::init() {
 
   /* Attach USB */
   UD.CTRLB.bit.DETACH = 0;
-  usb_debug = 0;
 }
 
 void USB_CONN::waitForConnection() {
@@ -153,5 +156,12 @@ void USB_Handler() {
     USB_CONN::Handler_OUT(&Serial_t::serial);
   } else if (UD.DeviceEndpoint[EP_DEBUG_DATA].EPINTFLAG.bit.TRCPT0) {
     USB_CONN::Handler_OUT(&Serial_t::debug);
+  } else if (UD.INTFLAG.bit.SUSPEND) {
+    UD.INTFLAG.reg = USB_DEVICE_INTFLAG_SUSPEND;
+    UD.INTENCLR.reg = USB_DEVICE_INTENSET_SUSPEND;
+    usb_debug++;
+    USB_CONN::currentConfiguration = 0;
+    UD.CTRLB.bit.DETACH = 1;
+    USB_CONN::reset();
   }
 }
