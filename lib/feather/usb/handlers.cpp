@@ -18,12 +18,6 @@ void USB_CONN::Handler_OUT(Serial_t * serial) {
 
 void USB_CONN::Handler_RXSTP() {
   UD.DeviceEndpoint[0].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_RXSTP;
-  PORTA.OUTTGL.reg = PORT_PA10;
-  PORTA.OUTTGL.reg = PORT_PA10;
-  PORTA.OUTTGL.reg = PORT_PA10;
-  PORTA.OUTTGL.reg = PORT_PA10;
-  //UD.INTENCLR.reg = USB_DEVICE_INTENCLR_EORST;
-  //exception_table.pfnUSB_Handler = (void *) Handler_RXSTP;
 
   USB_Setup_Packet_Type * packet = (USB_Setup_Packet_Type *) &(endpoint_out_bfr[0]); // out buffer is out towards the device
 
@@ -86,7 +80,7 @@ void USB_CONN::Handler_EORST() { // USB has been connected, ready control endpoi
   // Make sure address is 0 for now...
   UD.DADD.reg = USB_DEVICE_DADD_ADDEN | 0;
 
-  /* From Adafruit Bootloader code: Configure control endpoint */
+  /* From Adafruit Bootloader code with modifications: Configure control endpoint */
 
   /* Configure endpoint 0 */
   /* Configure Endpoint 0 for Control IN and Control OUT */

@@ -15,7 +15,7 @@ namespace USB_CONN {
     uint16_t length;
   };
 
-  extern UsbDeviceDescriptor endpoints[4];
+  extern UsbDeviceDescriptor endpoints[];
   extern char devDescriptor[18];
   extern USB_Configuration cfgDescriptor;
   extern const char * strings[3];

@@ -17,6 +17,8 @@ const uint16_t green_palette[2] = {0, LCD::GREEN};
 
 extern const char helpScreen[];
 
+extern volatile uint8_t usb_debug;
+
 bool helpVisible = false;
 
 void drawUsbStatus()
@@ -54,6 +56,7 @@ int main()
   
 
   bool wasUSBConnected = false;
+  uint8_t counter = 0;
 
   while (1)
   {
@@ -65,6 +68,8 @@ int main()
       LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 150, Input::Analog->battery);
       LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 160, Input::Analog->_A6);
       LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 170, Input::Analog->_A4);
+      LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 180, counter++);
+      LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 190, usb_debug);
 
       if (Input::Digital->up)
       {

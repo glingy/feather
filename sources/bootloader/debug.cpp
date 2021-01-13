@@ -28,7 +28,7 @@ uint32_t Debug::length = 0;
  * L - unlock the bootloader for editing - use BOOTPROT, causes reset to bootloader
  */
 
-__SECTION(".ramfuncBLOnly")
+/*__SECTION(".ramfuncBLOnly")
 bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
   if (state == COMMAND) {
     switch (*data) {
@@ -126,7 +126,7 @@ bool Debug::input(Serial_t * serial, char * data, uint8_t len) {
     }
   }
   return true;
-}
+}*/
 
 __SECTION(".ramfuncBLOnly") __NO_RETURN
 void Debug::updateBootloader()

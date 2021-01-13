@@ -256,9 +256,9 @@ __attribute__((weak)) void Reset_Handler(void)
         USB->DEVICE.QOSCTRL.bit.CQOS = 2;
         USB->DEVICE.QOSCTRL.bit.DQOS = 2;
 #endif
-        DMAC->QOSCTRL.bit.DQOS = 2;
-        DMAC->QOSCTRL.bit.FQOS = 2;
-        DMAC->QOSCTRL.bit.WRBQOS = 2;
+        DMAC->QOSCTRL.bit.DQOS = 3;
+        DMAC->QOSCTRL.bit.FQOS = 3;
+        DMAC->QOSCTRL.bit.WRBQOS = 3;
 
         /* Overwriting the default value of the NVMCTRL.CTRLB.MANW bit (errata reference 13134) */
         NVMCTRL->CTRLB.bit.MANW = 1; // Note: prevents accidental flash writes

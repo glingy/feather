@@ -4,10 +4,12 @@
 #include "constants.h"
 
 
-UsbDeviceDescriptor USB_CONN::endpoints[4] = {};
+UsbDeviceDescriptor USB_CONN::endpoints[EP_COUNT] = {};
 uint8_t USB_CONN::endpoint_out_bfr[3][64];
 uint8_t USB_CONN::endpoint_in_bfr[3][64];
 uint8_t USB_CONN::currentConfiguration = 0;
+
+volatile uint8_t usb_debug = 0;
 
 
 void USB_CONN::init() {
@@ -52,6 +54,7 @@ void USB_CONN::init() {
 
   /* Attach USB */
   UD.CTRLB.bit.DETACH = 0;
+  usb_debug = 0;
 }
 
 void USB_CONN::waitForConnection() {

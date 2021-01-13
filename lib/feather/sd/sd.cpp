@@ -22,6 +22,7 @@ uint32_t SD::volAddress = 0;
 uint32_t SD::fatAddress = 0;
 uint32_t SD::rootAddress = 0;
 uint8_t SD::sectors_per_cluster = 0;
+volatile uint8_t sd_debug = 0;
 
 void DMAC_Handler() {
   DMAC->CHID.reg = DMA_CHID_SD_RX;
@@ -36,6 +37,7 @@ void DMAC_Handler() {
     sd_dma_state = NONE;
     _DMAWRB[DMA_CHID_SD_TX].DESCADDR.reg = 0;
   }
+  sd_debug = 1;
 }
 
 void sd_execute() {

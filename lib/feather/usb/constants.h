@@ -51,7 +51,8 @@ enum {
   EP_SERIAL_DATA = 1, // This is the EP index and bfr index
   EP_DEBUG_DATA = 2,
   EP_SERIAL_COMM = 3,
-  EP_DEBUG_COMM = 4
+  EP_DEBUG_COMM = 4,
+  EP_COUNT,
 };
 
 enum {
