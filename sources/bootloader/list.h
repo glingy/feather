@@ -1,3 +1,6 @@
+#ifndef LIST_H
+#define LIST_H
+
 #include <stdint.h>
 #include <program/progmeta.h>
 #include <sd/fs.h>
@@ -19,3 +22,5 @@ namespace List
   extern ProgMeta meta;
   extern FS::Dir currentDir;
 };
+
+#endif

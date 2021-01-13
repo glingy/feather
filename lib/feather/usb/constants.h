@@ -6,9 +6,9 @@
 #define USB_EP_IN_SIZE 64
 #define USB_EP_OUT_SIZE 64
 
-#define USB_SERIAL_NO "GAME";
-#define USB_VENDOR_ID "Turtle Maker";
-#define USB_PRODUCT_ID "Game Device";
+#define USB_SERIAL_NO "GAME"
+#define USB_VENDOR_ID "Turtle Maker"
+#define USB_PRODUCT_ID "Game Device"
 
 enum {
   USB_VID_LOW = 0x09,

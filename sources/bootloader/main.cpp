@@ -8,6 +8,7 @@
 #include <memory.h>
 #include <error.h>
 #include "list.h"
+#include "preview.h"
 
 #define PROGRAMS_PER_PAGE 8
 
@@ -32,7 +33,7 @@ void drawUsbStatus()
 
 void drawHome()
 {
-  LCD::print2bitImage(turtle, green_palette, 200, 99, 85, 70);
+  LCD::print2bitImage(turtle, green_palette, 200, 99, 100, 100);
   LCD::print(DEFAULT_FONT, green_palette, 0, 0, "Bootloader");
   LCD::print(DEFAULT_FONT, green_palette, 223, 231, "Gregory Ling");
   LCD::print(DEFAULT_FONT, green_palette, 0, 231, "Press MENU for help");
@@ -57,9 +58,13 @@ int main()
   while (1)
   {
     List::drawList();
+    Preview::drawPreviewForSelectedProgram();
 
     while (1)
     {
+      LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 150, Input::Analog->battery);
+      LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 160, Input::Analog->_A6);
+      LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 200, 170, Input::Analog->_A4);
 
       if (Input::Digital->up)
       {

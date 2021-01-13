@@ -78,8 +78,8 @@ int main() {
   FSDir dir;
 
   FSDir first = {
-    cluster: 2, // root dir default cluster
-    entry: 0
+    /* cluster: */ 2, // root dir default cluster
+    /* entry:   */ 0
   };
   FSDir last = dir;
 

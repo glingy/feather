@@ -10,7 +10,7 @@
 namespace Feather
 {
     void init();
-};
+}
 
 
 

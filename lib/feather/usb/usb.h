@@ -26,6 +26,7 @@ namespace USB_CONN {
   extern uint8_t endpoint_in_bfr[3][64];
 
   void init();
+  void reset();
   void waitForConnection();
   void write(const char * data, uint32_t length, uint8_t ep_num);
   void writeAsync(const char * data, uint32_t length, uint8_t ep_num);
@@ -41,6 +42,6 @@ namespace USB_CONN {
   void configureSerial(uint8_t serial_data, uint8_t serial_comm);
   void writeString(const char * str, uint32_t packet_length, uint8_t ep_num);
   inline bool isConfigured() { return currentConfiguration; }
-};
+}
 
 #endif

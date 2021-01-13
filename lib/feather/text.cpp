@@ -11,10 +11,11 @@ void LCD::print(const uint8_t * font, const uint16_t palette[2], uint16_t minX, 
   LCD_BEGIN(0x2C);
   uint16_t color;
   uint8_t char_row;
-  
+  uint8_t ch;
   for (uint8_t i = 0; i < 8; i++) {
     for (uint8_t j = 0; j < len; j++) {
-      uint8_t ch = str[j] - ' ';
+      ch = (str[j] == 0) ? 0 : str[j] - ' ';
+            
       char_row = font[ch + (i * 95)];
       for (uint8_t k = 8; k > 0; k--) {
         color = palette[char_row & 1];

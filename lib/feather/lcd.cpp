@@ -71,7 +71,7 @@ void LCD::init()
     LCD_DATA(0x3A, 0x05);
 
     // Memory data access control - reverse col/row and line address order from top to bottom
-    LCD_DATA(0x36, 0b10100000);
+    LCD_DATA(0x36, 0xA0);
 
     LCD_CMD(0x11); // stop sleeping (Sleep Out)
     NOP();
@@ -152,6 +152,7 @@ void LCD::setWindow(uint16_t coords[4])
         NOP8();
     }
     PORTA.OUTTGL.reg = LCD_DC;
+    NOP8();
 }
 
 /**

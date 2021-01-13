@@ -36,6 +36,6 @@ namespace LCD {
 
     void setBrightness(uint8_t brightness);
 
-};
+}
 
 #endif

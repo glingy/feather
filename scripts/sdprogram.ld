@@ -35,8 +35,8 @@ SEARCH_DIR(.)
 /* Memory Spaces Definitions */
 MEMORY
 {
-  progmeta (rx)  : ORIGIN = 0x00004000, LENGTH = 0x00000040   /* Program info. Must be < 512 bytes. This currently gives 64 bytes metadata. */
-  rom      (rx)  : ORIGIN = 0x00004040, LENGTH = 0x00040000-0x4040 /* 256KB of rom total */
+  progmeta (rx)  : ORIGIN = 0x00004000, LENGTH = 0x000001FF   /* Program info. Must be <= 512 bytes. */
+  rom      (rx)  : ORIGIN = 0x00004200, LENGTH = 0x00040000-0x4200 /* 256KB of rom total */
   ram      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000-0x4 /* Last four bytes of ram reserved for bootloader */
 }
 

@@ -1,6 +1,9 @@
 #include <feather.h>
 #include "help.h"
 
+#define DEBOUNCE for (uint16_t i = 0; i < 0xFFF; i++) { asm volatile ("nop"); }
+
+
 const char helpScreen[] = R"(Help:
 
 
@@ -21,11 +24,15 @@ const char helpScreen[] = R"(Help:
 
 bool Help::checkHelp() {
   if (!Input::Digital->select) {
+    DEBOUNCE
     while (!Input::Digital->select);
+    DEBOUNCE
     LCD::fillWindow(LCD::BLACK, 0, 8, 319, 229);
     LCD::printlns(DEFAULT_FONT, DEFAULT_PALETTE, 0, 15, helpScreen);
     while (Input::Digital->select);
+    DEBOUNCE
     while (!Input::Digital->select);
+    DEBOUNCE
     LCD::fillWindow(LCD::BLACK, 0, 8, 319, 229);
     return true;
   }

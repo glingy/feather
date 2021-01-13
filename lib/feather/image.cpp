@@ -4,9 +4,12 @@
 
 void LCD::print2bitImage(const uint8_t * image, const uint16_t palette[2], uint16_t width, uint16_t height, uint16_t minX, uint16_t minY) {
   uint16_t coords[4] = { minX, (uint16_t) (minX + width - 1), minY, (uint16_t) (minY + height -1) };
+  NOP8();
   setWindow(coords);
+  NOP8();
 
   LCD_BEGIN(0x2C);
+  NOP8();
   uint16_t color;
   uint8_t color_byte;
   
@@ -17,10 +20,13 @@ void LCD::print2bitImage(const uint8_t * image, const uint16_t palette[2], uint1
       color = palette[color_byte & 1];
       color_byte >>= 1;
       LCD_SEND((color >> 8) & 0xFF);
+      NOP8();
       LCD_SEND(color & 0xFF);
+      NOP8();
     }
   }
 
   NOP8();
   LCD_END();
+  NOP8();
 }

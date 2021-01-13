@@ -80,7 +80,7 @@ namespace SD {
   void prevDirEntry(FSDir * loc, FSCluster firstCluster);
   inline bool isEntryVisible(FSDirEntry entry);
   inline void readCluster(uint32_t cluster, uint16_t offset, uint16_t count, void * dest);
-};
+}
 
 inline bool SD::isEntryVisible(FSDirEntry entry) {
   return ((entry.attributes & (0x02 | 0x08)) == 0) && (entry.name[0] != 0xE5);

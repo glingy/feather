@@ -27,8 +27,11 @@
  *
  */
 
+#pragma GCC diagnostic ignored "-Wpedantic"
+
 #include "samd21.h"
 #include "error.h"
+#include "program/progmeta.h"
 
 /* Initialize segments */
 extern uint32_t _sfixed;
@@ -43,6 +46,9 @@ extern uint32_t _estack;
 extern uint32_t _svectors;
 extern uint32_t _sramvectors;
 extern uint32_t _eramvectors;
+#ifndef BOOTLOADER
+  extern struct ProgMeta _progmeta;
+#endif
 
 /** \cond DOXYGEN_SHOULD_SKIP_THIS */
 int main(void);
@@ -167,7 +173,11 @@ DeviceVectors exception_table = {
 #ifdef ID_TC6
         .pfnTC6_Handler         = (void*) TC6_Handler,            /* 21 Basic Timer Counter 3 */
 #else
-        .pvReserved21           = (void*) (0UL),                  /* 21 Reserved */
+      #ifdef BOOTLOADER
+        .pvReserved21           = (void*) (0UL),
+      #else
+        .pvReserved21           = (void*) (&_progmeta),                  /* 21 Reserved  -- Since it's unused, I'll use it to reference the progmeta we want to ensure we keep.*/
+      #endif
 #endif
 #ifdef ID_TC7
         .pfnTC7_Handler         = (void*) TC7_Handler,            /* 22 Basic Timer Counter 4 */
