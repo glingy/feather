@@ -18,7 +18,6 @@ void Feather::init()
      * ends up running at 1MHz. After starting the LCD reset, raise the prescaler to 0 to speed up the CPU 
      * while initializing the 48MHz clock, then switch the CPU to run off of that clock instead (GCLK0). 
      */
-
     PORTA.DIRSET.reg = PORTA_OUT_PINS; // Set output pin directions
     PORTB.DIRSET.reg = PORTB_OUT_PINS;
     PORTA.OUTSET.reg = LCD_RESET; // Raise reset signal for display.
@@ -101,9 +100,10 @@ void Feather::init()
     __enable_irq();
 
     DMA::start();
+    SD::preInit();
     LCD::init();
     Input::init();
-    SD::init();
     USB_CONN::init();
+    SD::init();
     initSleep();
 }

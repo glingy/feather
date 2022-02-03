@@ -61,11 +61,13 @@ typedef uint32_t FSCluster; // a cluster index in the FAT
 typedef uint32_t FSAddr;    // An absolute address to a sector
 
 namespace SD {
+  void preInit();
   void init();
   extern uint32_t volAddress;
   extern uint32_t fatAddress;
   extern uint32_t rootAddress;
   extern uint8_t sectors_per_cluster;
+  extern uint8_t buffer[512];
   
   inline void getVolumeName(char name[11]);
   inline void getFormatterName(char name[8]);
@@ -74,12 +76,15 @@ namespace SD {
   //inline void getRootDir();
   inline void readDir(FSAddr dir, uint8_t index, FSDirEntry * entry); // only supports entries within the first sector of the directory listing, so index < 16
   inline void nextCluster(FSCluster * cluster);
-  void read(FSAddr block, uint16_t offset, uint16_t count, void * dest);
+  void read(uint32_t block, uint16_t offset, uint16_t count, void * dest);
+  void write(uint32_t block, uint16_t offset, uint16_t count, void * src);
   inline void readDirEntry(FSDir * loc, FSDirEntry * entry);
   void nextDirEntry(FSDir * loc);
   void prevDirEntry(FSDir * loc, FSCluster firstCluster);
   inline bool isEntryVisible(FSDirEntry entry);
   inline void readCluster(uint32_t cluster, uint16_t offset, uint16_t count, void * dest);
+  uint32_t newCluster();
+  void addCluster(uint32_t * cluster);
 }
 
 inline bool SD::isEntryVisible(FSDirEntry entry) {

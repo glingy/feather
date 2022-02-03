@@ -15,7 +15,7 @@ namespace List
   void scrollUp();
   void scrollDown();
 
-  
+  extern bool focus;
   extern int selected;
   extern uint8_t programsOnPage;
   extern uint32_t programClusters[PROGRAMS_PER_PAGE];

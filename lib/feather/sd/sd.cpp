@@ -2,9 +2,7 @@
 #include "internal.h"
 
 __attribute__((__aligned__(16)))
-DmacDescriptor sd_tx_descriptors[4];
-__attribute__((__aligned__(16)))
-DmacDescriptor sd_rx_descriptors[4];
+DmacDescriptor sd_dma_descriptors[4];
 
 #define SDI SERCOM4->SPI
 
@@ -22,45 +20,31 @@ uint32_t SD::volAddress = 0;
 uint32_t SD::fatAddress = 0;
 uint32_t SD::rootAddress = 0;
 uint8_t SD::sectors_per_cluster = 0;
+__attribute__((__aligned__(4)))
+uint8_t SD::buffer[512];
 volatile uint8_t sd_debug = 0;
 
-void DMAC_Handler() {
-  DMAC->CHID.reg = DMA_CHID_SD_RX;
-  DMAC->CHINTFLAG.reg = DMAC_CHINTFLAG_TCMPL;
-  if (sd_dma_state == WAITING_TO_READ) {
-    if (* ((uint8_t *) _DMAWRB[DMA_CHID_SD_RX].DSTADDR.reg) == 0xFE) {
-      _DMAWRB[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) &sd_rx_descriptors[0]; // time-sensitive
-      _DMAWRB[DMA_CHID_SD_RX].BTCTRL.reg &= ~DMAC_BTCTRL_BLOCKACT_INT;
-      sd_dma_state = READING;
-    }
-  } else if (sd_dma_state == READING) {
-    sd_dma_state = NONE;
-    _DMAWRB[DMA_CHID_SD_TX].DESCADDR.reg = 0;
-  }
-  sd_debug = 1;
-}
-
 void sd_execute() {
-  DMAC->CHID.reg = DMA_CHID_SD_RX;
-  DMAC->CHCTRLA.reg = DMAC_CHCTRLA_ENABLE;
   DMAC->CHID.reg = DMA_CHID_SD_TX;
   DMAC->CHCTRLA.reg = DMAC_CHCTRLA_ENABLE;
 
-  //DMAC->SWTRIGCTRL.reg = DMAC_SWTRIGCTRL_SWTRIG1; // force TX to send first byte
+  DMAC->CHID.reg = DMA_CHID_SD_RX;
+  DMAC->CHINTFLAG.reg = DMAC_CHINTFLAG_TCMPL | DMAC_CHINTFLAG_TERR | DMAC_CHINTFLAG_SUSP;
+  DMAC->CHCTRLA.reg = DMAC_CHCTRLA_ENABLE;
 
-  __WFI(); // and wait...
+  while (!DMAC->CHINTFLAG.bit.TCMPL);
 }
 
 enum {
   SD_RESPONSE_TYPE_NORMAL = 0,
-  SD_RESPONSE_TYPE_LONG
+  SD_RESPONSE_TYPE_LONG = 4,
 };
 
-volatile uint8_t sd_data[6];
-volatile uint8_t sd_response = 0;
-volatile uint8_t sd_long_response[4];
-uint8_t sd_sendCommand(uint8_t command, uint32_t argument, uint8_t responseType) {
-  PORTA.OUTSET.reg = SD_LED;
+uint8_t sd_data[6];
+__attribute__((__aligned__(4)))
+uint8_t sd_response[5];
+uint8_t sd_sendCommand(uint8_t command, uint32_t argument, uint8_t responseLen) {
+
   sd_data[0] = command;
   sd_data[1] = (uint8_t) (argument >> 24);
   sd_data[2] = (uint8_t) (argument >> 16);
@@ -73,123 +57,156 @@ uint8_t sd_sendCommand(uint8_t command, uint32_t argument, uint8_t responseType)
   DMACFG[DMA_CHID_SD_TX].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_SRC | DMAC_BTCTRL_SRCINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
   DMACFG[DMA_CHID_SD_TX].SRCADDR.reg = (uint32_t) (sd_data + 6);
   DMACFG[DMA_CHID_SD_TX].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  DMACFG[DMA_CHID_SD_TX].DESCADDR.reg = (uint32_t) &sd_tx_descriptors[0];
+  DMACFG[DMA_CHID_SD_TX].DESCADDR.reg = 0;
 
-  sd_tx_descriptors[0].BTCNT.reg = responseType == SD_RESPONSE_TYPE_NORMAL ? 3 : 7; // # of response bytes
-  sd_tx_descriptors[0].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
-  sd_tx_descriptors[0].SRCADDR.reg = (uint32_t) &SD_FILLER_BYTE;
-  sd_tx_descriptors[0].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  sd_tx_descriptors[0].DESCADDR.reg = 0;
-
-  DMACFG[DMA_CHID_SD_RX].BTCNT.reg = 7; // 7 bytes to ignore...
+  DMACFG[DMA_CHID_SD_RX].BTCNT.reg = 6; // 7 bytes to ignore...
   DMACFG[DMA_CHID_SD_RX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
   DMACFG[DMA_CHID_SD_RX].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
   DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
-  DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) &sd_rx_descriptors[0];
+  DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = 0;
 
-  sd_rx_descriptors[0].BTCNT.reg = 1; // 1 byte to keep as 1 byte response
-  sd_rx_descriptors[0].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
-  sd_rx_descriptors[0].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  sd_rx_descriptors[0].DSTADDR.reg = (uint32_t) &sd_response;
-  sd_rx_descriptors[0].DESCADDR.reg = (uint32_t) &sd_rx_descriptors[responseType == SD_RESPONSE_TYPE_NORMAL ? 2 : 1];
-
-  if (responseType == SD_RESPONSE_TYPE_LONG) {
-    sd_rx_descriptors[1].BTCNT.reg = 4; // 1 byte to ignore...
-    sd_rx_descriptors[1].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_DST | DMAC_BTCTRL_DSTINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
-    sd_rx_descriptors[1].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-    sd_rx_descriptors[1].DSTADDR.reg = (uint32_t) sd_long_response + 4;
-    sd_rx_descriptors[1].DESCADDR.reg = (uint32_t) &sd_rx_descriptors[2];
-  }
-
-  sd_rx_descriptors[2].BTCNT.reg = 1; // 1 byte to ignore...
-  sd_rx_descriptors[2].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID | DMAC_BTCTRL_BLOCKACT_INT;
-  sd_rx_descriptors[2].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  sd_rx_descriptors[2].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
-  sd_rx_descriptors[2].DESCADDR.reg = 0;
+  SERCOM4->SPI.DATA.reg = 0xFF;
+  while (!SERCOM4->SPI.INTFLAG.bit.RXC);
+  volatile uint8_t tmp3 = SERCOM4->SPI.DATA.reg;
 
   sd_execute();
 
-  PORTA.OUTCLR.reg = SD_LED;
-  return sd_response;
+  uint8_t tmp;
+  uint8_t * res = sd_response;
+  
+  //SERCOM4->SPI.DATA.reg = 0xFF;
+
+  do {
+    SERCOM4->SPI.DATA.reg = 0xFF;
+    while (!SERCOM4->SPI.INTFLAG.bit.RXC);
+    tmp = SERCOM4->SPI.DATA.reg;
+  } while (tmp & 0x80);
+
+  *res++ = tmp;
+
+  for (uint8_t i = responseLen; i > 0; i--) {
+    SERCOM4->SPI.DATA.reg = 0xFF;
+    while (!SERCOM4->SPI.INTFLAG.bit.RXC);
+    *res++ = SERCOM4->SPI.DATA.reg;
+  }
+
+  return sd_response[0];
 }
 
-void SD::read(uint32_t block, uint16_t offset, uint16_t count, void * dest) {
-  uint8_t n = 0;
-  
+void SD::read(uint32_t block, uint16_t offset, uint16_t count, void * dest) {  
   sd_sendCommand(0x51, block, SD_RESPONSE_TYPE_NORMAL);
-  DMACFG[DMA_CHID_SD_TX].BTCNT.reg = 1;
+
+  DMACFG[DMA_CHID_SD_TX].BTCNT.reg = 515;
   DMACFG[DMA_CHID_SD_TX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
   DMACFG[DMA_CHID_SD_TX].SRCADDR.reg = (uint32_t) &SD_FILLER_BYTE;
   DMACFG[DMA_CHID_SD_TX].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  DMACFG[DMA_CHID_SD_TX].DESCADDR.reg = (uint32_t) &DMACFG[DMA_CHID_SD_TX];
+  DMACFG[DMA_CHID_SD_TX].DESCADDR.reg = 0;
 
-  DMACFG[DMA_CHID_SD_RX].BTCNT.reg = 1;
-  DMACFG[DMA_CHID_SD_RX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID | DMAC_BTCTRL_BLOCKACT_INT;
-  DMACFG[DMA_CHID_SD_RX].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) dest;
-  DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) &DMACFG[DMA_CHID_SD_RX]; // see DMAC_Handler
+  if (offset)
+  {
+    DMACFG[DMA_CHID_SD_RX].BTCNT.reg = offset; // 512 + 2 CRC
+    DMACFG[DMA_CHID_SD_RX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+    DMACFG[DMA_CHID_SD_RX].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+    DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
+    DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) &sd_dma_descriptors[0];
 
-  // The first byte of transmission is lost into the SD_DMA_TRASH can, so account for that in offset and counts...
-  //   it'll be added to dest later during the DMA transaction
-
-  if (offset > 1) {
-    sd_rx_descriptors[n].BTCNT.reg = offset - 1; // 512 + 2 CRC
-    sd_rx_descriptors[n].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
-    sd_rx_descriptors[n].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-    sd_rx_descriptors[n].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
-    sd_rx_descriptors[n].DESCADDR.reg = (uint32_t) &sd_rx_descriptors[n + 1];
-    n++;
+    sd_dma_descriptors[0].BTCNT.reg = count; // 512 max
+    sd_dma_descriptors[0].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_DST | DMAC_BTCTRL_DSTINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+    sd_dma_descriptors[0].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+    sd_dma_descriptors[0].DSTADDR.reg = (uint32_t) dest + count;
+    sd_dma_descriptors[0].DESCADDR.reg = ((uint32_t) &sd_dma_descriptors[1]);
+  }
+  else
+  {
+    DMACFG[DMA_CHID_SD_RX].BTCNT.reg = count; // 512 max
+    DMACFG[DMA_CHID_SD_RX].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_DST | DMAC_BTCTRL_DSTINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+    DMACFG[DMA_CHID_SD_RX].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+    DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) dest + count;
+    DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = ((uint32_t) &sd_dma_descriptors[1]);
   }
 
-  if (count > 1 || (count == 1 && offset > 0)) {
-    sd_rx_descriptors[n].BTCNT.reg = offset == 0 ? (count - 1) : count; // 512 max
-    sd_rx_descriptors[n].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_DST | DMAC_BTCTRL_DSTINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
-    sd_rx_descriptors[n].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-    sd_rx_descriptors[n].DSTADDR.reg = (uint32_t) dest + count;
-    sd_rx_descriptors[n].DESCADDR.reg = ((count + offset) < 512) ? ((uint32_t) &sd_rx_descriptors[n + 1]) : ((uint32_t) &sd_rx_descriptors[n + 2]);
-    n++;
-  }
+  sd_dma_descriptors[1].BTCNT.reg = 515 - (count + offset);
+  sd_dma_descriptors[1].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+  sd_dma_descriptors[1].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+  sd_dma_descriptors[1].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
+  sd_dma_descriptors[1].DESCADDR.reg = 0;
 
-  if (count + offset < 512) {
-    sd_rx_descriptors[n].BTCNT.reg = 512 - (count + offset);
-    sd_rx_descriptors[n].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
-    sd_rx_descriptors[n].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-    sd_rx_descriptors[n].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
-    sd_rx_descriptors[n].DESCADDR.reg = (uint32_t) &sd_rx_descriptors[n + 1];
-    n++;
-  }
-
-  sd_rx_descriptors[n - 1].BTCTRL.reg |= DMAC_BTCTRL_BLOCKACT_INT;
-  
-  sd_rx_descriptors[n].BTCNT.reg = 3; // ignore 2xCRC + extra byte
-  sd_rx_descriptors[n].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID | DMAC_BTCTRL_BLOCKACT_INT;
-  sd_rx_descriptors[n].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  sd_rx_descriptors[n].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
-  sd_rx_descriptors[n].DESCADDR.reg = 0;
-
-  sd_dma_state = WAITING_TO_READ;
+  do {
+    SERCOM4->SPI.DATA.reg = 0xFF;
+    while (!SERCOM4->SPI.INTFLAG.bit.RXC);
+  } while (SERCOM4->SPI.DATA.reg != 0xFE);
 
   sd_execute();
-  while (sd_dma_state != NONE) {
-    __WFI();
-    
+}
+
+/**
+ * Writes to SD Card
+ * Uses buffer as filler.
+ **/
+void SD::write(uint32_t block, uint16_t offset, uint16_t count, void * src) {
+  sd_sendCommand(0x58, block, SD_RESPONSE_TYPE_NORMAL);
+
+  DMACFG[DMA_CHID_SD_RX].BTCNT.reg = 516; // block (512) + start (1) + CRC (2) + resp (1)
+  DMACFG[DMA_CHID_SD_RX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+  DMACFG[DMA_CHID_SD_RX].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+  DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
+  DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) 0;
+
+  if (offset)
+  {
+    DMACFG[DMA_CHID_SD_TX].BTCNT.reg = offset; // 512 + 2 CRC
+    DMACFG[DMA_CHID_SD_TX].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_SRC | DMAC_BTCTRL_SRCINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+    DMACFG[DMA_CHID_SD_TX].SRCADDR.reg = (uint32_t) buffer + offset;
+    DMACFG[DMA_CHID_SD_TX].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+    DMACFG[DMA_CHID_SD_TX].DESCADDR.reg = (uint32_t) &sd_dma_descriptors[0];
+
+    sd_dma_descriptors[0].BTCNT.reg = count; // 512 max
+    sd_dma_descriptors[0].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_SRC | DMAC_BTCTRL_SRCINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+    sd_dma_descriptors[0].SRCADDR.reg = (uint32_t) src + count;
+    sd_dma_descriptors[0].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+    sd_dma_descriptors[0].DESCADDR.reg = ((uint32_t) &sd_dma_descriptors[1]);
   }
-  __WFI();
+  else
+  {
+    DMACFG[DMA_CHID_SD_TX].BTCNT.reg = count; // 512 max
+    DMACFG[DMA_CHID_SD_TX].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_SRC | DMAC_BTCTRL_SRCINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+    DMACFG[DMA_CHID_SD_TX].SRCADDR.reg = (uint32_t) src + count;
+    DMACFG[DMA_CHID_SD_TX].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+    DMACFG[DMA_CHID_SD_TX].DESCADDR.reg = ((uint32_t) &sd_dma_descriptors[1]);
+  }
+
+  sd_dma_descriptors[1].BTCNT.reg = 515 - (count + offset); // 512 max
+  sd_dma_descriptors[1].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE_X1 | DMAC_BTCTRL_STEPSEL_SRC | DMAC_BTCTRL_SRCINC | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
+  sd_dma_descriptors[1].SRCADDR.reg = (uint32_t) buffer + count + offset;
+  sd_dma_descriptors[1].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
+  sd_dma_descriptors[1].DESCADDR.reg = 0;
+
+  // Send start block byte
+  SERCOM4->SPI.DATA.reg = 0xFF;
+  while (!SERCOM4->SPI.INTFLAG.bit.RXC);
+  volatile uint8_t tmp = SERCOM4->SPI.DATA.reg;
+  SERCOM4->SPI.DATA.reg = 0xFE;
+  // DMA will take care of reading the extra byte
+  
+  sd_execute();
+
+  // Wait for write to finish
+  do {
+    SERCOM4->SPI.DATA.reg = 0xFF;
+    while (!SERCOM4->SPI.INTFLAG.bit.RXC);
+  } while (SERCOM4->SPI.DATA.reg == 0);
 }
 
 
 
-void SD::init() {
-  __enable_irq();
-  NVIC_EnableIRQ(DMAC_IRQn);
-
+void SD::preInit() {
   // Set the clock for the SERCOM to between 100 and 400 kHz for now... (can't use GCLK3, too slow)
   GCLK->CLKCTRL.reg =
     GCLK_CLKCTRL_ID_SERCOM4_CORE |
     GCLK_CLKCTRL_CLKEN |
     GCLK_CLKCTRL_GEN_GCLK0; // 48MHz... divide it later
   
-  SDI.BAUD.reg = 30;//1;
+  SDI.BAUD.reg = 1;
 
   SDI.CTRLB.reg = SERCOM_SPI_CTRLB_RXEN;
 
@@ -207,82 +224,70 @@ void SD::init() {
   // CS - PA08
   // CD - PA21
   // LED - PA06
-  PORTA.DIRCLR.reg = SD_MISO;
+  //PORTA.DIRCLR.reg = SD_MISO;
+  //PORTA.OUTSET.reg = SD_MISO;
   PORTB.PINCFG[10].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_DRVSTR;
   PORTB.PINCFG[11].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_DRVSTR;
   PORTA.PINCFG[12].reg = PORT_PINCFG_PMUXEN | PORT_PINCFG_INEN;
   PORTB.PMUX[5].reg = PORT_PMUX_PMUXE_D | PORT_PMUX_PMUXO_D;
   PORTA.PMUX[6].reg |= PORT_PMUX_PMUXE_D;
-  PORTA.OUTSET.reg = SD_CS;
-  PORTA.OUTCLR.reg = SD_CS;
-  
-  //DMAC->PRICTRL0.bit.RRLVLEN0 = 1;
-
-  // Send 10 bytes of 0xFF to say hi
-  DMACFG[DMA_CHID_SD_TX].BTCNT.reg = 10;
-  DMACFG[DMA_CHID_SD_TX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID;
-  DMACFG[DMA_CHID_SD_TX].SRCADDR.reg = (uint32_t) &SD_FILLER_BYTE;
-  DMACFG[DMA_CHID_SD_TX].DSTADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  DMACFG[DMA_CHID_SD_TX].DESCADDR.reg = (uint32_t) 0;
-
-  DMACFG[DMA_CHID_SD_RX].BTCNT.reg = 10;
-  DMACFG[DMA_CHID_SD_RX].BTCTRL.reg = DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID | DMAC_BTCTRL_BLOCKACT_INT;
-  DMACFG[DMA_CHID_SD_RX].SRCADDR.reg = (uint32_t) &REG_SERCOM4_SPI_DATA;
-  DMACFG[DMA_CHID_SD_RX].DSTADDR.reg = (uint32_t) &SD_DMA_TRASH;
-  DMACFG[DMA_CHID_SD_RX].DESCADDR.reg = (uint32_t) 0;
-
+    
   DMAC->CHID.reg = DMA_CHID_SD_TX;
   DMAC->CHCTRLB.reg = DMAC_CHCTRLB_TRIGACT_BEAT | DMAC_CHCTRLB_TRIGSRC(0x0A /* SERCOM4 TX */) | DMAC_CHCTRLB_LVL_LVL0;
 
   DMAC->CHID.reg = DMA_CHID_SD_RX;
   DMAC->CHCTRLB.reg = DMAC_CHCTRLB_TRIGACT_BEAT | DMAC_CHCTRLB_TRIGSRC(0x09 /* SERCOM4 RX */) | DMAC_CHCTRLB_LVL_LVL0;
-  DMAC->CHINTENSET.reg = DMAC_CHINTENSET_TCMPL;
 
   // Make sure the sercom is ready...
   while (SDI.SYNCBUSY.bit.ENABLE);
 
-  sd_execute(); // and execute
+  //sd_execute(); // and execute
+
+  // Reset (sometimes response is delayed by a byte with the normal response byte incomplete as it's waking up.)
+  while (sd_sendCommand(0x40, 0, SD_RESPONSE_TYPE_LONG) != 1 && sd_response[1] != 1);
 
   // Initialize Card!
-  sd_sendCommand(sd_sendCommand(0x40, 0, SD_RESPONSE_TYPE_NORMAL), 0, SD_RESPONSE_TYPE_NORMAL);
-  if (sd_sendCommand(0x40, 0, SD_RESPONSE_TYPE_NORMAL) == 1) { // Reset
-    if ((sd_sendCommand(0x48, 0x1AA, SD_RESPONSE_TYPE_LONG) == 1) && (sd_long_response[3] == 0xAA) && (sd_long_response[2] == 0x01)) { // Check Voltage and Pattern (pattern echoes as response verification)
-      //sd_sendCommand(0x7A, 0, SD_RESPONSE_TYPE_LONG); //READ OCR
-      do {
-        sd_sendCommand(0x77, 0, SD_RESPONSE_TYPE_NORMAL);
-      } while (sd_sendCommand(0x69, 0x40000000, SD_RESPONSE_TYPE_NORMAL) == 1); // Wait for initialization...
+  if ((sd_sendCommand(0x48, 0x1AA, SD_RESPONSE_TYPE_LONG) == 1) && (sd_response[4] == 0xAA) && (sd_response[3] == 0x01)) { // Check Voltage and Pattern (pattern echoes as response verification)
+    sd_sendCommand(0x77, 0, SD_RESPONSE_TYPE_NORMAL);
+    sd_sendCommand(0x69, 0x40000000, SD_RESPONSE_TYPE_NORMAL);
+  } else {
+    sd_response[0] = 0xFF;
+  }
+}
+    
+void SD::init() {
+  if (sd_response[0] != 1) {
+      const char * msg[] = {
+      "SD Card Error", 
+      "-------------",
+      "Please insert the SD",
+      "Card or power off",
+      "and restore power",
+      "after five seconds."
+    };
 
-
-      // get to the start of the filesystem...
-      // Find the address of the start of the FAT32 partition (assumed MBR with 1 partition)
-      SD::read(0, 0x1C6, 4, &volAddress);
-      
-
-      SD::read(volAddress, offsetof(FSVolumeData, num_reserved_sectors), 2, &fatAddress);
-      fatAddress += volAddress;
-
-      uint8_t num_fats_;
-      SD::read(volAddress, offsetof(FSVolumeData, num_fats), 1, &num_fats_);
-      SD::read(volAddress, offsetof(FSVolumeData, sectors_per_fat), 4, &rootAddress);
-      SD::read(volAddress, offsetof(FSVolumeData, sectors_per_cluster), 1, &sectors_per_cluster);
-      rootAddress *= num_fats_;
-      rootAddress += fatAddress - (2 * sectors_per_cluster); // offset so rootAddress + cluster number is correct (cluster number starts at 2 and)
-
-      
-      return;
-    }
+    error_multiline(msg, 6);
   }
 
-  const char * msg[] = {
-    "SD Card Error", 
-    "-------------",
-    "Please insert the SD",
-    "Card or power off",
-    "and restore power",
-    "after five seconds."
-  };
+  do {
+    sd_sendCommand(0x77, 0, SD_RESPONSE_TYPE_NORMAL);
+  } while (sd_sendCommand(0x69, 0x40000000, SD_RESPONSE_TYPE_NORMAL) == 1); // Wait for initialization...
 
-  error_multiline(msg, 6);
+
+  // get to the start of the filesystem...
+  // Find the address of the start of the FAT32 partition (assumed MBR with 1 partition)
+  SD::read(0, 0x1C6, 4, &volAddress);
+  
+
+  SD::read(volAddress, offsetof(FSVolumeData, num_reserved_sectors), 2, &fatAddress);
+  fatAddress += volAddress;
+
+  uint8_t num_fats_;
+  SD::read(volAddress, offsetof(FSVolumeData, num_fats), 1, &num_fats_);
+  SD::read(volAddress, offsetof(FSVolumeData, sectors_per_fat), 4, &rootAddress);
+  SD::read(volAddress, offsetof(FSVolumeData, sectors_per_cluster), 1, &sectors_per_cluster);
+  rootAddress *= num_fats_;
+  rootAddress += fatAddress - (2 * sectors_per_cluster); // offset so rootAddress + cluster number is correct (cluster number starts at 2 and)
 }
 
 // Sets loc->cluster 0 when no next cluster available
@@ -318,4 +323,45 @@ void SD::prevDirEntry(FSDir * loc, FSCluster firstCluster) {
     loc->cluster = prev;
   }
   loc->entry--;
+}
+
+/** assumes SD card isn't completely full... **/
+uint32_t SD::newCluster()
+{ 
+  uint32_t sector = 0;
+  uint32_t * cluster;
+
+  while (1)
+  {
+    cluster = (uint32_t *) buffer;
+
+    // Read an entire sector at once
+    read(fatAddress + sector, 0, 512, cluster);
+
+    // And search for an open cluster (16 entries per sector)
+    for (uint8_t i = 0; i < 128; i++)
+    {
+      if (((*cluster++) & 0x0FFFFFFF) == 0)
+      {
+        uint32_t newCluster = 0x0FFFFFFF;
+        LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 160, 120, newCluster);
+        write(fatAddress + sector, (i * 4), 4, &newCluster);
+        read(fatAddress + sector, (i * 4), 4, &newCluster);
+        LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 160, 100, newCluster);
+        LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 160, 110, (sector << 7) | (uint32_t)i);
+        // Found open cluster!
+        return (sector << 7) | (uint32_t)i;
+      }
+    }
+
+    sector++;
+  }
+}
+
+void SD::addCluster(uint32_t * cluster)
+{
+  uint32_t newCluster = SD::newCluster();
+  read(fatAddress + (*cluster >> 7), 0, 512, buffer);
+  write(fatAddress + (*cluster >> 7), (*cluster & 0x7f), 4, &newCluster);
+  *cluster = newCluster;
 }

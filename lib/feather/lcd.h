@@ -5,6 +5,8 @@
 
 extern const uint8_t DEFAULT_FONT[];
 extern const uint16_t DEFAULT_PALETTE[];
+extern const uint16_t INVERTED_PALETTE[];
+extern const uint16_t UNFOCUSED_PALETTE[];
 
 namespace LCD {
     // RGB 565 colors... 5 bits red, 6 bits green, 5 bits blue
@@ -15,7 +17,8 @@ namespace LCD {
         GREEN = 0x07C0,
         BLUE  = 0x001F,
         DARK_GREEN = 0x0400,
-        GRAY  = 0x9492
+        GRAY  = 0x9492,
+        LIGHT_GRAY = 0xC618,
     };
 
     void init();

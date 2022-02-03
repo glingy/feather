@@ -1,5 +1,5 @@
 // AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
-
+//
 // PIO Unified Debugger
 //
 // Documentation: https://docs.platformio.org/page/plus/debugging.html
@@ -12,25 +12,36 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "/Users/gregory/Documents/feather/.pio/build/adafruit_feather_m0/firmware.elf",
+            "executable": "/Users/gregory/Documents/Misc/GameController/.pio/build/adafruit_feather_m0/firmware.elf",
             "projectEnvName": "adafruit_feather_m0",
-            "toolchainBinDir": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
+            "internalConsoleOptions": "openOnSessionStart",
             "svdPath": "/Users/gregory/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
                 "task": "Pre-Debug"
-            },
-            "internalConsoleOptions": "openOnSessionStart"
+            }
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "/Users/gregory/Documents/feather/.pio/build/adafruit_feather_m0/firmware.elf",
+            "executable": "/Users/gregory/Documents/Misc/GameController/.pio/build/adafruit_feather_m0/firmware.elf",
             "projectEnvName": "adafruit_feather_m0",
-            "toolchainBinDir": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "/Users/gregory/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd"
+        },
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug (without uploading)",
+            "executable": "/Users/gregory/Documents/Misc/GameController/.pio/build/adafruit_feather_m0/firmware.elf",
+            "projectEnvName": "adafruit_feather_m0",
+            "toolchainBinDir": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
+            "internalConsoleOptions": "openOnSessionStart",
             "svdPath": "/Users/gregory/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd",
-            "internalConsoleOptions": "openOnSessionStart"
+            "loadMode": "manual"
         }
     ]
 }

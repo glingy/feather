@@ -25,4 +25,8 @@ namespace Program {
 
   void findProgramClusters(FS::Dir * dir, uint32_t * clusterArray, uint8_t * len);
   void goToFirstProgram();
+
+  void saveToSD();
+  void deleteFromSD();
+  void loadAndRun();
 }

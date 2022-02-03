@@ -45,7 +45,7 @@ void USB_CONN::Handler_RXSTP() {
           writeString(strings[(packet->value & 0xFF) - 1], packet->length, EP_CFG);
         }
       } else { 
-        error("USB Descriptor", "not recognized!");
+        error("UDNR","");
         //stall();
       }
       break;
@@ -69,8 +69,7 @@ void USB_CONN::Handler_RXSTP() {
       break;
     default:
       LCD::printHex(DEFAULT_FONT, DEFAULT_PALETTE, 0, 0, ((uint32_t) packet->requestType << 16) | packet->value);
-      error("USB Request", "not recognized!");
-      stall();
+      error("URNR","");
       break;
   }
 }

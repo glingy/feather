@@ -20,6 +20,19 @@
  - I rely on 512 byte clusters and seem to ignore the sector size?
 
 
+##### A little explanation of the sd card.
+ - The SD card only allows reads or writes of 512 bytes at a time (one `block`).
+ - A smaller read/write can be simulated by throwing away or inserting zero bytes to fill the gap.
+ - The FAT32 filesystem works in clusters of sectors. One cluster is often 16 sectors, and one sector is 512 bytes.
+ - A file is made up of a chain of clusters in the File Allocation Table. (See Wikipedia for FAT32 File System)
+ - A file's space is allocated one cluster at a time, so a 1 byte file will take up all 8192 bytes. If it grows large enough,
+   a new cluster will be appended to the chain and the file size will double and so on. If a file shrinks, you can
+   shrink the cluster chain to free unused clusters at the end.
+ - Since file writes must be 512 bytes at a time, you can either specify to fill with zeroes or read the same 512 bytes into a 
+   buffer and supply a change. Bytes will be written from the buffer, with your pointer's data inserted at an offset, replacing
+   data already in the buffer.
+
+
 #### Battery
  - Low power warning screen needed at 2.9V or less-ish. It seems to die around 2.8
  - Display flickers and looks dim at low battery

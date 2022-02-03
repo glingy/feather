@@ -2,9 +2,10 @@
 #include "program.h"
 #include <feather.h>
 #include <memory.h>
+#include "preview.h"
+#include "menu.h"
 
-const uint16_t SELECTED_PALETTE[2] = {LCD::WHITE, LCD::BLACK};
-
+bool List::focus = true;
 int List::selected = -1;
 uint8_t List::programsOnPage = PROGRAMS_PER_PAGE;
 uint32_t List::programClusters[PROGRAMS_PER_PAGE];
@@ -24,8 +25,8 @@ void List::drawList()
   {
     if (selected == -1)
     {
-      LCD::fillWindow(LCD::WHITE, 7, 19, 73, 29);
-      LCD::print(DEFAULT_FONT, SELECTED_PALETTE, 8, 20, PROGRAM_META->name);
+      LCD::fillWindow(focus ? LCD::WHITE : LCD::LIGHT_GRAY, 7, 19, 73, 29);
+      LCD::print(DEFAULT_FONT, focus ? INVERTED_PALETTE : UNFOCUSED_PALETTE, 8, 20, PROGRAM_META->name);
     }
     else
     {
@@ -44,8 +45,8 @@ void List::drawList()
     SD::readCluster(programClusters[i], 0, sizeof(ProgMeta), &meta);
     if (selected == i)
     {
-      LCD::fillWindow(LCD::WHITE, 7, 43 + (i * 16), 73, 53 + (i * 16));
-      LCD::print(DEFAULT_FONT, SELECTED_PALETTE, 8, 44 + (i * 16), meta.name);
+      LCD::fillWindow(focus ? LCD::WHITE : LCD::LIGHT_GRAY, 7, 43 + (i * 16), 73, 53 + (i * 16));
+      LCD::print(DEFAULT_FONT, focus ? INVERTED_PALETTE : UNFOCUSED_PALETTE, 8, 44 + (i * 16), meta.name);
     }
     else
     {
@@ -59,11 +60,12 @@ void List::scrollUp()
   if (selected > 0 || (selected == 0 && Program::isValid()))
   {
     selected--;
+    drawList();
+    Preview::drawPreviewForSelectedProgram();
+    Menu::draw();
   }
-  else
-  {
-    //Program::scrollUp();
-  }
+
+  // page up
 }
 
 void List::scrollDown()
@@ -71,9 +73,10 @@ void List::scrollDown()
   if (selected < programsOnPage - 1)
   {
     selected++;
+    drawList();
+    Preview::drawPreviewForSelectedProgram();
+    Menu::draw();
   }
-  else
-  {
-    Program::scrollDown();
-  }
+
+  // page down
 }

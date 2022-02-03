@@ -5,14 +5,16 @@
 
 namespace FS {
 
+  class File;
+
   struct __attribute__((__packed__)) DirEntry {
     char name[8];
     char ext[3];
     uint8_t attributes;
     uint8_t eaflags;
     char deleted_file_first_character;
-    uint16_t create_time;
-    uint16_t create_date;
+    uint16_t created_time;
+    uint16_t created_date;
     uint16_t owner_id;
     uint16_t high_cluster_addr__access_rights;
     uint16_t last_modified_time;
@@ -27,6 +29,11 @@ namespace FS {
     inline bool isVisible() {
       return ((this->attributes & (0x02 | 0x08)) == 0) && (this->name[0] != 0xE5);
     }
+  };
+
+  struct __attribute__((__packed__)) FileName {
+    char name[8];
+    char ext[3];
   };
 
 
@@ -55,9 +62,12 @@ namespace FS {
 
     bool nextVisibleEntry(DirEntry * entry);
     bool previousVisibleEntry(DirEntry * entry);
+    bool findFileByName(FileName * name, File * file); // Find a file by name (8 char name, 3 extension), checks all 11 bytes.
+    bool newFile(FileName * filename, File * file, uint32_t size);
   };
 
   class File {
+    friend Dir;
    private:
     uint32_t cluster;
     uint32_t sector; // The current sector being read from
@@ -69,7 +79,10 @@ namespace FS {
     // Read up to 512 bytes total. To read from byte 10 to 524 for example, 
     //  you must execute two reads, calling nextSector between them.
     void readSector(uint16_t offset, uint16_t length, void * dest);
-    bool nextSector();
+    bool nextSector(); // Next in-use sector, returns false if no next sector.
+    bool endChain(); // Call to free unused clusters in the chain. Makes sure this current cluster is last in the chain.
+    void writeSector(uint16_t offset, uint16_t length, void * src);
+    void newCluster();
   };
 }
 

@@ -8,41 +8,38 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/Users/gregory/Documents/feather/include",
-                "/Users/gregory/Documents/feather/sources/bootloader",
-                "/Users/gregory/Documents/feather/lib/feather",
+                "/Users/gregory/Documents/Misc/GameController/include",
+                "/Users/gregory/Documents/Misc/GameController/.src",
+                "/Users/gregory/Documents/Misc/GameController/lib/feather",
                 "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                 "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
-                "/Users/gregory/.platformio/packages/tool-unity",
                 ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/gregory/Documents/feather/include",
-                    "/Users/gregory/Documents/feather/sources/bootloader",
-                    "/Users/gregory/Documents/feather/lib/feather",
+                    "/Users/gregory/Documents/Misc/GameController/include",
+                    "/Users/gregory/Documents/Misc/GameController/.src",
+                    "/Users/gregory/Documents/Misc/GameController/lib/feather",
                     "/Users/gregory/.platformio/packages/framework-cmsis/CMSIS/Core/Include",
                     "/Users/gregory/.platformio/packages/framework-cmsis/variants/atmelsam/samd21a/include",
-                    "/Users/gregory/.platformio/packages/tool-unity",
                     ""
                 ]
             },
             "defines": [
-                "PLATFORMIO=50004",
+                "PLATFORMIO=50204",
                 "ARDUINO_ARCH_SAMD",
                 "ARDUINO_SAMD_ZERO",
                 "ARDUINO_SAMD_FEATHER_M0",
                 "ARM_MATH_CM0PLUS",
                 "__SAMD21G18A__",
-                "BOOTLOADER",
                 "F_CPU=48000000L",
                 "USBCON",
                 ""
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
-            "compilerPath": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc",
+            "compilerPath": "/Users/gregory/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin/arm-none-eabi-gcc",
             "compilerArgs": [
                 "-mthumb",
                 "-mcpu=cortex-m0plus",

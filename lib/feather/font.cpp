@@ -10,3 +10,5 @@ extern const unsigned char DEFAULT_FONT[] = {
 };
 
 extern const unsigned short DEFAULT_PALETTE[] = { 0, 0xFFFF }; 
+extern const unsigned short INVERTED_PALETTE[] = { 0xFFFF, 0 }; 
+extern const unsigned short UNFOCUSED_PALETTE[] = { 0xC618, 0 }; 
